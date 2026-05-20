@@ -98,23 +98,21 @@
   });
 })();
 
-// Contact-page reach-out form — Netlify Forms AJAX submitter
+// Contact-page reach-out form — Cloudflare Pages Function submitter
 //
-// Submits the form via fetch() so the user gets an in-page success state
-// instead of being navigated to Netlify's default thank-you page.
+// POSTs the form to /api/contact, which is handled by the Pages Function
+// at /functions/api/contact.js. The function parses the submission,
+// validates it, and forwards it to hello@avoxan.com via Resend.
 //
-// How this works with Netlify:
-//   1. Netlify scans the deployed HTML at build time and finds the
-//      <form data-netlify="true" name="contact"> tag in contact.html.
-//   2. It registers a "contact" form in your Netlify dashboard.
-//   3. We POST FormData to "/" with a `form-name` field — Netlify
-//      intercepts that request and stores the submission.
-//   4. Submissions appear under Site → Forms → contact in the dashboard.
+// We use fetch() so the user gets an in-page success state instead of
+// a full navigation. The response is JSON: { ok: true } on success,
+// { ok: false, error: "..." } on validation/server errors.
 //
-// If JS is disabled or fetch fails, the form submits normally and the
-// browser navigates to /?form-submitted=1 — Netlify still captures it.
+// If JS fails entirely, the form falls back to a standard POST to
+// /api/contact and the function still receives the data — only the UI
+// experience changes (browser navigates to the JSON response).
 (function () {
-  const form = document.querySelector('form.contact-form[data-netlify="true"]');
+  const form = document.querySelector('form.contact-form[data-form="contact"]');
   if (!form) return;
 
   const status = form.querySelector('[data-form-status]');
@@ -137,21 +135,12 @@
     }
   }
 
-  // Encode FormData as application/x-www-form-urlencoded — the format
-  // Netlify's form-handler expects for AJAX submissions.
-  function encode(fd) {
-    const params = new URLSearchParams();
-    fd.forEach((value, key) => {
-      params.append(key, typeof value === 'string' ? value : '');
-    });
-    return params.toString();
-  }
-
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     if (!form.reportValidity()) return;
 
     const fd = new FormData(form);
+
     // Honeypot — if filled, silently pretend success (don't tip off bots)
     if ((fd.get('bot-field') || '').toString().trim()) {
       showSuccessState();
@@ -161,20 +150,33 @@
     setSubmitting(true);
     setStatus('Sending…', 'success');
 
-    fetch('/', {
+    // POST FormData directly — Pages Function reads it via request.formData()
+    fetch('/api/contact', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode(fd),
+      body: fd,
+      headers: { Accept: 'application/json' },
     })
-      .then((res) => {
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        showSuccessState();
+      .then(async (res) => {
+        let data = null;
+        try { data = await res.json(); } catch { /* non-JSON response */ }
+
+        if (res.ok && data && data.ok) {
+          showSuccessState();
+          return;
+        }
+
+        // Server returned a specific error message — show it
+        const msg = (data && data.error)
+          ? data.error
+          : "Hmm, that didn't go through. Try once more — or email hello@avoxan.com directly.";
+        setSubmitting(false);
+        setStatus(msg, 'error');
       })
       .catch((err) => {
         console.error('Form submission failed:', err);
         setSubmitting(false);
         setStatus(
-          "Hmm, that didn't send. Try once more — or just email hello@avoxan.com directly and we'll pick it up there.",
+          "Network error — check your connection and try again, or email hello@avoxan.com directly.",
           'error'
         );
       });
