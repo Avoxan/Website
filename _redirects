@@ -1,2 +1,42 @@
-/about          /work           301
-/ai-solution    /               301
+# ──────────────────────────────────────────────────────────────────
+# AVOXAN — Cloudflare Pages redirects
+# ──────────────────────────────────────────────────────────────────
+# Pages auto-serves .html files at their bare path, so both
+# /contact.html AND /contact work. To prevent Google from
+# indexing both as duplicates, we 301 every .html URL to the
+# extensionless canonical version.
+#
+# Format: <source> <destination> <status>
+# Pages reads top-to-bottom; first match wins.
+# ──────────────────────────────────────────────────────────────────
+
+# ── Top-level pages
+/services.html        /services        301
+/pricing.html         /pricing         301
+/process.html         /process         301
+/faq.html             /faq             301
+/contact.html         /contact         301
+/index.html           /                301
+
+# ── Case studies
+/work/index.html                          /work                          301
+/work/brightside-family-dental.html       /work/brightside-family-dental 301
+/work/marin-ashby-studio.html             /work/marin-ashby-studio       301
+/work/avery-reyes-law-group.html          /work/avery-reyes-law-group    301
+/work/avoxan-studio-site.html             /work/avoxan-studio-site       301
+
+# ── Field notes (blog)
+/blog/index.html                              /blog                              301
+/blog/website-cost-2026.html                  /blog/website-cost-2026            301
+/blog/beautiful-website-no-leads.html         /blog/beautiful-website-no-leads   301
+/blog/local-seo-checklist.html                /blog/local-seo-checklist          301
+/blog/ai-search-citation.html                 /blog/ai-search-citation           301
+/blog/webflow-wordpress-framer-2026.html      /blog/webflow-wordpress-framer-2026 301
+/blog/questions-to-ask-web-designer.html      /blog/questions-to-ask-web-designer 301
+/blog/chiropractor-website-teardown.html      /blog/chiropractor-website-teardown 301
+/blog/wedding-photographer-teardown.html      /blog/wedding-photographer-teardown 301
+
+# ── Optional: redirect trailing slashes on the hubs to no-slash
+# (Cloudflare Pages handles this automatically; leaving commented for reference)
+# /work/    /work    301
+# /blog/    /blog    301
