@@ -1,0 +1,1027 @@
+/* ════════════════════════════════════════════════════════════════
+   AVOXAN — CLARITY
+   Third visual iteration. Layered AFTER avoxan.css.
+   HTML structure untouched (SEO-safe across all pages).
+
+   Direction: clean, professional, high-readability.
+   Target reader: business owners, 40–65, possibly on a laptop in
+   bright office light. Optimized for trust, scannability, and
+   accessibility — no italic serifs, no dark backgrounds, no
+   decorative type. Everything reads first, looks confident second.
+
+   Palette: white + deep slate + a single confident navy accent.
+   Typography: Inter at a slightly larger base size, with strict
+   weight hierarchy and generous line-height.
+   ════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ── TOKENS ─────────────────────────────────────────────────── */
+:root {
+  /* Surfaces */
+  --bg:           #FFFFFF;
+  --surface:      #F8FAFC;
+  --surface-2:    #F1F5F9;
+  --surface-3:    #E2E8F0;
+
+  /* Text — high-contrast, near-black slate for readability */
+  --text:         #0B1220;
+  --text-2:       #334155;
+  --text-3:       #64748B;
+  --text-4:       #94A3B8;
+
+  /* Borders — calm, hairline */
+  --border:       #E5E7EB;
+  --border-2:     #CBD5E1;
+  --border-3:     #94A3B8;
+
+  /* Accent — confident professional navy */
+  --accent:       #1E40AF;
+  --accent-hover: #1D3A9A;
+  --accent-soft:  #EFF4FE;
+  --accent-tint:  rgba(30, 64, 175, 0.10);
+
+  /* Supporting */
+  --success:      #047857;
+  --warn:         #B45309;
+
+  /* Type stacks */
+  --sans:         'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --mono:         ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+
+  /* Shadows — soft, sparingly used */
+  --shadow-sm:    0 1px 2px rgba(11, 18, 32, 0.04);
+  --shadow-md:    0 4px 16px -4px rgba(11, 18, 32, 0.08), 0 1px 2px rgba(11, 18, 32, 0.04);
+  --shadow-lg:    0 18px 40px -16px rgba(11, 18, 32, 0.14), 0 4px 8px -2px rgba(11, 18, 32, 0.04);
+  --shadow-accent: 0 12px 28px -10px rgba(30, 64, 175, 0.35);
+
+  /* Remap legacy brand vars so the base stylesheet behaves */
+  --cream:        var(--bg);
+  --cream-warm:   var(--surface);
+  --accent-cream: var(--surface);
+  --ink:          var(--text);
+  --ink-soft:     var(--text-2);
+  --ink-light:    var(--text-3);
+  --sienna:       var(--accent);
+  --sienna-dark:  var(--accent-hover);
+  --line:         var(--border);
+  --line-strong:  var(--border-2);
+}
+
+/* ── BODY + READABILITY BASELINE ────────────────────────────── */
+html { font-size: 17px; /* up from 16 for older eyes */ }
+@media (max-width: 600px) { html { font-size: 16px; } }
+
+html, body {
+  background: var(--bg) !important;
+  color: var(--text);
+  font-family: var(--sans);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+p, li {
+  color: var(--text-2);
+  line-height: 1.65;
+  font-size: 1.02rem;
+}
+
+::selection { background: var(--accent); color: #fff; }
+
+/* ── TYPOGRAPHY KILL-SWITCH ─────────────────────────────────── */
+/* Remove all Fraunces italic serif treatment, site-wide. */
+h1, h2, h3, h4, h5, h6,
+.hero h1, .guarantee h2, .final-cta h2,
+.pricing-card h2, .pricing-card h3, .why-card h3, .offer-item h3,
+.work-card h3, .blog-card h3 {
+  font-family: var(--sans) !important;
+  font-style: normal !important;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.022em;
+  line-height: 1.18;
+}
+h1 { font-weight: 800; letter-spacing: -0.035em; line-height: 1.05; }
+
+/* Italics → keep the natural pause but in a confident solid color,
+   never in a decorative serif. */
+em, i, .italic,
+.hero h1 em, .guarantee h2 .italic, .final-cta h2 em,
+.why-card h3 em, .offer-item h3 em, h1 em, h2 em, h3 em {
+  font-family: var(--sans) !important;
+  font-style: normal !important;
+  font-weight: 800;
+  color: var(--accent) !important;
+  background: transparent !important;
+  padding: 0;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-hover); }
+
+/* Mono / eyebrow labels — readable, not tiny */
+.eyebrow, .ticker-item, .breadcrumb, .breadcrumb a,
+[class*="eyebrow"], small.label, .footer-bottom {
+  font-family: var(--mono) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-3) !important;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+/* ── LOGO ────────────────────────────────────────────────────
+   Wordmark "Avoxan" in clean readable Inter. Mark recolored navy. */
+.logo, a.logo {
+  font-family: var(--sans) !important;
+  font-weight: 700;
+  font-size: 1.18rem;
+  letter-spacing: -0.018em;
+  color: var(--text) !important;
+  gap: 0.6rem;
+}
+.logo .logo-mark { width: 36px; height: 36px; }
+/* Recolor the orange gradient stops to navy */
+#logoBgnav stop:first-child,
+#logoBgfooter stop:first-child { stop-color: #2752C8; }
+#logoBgnav stop:last-child,
+#logoBgfooter stop:last-child { stop-color: var(--accent); }
+
+/* ── TICKER ─────────────────────────────────────────────────── */
+.ticker {
+  background: var(--text) !important;
+  border-bottom: 1px solid var(--text) !important;
+  color: #fff !important;
+}
+.ticker-item { color: rgba(255, 255, 255, 0.82) !important; font-size: 0.74rem; }
+.ticker-item .pulse, .ticker .pulse {
+  background: #34D399 !important;
+  box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.25) !important;
+}
+
+/* ── NAV ───────────────────────────────────────────────────── */
+.site-nav {
+  background: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner { padding-top: 1.1rem; padding-bottom: 1.1rem; }
+.nav-links a {
+  color: var(--text-2) !important;
+  font-family: var(--sans) !important;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: -0.005em;
+  text-transform: none;
+}
+.nav-links a:hover { color: var(--accent) !important; opacity: 1 !important; }
+.nav-links a.active:not(.nav-cta) { color: var(--accent) !important; font-weight: 600; }
+.nav-links a.active:not(.nav-cta)::after { background: var(--accent) !important; height: 2px; }
+
+.nav-cta, a.nav-cta {
+  background: var(--accent) !important;
+  color: #fff !important;
+  border: 1px solid var(--accent) !important;
+  border-radius: 8px !important;
+  padding: 0.75rem 1.25rem !important;
+  font-family: var(--sans) !important;
+  font-size: 0.95rem !important;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  text-transform: none;
+  box-shadow: var(--shadow-sm);
+  transition: background 0.2s, box-shadow 0.25s, transform 0.2s !important;
+}
+.nav-cta:hover {
+  background: var(--accent-hover) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: var(--shadow-accent) !important;
+}
+
+/* ── BUTTONS ────────────────────────────────────────────────── */
+.btn-primary {
+  background: var(--accent) !important;
+  color: #fff !important;
+  border: 1px solid var(--accent) !important;
+  border-radius: 10px !important;
+  font-family: var(--sans) !important;
+  font-weight: 600;
+  font-size: 1.02rem;
+  letter-spacing: -0.005em;
+  text-transform: none;
+  padding: 1.05rem 1.7rem !important;
+  box-shadow: var(--shadow-accent);
+  transition: background 0.2s, box-shadow 0.25s, transform 0.2s !important;
+}
+.btn-primary:hover {
+  background: var(--accent-hover) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 18px 36px -10px rgba(30, 64, 175, 0.5) !important;
+}
+
+.btn-secondary, a.btn-secondary {
+  background: #fff !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border-2) !important;
+  border-radius: 10px !important;
+  font-family: var(--sans) !important;
+  font-weight: 500;
+  font-size: 1rem;
+  text-transform: none;
+  letter-spacing: -0.005em;
+  transition: border-color 0.2s, color 0.2s, background 0.2s !important;
+}
+.btn-secondary:hover {
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+  background: var(--accent-soft) !important;
+}
+
+/* ── HERO ───────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  background: var(--bg) !important;
+  border-bottom: 1px solid var(--border);
+}
+.hero h1 {
+  font-size: clamp(2.6rem, 6vw, 5.2rem);
+  font-weight: 800;
+  line-height: 1.04;
+  color: var(--text);
+}
+.hero p {
+  color: var(--text-2);
+  font-size: 1.12rem;
+  line-height: 1.65;
+}
+
+/* Replace the warm sticker with a clean status badge */
+.hero::after {
+  content: '● Currently booking · 3 spots · May 2026';
+  position: absolute;
+  top: 5.6rem;
+  right: 2.5rem;
+  font-family: var(--sans);
+  font-size: 0.86rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  text-transform: none;
+  padding: 0.7rem 1.1rem;
+  background: #fff;
+  color: var(--text-2);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  box-shadow: var(--shadow-md);
+  transform: none;
+  pointer-events: none;
+  z-index: 4;
+  animation: none;
+}
+.hero::after::first-letter { color: var(--success); }
+
+/* Pills */
+.availability-pill {
+  background: #fff !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 100px !important;
+  color: var(--text-2) !important;
+  font-family: var(--sans) !important;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: -0.005em;
+  text-transform: none;
+  padding: 0.6rem 1rem !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+.availability-pill .pulse, .pulse {
+  background: var(--success) !important;
+  box-shadow: 0 0 0 4px rgba(4, 120, 87, 0.18) !important;
+}
+.location-pill {
+  color: var(--text-3);
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  text-transform: none;
+  letter-spacing: -0.005em;
+}
+.location-pill::before { color: var(--accent); }
+
+.hero small, .hero .note {
+  color: var(--text-3);
+  font-family: var(--sans);
+  font-size: 0.92rem;
+}
+
+/* ── STRIP (stats) ──────────────────────────────────────────── */
+.strip {
+  background: var(--surface) !important;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.strip-inner { padding: 2.6rem 2rem !important; }
+.strip-num {
+  font-family: var(--sans) !important;
+  font-variation-settings: normal !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  font-size: clamp(2.4rem, 4.2vw, 3.4rem) !important;
+  color: var(--text) !important;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+.strip-item:hover .strip-num { color: var(--accent) !important; }
+.strip-item .label, .strip-item small {
+  font-family: var(--sans);
+  color: var(--text-3);
+  font-size: 0.92rem;
+  text-transform: none;
+  letter-spacing: -0.005em;
+  font-weight: 500;
+}
+
+/* ── OFFER STACK ────────────────────────────────────────────── */
+.offer-stack { counter-reset: offer-counter; gap: 1.25rem; }
+
+.offer-item {
+  counter-increment: offer-counter;
+  background: #fff !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 14px !important;
+  padding: 2rem 2rem 2.2rem !important;
+  box-shadow: var(--shadow-sm) !important;
+  position: relative;
+  overflow: visible;
+  transition: border-color 0.25s, box-shadow 0.3s, transform 0.3s !important;
+  transform: none !important;
+}
+.offer-item::before {
+  content: counter(offer-counter, decimal-leading-zero);
+  position: absolute;
+  top: 1.6rem;
+  right: 1.7rem;
+  font-family: var(--sans) !important;
+  font-style: normal !important;
+  font-variation-settings: normal !important;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-4);
+  letter-spacing: -0.01em;
+  transform: none !important;
+  opacity: 1 !important;
+  line-height: 1;
+}
+.offer-item:hover {
+  border-color: var(--accent) !important;
+  box-shadow: var(--shadow-md) !important;
+  transform: translateY(-3px) !important;
+}
+.offer-item:hover::before { color: var(--accent); }
+
+/* "01 — Design" chip */
+.offer-item .num {
+  background: var(--accent-soft) !important;
+  border: 1px solid transparent !important;
+  padding: 0.4rem 0.8rem !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: -0.005em;
+  text-transform: none;
+  color: var(--accent);
+  margin-bottom: 1.1rem;
+  display: inline-flex;
+}
+.offer-item .num::before, .offer-item .num::after { content: none; }
+
+/* Value tag — soft green to read as positive value */
+.offer-item .price-tag {
+  background: rgba(4, 120, 87, 0.10) !important;
+  color: var(--success) !important;
+  border: 1px solid transparent !important;
+  border-radius: 6px !important;
+  padding: 0.3rem 0.6rem !important;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.78rem !important;
+  letter-spacing: -0.005em;
+  text-transform: none;
+  top: 3.6rem !important;
+  right: 1.5rem !important;
+  text-decoration: none;
+}
+
+.offer-item h3 {
+  font-size: 1.4rem !important;
+  margin-bottom: 0.55rem !important;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.018em;
+}
+.offer-item p {
+  color: var(--text-2);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ── PRICING CARD ───────────────────────────────────────────── */
+.pricing-card {
+  background: #fff !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 18px !important;
+  box-shadow:
+    0 30px 60px -24px rgba(30, 64, 175, 0.18),
+    0 8px 18px -6px rgba(11, 18, 32, 0.06) !important;
+  overflow: visible !important;
+  position: relative;
+  padding: 3rem !important;
+}
+.pricing-card::before {
+  /* override the warm radial glow */
+  background: radial-gradient(circle at 80% 15%, rgba(30, 64, 175, 0.08), transparent 60%) !important;
+  opacity: 1 !important;
+  border-radius: 18px !important;
+}
+.pricing-card::after {
+  content: 'Founding pricing · ends Q3 2026';
+  position: absolute;
+  top: 1.4rem;
+  right: 1.4rem;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  text-transform: none;
+  padding: 0.5rem 0.9rem;
+  transform: none !important;
+  border-radius: 100px;
+  box-shadow: var(--shadow-accent);
+  white-space: nowrap;
+  z-index: 5;
+}
+
+.pricing-card h2, .pricing-card h3 {
+  color: var(--text) !important;
+  font-family: var(--sans) !important;
+  font-style: normal !important;
+  font-weight: 800;
+}
+.pricing-card p, .pricing-card .description { color: var(--text-2) !important; }
+
+.pricing-card .pkg-price, .pricing-card .price, .pkg-price {
+  font-family: var(--sans) !important;
+  font-weight: 800 !important;
+  font-style: normal !important;
+  font-size: clamp(4rem, 7vw, 5.8rem) !important;
+  letter-spacing: -0.045em !important;
+  color: var(--text) !important;
+  line-height: 1 !important;
+}
+.pricing-card .pkg-price sup, .pricing-card .pkg-price small {
+  color: var(--text-3);
+  font-family: var(--sans);
+  font-weight: 500;
+}
+
+.pkg-label, .pricing-card .badge {
+  background: var(--accent-soft) !important;
+  border: 1px solid transparent !important;
+  color: var(--accent) !important;
+  border-radius: 100px !important;
+  font-family: var(--sans) !important;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  text-transform: none;
+  font-size: 0.85rem;
+  padding: 0.45rem 0.85rem !important;
+  box-shadow: none !important;
+}
+
+.pricing-card .stack-value, .pricing-card .value-line {
+  color: var(--text-3) !important;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+}
+
+.pkg-cta {
+  background: var(--accent) !important;
+  color: #fff !important;
+  border: 1px solid var(--accent) !important;
+  border-radius: 10px !important;
+  font-family: var(--sans) !important;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: -0.005em;
+  font-size: 1.02rem;
+  padding: 1.05rem 1.7rem !important;
+  box-shadow: var(--shadow-accent) !important;
+  transition: background 0.2s, box-shadow 0.25s, transform 0.2s !important;
+}
+.pkg-cta:hover {
+  background: var(--accent-hover) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 18px 36px -10px rgba(30, 64, 175, 0.5) !important;
+}
+
+/* ── PROCESS GRID (homepage steps) ──────────────────────────── */
+.process-grid .step {
+  border-bottom: 1px solid var(--border) !important;
+  padding: 1.9rem 0 !important;
+  align-items: center;
+}
+.process-grid .step:first-child { border-top: 1px solid var(--border); }
+.process-grid .step h3 {
+  font-family: var(--sans) !important;
+  font-style: normal !important;
+  font-weight: 700;
+  color: var(--text);
+  font-size: 1.25rem;
+}
+.process-grid .step p { color: var(--text-2); font-size: 1rem; }
+.process-grid .step .week, .process-grid .step small {
+  color: var(--text-3);
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 0.92rem;
+  text-transform: none;
+  letter-spacing: -0.005em;
+}
+
+/* Step number — circular badge, navy on soft tint */
+.process-grid .step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  background: var(--accent-soft) !important;
+  border: 1px solid transparent !important;
+  font-family: var(--sans) !important;
+  font-size: 0.95rem !important;
+  font-style: normal !important;
+  font-weight: 700;
+  color: var(--accent) !important;
+  letter-spacing: -0.005em;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  transition: background 0.25s, color 0.25s, transform 0.3s !important;
+}
+.process-grid .step:hover .step-num {
+  background: var(--accent) !important;
+  color: #fff !important;
+  transform: scale(1.06) !important;
+}
+
+/* ── WORK / CASE STUDY CARDS ────────────────────────────────── */
+.work-card {
+  background: #fff !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 14px !important;
+  box-shadow: var(--shadow-sm) !important;
+  overflow: hidden;
+  transition: border-color 0.25s, transform 0.35s, box-shadow 0.35s !important;
+}
+.work-card:hover {
+  border-color: var(--accent) !important;
+  transform: translateY(-4px) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+.work-card-visual {
+  background: var(--surface) !important;
+  border-bottom: 1px solid var(--border);
+  border-radius: 14px 14px 0 0 !important;
+}
+/* Recolor SVG mockup blocks for light theme */
+.work-card-visual [fill="#C04A1F"],
+.work-card-visual [fill="#c04a1f"] { fill: var(--accent) !important; }
+.work-card-visual [fill="#14110F"],
+.work-card-visual [fill="#141110"] { fill: var(--text) !important; }
+.work-card-visual [fill="#6B6258"] { fill: var(--text-3) !important; }
+.work-card-visual [fill="#F2EBDC"],
+.work-card-visual [fill="#F8F3E6"],
+.work-card-visual [fill="#EBE2CE"] { fill: #fff !important; }
+
+.work-card-tag {
+  background: var(--text) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 100px !important;
+  font-family: var(--sans);
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: -0.005em;
+  font-size: 0.78rem !important;
+  padding: 0.4rem 0.75rem !important;
+  box-shadow: none !important;
+}
+
+.work-card h3 { color: var(--text); font-size: 1.4rem; }
+.work-card p { color: var(--text-2); font-size: 1rem; }
+.work-card .meta, .work-card-meta { color: var(--text-3); font-family: var(--sans); font-size: 0.95rem; }
+.work-card .meta strong, .work-card-meta strong { color: var(--accent); font-weight: 700; }
+.work-card a { color: var(--accent); font-weight: 500; font-family: var(--sans); }
+.work-card a:hover { color: var(--accent-hover); }
+
+/* ── GUARANTEE ──────────────────────────────────────────────── */
+.guarantee {
+  background: var(--text) !important;
+  color: #fff;
+  border-top: none;
+  border-bottom: none;
+  position: relative;
+}
+.guarantee::before { display: none !important; }
+.guarantee h2 {
+  color: #fff !important;
+  font-family: var(--sans) !important;
+  font-style: normal !important;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.guarantee h2 .italic { color: #93C5FD !important; font-weight: 800; }
+.guarantee p { color: rgba(255, 255, 255, 0.75) !important; }
+.guarantee .gpoint-title {
+  color: #fff !important;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+.guarantee .eyebrow { color: #93C5FD !important; }
+
+.gpoint-num {
+  font-family: var(--sans) !important;
+  font-style: normal !important;
+  font-variation-settings: normal !important;
+  font-weight: 800 !important;
+  font-size: clamp(2.6rem, 4.6vw, 4rem) !important;
+  color: #93C5FD !important;
+  letter-spacing: -0.03em;
+  opacity: 1 !important;
+  margin-bottom: 0.8rem;
+}
+
+/* ── WHY US ─────────────────────────────────────────────────── */
+.why-grid { gap: 1.25rem !important; counter-reset: why-counter; }
+.why-card {
+  counter-increment: why-counter;
+  border: 1px solid var(--border) !important;
+  border-radius: 14px !important;
+  background: #fff !important;
+  padding: 2.4rem 1.9rem 2rem !important;
+  position: relative;
+  box-shadow: var(--shadow-sm) !important;
+  transition: border-color 0.25s, box-shadow 0.3s, transform 0.3s !important;
+  transform: none !important;
+}
+.why-card:hover {
+  transform: translateY(-3px) !important;
+  border-color: var(--accent) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+.why-card h3 {
+  color: var(--text) !important;
+  font-family: var(--sans) !important;
+  font-style: normal !important;
+  font-weight: 700;
+  margin-top: 0;
+  font-size: 1.25rem;
+  letter-spacing: -0.018em;
+}
+.why-card p { color: var(--text-2); font-size: 1rem; }
+
+/* Counter numeral */
+.why-card::before {
+  content: counter(why-counter, decimal-leading-zero);
+  font-family: var(--sans) !important;
+  font-style: normal !important;
+  font-variation-settings: normal !important;
+  font-size: 0.95rem !important;
+  font-weight: 700;
+  color: var(--accent) !important;
+  letter-spacing: -0.01em;
+  top: 1.4rem !important;
+  right: 1.6rem !important;
+  opacity: 1 !important;
+  transform: none !important;
+  line-height: 1;
+  background: var(--accent-soft);
+  padding: 0.35rem 0.55rem;
+  border-radius: 6px;
+}
+.why-card:hover::before { transform: none !important; }
+
+/* ── BLOG CARDS ─────────────────────────────────────────────── */
+.blog-card {
+  background: #fff !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 14px !important;
+  transition: border-color 0.25s, transform 0.3s, box-shadow 0.3s !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+.blog-card:hover {
+  border-color: var(--accent) !important;
+  background: #fff !important;
+  transform: translateY(-3px) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+.blog-card h3 { color: var(--text); font-size: 1.25rem; }
+.blog-card p { color: var(--text-2); }
+.blog-card .meta, .blog-card .date {
+  color: var(--text-3);
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  text-transform: none;
+  letter-spacing: -0.005em;
+}
+.blog-card a { color: var(--accent); }
+
+/* ── FAQ ────────────────────────────────────────────────────── */
+details.faq-item {
+  background: transparent !important;
+  border-bottom: 1px solid var(--border) !important;
+  border-radius: 0 !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+}
+details.faq-item summary {
+  color: var(--text) !important;
+  font-family: var(--sans) !important;
+  font-weight: 600;
+  font-size: 1.08rem;
+  padding: 1.4rem 0 !important;
+  transition: color 0.2s, padding-left 0.25s !important;
+}
+details.faq-item:hover summary { color: var(--accent) !important; padding-left: 0.4rem !important; }
+details.faq-item summary::after { color: var(--accent) !important; }
+details.faq-item[open] summary { color: var(--accent) !important; }
+details.faq-item p { color: var(--text-2); padding: 0 0 1.4rem; font-size: 1.02rem; }
+
+/* ── FINAL CTA ──────────────────────────────────────────────── */
+.final-cta {
+  background: var(--surface) !important;
+  border-top: 1px solid var(--border);
+  position: relative;
+}
+.final-cta::before, .final-cta::after { display: none !important; }
+.final-cta h2 {
+  color: var(--text) !important;
+  font-family: var(--sans) !important;
+  font-style: normal !important;
+  font-weight: 800;
+  font-size: clamp(2.6rem, 6.5vw, 5.4rem) !important;
+  letter-spacing: -0.038em;
+}
+.final-cta h2 em { color: var(--accent) !important; font-weight: 800; }
+.final-cta p { color: var(--text-2) !important; font-size: 1.1rem; }
+.final-cta .availability-note, .final-cta small {
+  color: var(--text-3) !important;
+  font-family: var(--sans);
+}
+.final-cta .watermark, .final-cta .bg-text {
+  color: rgba(11, 18, 32, 0.025) !important;
+  opacity: 1;
+}
+
+/* ── FOOTER ─────────────────────────────────────────────────── */
+footer {
+  background: var(--text) !important;
+  border-top: none;
+  color: rgba(255, 255, 255, 0.7);
+}
+footer h4, footer h3 {
+  color: #fff;
+  font-family: var(--sans);
+  font-weight: 700;
+}
+.footer-col a {
+  color: rgba(255, 255, 255, 0.7);
+  font-family: var(--sans);
+  font-size: 0.96rem;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: -0.005em;
+  transition: color 0.2s, transform 0.2s !important;
+}
+.footer-col a:hover { color: #fff; transform: translateX(4px); }
+.footer-bottom {
+  color: rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+footer .logo, footer a.logo { color: #fff !important; }
+
+/* ── SECTIONS / DIVIDERS ────────────────────────────────────── */
+section { background: transparent; border-top: none; }
+hr, .divider { border-color: var(--border) !important; }
+
+/* ── BREADCRUMBS / SUB-PAGES ────────────────────────────────── */
+.breadcrumb, .breadcrumb a {
+  color: var(--text-3) !important;
+  font-family: var(--sans) !important;
+  text-transform: none;
+  letter-spacing: -0.005em;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+.breadcrumb a:hover { color: var(--accent) !important; }
+
+/* ── PROCESS PAGE (interior) — keep big numerals but cleaned up ── */
+section.process .step-num,
+.process > .step .step-num {
+  font-family: var(--sans) !important;
+  font-style: normal !important;
+  font-variation-settings: normal !important;
+  font-weight: 800 !important;
+  color: var(--accent) !important;
+}
+
+/* ── CONTACT FORM ───────────────────────────────────────────── */
+input, textarea, select {
+  background: #fff !important;
+  border: 1px solid var(--border-2) !important;
+  color: var(--text) !important;
+  border-radius: 10px !important;
+  font-family: var(--sans) !important;
+  font-size: 1.02rem !important;
+  padding: 0.85rem 1rem !important;
+}
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 4px var(--accent-tint);
+}
+label {
+  color: var(--text-2);
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: -0.005em;
+}
+
+/* ── ICONS — X / TICK ───────────────────────────────────────── */
+.x-mark, [class*="cross"] { color: #DC2626 !important; }
+.check, .tick, [class*="check"] { color: var(--success) !important; }
+
+/* ── RESPONSIVE ────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .hero::after { top: 5rem; right: 1.4rem; font-size: 0.78rem; padding: 0.55rem 0.85rem; }
+}
+@media (max-width: 900px) {
+  .hero::after { display: none; }
+  .pricing-card { padding: 2rem !important; }
+  .pricing-card::after { font-size: 0.74rem; top: 1rem; right: 1rem; padding: 0.4rem 0.7rem; }
+  .process-grid .step-num { width: 40px !important; height: 40px !important; font-size: 0.85rem !important; }
+  .strip-num { font-size: clamp(1.9rem, 8vw, 2.6rem) !important; }
+}
+
+/* ── REDUCED MOTION ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ── FIX-UP: pricing-card internal text + process step elements
+   (these use class names not h-tags, so they slipped past the
+   universal heading override above.) ──────────────────────── */
+
+.pricing-card .pkg-name {
+  color: var(--text) !important;
+  font-family: var(--sans) !important;
+  font-style: normal !important;
+  font-weight: 800;
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  line-height: 1.1;
+  letter-spacing: -0.028em;
+  margin: 1.4rem 0 0.6rem;
+}
+.pricing-card .pkg-subtitle {
+  color: var(--text-2) !important;
+  font-family: var(--sans) !important;
+  font-style: normal !important;
+  font-size: 1rem;
+  margin-bottom: 1.6rem;
+}
+.pricing-card .pkg-value {
+  color: var(--text-3) !important;
+  font-family: var(--sans) !important;
+  font-size: 0.95rem;
+  margin-top: 0.4rem;
+}
+.pricing-card .pkg-value .strike,
+.pricing-card .strike { color: var(--text-4); }
+.pricing-card .currency,
+.pricing-card .pkg-price .small,
+.pricing-card .pkg-price .currency {
+  color: var(--text-3) !important;
+  font-family: var(--sans) !important;
+  font-weight: 500;
+  font-size: 0.4em;
+  vertical-align: top;
+}
+
+.process-grid .step-title,
+.process .step-title {
+  font-family: var(--sans) !important;
+  font-style: normal !important;
+  font-weight: 700;
+  color: var(--text) !important;
+  font-size: 1.22rem;
+  letter-spacing: -0.018em;
+  margin-bottom: 0.3rem;
+}
+.process-grid .step-desc,
+.process .step-desc {
+  color: var(--text-2) !important;
+  font-family: var(--sans) !important;
+  font-style: normal !important;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.process-grid .step-time,
+.process .step-time {
+  color: var(--text-3) !important;
+  font-family: var(--sans) !important;
+  font-style: normal !important;
+  font-weight: 500;
+  font-size: 0.92rem;
+  text-transform: none;
+  letter-spacing: -0.005em;
+}
+
+/* Section titles using class names */
+.section-title,
+.pricing-side .section-title,
+.section-label {
+  font-family: var(--sans) !important;
+  font-style: normal !important;
+}
+.section-label {
+  color: var(--accent) !important;
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.section-title {
+  color: var(--text) !important;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+.section-title .italic {
+  font-style: normal !important;
+  font-family: var(--sans) !important;
+  color: var(--accent) !important;
+  font-weight: 800;
+}
+
+/* Card titles, work card titles, etc. when they use class names */
+.work-card-title, .blog-card-title, .pkg-title,
+.gpoint-title, .why-title, .offer-title {
+  font-family: var(--sans) !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  color: var(--text);
+  letter-spacing: -0.018em;
+}
+.guarantee .gpoint-title { color: #fff !important; }
+
+/* Frustration / dark intro section ("expensive brochures that nobody reads") —
+   keep dark but ensure text is white-readable and emphasis is light blue. */
+section[class*="frustration"], .frustration, .problem,
+section.dark, .dark-section {
+  background: var(--text) !important;
+  color: #fff;
+}
+section[class*="frustration"] h2, .frustration h2, .problem h2 {
+  color: #fff !important;
+}
+section[class*="frustration"] h2 em, .frustration h2 em, .problem h2 em,
+section[class*="frustration"] h2 .italic, .frustration h2 .italic {
+  color: #93C5FD !important;
+  font-weight: 800;
+  font-style: normal !important;
+}
+section[class*="frustration"] p, .frustration p, .problem p {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+/* Any italic <span> still bleeding through globally */
+span.italic, .italic {
+  font-style: normal !important;
+  font-family: var(--sans) !important;
+  font-weight: 800;
+  color: var(--accent) !important;
+}
+.guarantee h2 .italic, .frustration h2 .italic { color: #93C5FD !important; }
