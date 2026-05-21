@@ -1,0 +1,816 @@
+/* ════════════════════════════════════════════════════════════════
+   OPERATOR — total visual reskin of the Avoxan site.
+   Layered AFTER avoxan.css; HTML structure untouched (SEO-safe).
+
+   Direction: dark-mode brutalist-precision.
+   · Near-black background with a 60px subtle grid backdrop
+   · Electric lime accent (#C7FF5C) — no warm tones anywhere
+   · Mono-heavy small text + Space Grotesk display headlines
+   · Sharp corners (0–2px max), hairline borders, no soft warmth
+   · Terminal/CLI motifs: brackets, slashes, monospace numerals
+   · Replaces both avoxan-refresh.css visuals and original cream palette
+   ════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* ── PALETTE + TYPE TOKENS ──────────────────────────────────── */
+:root {
+  --bg:           #0A0B0C;
+  --bg-grid:      rgba(255, 255, 255, 0.025);
+  --surface:      #14151A;
+  --surface-2:    #1C1D24;
+  --surface-3:    #262830;
+  --border:       rgba(255, 255, 255, 0.08);
+  --border-2:     rgba(255, 255, 255, 0.16);
+  --border-3:     rgba(255, 255, 255, 0.28);
+  --text:         #EDEDED;
+  --text-2:       #B5B5B8;
+  --text-3:       #757580;
+  --text-4:       #45464E;
+  --accent:       #C7FF5C;
+  --accent-dim:   rgba(199, 255, 92, 0.14);
+  --accent-glow:  rgba(199, 255, 92, 0.45);
+  --warn:         #FF6B6B;
+  --display:      'Space Grotesk', 'Inter Tight', system-ui, sans-serif;
+  --sans:         'Inter Tight', system-ui, -apple-system, sans-serif;
+  --mono:         'JetBrains Mono', ui-monospace, monospace;
+
+  /* Remap legacy brand vars so the base stylesheet behaves */
+  --cream:        var(--bg);
+  --cream-warm:   var(--surface);
+  --accent-cream: var(--surface);
+  --ink:          var(--text);
+  --ink-soft:     var(--text-2);
+  --ink-light:    var(--text-3);
+  --sienna:       var(--accent);
+  --sienna-dark:  var(--accent);
+  --line:         var(--border);
+  --line-strong:  var(--border-2);
+}
+
+/* ── BODY + GRID BACKDROP ───────────────────────────────────── */
+html, body { background: var(--bg) !important; color: var(--text); font-family: var(--sans); }
+body {
+  background-image:
+    linear-gradient(var(--bg-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
+  background-size: 64px 64px;
+  background-position: -1px -1px;
+}
+::selection { background: var(--accent); color: var(--bg); }
+
+/* ── TYPOGRAPHY KILL-SWITCH ─────────────────────────────────── */
+/* Drop Fraunces / italic-serif look across the whole site. */
+h1, h2, h3, h4, h5, h6,
+.hero h1, .guarantee h2, .final-cta h2,
+.pricing-card h2, .why-card h3, .offer-item h3 {
+  font-family: var(--display) !important;
+  font-style: normal !important;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--text);
+}
+h1 { font-weight: 700; letter-spacing: -0.04em; }
+
+/* Italic <em> becomes the lime "highlight" treatment */
+em, i, .italic,
+.hero h1 em, .guarantee h2 .italic, .final-cta h2 em,
+.why-card h3 em, .offer-item h3 em {
+  font-family: var(--display) !important;
+  font-style: normal !important;
+  font-weight: 600;
+  color: var(--accent);
+  background:
+    linear-gradient(180deg, transparent 78%, var(--accent-dim) 78%, var(--accent-dim) 95%, transparent 95%);
+  padding: 0 0.08em;
+}
+
+p { color: var(--text-2); }
+a { color: var(--text); }
+
+/* Eyebrows + small caps */
+.eyebrow, .ticker-item, .breadcrumb, .footer-bottom,
+[class*="eyebrow"], small.label {
+  font-family: var(--mono) !important;
+  color: var(--text-3);
+}
+
+/* ── TICKER ─────────────────────────────────────────────────── */
+.ticker {
+  background: var(--bg) !important;
+  border-bottom: 1px solid var(--border) !important;
+  color: var(--text-3) !important;
+}
+.ticker-item {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+.ticker-item .pulse,
+.ticker .pulse { background: var(--accent) !important; box-shadow: 0 0 0 4px var(--accent-dim); }
+
+/* ── NAV ───────────────────────────────────────────────────── */
+.site-nav {
+  background: rgba(10, 11, 12, 0.85) !important;
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner { padding-top: 1.1rem; padding-bottom: 1.1rem; }
+.nav-links a {
+  color: var(--text-2) !important;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.nav-links a:hover { color: var(--accent) !important; opacity: 1 !important; }
+.nav-links a.active:not(.nav-cta) { color: var(--accent) !important; }
+.nav-links a.active:not(.nav-cta)::after { background: var(--accent) !important; }
+
+.nav-cta, a.nav-cta {
+  background: var(--accent) !important;
+  color: var(--bg) !important;
+  border: 1px solid var(--accent) !important;
+  border-radius: 2px !important;
+  padding: 0.7rem 1.2rem !important;
+  font-family: var(--mono) !important;
+  font-size: 0.74rem !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  box-shadow: 0 0 0 0 var(--accent-glow);
+  transition: box-shadow 0.3s ease, transform 0.2s ease !important;
+}
+.nav-cta:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 0 24px -2px var(--accent-glow) !important;
+}
+
+/* Logo container — give it a flat lime mark, not warm orange gradient */
+.nav-inner svg rect[fill*="url"] { fill: var(--accent); }
+
+/* ── BUTTONS ────────────────────────────────────────────────── */
+.btn-primary {
+  background: var(--accent) !important;
+  color: var(--bg) !important;
+  border: 1px solid var(--accent) !important;
+  border-radius: 2px !important;
+  font-family: var(--mono) !important;
+  font-weight: 600;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 1.1rem 1.8rem !important;
+  box-shadow: 0 0 0 0 var(--accent-glow);
+  transition: box-shadow 0.35s ease, transform 0.25s ease, background 0.2s !important;
+}
+.btn-primary::before {
+  content: '> ';
+  font-family: var(--mono);
+  opacity: 0.6;
+}
+.btn-primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 0 40px -4px var(--accent-glow), inset 0 0 0 1px var(--bg) !important;
+  background: var(--accent) !important;
+}
+
+.btn-secondary,
+a.btn-secondary {
+  background: transparent !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border-2) !important;
+  border-radius: 2px !important;
+  font-family: var(--mono) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.78rem;
+  transition: border-color 0.25s, color 0.25s !important;
+}
+.btn-secondary:hover {
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+}
+
+/* ── HERO ───────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  background: transparent !important;
+  border-bottom: 1px solid var(--border);
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(199, 255, 92, 0.06), transparent 50%),
+    radial-gradient(circle at 10% 90%, rgba(199, 255, 92, 0.04), transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero > * { position: relative; z-index: 1; }
+
+.hero h1 {
+  font-size: clamp(3rem, 8vw, 7.2rem);
+  line-height: 0.96;
+  font-weight: 600;
+}
+
+.hero p { color: var(--text-2); font-size: 1.05rem; }
+
+/* Replace the warm sticker with a terminal status block */
+.hero::after {
+  content: '[ STATUS · 03 SLOTS · MAY 2026 ]';
+  position: absolute;
+  top: 5.6rem;
+  right: 3rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.1rem;
+  background: var(--surface);
+  color: var(--accent);
+  border: 1px solid var(--border-2);
+  border-radius: 0;
+  box-shadow:
+    0 0 0 4px var(--bg),
+    0 0 0 5px var(--border);
+  transform: none;
+  pointer-events: none;
+  z-index: 4;
+  animation: none;
+}
+.hero::after:hover { color: var(--accent); }
+
+/* Availability + location pills */
+.availability-pill {
+  background: var(--surface) !important;
+  border: 1px solid var(--border-2) !important;
+  border-radius: 2px !important;
+  color: var(--text-2) !important;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.55rem 0.9rem !important;
+  box-shadow: none !important;
+}
+.availability-pill .pulse,
+.pulse {
+  background: var(--accent) !important;
+  box-shadow: 0 0 0 4px var(--accent-dim) !important;
+}
+.location-pill {
+  color: var(--text-3);
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.location-pill::before { color: var(--accent); }
+
+/* Subheadline note next to CTA */
+.hero small, .hero .note { color: var(--text-3); font-family: var(--mono); }
+
+/* ── STRIP (stats) ──────────────────────────────────────────── */
+.strip {
+  background: var(--surface) !important;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.strip-inner {
+  padding: 2.6rem 2rem !important;
+  border-left: 2px solid var(--accent);
+  margin-left: 0;
+}
+.strip-num {
+  font-family: var(--display) !important;
+  font-variation-settings: normal !important;
+  font-style: normal !important;
+  font-weight: 600;
+  font-size: clamp(2.4rem, 4.5vw, 3.4rem) !important;
+  color: var(--text) !important;
+  letter-spacing: -0.03em;
+}
+.strip-item { transition: none !important; }
+.strip-item:hover { transform: none !important; }
+.strip-item:hover .strip-num { color: var(--accent) !important; }
+.strip-item .label, .strip-item small {
+  font-family: var(--mono);
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.7rem;
+}
+
+/* ── OFFER STACK ────────────────────────────────────────────── */
+.offer-stack { gap: 0 !important; counter-reset: offer-counter; }
+
+.offer-item {
+  counter-increment: offer-counter;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 2.4rem 2.2rem 2.6rem !important;
+  box-shadow: none !important;
+  position: relative;
+  transition: background 0.3s ease !important;
+  transform: none !important;
+  overflow: visible;
+}
+
+/* Create the grid lines as borders, so the whole block reads as one matrix */
+.offer-stack .offer-item {
+  border-top: 1px solid var(--border) !important;
+  border-right: 1px solid var(--border) !important;
+}
+.offer-stack .offer-item:nth-child(2n) { border-right: none !important; }
+.offer-stack .offer-item:nth-last-child(-n+2):nth-child(2n+1) { /* keep bottom border */ }
+
+/* Watermark numeral replaced with corner index label */
+.offer-item::before {
+  content: '/ ' counter(offer-counter, decimal-leading-zero);
+  position: absolute;
+  top: 1.4rem;
+  right: 1.6rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-style: normal !important;
+  color: var(--text-3);
+  letter-spacing: 0.12em;
+  transform: none !important;
+  opacity: 1 !important;
+  font-variation-settings: normal !important;
+  font-weight: 500;
+  line-height: 1;
+}
+.offer-item:hover {
+  background: var(--surface) !important;
+  transform: none !important;
+  box-shadow: none !important;
+  border-color: var(--border-2) !important;
+}
+.offer-item:hover::before { color: var(--accent); }
+
+/* The "01 — Design" chip becomes a hairline-bracketed label */
+.offer-item .num {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.7rem;
+  color: var(--accent);
+  margin-bottom: 1.1rem;
+}
+.offer-item .num::before { content: '['; margin-right: 0.3rem; color: var(--text-3); }
+.offer-item .num::after  { content: ']'; margin-left: 0.3rem;  color: var(--text-3); }
+
+/* Value tag → lime hairline corner pill */
+.offer-item .price-tag {
+  background: transparent !important;
+  color: var(--accent) !important;
+  border: 1px solid var(--accent) !important;
+  border-radius: 2px !important;
+  padding: 0.25rem 0.55rem !important;
+  font-family: var(--mono);
+  font-size: 0.64rem !important;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  top: 3rem !important;
+  right: 1.4rem !important;
+}
+
+.offer-item h3 {
+  font-size: 1.65rem !important;
+  margin-bottom: 0.8rem !important;
+  font-weight: 600;
+  color: var(--text);
+}
+.offer-item p { color: var(--text-2); }
+
+/* ── PRICING CARD ───────────────────────────────────────────── */
+.pricing-card {
+  background: var(--surface) !important;
+  border: 1px solid var(--border-2) !important;
+  border-radius: 4px !important;
+  box-shadow:
+    0 0 0 1px var(--bg),
+    0 0 60px -10px var(--accent-glow) !important;
+  overflow: visible !important;
+  position: relative;
+  padding: 3rem !important;
+}
+.pricing-card::before {
+  /* override the warm radial glow from base CSS */
+  background: radial-gradient(circle at 75% 25%, var(--accent-dim), transparent 60%) !important;
+  opacity: 0.6 !important;
+}
+/* Replace the diagonal ribbon with a corner status tag */
+.pricing-card::after {
+  content: '[ FOUNDING · LOCKS Q3·2026 ]';
+  position: absolute;
+  top: 1.4rem;
+  right: 1.4rem;
+  background: var(--accent);
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.7rem;
+  transform: none !important;
+  border-radius: 2px;
+  box-shadow: 0 0 24px -4px var(--accent-glow);
+  white-space: nowrap;
+  z-index: 5;
+}
+
+.pricing-card h2, .pricing-card h3 {
+  color: var(--text) !important;
+  font-family: var(--display) !important;
+  font-style: normal !important;
+}
+
+.pricing-card .pkg-price,
+.pricing-card .price,
+.pkg-price {
+  font-family: var(--display) !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
+  font-size: clamp(4.4rem, 7.5vw, 6.4rem) !important;
+  letter-spacing: -0.05em !important;
+  color: var(--accent) !important;
+  line-height: 1 !important;
+}
+.pricing-card .pkg-price sup,
+.pricing-card .pkg-price small { color: var(--text-3); font-family: var(--mono); }
+
+.pkg-label, .pricing-card .badge {
+  background: transparent !important;
+  border: 1px solid var(--accent) !important;
+  color: var(--accent) !important;
+  border-radius: 2px !important;
+  font-family: var(--mono) !important;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  padding: 0.4rem 0.7rem !important;
+  box-shadow: none !important;
+}
+
+.pricing-card .stack-value,
+.pricing-card .value-line {
+  color: var(--text-3) !important;
+  font-family: var(--mono);
+}
+
+.pkg-cta {
+  background: var(--accent) !important;
+  color: var(--bg) !important;
+  border: 1px solid var(--accent) !important;
+  border-radius: 2px !important;
+  font-family: var(--mono) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  padding: 1.05rem 1.6rem !important;
+  box-shadow: 0 0 28px -8px var(--accent-glow) !important;
+  transition: box-shadow 0.3s, transform 0.2s !important;
+}
+.pkg-cta::before { content: '> '; opacity: 0.55; }
+.pkg-cta:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 0 48px -6px var(--accent-glow) !important;
+  background: var(--accent) !important;
+  color: var(--bg) !important;
+}
+
+/* ── PROCESS GRID (homepage steps) ──────────────────────────── */
+.process-grid .step {
+  border-bottom: 1px solid var(--border) !important;
+  padding: 2rem 0 !important;
+  align-items: center;
+}
+.process-grid .step:first-child { border-top: 1px solid var(--border); }
+.process-grid .step h3 {
+  font-family: var(--display) !important;
+  font-style: normal !important;
+  font-weight: 600;
+  color: var(--text);
+}
+.process-grid .step p { color: var(--text-2); }
+.process-grid .step .week,
+.process-grid .step small {
+  color: var(--text-3);
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.7rem;
+}
+
+/* Step number → terminal-style marker */
+.process-grid .step-num {
+  width: auto !important;
+  height: auto !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-family: var(--mono) !important;
+  font-size: 0.86rem !important;
+  font-weight: 500;
+  color: var(--accent) !important;
+  letter-spacing: 0.06em;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.process-grid .step-num::before { content: '>  '; color: var(--text-3); }
+.process-grid .step:hover .step-num {
+  background: transparent !important;
+  transform: none !important;
+  color: var(--accent) !important;
+  box-shadow: none !important;
+}
+.process-grid .step:hover h3 { color: var(--accent); }
+
+/* ── WORK / CASE STUDY CARDS ────────────────────────────────── */
+.work-card {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.35s !important;
+}
+.work-card:hover {
+  border-color: var(--accent) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 0 50px -16px var(--accent-glow) !important;
+}
+.work-card-visual {
+  background: var(--surface-2) !important;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0 !important;
+}
+/* Recolor the SVG mockup blocks for dark mode */
+.work-card-visual [fill="#14110F"],
+.work-card-visual [fill="#141110"],
+.work-card-visual [fill="#000"],
+.work-card-visual [fill="black"] { fill: var(--text) !important; }
+.work-card-visual [fill="#C04A1F"],
+.work-card-visual [fill="#c04a1f"] { fill: var(--accent) !important; }
+.work-card-visual [fill="#F2EBDC"],
+.work-card-visual [fill="#F8F3E6"],
+.work-card-visual [fill="#EBE2CE"],
+.work-card-visual [fill="#EAE0CA"] { fill: var(--surface-2) !important; }
+.work-card-visual [fill="#6B6258"] { fill: var(--text-3) !important; }
+.work-card-visual { background: var(--bg) !important; }
+
+.work-card-tag {
+  background: var(--bg) !important;
+  color: var(--accent) !important;
+  border: 1px solid var(--accent);
+  border-radius: 2px !important;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.66rem !important;
+  padding: 0.35rem 0.6rem !important;
+  box-shadow: none !important;
+}
+
+.work-card h3 { color: var(--text); }
+.work-card .meta, .work-card-meta { color: var(--text-3); font-family: var(--mono); }
+.work-card .meta strong, .work-card-meta strong { color: var(--accent); font-weight: 500; }
+.work-card a { color: var(--accent); }
+
+/* ── GUARANTEE ──────────────────────────────────────────────── */
+.guarantee {
+  background: var(--surface) !important;
+  border-top: 1px solid var(--accent);
+  border-bottom: 1px solid var(--accent);
+  position: relative;
+}
+.guarantee::before { display: none !important; }
+.guarantee::after {
+  /* Subtle scanline / grid hint */
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(var(--bg-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+}
+.guarantee > * { position: relative; z-index: 1; }
+.guarantee h2 { color: var(--text) !important; }
+.guarantee h2 .italic { color: var(--accent) !important; }
+.guarantee p { color: var(--text-2) !important; }
+.guarantee .gpoint-title { color: var(--text) !important; font-family: var(--display); }
+.guarantee .eyebrow { color: var(--accent) !important; }
+
+.gpoint-num {
+  font-family: var(--mono) !important;
+  font-style: normal !important;
+  font-variation-settings: normal !important;
+  font-weight: 500 !important;
+  font-size: clamp(2.6rem, 4.6vw, 4rem) !important;
+  color: var(--accent) !important;
+  letter-spacing: -0.02em;
+  opacity: 1 !important;
+}
+.gpoint-num::before { content: '/ '; color: var(--text-3); font-weight: 400; }
+
+/* ── WHY US ─────────────────────────────────────────────────── */
+.why-grid { gap: 0 !important; counter-reset: why-counter; }
+.why-card {
+  counter-increment: why-counter;
+  border: none !important;
+  border-top: 1px solid var(--border-2) !important;
+  border-right: 1px solid var(--border) !important;
+  background: transparent !important;
+  padding: 2.4rem 2rem 2.6rem !important;
+  position: relative;
+  transition: background 0.3s ease !important;
+  transform: none !important;
+}
+.why-grid .why-card:nth-child(3n) { border-right: none !important; }
+.why-card:hover {
+  transform: none !important;
+  background: var(--surface) !important;
+}
+.why-card h3 {
+  color: var(--text) !important;
+  font-family: var(--display) !important;
+  font-style: normal !important;
+  margin-top: 0;
+  font-size: 1.35rem;
+}
+.why-card p { color: var(--text-2); }
+
+/* Counter numeral → mono /01 label in top-right */
+.why-card::before {
+  content: '/ ' counter(why-counter, decimal-leading-zero);
+  font-family: var(--mono) !important;
+  font-style: normal !important;
+  font-variation-settings: normal !important;
+  font-size: 0.74rem !important;
+  font-weight: 500;
+  color: var(--accent) !important;
+  letter-spacing: 0.12em;
+  top: 1.2rem !important;
+  right: 1.6rem !important;
+  opacity: 1 !important;
+  transform: none !important;
+  line-height: 1;
+}
+.why-card:hover::before { transform: none !important; }
+
+/* ── BLOG CARDS ─────────────────────────────────────────────── */
+.blog-card {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 4px !important;
+  transition: border-color 0.3s, transform 0.3s !important;
+}
+.blog-card:hover {
+  border-color: var(--accent) !important;
+  background: var(--surface-2) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 0 30px -12px var(--accent-glow) !important;
+}
+.blog-card h3 { color: var(--text); }
+.blog-card p { color: var(--text-2); }
+.blog-card .meta, .blog-card .date { color: var(--text-3); font-family: var(--mono); }
+
+/* ── FAQ ────────────────────────────────────────────────────── */
+details.faq-item {
+  background: transparent !important;
+  border-bottom: 1px solid var(--border) !important;
+  border-radius: 0 !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+}
+details.faq-item summary {
+  color: var(--text) !important;
+  font-family: var(--display) !important;
+  font-weight: 500;
+  padding: 1.4rem 0 !important;
+  transition: color 0.2s !important;
+}
+details.faq-item:hover summary { color: var(--accent) !important; padding-left: 0.5rem !important; }
+details.faq-item summary::after { color: var(--accent) !important; }
+details.faq-item[open] summary { color: var(--accent) !important; }
+details.faq-item p { color: var(--text-2); padding: 0 0 1.4rem; }
+
+/* ── FINAL CTA ──────────────────────────────────────────────── */
+.final-cta {
+  background: var(--surface) !important;
+  border-top: 1px solid var(--accent);
+  position: relative;
+}
+.final-cta::before, .final-cta::after { display: none !important; }
+.final-cta h2 {
+  color: var(--text) !important;
+  font-family: var(--display) !important;
+  font-style: normal !important;
+  font-size: clamp(2.8rem, 7vw, 6rem) !important;
+  letter-spacing: -0.04em;
+}
+.final-cta h2 em { color: var(--accent) !important; }
+.final-cta p { color: var(--text-2) !important; }
+.final-cta .availability-note,
+.final-cta small { color: var(--text-3) !important; font-family: var(--mono); }
+
+/* Watermark "AVOXAN" text in final CTA — recolor */
+.final-cta .watermark, .final-cta .bg-text {
+  color: rgba(255, 255, 255, 0.025) !important;
+  opacity: 1;
+}
+
+/* ── FOOTER ─────────────────────────────────────────────────── */
+footer {
+  background: var(--bg) !important;
+  border-top: 1px solid var(--border);
+  color: var(--text-2);
+}
+footer h4, footer h3 { color: var(--text); font-family: var(--display); }
+.footer-col a {
+  color: var(--text-2);
+  font-family: var(--mono);
+  font-size: 0.84rem;
+  letter-spacing: 0.04em;
+  transition: color 0.2s, transform 0.2s !important;
+}
+.footer-col a:hover { color: var(--accent); transform: translateX(4px); }
+.footer-bottom { color: var(--text-3); border-top: 1px solid var(--border); }
+
+/* ── SECTION DEFAULTS / DIVIDERS ────────────────────────────── */
+section {
+  background: transparent;
+  border-top: none;
+}
+section + section { border-top: 1px solid var(--border); }
+hr, .divider { border-color: var(--border) !important; }
+
+/* ── BREADCRUMBS / SUB-PAGES ────────────────────────────────── */
+.breadcrumb, .breadcrumb a {
+  color: var(--text-3) !important;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.7rem;
+}
+.breadcrumb a:hover { color: var(--accent) !important; }
+
+/* ── PROCESS PAGE (interior) — keep big numerals but mono'd ── */
+body:not(.home) .process .step-num,
+.process > .step .step-num,
+section.process .step-num {
+  font-family: var(--mono) !important;
+  font-style: normal !important;
+  font-variation-settings: normal !important;
+  color: var(--accent) !important;
+}
+
+/* ── CONTACT FORM ───────────────────────────────────────────── */
+input, textarea, select {
+  background: var(--surface) !important;
+  border: 1px solid var(--border-2) !important;
+  color: var(--text) !important;
+  border-radius: 2px !important;
+  font-family: var(--sans);
+}
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+label { color: var(--text-2); font-family: var(--mono); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.12em; }
+
+/* ── ICON / TICK / X recolors ───────────────────────────────── */
+.x-mark, [class*="cross"] { color: var(--warn) !important; }
+.check, .tick, [class*="check"] { color: var(--accent) !important; }
+
+/* ── RESPONSIVE ────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .hero::after { top: 5rem; right: 1.5rem; font-size: 0.62rem; padding: 0.6rem 0.9rem; }
+}
+@media (max-width: 900px) {
+  body { background-size: 40px 40px; }
+  .hero::after { display: none; }
+  .offer-stack .offer-item { border-right: none !important; }
+  .why-grid .why-card { border-right: none !important; }
+  .pricing-card { padding: 2rem !important; }
+  .pricing-card::after { font-size: 0.58rem; top: 1rem; right: 1rem; }
+  .strip-num { font-size: clamp(2rem, 8vw, 2.6rem) !important; }
+}
+@media (max-width: 600px) {
+  body { background-image: none; }
+}
