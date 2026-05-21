@@ -62,8 +62,13 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
+<link rel="preload" as="image" href="assets/hero-poster.jpg" fetchpriority="high">
+<link rel="preload" as="video" href="assets/hero.mp4" type="video/mp4" media="(min-width: 720px)">
+<link rel="preload" as="video" href="assets/hero-mobile.mp4" type="video/mp4" media="(max-width: 719px)">
+
 <link rel="stylesheet" href="css/avoxan.css">
 <link rel="stylesheet" href="css/avoxan-refresh.css">
+<link rel="stylesheet" href="css/hero-scroll.css">
 
 <script type="application/ld+json">
 {
@@ -146,29 +151,91 @@
 
 <main id="main">
 
-<section class="hero">
-  <div class="hero-meta">
-    <div class="availability-pill"><span class="pulse"></span>Booking May 2026 — 3 spots left</div>
-    <div class="location-pill">◆ Houston, Texas</div>
-  </div>
+<!--
+  Scroll-linked video hero.
+  Section is 280vh; inside, a sticky 100vh stage holds the video on the
+  left and three cross-fading text panels on the right. Video scrubs in
+  sync with scroll (0% → 100% = 0s → end of clip). Falls back to a
+  static poster if prefers-reduced-motion or the video can't load.
+-->
+<section class="hero-scroll" id="hero-scroll" aria-label="Avoxan introduction">
+  <div class="hero-scroll-track">
 
-  <h1 class="hero-title">
-    Websites that <span class="italic">quietly</span><br>
-    do the <span class="italic accent">selling</span> for you.
-  </h1>
+    <video
+      class="hero-scroll-video"
+      id="hero-video"
+      poster="assets/hero-poster.jpg"
+      muted
+      playsinline
+      preload="auto"
+      disablepictureinpicture
+      aria-hidden="true">
+      <source src="assets/hero.mp4" type="video/mp4" media="(min-width: 720px)">
+      <source src="assets/hero-mobile.mp4" type="video/mp4">
+    </video>
 
-  <div class="hero-grid">
-    <p class="hero-lede">
-      Avoxan is a small Houston web studio that builds <strong>conversion-focused websites</strong> for service businesses, coaches, and growing brands. One flat price. One predictable timeline. No retainers, no surprises, no jargon.
-    </p>
-    <div class="hero-actions">
-      <a href="contact" class="btn-primary">
-        Book a free 20-min call
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <div class="hero-meta-detail">
-        No sales pressure. We'll tell you straight if a website is what you need — or if you'd be better off spending that money elsewhere.
+    <div class="hero-scroll-overlay">
+
+      <div class="hero-meta">
+        <div class="availability-pill"><span class="pulse"></span>Booking May 2026 — 3 spots left</div>
+        <div class="location-pill">◆ Houston, Texas</div>
       </div>
+
+      <div class="hero-panels">
+
+        <div class="hero-panel is-active" data-panel="0">
+          <h1 class="hero-title">
+            Websites that <span class="italic">quietly</span><br>
+            do the <span class="italic accent">selling</span> for you.
+          </h1>
+          <p class="hero-lede">
+            Avoxan is a small Houston web studio building <strong>conversion-focused websites</strong> for service businesses, coaches, and growing brands.
+          </p>
+        </div>
+
+        <div class="hero-panel" data-panel="1" aria-hidden="true">
+          <h2 class="hero-title">
+            Every decision<br>
+            <span class="italic">documented</span>.
+          </h2>
+          <p class="hero-lede">
+            No black-box agency theatre. We show our work — strategy, copy, design, build — so you always know what you're paying for.
+          </p>
+        </div>
+
+        <div class="hero-panel" data-panel="2" aria-hidden="true">
+          <h2 class="hero-title">
+            <span class="italic accent">$1,500</span> flat.<br>
+            Four weeks. Yours.
+          </h2>
+          <p class="hero-lede">
+            One predictable price. One predictable timeline. The Figma file, the code, the hosting — yours the day we launch.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="hero-actions">
+        <a href="contact" class="btn-primary">
+          Book a free 20-min call
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <div class="hero-meta-detail">
+          No sales pressure. We'll tell you straight if a website is what you need — or if you'd be better off spending that money elsewhere.
+        </div>
+      </div>
+
+      <div class="hero-scroll-cue" id="hero-scroll-cue" aria-hidden="true">
+        <span class="cue-line"></span>
+        <span class="cue-label">Scroll</span>
+      </div>
+
+      <div class="hero-progress" aria-hidden="true">
+        <span class="progress-dot is-active" data-dot="0"></span>
+        <span class="progress-dot" data-dot="1"></span>
+        <span class="progress-dot" data-dot="2"></span>
+      </div>
+
     </div>
   </div>
 </section>
@@ -668,5 +735,6 @@
   </div>
 </footer>
 <script src="js/avoxan.js"></script>
+<script src="js/hero-scroll.js" defer></script>
 </body>
 </html>
