@@ -448,3 +448,20 @@ details.faq-item summary::after {
   .why-card { padding-top: 3rem; }
   .why-card::before { font-size: 2.5rem; top: 1rem; }
 }
+ 
+ 
+/* ───── Buttons inside article body — beat the .article-wrap a override ───── */
+.article-wrap .btn-primary,
+.article-wrap a.btn-primary {
+  color: var(--cream);
+  text-decoration: none;
+}
+.article-wrap .btn-primary:hover,
+.article-wrap a.btn-primary:hover {
+  color: var(--cream);
+  text-decoration: none;
+}
+.article-wrap .btn-secondary,
+.article-wrap a.btn-secondary {
+  text-decoration: none;
+}
