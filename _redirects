@@ -1,14 +1,6 @@
 # ──────────────────────────────────────────────────────────────────
 # AVOXAN — Cloudflare Pages redirects
 # ──────────────────────────────────────────────────────────────────
-# Pages auto-serves .html files at their bare path, so both
-# /contact.html AND /contact work. To prevent Google from
-# indexing both as duplicates, we 301 every .html URL to the
-# extensionless canonical version.
-#
-# Format: <source> <destination> <status>
-# Pages reads top-to-bottom; first match wins.
-# ──────────────────────────────────────────────────────────────────
 
 # ── Top-level pages (.html → extensionless)
 /services.html        /services        301
@@ -19,12 +11,14 @@
 /index.html           /                301
 
 # ── Case studies
+/work/index.html                          /work                          301
 /work/brightside-family-dental.html       /work/brightside-family-dental 301
 /work/marin-ashby-studio.html             /work/marin-ashby-studio       301
 /work/avery-reyes-law-group.html          /work/avery-reyes-law-group    301
 /work/avoxan-studio-site.html             /work/avoxan-studio-site       301
 
 # ── Field notes (blog)
+/blog/index.html                              /blog                              301
 /blog/website-cost-2026.html                  /blog/website-cost-2026            301
 /blog/beautiful-website-no-leads.html         /blog/beautiful-website-no-leads   301
 /blog/local-seo-checklist.html                /blog/local-seo-checklist          301
@@ -36,22 +30,16 @@
 
 # ──────────────────────────────────────────────────────────────────
 # Trailing-slash canonicalization
-# Cloudflare Pages doesn't auto-strip these, so Google was treating
-# /services and /services/ as two separate URLs. Pick one canonical
-# (no trailing slash) and redirect the other.
+# Removed /work/ and /blog/ to prevent directory index redirect loops.
 # ──────────────────────────────────────────────────────────────────
 /services/    /services    301
 /pricing/     /pricing     301
 /process/     /process     301
 /faq/         /faq         301
 /contact/     /contact     301
-/work/        /work        301
-/blog/        /blog        301
 
 # ──────────────────────────────────────────────────────────────────
 # LEGACY URLs from the prior Squarespace site
-# Search Console kept flagging these — old slugs Google had cached.
-# Catch each pattern and 301 to the closest new equivalent.
 # ──────────────────────────────────────────────────────────────────
 
 # Old home URL
@@ -63,14 +51,13 @@
 /case-studies/        /work    301
 /portfolio            /work    301
 /portfolio/           /work    301
-/portfolio-list-*     /work    301
+/portfolio-list-* /work    301
 /portfolio-list-*/    /work    301
 
 # Old Squarespace blog paths → /blog
-# Catches /blog-post, /blog-post1, /blog-post2, /blog-post3, ...
 /blog-post            /blog    301
 /blog-post/           /blog    301
-/blog-post*           /blog    301
+/blog-post* /blog    301
 /blog-post*/          /blog    301
 /blog-list            /blog    301
 /blog-list/           /blog    301
@@ -85,7 +72,7 @@
 /seo                      /services    301
 /seo/                     /services    301
 
-# Common Squarespace leftovers — cheap insurance
+# Common Squarespace leftovers
 /about                /                  301
 /about/               /                  301
 /about-us             /                  301
