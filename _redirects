@@ -11,6 +11,7 @@
 # ──────────────────────────────────────────────────────────────────
 
 # ── Top-level pages (.html → extensionless)
+/services.html        /services        301
 /pricing.html         /pricing         301
 /process.html         /process         301
 /faq.html             /faq             301
@@ -24,7 +25,6 @@
 /work/avoxan-studio-site.html             /work/avoxan-studio-site       301
 
 # ── Field notes (blog)
-/blog.html                              /blog                              301
 /blog/website-cost-2026.html                  /blog/website-cost-2026            301
 /blog/beautiful-website-no-leads.html         /blog/beautiful-website-no-leads   301
 /blog/local-seo-checklist.html                /blog/local-seo-checklist          301
