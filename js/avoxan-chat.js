@@ -86,7 +86,7 @@
     bottom: 0;
     right: 0;
     width: 384px;
-    max-height: min(640px, calc(100vh - 3rem));
+    max-height: min(640px, calc(100dvh - 3rem));
     background: var(--avx-cream);
     border: 1px solid var(--avx-line-strong);
     border-radius: 14px;
@@ -351,8 +351,8 @@
     .avx-launcher { float: right; }
     .avx-panel {
       width: 100%;
-      max-height: calc(100vh - 2rem);
-      height: calc(100vh - 2rem);
+      max-height: calc(100dvh - 2rem);
+      height: calc(100dvh - 2rem);
       border-radius: 12px;
     }
   }
@@ -379,6 +379,11 @@
   let history = loadHistory();
   let isStreaming = false;
   let root, panel, thread, input, sendBtn, introEl;
+
+  // Touch device detection — used to suppress auto-focus that pops the keyboard
+  function isTouchDevice() {
+    return matchMedia('(pointer: coarse)').matches || 'ontouchstart' in window;
+  }
 
   // ---------- Helpers --------------------------------------------------------
   function loadHistory() {
@@ -566,7 +571,9 @@
     if (root.getAttribute('data-state') !== 'closed') return;
     root.setAttribute('data-state', 'opening');
     requestAnimationFrame(() => root.setAttribute('data-state', 'open'));
-    setTimeout(() => input && input.focus(), 280);
+    setTimeout(() => {
+      if (input && !isTouchDevice()) input.focus();
+    }, 280);
   }
   function closePanel() {
     root.setAttribute('data-state', 'closed');
@@ -663,7 +670,7 @@
     } finally {
       isStreaming = false;
       sendBtn.disabled = !input.value.trim();
-      input.focus();
+      if (!isTouchDevice()) input.focus();
     }
   }
 
