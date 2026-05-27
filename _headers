@@ -1,0 +1,13 @@
+# ──────────────────────────────────────────────────────────────────
+# AVOXAN — Cloudflare Pages headers
+# ──────────────────────────────────────────────────────────────────
+# Keep the med spa landing page out of search engines at the HTTP
+# level (belt-and-suspenders with the <meta robots> tag in the page).
+# Scoped to this path only — the rest of the site indexes normally.
+# ──────────────────────────────────────────────────────────────────
+
+/houston-med-spas
+  X-Robots-Tag: noindex, nofollow
+
+/houston-med-spas.html
+  X-Robots-Tag: noindex, nofollow
