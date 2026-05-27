@@ -465,3 +465,139 @@ details.faq-item summary::after {
 .article-wrap a.btn-secondary {
   text-decoration: none;
 }
+
+
+/* ════════════════════════════════════════════════════════════════════════
+   AVOXAN FX — 2026 motion layer
+     1. Three.js particle hero        (homepage only — canvas injected by JS)
+     2. Magnetic buttons + fluid hover (site-wide)
+     3. Cinematic scroll showcase      (case-study pages)
+   Every effect is a progressive enhancement and fully reduced-motion aware.
+   (Note: the global reduced-motion block above already neutralises transitions;
+    these extra guards keep behaviour explicit if that block ever changes.)
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* ── 1. Particle hero canvas ──────────────────────────────────────────── */
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;   /* decorative — never intercepts the CTA */
+}
+.hero > .hero-meta,
+.hero > .hero-title,
+.hero > .hero-grid { position: relative; z-index: 1; }
+.hero::after { z-index: 2; }   /* keep the floating price pill on top */
+
+/* ── 2. Magnetic + fluid hover micro-interactions ─────────────────────── */
+.magnetic {
+  /* Sub-300ms spring; JS sets the transform, CSS owns the easing */
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+.btn-primary.magnetic { position: relative; overflow: hidden; }
+.btn-primary.magnetic > * { position: relative; z-index: 1; }
+.btn-primary.magnetic::after {
+  content: '';
+  position: absolute;
+  left: var(--mx-pct, 50%);
+  top: var(--my-pct, 50%);
+  width: 180%;
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%) scale(0);
+  background: radial-gradient(circle, rgba(248, 243, 230, 0.32) 0%, rgba(248, 243, 230, 0) 60%);
+  opacity: 0;
+  transition: transform 0.28s ease, opacity 0.28s ease;
+  pointer-events: none;
+}
+.btn-primary.magnetic:hover::after { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+
+/* Fluid underline wipe for nav text links */
+.nav-links a:not(.nav-cta):not(.active) {
+  background-image: linear-gradient(var(--sienna), var(--sienna));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 2px;
+  transition: background-size 0.28s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s;
+}
+.nav-links a:not(.nav-cta):not(.active):hover {
+  background-size: 100% 2px;
+  opacity: 1;   /* beat the default hover-dim so the underline reads */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .magnetic { transition: none; transform: none !important; }
+  .btn-primary.magnetic::after { display: none; }
+  .nav-links a:not(.nav-cta):not(.active) { transition: none; background-size: 0 2px; }
+}
+
+/* ── 3. Cinematic scroll showcase (case study) ────────────────────────────
+   Default markup renders a clean static showcase (also the no-JS / reduced
+   -motion state). JS adds .is-cinematic to opt into the pinned, scrubbed run. */
+.cinematic { position: relative; }
+.cinematic-stage {
+  position: relative;   /* anchor the absolutely-positioned title overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 4rem 1.5rem;
+}
+.cinematic-figure {
+  position: relative;
+  margin: 0;
+  width: min(900px, 92vw);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px -40px rgba(20, 17, 15, 0.55);
+  will-change: transform;
+}
+.cinematic-figure img { display: block; width: 100%; height: auto; }
+/* Legibility scrim — always present (static fallback keeps title readable),
+   centre-weighted so the centred title sits on the darkest area. JS animates
+   --scrim from 0 -> 1 during the cinematic reveal. */
+.cinematic-figure::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center,
+              rgba(20, 17, 15, 0.55) 0%, rgba(20, 17, 15, 0.12) 72%);
+  opacity: var(--scrim, 0.5);
+  pointer-events: none;
+}
+.cinematic-title {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  pointer-events: none;
+}
+.cinematic-title .ct-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  color: rgba(242, 235, 220, 0.85);
+}
+.cinematic-title h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: clamp(1.6rem, 4.5vw, 3.4rem);
+  line-height: 1.05;
+  max-width: 18ch;
+  color: var(--cream);
+  text-shadow: 0 2px 24px rgba(20, 17, 15, 0.45);
+}
+/* Active (pinned) mode: full-height stage so the figure scales into the viewport */
+.cinematic.is-cinematic .cinematic-stage { min-height: 100vh; padding: 0; }
+@media (max-width: 767px) {
+  /* Mobile: JS never pins; keep a clean, statically scaled showcase */
+  .cinematic.is-cinematic .cinematic-stage { min-height: auto; padding: 2.5rem 1.25rem; }
+}

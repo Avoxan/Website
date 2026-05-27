@@ -201,3 +201,58 @@
     form.outerHTML = successHtml;
   }
 })();
+
+// Magnetic buttons + fluid hover micro-interactions
+//
+// Reusable: any element matching the selectors below gets a subtle "magnetic
+// pull" — it glides a few pixels toward the cursor while hovered and springs
+// back on leave. Primary buttons also get a cursor-following sheen (driven by
+// the --mx-pct / --my-pct custom properties; the visual lives in CSS).
+//
+// Guardrails:
+//   • Skipped entirely for touch / coarse pointers (no cursor to chase).
+//   • Skipped when the user prefers reduced motion.
+//   • Transform is the only animated property, capped under 300ms by the CSS
+//     transition, so it stays GPU-cheap and snappy on every page.
+(function () {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const coarse = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+  if (reduceMotion || coarse) return;
+
+  // strength = fraction of the cursor's offset the button travels (0–1).
+  // padding  = invisible margin around the element that still counts as "near".
+  function makeMagnetic(el, strength, padding) {
+    el.classList.add('magnetic');
+
+    function onMove(e) {
+      const r = el.getBoundingClientRect();
+      const cx = r.left + r.width / 2;
+      const cy = r.top + r.height / 2;
+      const dx = e.clientX - cx;
+      const dy = e.clientY - cy;
+      el.style.transform =
+        'translate(' + dx * strength + 'px,' + dy * strength + 'px)';
+      // Position the sheen where the cursor sits inside the button
+      el.style.setProperty('--mx-pct', ((e.clientX - r.left) / r.width) * 100 + '%');
+      el.style.setProperty('--my-pct', ((e.clientY - r.top) / r.height) * 100 + '%');
+    }
+    function reset() { el.style.transform = ''; }
+
+    // Listen on a padded zone so the pull begins just before the cursor arrives
+    el.addEventListener('pointerenter', () => {
+      el.addEventListener('pointermove', onMove);
+    });
+    el.addEventListener('pointerleave', () => {
+      el.removeEventListener('pointermove', onMove);
+      reset();
+    });
+    el.addEventListener('blur', reset);
+    void padding; // reserved for a future padded hit-zone; kept for clarity
+  }
+
+  // Buttons get a stronger pull; the nav CTA pill a slightly gentler one.
+  document.querySelectorAll('.btn-primary, .btn-secondary').forEach((el) =>
+    makeMagnetic(el, 0.28)
+  );
+  document.querySelectorAll('.nav-cta').forEach((el) => makeMagnetic(el, 0.2));
+})();
