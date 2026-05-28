@@ -57,7 +57,7 @@
     gap: 0.55rem;
     padding: 0.6rem 1.05rem 0.6rem 0.6rem;
     background: var(--avx-cream);
-    border: 1px solid var(--avx-line-strong);
+    border: 2px solid var(--avx-sienna);
     border-radius: 100px;
     cursor: pointer;
     font-family: 'JetBrains Mono', ui-monospace, monospace;
@@ -65,20 +65,23 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--avx-ink);
-    box-shadow: var(--avx-shadow);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    box-shadow: 0 12px 40px -8px rgba(192, 74, 31, 0.35), 0 4px 12px -4px rgba(192, 74, 31, 0.18);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
     -webkit-tap-highlight-color: transparent;
   }
-  .avx-launcher:hover { transform: translateY(-1px); background: #FBF6E9; }
+  .avx-launcher:hover {
+    transform: translateY(-1px);
+    background: #FBF6E9;
+    border-color: var(--avx-sienna-deep);
+  }
   .avx-launcher:active { transform: translateY(0); }
   .avx-launcher-mark {
-    width: 28px; height: 28px;
-    border-radius: 7px;
+    width: 26px; height: 35px;
     display: inline-flex; align-items: center; justify-content: center;
-    background: linear-gradient(135deg, #D55A2A 0%, #A8401B 100%);
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
+    background: transparent;
   }
-  .avx-launcher-mark svg { width: 18px; height: 18px; }
+  .avx-launcher-mark img,
+  .avx-launcher-mark svg { width: 100%; height: 100%; display: block; }
   .avx-launcher-dot {
     width: 6px; height: 6px;
     border-radius: 50%;
@@ -94,9 +97,9 @@
     width: 384px;
     max-height: min(640px, calc(100dvh - 3rem));
     background: var(--avx-cream);
-    border: 1px solid var(--avx-line-strong);
+    border: 2px solid var(--avx-sienna);
     border-radius: 14px;
-    box-shadow: var(--avx-shadow);
+    box-shadow: 0 12px 40px -8px rgba(192, 74, 31, 0.35), 0 4px 12px -4px rgba(192, 74, 31, 0.18);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -134,14 +137,13 @@
     flex-shrink: 0;
   }
   .avx-header-mark {
-    width: 32px; height: 32px;
-    border-radius: 8px;
+    width: 30px; height: 40px;
     display: inline-flex; align-items: center; justify-content: center;
-    background: linear-gradient(135deg, #D55A2A 0%, #A8401B 100%);
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
+    background: transparent;
     flex-shrink: 0;
   }
-  .avx-header-mark svg { width: 20px; height: 20px; }
+  .avx-header-mark img,
+  .avx-header-mark svg { width: 100%; height: 100%; display: block; }
   .avx-header-text { flex: 1; min-width: 0; }
   .avx-header-title {
     font-family: 'Fraunces', Georgia, serif;
@@ -371,13 +373,11 @@
   }
   `;
 
-  // ---------- Logo SVG -------------------------------------------------------
-  const LOGO_SVG = `<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M 9 32 L 18.5 8 L 21.5 8 L 14.5 32 Z" fill="#F2EBDC"/>
-    <path d="M 21.5 8 L 23.5 8 L 31 32 L 27 32 L 22 17 Z" fill="#F2EBDC"/>
-    <rect x="15.5" y="23.5" width="11" height="2" fill="#F2EBDC"/>
-    <circle cx="20" cy="5" r="1.4" fill="#F2EBDC"/>
-  </svg>`;
+  // ---------- Logo mark ------------------------------------------------------
+  // Uses the new Avoxan oval mark from /avoxan-logo.svg. Kept as an <img> so the
+  // brand asset stays the single source of truth — update the SVG once, every
+  // surface (nav, footer, favicon, chatbot) follows.
+  const LOGO_SVG = `<img src="/avoxan-logo.svg" alt="Avoxan" aria-hidden="true">`;
 
   const ARROW_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>`;
 
