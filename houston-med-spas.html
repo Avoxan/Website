@@ -266,10 +266,18 @@ section{padding:5rem 0}
 .pkg-eyebrow{font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:#e9a98b}
 .pkg-name{font-family:'Fraunces',serif; font-size:1.85rem; color:var(--cream); margin:.85rem 0 .5rem; line-height:1.12}
 .pkg-sub{color:rgba(242,235,220,.7); font-size:.98rem; line-height:1.5}
-.pkg-price-row{display:flex; align-items:baseline; gap:1.1rem; margin:1.6rem 0; padding:1.3rem 0; border-top:1px solid rgba(242,235,220,.14); border-bottom:1px solid rgba(242,235,220,.14)}
-.pkg-price{font-family:'Fraunces',serif; font-size:2.8rem; color:var(--cream); line-height:1; flex-shrink:0}
-.pkg-price .cur{color:#e9a98b; font-size:1.6rem; vertical-align:top; margin-right:1px}
-.pkg-price-note{font-size:.82rem; color:rgba(242,235,220,.6); line-height:1.45}
+.pkg-breakdown{margin:1.6rem 0 1.1rem; padding:1.3rem 0; border-top:1px solid rgba(242,235,220,.14); border-bottom:1px solid rgba(242,235,220,.14); display:flex; flex-direction:column; gap:.75rem}
+.pkg-line{display:flex; justify-content:space-between; align-items:baseline; gap:1rem; font-size:.95rem; color:rgba(242,235,220,.82)}
+.pkg-line .amt{font-family:'JetBrains Mono',monospace; color:var(--cream); flex-shrink:0}
+.pkg-line em{font-style:normal; font-size:.8rem; color:rgba(242,235,220,.5)}
+.pkg-line.add .label{color:#f0c9b3}
+.pkg-line.add .amt{color:#e9a98b}
+.pkg-line.total{margin-top:.5rem; padding-top:.85rem; border-top:1px solid rgba(242,235,220,.14); align-items:flex-end}
+.pkg-line.total .label{font-family:'Fraunces',serif; font-size:1.1rem; color:var(--cream)}
+.pkg-line.total .amt{font-family:'Fraunces',serif; font-size:2rem; line-height:1; color:var(--cream)}
+.pkg-line.total .amt .cur{color:#e9a98b; font-size:1.2rem; vertical-align:top; margin-right:1px}
+.pkg-flex-note{font-size:.82rem; color:rgba(242,235,220,.6); line-height:1.5; margin-bottom:1.7rem}
+.pkg-flex-note strong{color:var(--cream); font-weight:600}
 .pkg-list{list-style:none; display:flex; flex-direction:column; gap:.7rem; margin:0 0 1.9rem}
 .pkg-list li{display:flex; gap:.65rem; align-items:flex-start; font-size:.95rem; color:rgba(242,235,220,.9)}
 .pkg-list li::before{content:"✓"; color:#e9a98b; font-weight:700; flex-shrink:0}
@@ -287,12 +295,25 @@ section{padding:5rem 0}
 .addon-price{font-family:'JetBrains Mono',monospace; font-size:.82rem; color:var(--sienna); margin-top:.9rem; padding-top:.8rem; border-top:1px solid var(--line)}
 .pricing-foot{text-align:center; margin-top:2.6rem; font-size:.95rem; color:var(--ink-soft)}
 .pricing-foot a{color:var(--ink); text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--line-strong)}
+.pkg-combo-note{margin-top:.4rem; font-family:'JetBrains Mono',monospace; font-size:.7rem; letter-spacing:.04em; color:#e9a98b; line-height:1.55; text-align:center; margin-bottom:1.2rem}
+.care-plan{max-width:540px; margin:1.4rem auto 0; background:var(--accent-cream); border:1px solid var(--line); border-radius:18px; padding:1.8rem 2rem}
+.care-eyebrow{display:inline-flex; align-items:center; font-family:'JetBrains Mono',monospace; font-size:.64rem; letter-spacing:.16em; text-transform:uppercase; color:var(--sienna); background:rgba(192,74,31,.08); padding:.3rem .7rem; border-radius:999px; margin-bottom:1rem}
+.care-title{font-family:'Fraunces',serif; font-size:1.35rem; color:var(--ink); margin-bottom:.7rem; line-height:1.2}
+.care-desc{color:var(--ink-soft); font-size:.92rem; line-height:1.55; margin-bottom:.8rem}
+.care-list{list-style:none; display:flex; flex-direction:column; gap:.45rem; margin:.4rem 0 1rem}
+.care-list li{display:flex; gap:.55rem; align-items:flex-start; font-size:.9rem; color:var(--ink-soft)}
+.care-list li::before{content:"\2713"; color:var(--sienna); font-weight:700; flex-shrink:0}
+.care-price{font-family:'Fraunces',serif; font-size:1.25rem; color:var(--ink); margin:.6rem 0; padding:.9rem 0 .6rem; border-top:1px solid var(--line)}
+.care-price strong{color:var(--ink); font-weight:500}
+.care-price .per{font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--muted); margin-left:.4rem; letter-spacing:.04em}
+.care-note{font-size:.82rem; color:var(--muted); line-height:1.5}
 
 /* ---- Responsive ---- */
 @media(max-width:860px){
   .hero-grid,.problem-grid,.offer-header,.process-grid,.faq-grid{grid-template-columns:1fr; gap:2rem}
   .offer-stack,.why-grid,.guarantee-points,.t-row,.addons-grid{grid-template-columns:1fr}
   .pricing-card{padding:1.8rem}
+  .care-plan{padding:1.5rem 1.4rem}
   .pkg-price-row{flex-direction:column; gap:.6rem}
   .strip-inner{grid-template-columns:repeat(2,1fr); gap:1.5rem}
   .nav-links{display:none}
@@ -333,15 +354,7 @@ section{padding:5rem 0}
 <nav class="site-nav" aria-label="Primary">
   <div class="nav-inner">
     <a href="#top" class="logo" aria-label="Avoxan home">
-      <svg class="logo-mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Avoxan logo">
-        <defs><linearGradient id="logoBg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#D55A2A"/><stop offset="100%" stop-color="#A8401B"/></linearGradient></defs>
-        <rect x="0" y="0" width="40" height="40" rx="9" fill="url(#logoBg)"/>
-        <rect x="0.5" y="0.5" width="39" height="39" rx="8.5" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-        <path d="M 9 32 L 18.5 8 L 21.5 8 L 14.5 32 Z" fill="#F2EBDC"/>
-        <path d="M 21.5 8 L 23.5 8 L 31 32 L 27 32 L 22 17 Z" fill="#F2EBDC"/>
-        <rect x="15.5" y="23.5" width="11" height="2" fill="#F2EBDC"/>
-        <circle cx="20" cy="5" r="1.4" fill="#F2EBDC"/>
-      </svg>
+      <img class="logo-mark" src="/avoxan-logo.svg" alt="Avoxan" width="34" height="46">
       Avoxan
     </a>
     <a href="#book" class="nav-cta">Book a free audit →</a>
@@ -543,10 +556,13 @@ section{padding:5rem 0}
       <span class="pkg-eyebrow">The Med Spa Package</span>
       <h3 class="pkg-name">Premium Website + 24/7 AI Front Desk</h3>
       <p class="pkg-sub">One unified system that books your high-ticket treatments even when the front desk is closed.</p>
-      <div class="pkg-price-row">
-        <span class="pkg-price"><span class="cur">$</span>2,300</span>
-        <span class="pkg-price-note">Flat, one-time build price for the complete Website + AI Front Desk system. Pay 50% to start, 50% at launch — no surprise invoices.</span>
+      <div class="pkg-breakdown">
+        <div class="pkg-line"><span class="label">Base med spa website</span><span class="amt">$1,500</span></div>
+        <div class="pkg-line add"><span class="label">+ 24/7 AI Front Desk <em>— the chatbot</em></span><span class="amt">$800</span></div>
+        <div class="pkg-line total"><span class="label">Complete system</span><span class="amt"><span class="cur">$</span>2,300</span></div>
       </div>
+      <p class="pkg-combo-note">Avoxan's med spa combo — what we've found Houston spas actually need most, bundled into one flat fee.</p>
+      <p class="pkg-flex-note">Flat, one-time — pay 50% to start, 50% at launch. Prefer to start lean? Launch the website at <strong>$1,500</strong> and switch the AI Front Desk on whenever you're ready.</p>
       <ul class="pkg-list">
         <li>Premium, conversion-built med spa website</li>
         <li>24/7 AI Front Desk trained on your treatment menu</li>
@@ -557,6 +573,21 @@ section{padding:5rem 0}
       <a href="#book" class="btn-primary pkg-cta">Book your free audit
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
+    </div>
+
+    <div class="care-plan">
+      <span class="care-eyebrow">Optional · monthly</span>
+      <h3 class="care-title">One plan, zero hosting headaches.</h3>
+      <p class="care-desc">Your AI Front Desk needs hosting and AI tokens to run. Your website needs the usual security check-ins, backups, and small tweaks as your menu changes. You can absolutely pay those providers directly — but that's three or four separate logins, bills, and renewal dates to keep track of.</p>
+      <p class="care-desc">Don't want the headache? We bundle it all into one monthly plan:</p>
+      <ul class="care-list">
+        <li>Website hosting, SSL, and daily backups</li>
+        <li>AI Front Desk hosting and token usage</li>
+        <li>Security check-ins and updates</li>
+        <li>Small edits and AI tuning as your treatment menu changes</li>
+      </ul>
+      <p class="care-price"><strong>$199</strong><span class="per">/ month · cancel anytime</span></p>
+      <p class="care-note">You still own everything — your domain, your data, your accounts. The plan is convenience, not lock-in. If you'd rather manage hosting yourself, that's completely fine too.</p>
     </div>
 
     <div class="addons">
@@ -600,6 +631,12 @@ section{padding:5rem 0}
           <h4>Multi-location</h4>
           <p>Scale the site and AI Front Desk across every location you open.</p>
           <span class="addon-price">+ $500 / location</span>
+        </div>
+        <div class="addon">
+          <span class="addon-tag">+</span>
+          <h4>Off-page SEO</h4>
+          <p>Backlink building, local citations, and outreach to push your spa toward the top 5 in Houston search results.</p>
+          <span class="addon-price">$1,000 / month</span>
         </div>
       </div>
       <p class="pricing-foot">Not sure what you need? <a href="#book">Book a free audit</a> and we'll map it out together.</p>
@@ -733,15 +770,7 @@ section{padding:5rem 0}
   <div class="footer-grid">
     <div class="footer-brand">
       <a href="#top" class="logo" aria-label="Avoxan home">
-        <svg class="logo-mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Avoxan logo">
-          <defs><linearGradient id="logoBgF" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#D55A2A"/><stop offset="100%" stop-color="#A8401B"/></linearGradient></defs>
-          <rect x="0" y="0" width="40" height="40" rx="9" fill="url(#logoBgF)"/>
-          <rect x="0.5" y="0.5" width="39" height="39" rx="8.5" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-          <path d="M 9 32 L 18.5 8 L 21.5 8 L 14.5 32 Z" fill="#F2EBDC"/>
-          <path d="M 21.5 8 L 23.5 8 L 31 32 L 27 32 L 22 17 Z" fill="#F2EBDC"/>
-          <rect x="15.5" y="23.5" width="11" height="2" fill="#F2EBDC"/>
-          <circle cx="20" cy="5" r="1.4" fill="#F2EBDC"/>
-        </svg>
+        <img class="logo-mark" src="/avoxan-logo.svg" alt="Avoxan" width="34" height="46">
         Avoxan
       </a>
       <p>A Houston studio building premium websites with a 24/7 AI Front Desk built in — so med spas stop losing high-ticket bookings to a closed front desk.</p>
@@ -753,10 +782,13 @@ section{padding:5rem 0}
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Akarshan Digital LLC · Houston, Texas</span>
+    <span>© 2026 Avoxan LLC · Houston, Texas</span>
     <span>For med spas &amp; aesthetic clinics</span>
   </div>
 </footer>
+
+<!-- Avoxan AI chat widget (same script as the main site) -->
+<script src="/js/avoxan-chat.js" defer></script>
 
 </body>
 </html>

@@ -142,8 +142,8 @@ a:hover { color: var(--accent-hover); }
   color: var(--text) !important;
   gap: 0.6rem;
 }
-.logo .logo-mark { width: 36px; height: 36px; }
-/* Recolor the orange gradient stops to navy */
+.logo .logo-mark { width: 34px; height: 46px; }
+/* Old inline-SVG gradient overrides no longer needed — kept as no-ops in case any legacy markup remains */
 #logoBgnav stop:first-child,
 #logoBgfooter stop:first-child { stop-color: #2752C8; }
 #logoBgnav stop:last-child,

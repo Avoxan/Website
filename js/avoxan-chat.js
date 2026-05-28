@@ -12,7 +12,13 @@
   const API_PATH = '/api/chat';
   const STORAGE_KEY = 'avx_chat_v1';
   const MAX_HISTORY = 20;
-  const SUGGESTIONS = [
+  // Med spa landing page gets its own context + prompts; everywhere else is unchanged.
+  const IS_MEDSPA = /houston-med-spas/i.test(location.pathname);
+  const SUGGESTIONS = IS_MEDSPA ? [
+    "What's included in the $2,300?",
+    'Does it book into JaneApp or Zenoti?',
+    'How does the AI Front Desk work?'
+  ] : [
     "What's included in $1,500?",
     'How long does a build take?',
     'Webflow or WordPress for me?'
@@ -458,7 +464,7 @@
           <span class="avx-header-mark">${LOGO_SVG}</span>
           <div class="avx-header-text">
             <div class="avx-header-title">Ask Avoxan</div>
-            <div class="avx-header-sub">AI assistant · Trained on our writing</div>
+            <div class="avx-header-sub">${IS_MEDSPA ? 'AI assistant · For Houston med spas' : 'AI assistant · Trained on our writing'}</div>
           </div>
           <button class="avx-close" aria-label="Close chat" data-action="close">&times;</button>
         </header>
@@ -497,7 +503,9 @@
     introEl = document.createElement('div');
     introEl.className = 'avx-intro';
     introEl.innerHTML = `
-      <p class="avx-intro-line">Ask anything about pricing, process, or whether we're a fit. For real conversations, <a href="/contact">book a call</a>.</p>
+      <p class="avx-intro-line">${IS_MEDSPA
+        ? 'Ask about the AI Front Desk, pricing, or how it books into your JaneApp or Zenoti. For a walkthrough, <a href="#book">book a free audit</a>.'
+        : 'Ask anything about pricing, process, or whether we\'re a fit. For real conversations, <a href="/contact">book a call</a>.'}</p>
       <div class="avx-suggestions"></div>
     `;
     const sugBox = introEl.querySelector('.avx-suggestions');
@@ -601,7 +609,7 @@
       const res = await fetch(API_PATH, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: history.slice(-MAX_HISTORY) })
+        body: JSON.stringify({ messages: history.slice(-MAX_HISTORY), context: IS_MEDSPA ? 'medspa' : 'site' })
       });
 
       if (!res.ok || !res.body) {
