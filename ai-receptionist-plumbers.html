@@ -594,9 +594,11 @@
         </div>
 
         <div class="lp-field-row">
-          <label class="lp-field"><span>Website</span><input type="url" name="website" placeholder="https://yourbusiness.com"></label>
+          <label class="lp-field"><span>Email</span><input type="email" name="email" required autocomplete="email" placeholder="you@business.com"></label>
           <label class="lp-field"><span>Phone number</span><input type="tel" name="phone" required autocomplete="tel" placeholder="(713) 555-0182"></label>
         </div>
+
+        <label class="lp-field"><span>Website (optional)</span><input type="url" name="website" placeholder="https://yourbusiness.com"></label>
 
         <label class="lp-field">
           <span>Industry</span>
@@ -633,7 +635,14 @@
 
         <label class="lp-field">
           <span>Preferred demo time</span>
-          <input type="text" name="demo_time" placeholder="e.g. Weekday mornings, CT">
+          <select name="demo_time" required>
+            <option value="" selected disabled>Select a time</option>
+            <option>Weekday mornings</option>
+            <option>Weekday afternoons</option>
+            <option>Weekday evenings</option>
+            <option>Weekends</option>
+            <option>Flexible / anytime</option>
+          </select>
         </label>
 
         <button type="submit" class="btn-primary">Hear a Live Demo
@@ -654,5 +663,7 @@
     <span><a href="/">Avoxan</a> &middot; <a href="ai-receptionist">AI Receptionist</a> &middot; <a href="contact">Book a call</a></span>
   </div>
 </footer>
+
+<script src="js/avoxan.js"></script>
 </body>
 </html>

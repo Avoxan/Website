@@ -95,6 +95,7 @@
 .aire-bullets li { display:flex; align-items:flex-start; gap:0.7rem; font-size:0.98rem; line-height:1.4; color:var(--ink-soft); }
 .aire-tick { flex:0 0 auto; width:24px; height:24px; margin-top:1px; border-radius:50%; background:rgba(94,122,79,0.18); color:#4F6E45; display:inline-flex; align-items:center; justify-content:center; }
 .aire-tick svg { width:13px; height:13px; }
+.problem-list--fixed li { align-items:flex-start; gap:0.85rem; }
 .aire-form { background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(1.6rem,3vw,2.2rem); }
 .aire-field { display:block; margin-bottom:1.1rem; }
 .aire-field span { display:block; font-size:0.85rem; font-weight:500; color:var(--ink); margin-bottom:0.4rem; }
@@ -440,7 +441,7 @@
     <div class="heroA-copy">
       <span class="eyebrow">AI Front Desk · Voice</span>
       <h1>The call you miss is the <span class="italic">job you lose</span>.</h1>
-      <p class="deck">Avoxan answers missed and after-hours calls, talks to the caller, captures the details, and texts your team the lead. Use it as a standalone receptionist or pair it with your Avoxan website so phone calls and form leads land in one clean system.</p>
+      <p class="deck">Avoxan answers missed and after-hours calls, talks to the caller, captures the details, and texts your team the lead. Use it as a standalone receptionist or pair it with your website built by Avoxan so phone calls and form leads land in one clean system.</p>
       <div class="heroA-actions">
         <a href="#demo" class="btn-primary">Hear a Live Demo
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -456,7 +457,7 @@
   <div class="heroB-copy">
     <span class="eyebrow">AI Front Desk · Voice</span>
     <h1>The call you miss is the <span class="italic">job you lose</span>.</h1>
-    <p class="deck">Avoxan answers missed and after-hours calls, talks to the caller, captures the details, and texts your team the lead. Use it as a standalone receptionist or pair it with your Avoxan website so phone calls and form leads land in one clean system.</p>
+    <p class="deck">Avoxan answers missed and after-hours calls, talks to the caller, captures the details, and texts your team the lead. Use it as a standalone receptionist or pair it with your website built by Avoxan so phone calls and form leads land in one clean system.</p>
     <div class="heroB-actions">
       <a href="#demo" class="btn-primary">Hear a Live Demo
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -533,12 +534,12 @@
       <div class="problem-body">
         <p>Your team is on a job, with a client, in a treatment room, or closed for the night. The phone rings, nobody can answer, it rolls to voicemail, and most people don't leave one. They hang up and call the next name on the list. That caller is gone, and you never even knew they rang.</p>
         <p>For a service business, one missed call can be a booked job, a new patient, a consultation, or a high-value appointment. A handful of missed calls a week can quietly cost more than any software subscription.</p>
-        <ul class="problem-list">
-          <li><span class="x">✕</span> Calls that hit voicemail while you're working a job</li>
-          <li><span class="x">✕</span> After-hours and weekend callers you never hear from again</li>
-          <li><span class="x">✕</span> Leads who won't leave a message, they just move on</li>
-          <li><span class="x">✕</span> Spam and robocalls eating the few minutes you do have</li>
-          <li><span class="x">✕</span> No record of who called, when, or what they wanted</li>
+        <ul class="problem-list problem-list--fixed">
+          <li><span class="aire-tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Calls that used to hit voicemail while you're on a job now get answered live.</li>
+          <li><span class="aire-tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>After-hours and weekend callers get captured instead of slipping away.</li>
+          <li><span class="aire-tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Leads who'd never leave a message get caught and qualified.</li>
+          <li><span class="aire-tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Spam and robocalls get screened out, so they stop eating your time.</li>
+          <li><span class="aire-tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Every call gets logged, who rang, when, and what they wanted.</li>
         </ul>
       </div>
     </div>
@@ -562,7 +563,7 @@
       <div class="offer-item">
         <span class="num">01 · The call comes in</span>
         <h3>Your phone rings, the AI answers</h3>
-        <p>Calls forward to the AI on the schedule you set, only after hours, only when you don't pick up, or every call. It answers in under two rings, day or night.</p>
+        <p>Calls forward to the AI on the schedule you set, whether that's after hours, when you don't pick up, or for every call. It answers in under two rings, day or night.</p>
       </div>
       <div class="offer-item">
         <span class="num">02 · It talks like your business</span>
@@ -595,7 +596,7 @@
       <div class="why-card"><h3>Qualifies leads.</h3><p>It asks the questions you'd ask, type of job, location, timeline, budget range, so you can tell a real opportunity from a tire-kicker before you call back.</p></div>
       <div class="why-card"><h3>Captures after-hours calls.</h3><p>The 7pm "is anyone available tomorrow?" call no longer dies in voicemail. You wake up to a lead with full notes instead of a missed-call notification.</p></div>
       <div class="why-card"><h3>Screens the junk.</h3><p>Robocalls and spam get filtered out so your phone, and your text inbox, only fills up with people who might actually pay you.</p></div>
-      <div class="why-card"><h3>Works with your website.</h3><p>It plugs into the same lead system on the Avoxan site, contact form, WhatsApp, booking widget. Web visitor or phone caller, every lead lands in one place.</p></div>
+      <div class="why-card"><h3>Works with your website.</h3><p>It plugs into the same lead system on your Avoxan website, contact form, WhatsApp, booking widget. Web visitor or phone caller, every lead lands in one place.</p></div>
     </div>
   </div>
 </section>
@@ -610,8 +611,8 @@
       <h2 class="section-title">Don't take our word for it, <span class="italic">hear it answer</span>.</h2>
       <p class="demo-lede">Sixty seconds of the AI taking a real-style call: greeting, a couple of questions, capturing the job, and confirming a callback. Decide for yourself whether it sounds robotic.</p>
       <div class="hero-actions" style="margin-top:2.25rem;">
-        <a href="contact" class="btn-primary">
-          Hear a live demo
+        <a href="#book" class="btn-primary">
+          Want it to call you? Book a call
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -769,9 +770,11 @@
         </div>
 
         <div class="aire-row">
-          <label class="aire-field"><span>Website</span><input type="url" name="website" placeholder="https://yourbusiness.com"></label>
+          <label class="aire-field"><span>Email</span><input type="email" name="email" required autocomplete="email" placeholder="you@business.com"></label>
           <label class="aire-field"><span>Phone number</span><input type="tel" name="phone" required autocomplete="tel" placeholder="(713) 555-0182"></label>
         </div>
+
+        <label class="aire-field"><span>Website (optional)</span><input type="url" name="website" placeholder="https://yourbusiness.com"></label>
 
         <label class="aire-field">
           <span>Industry</span>
@@ -809,7 +812,14 @@
 
         <label class="aire-field">
           <span>Preferred demo time</span>
-          <input type="text" name="demo_time" placeholder="e.g. Weekday mornings, CT">
+          <select name="demo_time" required>
+            <option value="" selected disabled>Select a time</option>
+            <option>Weekday mornings</option>
+            <option>Weekday afternoons</option>
+            <option>Weekday evenings</option>
+            <option>Weekends</option>
+            <option>Flexible / anytime</option>
+          </select>
         </label>
 
         <button type="submit" class="btn-primary">Hear a Live Demo

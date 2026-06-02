@@ -283,6 +283,9 @@
   }
   .avx-demo-btn:hover { background: var(--avx-sienna-deep); transform: translateY(-1px); }
   .avx-demo-btn svg { width: 14px; height: 14px; }
+  /* Override the generic bot-link color so the button label stays white/visible */
+  .avx-msg-bot a.avx-demo-btn { color: #fff; text-decoration: none; }
+  .avx-msg-bot a.avx-demo-btn:hover { color: #fff; text-decoration: none; }
 
   /* Typing indicator */
   .avx-typing { display: inline-flex; gap: 4px; padding: 0.25rem 0; }
