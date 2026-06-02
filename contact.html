@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<title>Book a call — Calendly or send a note · Avoxan</title>
+<title>Book a call, Calendly or send a note · Avoxan</title>
 <meta name="description" content="Book a free 20-minute call with Avoxan via Calendly, or fill out a form and we'll reach out within one business day. 3 spots remaining for May 2026.">
 
 <meta name="author" content="Akarshan Digital LLC">
@@ -42,7 +42,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Avoxan">
-<meta property="og:title" content="Book a call — Calendly or send a note · Avoxan">
+<meta property="og:title" content="Book a call, Calendly or send a note · Avoxan">
 <meta property="og:description" content="Book a free 20-minute call with Avoxan via Calendly, or fill out a form and we'll reach out within one business day. 3 spots remaining for May 2026.">
 <meta property="og:url" content="https://avoxan.com/contact">
 <meta property="og:locale" content="en_US">
@@ -52,7 +52,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@avoxan">
-<meta name="twitter:title" content="Book a call — Calendly or send a note · Avoxan">
+<meta name="twitter:title" content="Book a call, Calendly or send a note · Avoxan">
 <meta name="twitter:description" content="Book a free 20-minute call with Avoxan via Calendly, or fill out a form and we'll reach out within one business day. 3 spots remaining for May 2026.">
 <meta name="twitter:image" content="https://avoxan.com/og-image.png">
 
@@ -97,6 +97,7 @@
     </a>
     <div class="nav-links" id="navLinks">
       <a href="services">Services</a>
+      <a href="ai-receptionist">AI Receptionist</a>
       <a href="pricing">Pricing</a>
       <a href="process">Process</a>
       <a href="work/">Work</a>
@@ -104,6 +105,7 @@
       <a href="faq">FAQ</a>
       <a href="contact" class="nav-cta">Book a call</a>
     </div>
+    <a href="ai-receptionist" class="ai-mobile-offer">AI Receptionist</a>
     <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
       <span></span><span></span><span></span>
     </button>
@@ -120,7 +122,7 @@
   <div class="container">
     <span class="section-label">Book a call</span>
     <h1>Twenty minutes. <span class="italic">No slide deck</span>. No sales pressure.</h1>
-    <p class="page-hero-deck">We'll ask about your business and tell you honestly whether a $1,500 Avoxan project is the right answer for you — or whether your money is better spent somewhere else. Either way you leave with a clearer picture.</p>
+    <p class="page-hero-deck">We'll ask about your business and tell you honestly whether a $1,500 Avoxan project is the right answer for you, or whether your money is better spent somewhere else. Either way you leave with a clearer picture.</p>
   </div>
 </section>
 
@@ -129,7 +131,7 @@
     <div class="contact-grid">
 
       <div class="booking-card">
-        <span class="contact-tag"><span class="dot"></span>Booking May 2026 — 3 spots left</span>
+        <span class="contact-tag"><span class="dot"></span>Booking May 2026, 3 spots left</span>
 
         <div class="booking-tabs" role="tablist" aria-label="Booking options">
           <button type="button"
@@ -154,7 +156,7 @@
 
         <!-- Panel 1: Calendly -->
         <div id="panel-calendly" class="booking-panel active" role="tabpanel" aria-labelledby="tab-calendly">
-          <p class="booking-panel-hint">Pick any 20-minute slot that works. You'll get a calendar invite within 2 minutes — no back-and-forth, no "what time zone are you in?"</p>
+          <p class="booking-panel-hint">Pick any 20-minute slot that works. You'll get a calendar invite within 2 minutes, no back-and-forth, no "what time zone are you in?"</p>
           <div class="calendly-shell">
             <!-- Calendly inline widget begin -->
             <div class="calendly-inline-widget"
@@ -167,22 +169,22 @@
 
         <!-- Panel 2: Reach-out form -->
         <div id="panel-form" class="booking-panel" role="tabpanel" aria-labelledby="tab-form" hidden>
-          <p class="booking-panel-hint">Don't see a slot that works, or prefer to start with a few notes by email? Fill this out and we'll reply within one business day — usually same day if it's a weekday.</p>
+          <p class="booking-panel-hint">Don't see a slot that works, or prefer to start with a few notes by email? Fill this out and we'll reply within one business day, usually same day if it's a weekday.</p>
 
           <!-- CLOUDFLARE PAGES FORMS WIRING NOTE:
                The form below POSTs to /api/contact, which is handled by
                the Pages Function at /functions/api/contact.js.
 
                When you deploy this site to Cloudflare Pages, the function
-               file is detected automatically — no build config needed.
+               file is detected automatically, no build config needed.
                The function forwards the submission to hello@avoxan.com
                via Resend (resend.com) and returns JSON.
 
                Required environment variables (set in your Cloudflare
                Pages dashboard → Settings → Environment variables):
-                 RESEND_API_KEY  — from resend.com → API Keys
-                 CONTACT_EMAIL   — defaults to hello@avoxan.com
-                 FROM_EMAIL      — defaults to "Avoxan <contact@avoxan.com>"
+                 RESEND_API_KEY , from resend.com → API Keys
+                 CONTACT_EMAIL  , defaults to hello@avoxan.com
+                 FROM_EMAIL     , defaults to "Avoxan <contact@avoxan.com>"
 
                If RESEND_API_KEY isn't set, the function still returns
                success and logs the submission to the Pages Functions log
@@ -198,8 +200,9 @@
                 method="POST"
                 action="/api/contact"
                 novalidate>
+            <input type="hidden" name="form_type" value="website_discovery">
 
-            <!-- Spam honeypot — hidden from real users; bots fill it and get filtered -->
+            <!-- Spam honeypot, hidden from real users; bots fill it and get filtered -->
             <p class="hp-field" aria-hidden="true">
               <label>Leave this field empty if you're human:
                 <input name="bot-field" tabindex="-1" autocomplete="off">
@@ -243,7 +246,7 @@
                 <span class="form-submit-label">Send the note</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </button>
-              <p class="form-note">Submissions go straight to our inbox. We reply within one business day. Nothing is added to a marketing list — ever.</p>
+              <p class="form-note">Submissions go straight to our inbox. We reply within one business day. Nothing is added to a marketing list, ever.</p>
               <p class="form-status" data-form-status hidden></p>
             </div>
           </form>
@@ -291,9 +294,9 @@
         <div class="side-card subtle">
           <h3>Who we're <em>not</em> a good fit for</h3>
           <ul>
-            <li>Pre-revenue startups — start on Squarespace, come back later</li>
-            <li>Heavy custom web apps — we do marketing sites, not SaaS</li>
-            <li>Brands needing 24/7 SLA support — get a bigger agency</li>
+            <li>Pre-revenue startups, start on Squarespace, come back later</li>
+            <li>Heavy custom web apps, we do marketing sites, not SaaS</li>
+            <li>Brands needing 24/7 SLA support, get a bigger agency</li>
           </ul>
         </div>
       </div>
@@ -350,6 +353,7 @@
       <h5>The work</h5>
       <ul>
         <li><a href="services">What you get</a></li>
+        <li><a href="ai-receptionist">AI Receptionist</a></li>
         <li><a href="pricing">Pricing</a></li>
         <li><a href="process">Process</a></li>
         <li><a href="work/">Case studies</a></li>
@@ -375,7 +379,7 @@
   </div>
   <div class="footer-bottom">
     <span>© 2026 Akarshan Digital LLC · Houston, Texas</span>
-    <span>Site hand-built — see <a href="work/avoxan-studio-site">how</a></span>
+    <span>Site hand-built, see <a href="work/avoxan-studio-site">how</a></span>
   </div>
 </footer>
 <script src="js/avoxan.js"></script>

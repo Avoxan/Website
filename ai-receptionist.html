@@ -1,0 +1,626 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>AI Phone Receptionist for Service Businesses | Avoxan</title>
+<meta name="description" content="Avoxan’s AI receptionist answers missed and after-hours calls, captures caller details, qualifies leads, and texts the summary to your team. Built for service businesses that can’t afford to miss calls.">
+
+<meta name="author" content="Akarshan Digital LLC">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="GPTBot" content="index, follow">
+<meta name="ChatGPT-User" content="index, follow">
+<meta name="PerplexityBot" content="index, follow">
+<meta name="ClaudeBot" content="index, follow">
+<meta name="Google-Extended" content="index, follow">
+
+<link rel="canonical" href="https://avoxan.com/ai-receptionist">
+
+<meta name="geo.region" content="US-TX">
+<meta name="geo.placename" content="Houston">
+<meta name="geo.position" content="29.7604;-95.3698">
+<meta name="ICBM" content="29.7604, -95.3698">
+
+<meta name="theme-color" content="#F2EBDC" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14110F" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-title" content="Avoxan">
+<meta name="application-name" content="Avoxan">
+<meta name="format-detection" content="telephone=no">
+
+<link rel="icon" type="image/svg+xml" href="avoxan-logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="msapplication-TileColor" content="#C04A1F">
+<meta name="msapplication-config" content="browserconfig.xml">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Avoxan">
+<meta property="og:title" content="AI Phone Receptionist for Service Businesses | Avoxan">
+<meta property="og:description" content="Avoxan’s AI receptionist answers missed and after-hours calls, captures caller details, qualifies leads, and texts the summary to your team. Built for service businesses that can’t afford to miss calls.">
+<meta property="og:url" content="https://avoxan.com/ai-receptionist">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://avoxan.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@avoxan">
+<meta name="twitter:title" content="AI Phone Receptionist for Service Businesses | Avoxan">
+<meta name="twitter:description" content="Avoxan’s AI receptionist answers missed and after-hours calls, captures caller details, qualifies leads, and texts the summary to your team. Built for service businesses that can’t afford to miss calls.">
+<meta name="twitter:image" content="https://avoxan.com/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/avoxan.css">
+<link rel="stylesheet" href="css/avoxan-refresh.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://avoxan.com/ai-receptionist#service",
+  "name": "AI Phone Receptionist",
+  "alternateName": "AI Front Desk · Voice",
+  "serviceType": "AI missed-call and after-hours answering service for service businesses",
+  "description": "Avoxan’s AI receptionist answers missed and after-hours calls, captures caller details, qualifies leads, and texts the summary to the business owner or team.",
+  "category": "Telephone answering service",
+  "areaServed": [{"@type": "Country", "name": "United States"}, {"@type": "Country", "name": "Canada"}, {"@type": "Country", "name": "United Kingdom"}, {"@type": "Country", "name": "Australia"}],
+  "audience": {"@type": "BusinessAudience", "name": "Service businesses, contractors, plumbers, HVAC companies, dentists, and local businesses that rely on phone calls"},
+  "provider": {"@id": "https://avoxan.com/#organization"},
+  "url": "https://avoxan.com/ai-receptionist"
+}
+</script>
+
+<style>
+/* Live-demo lead form (same form as the plumbers page) */
+.aire-book { background: linear-gradient(180deg, var(--cream-warm), var(--cream)); padding: clamp(3.5rem,8vw,6rem) 0; }
+.aire-wrap { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+.aire-eyebrow { font-family:'JetBrains Mono',monospace; font-size:0.74rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--sienna); font-weight:500; display:inline-block; margin-bottom:1.1rem; }
+.aire-h2 { font-family:'Fraunces',serif; font-size:clamp(2rem,4.5vw,3.2rem); line-height:1.04; letter-spacing:-0.03em; color:var(--ink); max-width:22ch; }
+.aire-h2 .italic { font-style:italic; }
+.aire-lede { font-size:clamp(1.05rem,1.3vw,1.2rem); line-height:1.6; color:var(--ink-soft); max-width:60ch; margin-top:1.2rem; }
+.aire-grid { display:grid; grid-template-columns:0.9fr 1.1fr; gap:clamp(2rem,5vw,4rem); align-items:start; margin-top:2.4rem; }
+.aire-bullets { list-style:none; margin:1.6rem 0 0; padding:0; display:grid; gap:0.85rem; }
+.aire-bullets li { display:flex; align-items:flex-start; gap:0.7rem; font-size:0.98rem; line-height:1.4; color:var(--ink-soft); }
+.aire-tick { flex:0 0 auto; width:24px; height:24px; margin-top:1px; border-radius:50%; background:rgba(94,122,79,0.18); color:#4F6E45; display:inline-flex; align-items:center; justify-content:center; }
+.aire-tick svg { width:13px; height:13px; }
+.aire-form { background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(1.6rem,3vw,2.2rem); }
+.aire-field { display:block; margin-bottom:1.1rem; }
+.aire-field span { display:block; font-size:0.85rem; font-weight:500; color:var(--ink); margin-bottom:0.4rem; }
+.aire-field input, .aire-field select { width:100%; font-family:'Geist',sans-serif; font-size:0.98rem; color:var(--ink); background:var(--cream); border:1px solid var(--line-strong); border-radius:10px; padding:0.8rem 0.9rem; }
+.aire-field input:focus, .aire-field select:focus { outline:2px solid var(--sienna); outline-offset:1px; border-color:transparent; }
+.aire-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.aire-hp { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+.aire-form .btn-primary { width:100%; justify-content:center; margin-top:0.5rem; }
+.aire-note { font-size:0.82rem; color:var(--muted); margin-top:0.9rem; line-height:1.5; }
+.aire-status { margin-top:0.9rem; font-size:0.9rem; font-weight:500; }
+@media (max-width:880px){ .aire-grid { grid-template-columns:1fr; } }
+@media (max-width:560px){ .aire-row { grid-template-columns:1fr; } }
+</style>
+</head>
+  <script src="/js/avoxan-chat.js" defer></script>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span><span class="dot"></span>Houston, TX</span>
+    <span>Booking May 2026 projects</span>
+    <span><span class="dot"></span>3 client slots remaining</span>
+    <span>AI receptionist that answers 24/7</span>
+    <span><span class="dot"></span>28-day money-back guarantee</span>
+    <span>Launching in 4 weeks or less</span>
+    <span><span class="dot"></span>Houston, TX</span>
+    <span>Booking May 2026 projects</span>
+    <span><span class="dot"></span>3 client slots remaining</span>
+    <span>AI receptionist that answers 24/7</span>
+    <span><span class="dot"></span>28-day money-back guarantee</span>
+    <span>Launching in 4 weeks or less</span>
+  </div>
+</div>
+
+<nav class="site-nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a href="/" class="logo" aria-label="Avoxan home">
+      <img class="logo-mark" src="/avoxan-logo.svg" alt="Avoxan" width="34" height="46">
+      Avoxan
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="services">Services</a>
+      <a href="ai-receptionist" class="active">AI Receptionist</a>
+      <a href="pricing">Pricing</a>
+      <a href="process">Process</a>
+      <a href="work/">Work</a>
+      <a href="blog/">Blog</a>
+      <a href="faq">FAQ</a>
+      <a href="contact" class="nav-cta">Book a call</a>
+    </div>
+    <a href="ai-receptionist" class="ai-mobile-offer">AI Receptionist</a>
+    <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/">Home</a>
+<span class="sep">/</span>
+<span class="here">AI Receptionist</span>
+</nav>
+
+<main id="main">
+
+<section class="heroA">
+  <!-- background video (poster shows until it plays / if reduced motion) -->
+  <div class="heroA-media">
+    <video autoplay muted loop playsinline poster="assets/hero-call-poster.jpg" preload="metadata" aria-hidden="true">
+      <source src="assets/hero-call.webm" type="video/webm">
+      <source src="assets/hero-call.mp4" type="video/mp4">
+    </video>
+    <img class="poster-fallback" src="assets/hero-call-poster.jpg" alt="A hand holding a phone as the AI receptionist answers an incoming call" loading="eager" fetchpriority="high" width="1364" height="768">
+  </div>
+  <div class="heroA-scrim" aria-hidden="true"></div>
+
+  <!-- floating proof card -->
+  <div class="proof-card card-pos" role="status">
+    <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+    <div class="ct"><div class="t">New lead captured</div><div class="d">Caller needs service · callback today</div></div>
+  </div>
+
+  <div class="heroA-inner">
+    <div class="heroA-copy">
+      <span class="eyebrow">AI Front Desk · Voice</span>
+      <h1>The call you miss is the <span class="italic">job you lose</span>.</h1>
+      <p class="deck">Avoxan answers missed and after-hours calls, talks to the caller, captures the details, and texts your team the lead. Use it as a standalone receptionist or pair it with your Avoxan website so phone calls and form leads land in one clean system.</p>
+      <div class="heroA-actions">
+        <a href="#demo" class="btn-primary">Hear a Live Demo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#how-it-works" class="btn-text">See How It Works</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Phone-only hero (shown ≤600px; tablet/desktop use .heroA above) -->
+<section class="heroB">
+  <div class="heroB-copy">
+    <span class="eyebrow">AI Front Desk · Voice</span>
+    <h1>The call you miss is the <span class="italic">job you lose</span>.</h1>
+    <p class="deck">Avoxan answers missed and after-hours calls, talks to the caller, captures the details, and texts your team the lead. Use it as a standalone receptionist or pair it with your Avoxan website so phone calls and form leads land in one clean system.</p>
+    <div class="heroB-actions">
+      <a href="#demo" class="btn-primary">Hear a Live Demo
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#how-it-works" class="btn-text">See How It Works</a>
+    </div>
+  </div>
+
+  <div class="heroB-visual">
+    <div class="phone">
+      <div class="phone-screen call">
+        <div class="ps-notch"></div>
+        <div class="call-top">
+          <div class="call-status">Incoming call</div>
+          <div class="call-from">Unknown · Houston, TX</div>
+        </div>
+        <div class="call-center">
+          <div class="call-ring">
+            <span class="call-dot"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          </div>
+          <div class="call-answering">Avoxan AI · answering…</div>
+        </div>
+        <div class="call-bottom">
+          <span class="call-btn decline"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <span class="call-btn answer"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- floating lead-captured card with caller info -->
+    <div class="lead-card">
+      <div class="lh"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Lead captured</div>
+      <div class="lead-row"><b>Name</b><span>Marcus Bell</span></div>
+      <div class="lead-row"><b>Phone</b><span>(713) 555-0182</span></div>
+      <div class="lead-row"><b>Address</b><span>Oak Forest, 77018</span></div>
+      <div class="lead-row"><b>Issue</b><span>Burst pipe under kitchen sink</span></div>
+      <div class="lead-foot">✓ Avoxan AI answers the call and then texts you, while you were at a job</div>
+    </div>
+  </div>
+</section>
+
+
+<div class="strip">
+  <div class="strip-inner">
+    <div class="strip-item">
+      <div class="strip-num">24/7<span class="small">.</span></div>
+      <div class="strip-label">Answers when active</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-num">&lt;2 rings<span class="small">.</span></div>
+      <div class="strip-label">Picks up fast</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-num">Backup<span class="small">.</span></div>
+      <div class="strip-label">For missed calls</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-num">Instant<span class="small">.</span></div>
+      <div class="strip-label">Text with the lead</div>
+    </div>
+  </div>
+</div>
+
+
+<section class="problem">
+  <div class="container">
+    <div class="problem-grid">
+      <div>
+        <div class="section-label">The honest part</div>
+        <h2 class="problem-title">
+          The call goes to voicemail, and the caller just <span class="italic underline">dials the next business</span>.
+        </h2>
+      </div>
+      <div class="problem-body">
+        <p>Your team is on a job, with a client, in a treatment room, or closed for the night. The phone rings, nobody can answer, it rolls to voicemail, and most people don't leave one. They hang up and call the next name on the list. That caller is gone, and you never even knew they rang.</p>
+        <p>For a service business, one missed call can be a booked job, a new patient, a consultation, or a high-value appointment. A handful of missed calls a week can quietly cost more than any software subscription.</p>
+        <ul class="problem-list">
+          <li><span class="x">✕</span> Calls that hit voicemail while you're working a job</li>
+          <li><span class="x">✕</span> After-hours and weekend callers you never hear from again</li>
+          <li><span class="x">✕</span> Leads who won't leave a message, they just move on</li>
+          <li><span class="x">✕</span> Spam and robocalls eating the few minutes you do have</li>
+          <li><span class="x">✕</span> No record of who called, when, or what they wanted</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="how-it-works">
+  <div class="container">
+    <div class="offer-header">
+      <div>
+        <div class="section-label">How it works</div>
+        <h2 class="section-title">It answers like your front desk, <span class="italic">without one</span>.</h2>
+      </div>
+      <p class="offer-intro">
+        No app for the caller to download, no menu to fight through. The phone rings, the AI picks up and talks like a person, gets what it needs, and hands you a clean lead. Four steps, start to finish.
+      </p>
+    </div>
+
+    <div class="offer-stack">
+      <div class="offer-item">
+        <span class="num">01 · The call comes in</span>
+        <h3>Your phone rings, the AI answers</h3>
+        <p>Calls forward to the AI on the schedule you set, only after hours, only when you don't pick up, or every call. It answers in under two rings, day or night.</p>
+      </div>
+      <div class="offer-item">
+        <span class="num">02 · It talks like your business</span>
+        <h3>Greets callers in your name</h3>
+        <p>"Thanks for calling [Your Business], how can I help?" It speaks naturally, answers common questions, and sounds like someone who works there, not a phone tree.</p>
+      </div>
+      <div class="offer-item">
+        <span class="num">03 · It captures &amp; qualifies</span>
+        <h3>Gets the job details that matter</h3>
+        <p>Name, number, what they need, where, and how urgent. It asks the qualifying questions you'd ask, so you know if it's a real job before you call back.</p>
+      </div>
+      <div class="offer-item">
+        <span class="num">04 · It books or texts you</span>
+        <h3>The lead lands in your pocket</h3>
+        <p>It can book into your calendar when connected, or simply text you the full lead the second the call ends. You ring back warm, with the details already in hand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <div class="container">
+    <div class="section-label">What it does</div>
+    <h2 class="section-title">One quiet backup for the calls <span class="italic">your team can't answer</span>.</h2>
+
+    <div class="why-grid">
+      <div class="why-card"><h3>Answers 24/7.</h3><p>Nights, weekends, holidays, or the middle of a job, it can pick up whenever you want it active. After-hours callers can turn into leads instead of dial tones.</p></div>
+      <div class="why-card"><h3>Can book appointments.</h3><p>When connected to your calendar or booking flow, it can help turn callers into confirmed appointments.</p></div>
+      <div class="why-card"><h3>Qualifies leads.</h3><p>It asks the questions you'd ask, type of job, location, timeline, budget range, so you can tell a real opportunity from a tire-kicker before you call back.</p></div>
+      <div class="why-card"><h3>Captures after-hours calls.</h3><p>The 7pm "is anyone available tomorrow?" call no longer dies in voicemail. You wake up to a lead with full notes instead of a missed-call notification.</p></div>
+      <div class="why-card"><h3>Screens the junk.</h3><p>Robocalls and spam get filtered out so your phone, and your text inbox, only fills up with people who might actually pay you.</p></div>
+      <div class="why-card"><h3>Works with your website.</h3><p>It plugs into the same lead system on the Avoxan site, contact form, WhatsApp, booking widget. Web visitor or phone caller, every lead lands in one place.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="problem demo-section" id="demo">
+  <div class="demo-glow" aria-hidden="true"></div>
+  <div class="container demo-inner">
+
+    <div class="demo-copy">
+      <div class="section-label">Hear it for yourself</div>
+      <h2 class="section-title">Don't take our word for it, <span class="italic">hear it answer</span>.</h2>
+      <p class="demo-lede">Sixty seconds of the AI taking a real-style call: greeting, a couple of questions, capturing the job, and confirming a callback. Decide for yourself whether it sounds robotic.</p>
+      <div class="hero-actions" style="margin-top:2.25rem;">
+        <a href="contact" class="btn-primary">
+          Want it to call you? Book a call
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- DEMO EMBED: replace this .demo-player card with the audio player / Loom embed -->
+    <div class="demo-player">
+      <div class="demo-player-head">
+        <span class="demo-live"><span class="demo-live-dot"></span>Live demo</span>
+        <span class="demo-duration">0:60</span>
+      </div>
+
+      <button class="demo-play" type="button" aria-label="Play the 60-second demo">
+        <span class="demo-play-pulse" aria-hidden="true"></span>
+        <svg class="demo-play-icon" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+
+      <div class="demo-wave" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="demo-caption">
+        <span class="demo-caption-tag">AI receptionist</span>
+        <p>"Thanks for calling, what can I help you with today?"</p>
+      </div>
+
+      <p class="demo-note">60-second demo clip, coming soon</p>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="ai-pricing-head">
+      <div class="section-label">Pricing</div>
+      <h2 class="section-title">Simple monthly pricing. <span class="italic">No contract.</span></h2>
+      <p class="ai-pricing-lede">Avoxan catches missed and after-hours calls, qualifies the caller, and sends the lead to your team instantly. One extra booked job can cover the month.</p>
+      <div class="ai-pricing-guarantee">
+        <strong>28-day money-back guarantee</strong>
+        <span>Month-to-month, no long-term contract.</span>
+      </div>
+    </div>
+
+    <div class="ai-solo">
+      <div class="ai-plan ai-plan--featured ai-plan--solo">
+        <span class="ai-plan-tag">Free AI receptionist setup for our founding clients</span>
+        <h3 class="ai-plan-name">Founding AI Receptionist Plan</h3>
+        <div class="ai-plan-price"><span class="ai-plan-cur">$</span><span data-ai-price="amount">397</span><span class="ai-plan-per">/month</span></div>
+
+        <div class="ai-guarantee-callout">
+          <strong>28-day money-back guarantee</strong>
+          <span>Try it on real calls. If it is not the right fit in the first 28 days, you can get a refund.</span>
+        </div>
+
+        <div class="ai-plan-mins">
+          <strong><span data-ai-price="minutes">500</span> AI receptionist minutes included each month</strong>
+          <span class="ai-tip" tabindex="0" role="note" aria-label="Includes up to 500 AI receptionist minutes per month. Most local service businesses stay within this. If you need more, we'll review options with you before any extra billing. No surprise charges.">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            <span class="ai-tip-pop">Includes up to 500 AI receptionist minutes per month. Most local service businesses stay within this. If you need more, we'll review options with you before any extra billing. No surprise charges.</span>
+          </span>
+        </div>
+
+        <ul class="ai-solo-list">
+          <li><span class="ai-tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>500 AI receptionist minutes / month</li>
+          <li><span class="ai-tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Missed-call answering</li>
+          <li><span class="ai-tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>After-hours answering</li>
+          <li><span class="ai-tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Lead qualification</li>
+          <li><span class="ai-tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Urgent call flagging</li>
+          <li><span class="ai-tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Instant call summaries</li>
+          <li><span class="ai-tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>No phone number change</li>
+          <li><span class="ai-tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>First-week call review</li>
+          <li><span class="ai-tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Month-to-month</li>
+          <li><span class="ai-tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>28-day money-back guarantee</li>
+        </ul>
+
+        <a href="#book" class="btn-primary ai-plan-cta">
+          Hear a Live Demo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <p class="ai-plan-subcta">No long-term contract. Cancel anytime.</p>
+      </div>
+
+      <p class="ai-solo-reassure">Most local service businesses stay within the included monthly usage. If your call volume grows, we'll review options with you first — no surprise billing.</p>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <div class="container">
+    <div class="section-label">Built for your trade</div>
+    <h2 class="section-title">Avoxan answers for <span class="italic">any business</span>. Some trades get their own page.</h2>
+    <p style="margin-top:1.5rem; max-width:62ch; color:var(--ink-soft); line-height:1.65;">The general receptionist works for many businesses. But plumbers have specific missed-call and emergency-call patterns, so we built a dedicated Houston plumber page with examples and pricing around that use case.</p>
+    <p style="margin-top:1.75rem;">
+      <a href="ai-receptionist-plumbers" class="btn-primary">
+        AI receptionist for Houston plumbers
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </p>
+    <p style="margin-top:1.1rem; font-size:0.9rem; color:var(--muted);">More trades coming soon. Don't see yours? It still works for you, just <a href="contact" style="color:var(--ink); text-decoration:underline; text-decoration-color:var(--line-strong);">book a call</a>.</p>
+  </div>
+</section>
+
+
+<section class="faq">
+  <div class="container">
+    <div class="faq-grid">
+      <div>
+        <div class="section-label">Questions</div>
+        <h2 class="section-title">What people ask <span class="italic">before turning it on</span>.</h2>
+        <p style="margin-top:1.5rem; color: var(--ink-soft); line-height:1.6;">Honest answers about how it sounds, what it can't do, and whether you even need a website to use it.</p>
+      </div>
+      <div>
+        <details class="faq-item"><summary>Does it sound robotic?</summary><div class="answer">No, that's the first thing people check, so it's the first thing we tuned. It uses a natural voice, pauses, and conversational phrasing. Most callers don't realize they're talking to an AI. The demo above is the honest test: listen and judge for yourself.</div></details>
+        <details class="faq-item"><summary>What if it can't answer something?</summary><div class="answer">It doesn't bluff. If a caller asks something outside what it knows, it takes a detailed message or escalates, it can forward to your cell or promise a callback and text you immediately. You're never trading a missed call for a wrong answer.</div></details>
+        <details class="faq-item"><summary>Do I need a website to use this?</summary><div class="answer">No. The receptionist works on its own with just your phone number. It pairs nicely with an Avoxan website, the two share one lead inbox, but plenty of businesses start with the receptionist alone and add a site later.</div></details>
+        <details class="faq-item"><summary>Is it really 24/7?</summary><div class="answer">Yes. It answers nights, weekends, and holidays with no shift to cover and no overtime. You decide whether it takes every call or only the ones you miss, but it's available around the clock either way.</div></details>
+        <details class="faq-item"><summary>Can I keep my current number?</summary><div class="answer">Yes. You keep your existing business number. We set up call forwarding so the AI answers on your terms, all calls, after-hours only, or just the ones you don't pick up. Nothing about your number changes for your customers.</div></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="aire-book" id="book">
+  <div class="aire-wrap">
+    <span class="aire-eyebrow">Book a live demo</span>
+    <h2 class="aire-h2">Hear how Avoxan would handle <span class="italic">your calls</span>.</h2>
+    <p class="aire-lede">Tell us a little about your business and we'll tailor the demo to the kind of calls you actually get. We reply within one business day.</p>
+
+    <div class="aire-grid">
+      <div>
+        <ul class="aire-bullets">
+          <li><span class="aire-tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Keep your existing phone number</li>
+          <li><span class="aire-tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>It only answers when you want it to</li>
+          <li><span class="aire-tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Month-to-month, 28-day money-back guarantee</li>
+          <li><span class="aire-tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Founding pricing for our first few clients</li>
+        </ul>
+      </div>
+
+      <form class="aire-form" data-form="ai-receptionist" method="POST" action="/api/contact" novalidate>
+        <input type="hidden" name="form_type" value="ai_receptionist">
+        <input type="hidden" name="source_page" value="/ai-receptionist">
+        <p class="aire-hp" aria-hidden="true">
+          <label>Leave this field empty if you're human:
+            <input name="bot-field" tabindex="-1" autocomplete="off">
+          </label>
+        </p>
+
+        <div class="aire-row">
+          <label class="aire-field"><span>Name</span><input type="text" name="name" required autocomplete="name" placeholder="Marcus Bell"></label>
+          <label class="aire-field"><span>Business name</span><input type="text" name="business" required placeholder="Bell Plumbing Co."></label>
+        </div>
+
+        <div class="aire-row">
+          <label class="aire-field"><span>Website</span><input type="url" name="website" placeholder="https://yourbusiness.com"></label>
+          <label class="aire-field"><span>Phone number</span><input type="tel" name="phone" required autocomplete="tel" placeholder="(713) 555-0182"></label>
+        </div>
+
+        <label class="aire-field">
+          <span>Industry</span>
+          <select name="industry" required>
+            <option value="" selected disabled>Select your industry</option>
+            <option>Plumbing</option>
+            <option>HVAC</option>
+            <option>Electrical</option>
+            <option>Dental</option>
+            <option>Other service business</option>
+          </select>
+        </label>
+
+        <label class="aire-field">
+          <span>Do you offer emergency or after-hours service?</span>
+          <select name="emergency_service" required>
+            <option value="" selected disabled>Select one</option>
+            <option>Yes, emergency &amp; after-hours</option>
+            <option>After-hours only</option>
+            <option>No</option>
+          </select>
+        </label>
+
+        <label class="aire-field">
+          <span>How many calls do you think you miss per week?</span>
+          <select name="missed_calls" required>
+            <option value="" selected disabled>Select a range</option>
+            <option>0–5</option>
+            <option>6–10</option>
+            <option>11–20</option>
+            <option>20+</option>
+            <option>Not sure</option>
+          </select>
+        </label>
+
+        <label class="aire-field">
+          <span>Preferred demo time</span>
+          <input type="text" name="demo_time" placeholder="e.g. Weekday mornings, CT">
+        </label>
+
+        <button type="submit" class="btn-primary">Hear a Live Demo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <p class="aire-note">Submissions go straight to our inbox. We reply within one business day. No marketing lists, ever.</p>
+        <p class="aire-status" data-form-status hidden></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<section class="final-cta" id="contact">
+  <h2>Stop losing the call that was a <span class="italic accent">paying job</span>.</h2>
+  <p>Book a 20-minute call. We'll walk through how many calls you're likely missing, let the AI call you so you can hear it, and tell you straight whether it's worth it for your business.</p>
+  <a href="contact" class="btn-primary">
+    Book a free 20-min call
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+  <div class="final-cta-pill"><span class="dot"></span>Works standalone or with your Avoxan website</div>
+</section>
+
+
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="/" class="logo" aria-label="Avoxan home">
+        <img class="logo-mark" src="/avoxan-logo.svg" alt="Avoxan" width="34" height="46">
+        Avoxan
+      </a>
+      <p>A small Houston web studio building conversion-focused websites for service businesses, coaches, and growing brands. One flat price. One predictable timeline.</p>
+    </div>
+    <div class="footer-col">
+      <h5>The work</h5>
+      <ul>
+        <li><a href="services">What you get</a></li>
+        <li><a href="ai-receptionist">AI Receptionist</a></li>
+        <li><a href="pricing">Pricing</a></li>
+        <li><a href="process">Process</a></li>
+        <li><a href="work/">Case studies</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Read</h5>
+      <ul>
+        <li><a href="blog/">Field notes</a></li>
+        <li><a href="blog/website-cost-2026">Website cost in 2026</a></li>
+        <li><a href="blog/local-seo-checklist">Local SEO checklist</a></li>
+        <li><a href="blog/ai-search-citation">Getting cited by AI</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Talk</h5>
+      <ul>
+        <li><a href="contact">Book a call</a></li>
+        <li><a href="faq">FAQ</a></li>
+        <li><a href="mailto:hello@avoxan.com">hello@avoxan.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Akarshan Digital LLC &middot; Houston, Texas</span>
+    <span>Site hand-built, see <a href="work/avoxan-studio-site">how</a></span>
+  </div>
+</footer>
+<script src="js/avoxan.js"></script>
+<script src="js/avoxan-ai-pricing.js" defer></script>
+</body>
+</html>

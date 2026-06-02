@@ -1,4 +1,4 @@
-/* AVOXAN — shared site scripts */
+/* AVOXAN - shared site scripts */
 
 // Mobile menu toggle
 (function () {
@@ -40,7 +40,7 @@
   els.forEach((el) => io.observe(el));
 })();
 
-// Reading progress bar (only if .reading-progress is on the page)
+// Reading progress bar
 (function () {
   const bar = document.querySelector('.reading-progress');
   if (!bar) return;
@@ -55,15 +55,10 @@
   onScroll();
 })();
 
-// Expandable process steps (process page)
-// We just toggle the parent's `data-open` attribute — visibility of the
-// .step-extra panel is then handled by CSS:
-//   .step.expandable[data-open="1"] .step-extra { display: block; ... }
-// This lets the CSS own the animation and avoids inline-style override.
+// Expandable process steps
 (function () {
   document.querySelectorAll('.step.expandable').forEach((step) => {
     step.addEventListener('click', (e) => {
-      // ignore clicks on links/buttons inside the step
       if (e.target.closest('a, button')) return;
       const open = step.dataset.open === '1';
       step.dataset.open = open ? '0' : '1';
@@ -71,20 +66,18 @@
   });
 })();
 
-// Contact-page booking widget — tab toggle (Calendly ↔ form)
+// Contact-page booking widget tab toggle
 (function () {
   const tabs = document.querySelectorAll('.booking-tab');
   if (!tabs.length) return;
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
       const targetId = tab.dataset.panel;
-      // toggle tab buttons
       tabs.forEach((t) => {
         const active = t === tab;
         t.classList.toggle('active', active);
         t.setAttribute('aria-selected', active ? 'true' : 'false');
       });
-      // toggle panels
       document.querySelectorAll('.booking-panel').forEach((p) => {
         const active = p.id === targetId;
         p.classList.toggle('active', active);
@@ -98,130 +91,114 @@
   });
 })();
 
-// Contact-page reach-out form — Cloudflare Pages Function submitter
-//
-// POSTs the form to /api/contact, which is handled by the Pages Function
-// at /functions/api/contact.js. The function parses the submission,
-// validates it, and forwards it to hello@avoxan.com via Resend.
-//
-// We use fetch() so the user gets an in-page success state instead of
-// a full navigation. The response is JSON: { ok: true } on success,
-// { ok: false, error: "..." } on validation/server errors.
-//
-// If JS fails entirely, the form falls back to a standard POST to
-// /api/contact and the function still receives the data — only the UI
-// experience changes (browser navigates to the JSON response).
+// Site forms - Cloudflare Pages Function submitter
 (function () {
-  const form = document.querySelector('form.contact-form[data-form="contact"]');
-  if (!form) return;
+  const forms = document.querySelectorAll('form[data-form][action="/api/contact"]');
+  if (!forms.length) return;
 
-  const status = form.querySelector('[data-form-status]');
-  const submitBtn = form.querySelector('.form-submit');
-  const submitLabel = form.querySelector('.form-submit-label');
+  forms.forEach((form) => {
+    const status = form.querySelector('[data-form-status]');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const submitLabel = form.querySelector('.form-submit-label');
+    const originalSubmitText = submitLabel ? submitLabel.textContent : '';
 
-  function setStatus(msg, kind) {
-    if (!status) return;
-    status.textContent = msg;
-    status.classList.remove('error', 'success');
-    if (kind) status.classList.add(kind);
-    status.hidden = false;
-  }
-
-  function setSubmitting(submitting) {
-    if (!submitBtn) return;
-    submitBtn.disabled = submitting;
-    if (submitLabel) {
-      submitLabel.textContent = submitting ? 'Sending…' : 'Send the note';
-    }
-  }
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    if (!form.reportValidity()) return;
-
-    const fd = new FormData(form);
-
-    // Honeypot — if filled, silently pretend success (don't tip off bots)
-    if ((fd.get('bot-field') || '').toString().trim()) {
-      showSuccessState();
-      return;
+    function setStatus(msg, kind) {
+      if (!status) return;
+      status.textContent = msg;
+      status.classList.remove('error', 'success');
+      if (kind) status.classList.add(kind);
+      status.hidden = false;
     }
 
-    setSubmitting(true);
-    setStatus('Sending…', 'success');
+    function setSubmitting(submitting) {
+      if (!submitBtn) return;
+      submitBtn.disabled = submitting;
+      submitBtn.setAttribute('aria-busy', submitting ? 'true' : 'false');
+      if (submitLabel) {
+        submitLabel.textContent = submitting ? 'Sending...' : originalSubmitText;
+      }
+    }
 
-    // POST FormData directly — Pages Function reads it via request.formData()
-    fetch('/api/contact', {
-      method: 'POST',
-      body: fd,
-      headers: { Accept: 'application/json' },
-    })
-      .then(async (res) => {
-        let data = null;
-        try { data = await res.json(); } catch { /* non-JSON response */ }
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
 
-        if (res.ok && data && data.ok) {
-          showSuccessState();
-          return;
-        }
+      const fd = new FormData(form);
 
-        // Server returned a specific error message — show it
-        const msg = (data && data.error)
-          ? data.error
-          : "Hmm, that didn't go through. Try once more — or email hello@avoxan.com directly.";
-        setSubmitting(false);
-        setStatus(msg, 'error');
+      if ((fd.get('bot-field') || '').toString().trim()) {
+        showSuccessState(form, status);
+        return;
+      }
+
+      setSubmitting(true);
+      setStatus('Sending...', 'success');
+
+      fetch(form.getAttribute('action') || '/api/contact', {
+        method: 'POST',
+        body: fd,
+        headers: { Accept: 'application/json' },
       })
-      .catch((err) => {
-        console.error('Form submission failed:', err);
-        setSubmitting(false);
-        setStatus(
-          "Network error — check your connection and try again, or email hello@avoxan.com directly.",
-          'error'
-        );
-      });
-  });
+        .then(async (res) => {
+          let data = null;
+          try { data = await res.json(); } catch { /* non-JSON response */ }
 
-  function showSuccessState() {
-    // Replace the form body with a success card. Keep the surrounding
-    // panel intact so the booking-card layout doesn't jump.
-    const successHtml = `
-      <div class="form-success" role="status" aria-live="polite">
-        <div class="form-success-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="11"></circle>
-            <path d="M7 12.5l3.5 3.5L17 9"></path>
-          </svg>
-        </div>
-        <h3>Got it — thanks for reaching out.</h3>
-        <p>We'll reply within one business day, usually same-day if it's a weekday. Check your spam folder if you haven't heard from us in 48 hours.</p>
-        <p class="form-success-foot">In the meantime, feel free to skim our <a href="work/index.html">case studies</a> or read the <a href="blog/index.html">field notes</a>.</p>
-      </div>
-    `;
-    form.outerHTML = successHtml;
-  }
+          if (res.ok && data && data.ok) {
+            showSuccessState(form, status);
+            return;
+          }
+
+          const msg = (data && data.error)
+            ? data.error
+            : "Hmm, that didn't go through. Try once more, or email hello@avoxan.com directly.";
+          setSubmitting(false);
+          setStatus(msg, 'error');
+        })
+        .catch((err) => {
+          console.error('Form submission failed:', err);
+          setSubmitting(false);
+          setStatus(
+            'Network error - check your connection and try again, or email hello@avoxan.com directly.',
+            'error'
+          );
+        });
+    });
+
+    function showSuccessState(formEl, statusEl) {
+      setSubmitting(false);
+
+      if (formEl.dataset.form === 'contact') {
+        const successHtml = `
+          <div class="form-success" role="status" aria-live="polite">
+            <div class="form-success-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="11"></circle>
+                <path d="M7 12.5l3.5 3.5L17 9"></path>
+              </svg>
+            </div>
+            <h3>Got it - thanks for reaching out.</h3>
+            <p>We'll reply within one business day, usually same-day if it's a weekday. Check your spam folder if you haven't heard from us in 48 hours.</p>
+            <p class="form-success-foot">In the meantime, feel free to skim our <a href="work/index.html">case studies</a> or read the <a href="blog/index.html">field notes</a>.</p>
+          </div>
+        `;
+        formEl.outerHTML = successHtml;
+        return;
+      }
+
+      formEl.reset();
+      if (statusEl) {
+        setStatus("Got it - thanks. We'll follow up shortly.", 'success');
+      }
+    }
+  });
 })();
 
 // Magnetic buttons + fluid hover micro-interactions
-//
-// Reusable: any element matching the selectors below gets a subtle "magnetic
-// pull" — it glides a few pixels toward the cursor while hovered and springs
-// back on leave. Primary buttons also get a cursor-following sheen (driven by
-// the --mx-pct / --my-pct custom properties; the visual lives in CSS).
-//
-// Guardrails:
-//   • Skipped entirely for touch / coarse pointers (no cursor to chase).
-//   • Skipped when the user prefers reduced motion.
-//   • Transform is the only animated property, capped under 300ms by the CSS
-//     transition, so it stays GPU-cheap and snappy on every page.
 (function () {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const coarse = window.matchMedia('(hover: none), (pointer: coarse)').matches;
   if (reduceMotion || coarse) return;
 
-  // strength = fraction of the cursor's offset the button travels (0–1).
-  // padding  = invisible margin around the element that still counts as "near".
-  function makeMagnetic(el, strength, padding) {
+  function makeMagnetic(el, strength) {
     el.classList.add('magnetic');
 
     function onMove(e) {
@@ -232,13 +209,14 @@
       const dy = e.clientY - cy;
       el.style.transform =
         'translate(' + dx * strength + 'px,' + dy * strength + 'px)';
-      // Position the sheen where the cursor sits inside the button
       el.style.setProperty('--mx-pct', ((e.clientX - r.left) / r.width) * 100 + '%');
       el.style.setProperty('--my-pct', ((e.clientY - r.top) / r.height) * 100 + '%');
     }
-    function reset() { el.style.transform = ''; }
 
-    // Listen on a padded zone so the pull begins just before the cursor arrives
+    function reset() {
+      el.style.transform = '';
+    }
+
     el.addEventListener('pointerenter', () => {
       el.addEventListener('pointermove', onMove);
     });
@@ -247,10 +225,8 @@
       reset();
     });
     el.addEventListener('blur', reset);
-    void padding; // reserved for a future padded hit-zone; kept for clarity
   }
 
-  // Buttons get a stronger pull; the nav CTA pill a slightly gentler one.
   document.querySelectorAll('.btn-primary, .btn-secondary').forEach((el) =>
     makeMagnetic(el, 0.28)
   );

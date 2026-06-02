@@ -12,16 +12,18 @@
   const API_PATH = '/api/chat';
   const STORAGE_KEY = 'avx_chat_v1';
   const MAX_HISTORY = 20;
-  // Med spa landing page gets its own context + prompts; everywhere else is unchanged.
-  const IS_MEDSPA = /houston-med-spas/i.test(location.pathname);
-  const SUGGESTIONS = IS_MEDSPA ? [
-    "What's included in the $2,300?",
-    'Does it book into JaneApp or Zenoti?',
-    'How does the AI Front Desk work?'
+  // AI receptionist pages (general + trade-specific) get receptionist-led prompts.
+  const IS_RECEPTIONIST = /ai-receptionist/i.test(location.pathname);
+  // Where the "Book a live demo" button points (the live-demo lead form).
+  const DEMO_FORM_URL = '/ai-receptionist#book';
+  const SUGGESTIONS = IS_RECEPTIONIST ? [
+    'How does the AI receptionist handle a missed call?',
+    'Do I need to change my phone number?',
+    'How much does the AI receptionist cost?'
   ] : [
+    'How does the Avoxan AI receptionist work?',
     "What's included in $1,500?",
-    'How long does a build take?',
-    'Webflow or WordPress for me?'
+    'Can it answer calls after hours?'
   ];
 
   // ---------- Styles ---------------------------------------------------------
@@ -268,6 +270,20 @@
   .avx-msg-bot ul, .avx-msg-bot ol { margin: 0.3rem 0 0.7rem 1.2rem; padding: 0; }
   .avx-msg-bot li { margin-bottom: 0.25rem; }
 
+  /* "Book a live demo" CTA button (shown when the AI nudges a demo) */
+  .avx-demo-btn {
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    margin-top: 0.6rem;
+    padding: 0.6rem 1.05rem;
+    background: var(--avx-sienna); color: #fff;
+    border-radius: 100px;
+    font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.85rem; font-weight: 600; text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .avx-demo-btn:hover { background: var(--avx-sienna-deep); transform: translateY(-1px); }
+  .avx-demo-btn svg { width: 14px; height: 14px; }
+
   /* Typing indicator */
   .avx-typing { display: inline-flex; gap: 4px; padding: 0.25rem 0; }
   .avx-typing span {
@@ -427,6 +443,19 @@
     if (inList) html += '</ul>';
     return html || '<p></p>';
   }
+  // Renders a bot message and turns the [[BOOK_DEMO]] token into a CTA button.
+  function renderBot(text) {
+    const hasDemo = text.indexOf('[[BOOK_DEMO]]') !== -1;
+    let clean = text.replace(/\[\[BOOK_DEMO\]\]/g, '');
+    clean = clean.replace(/\[\[[A-Z_]*$/, ''); // hide a partial token still streaming in
+    let html = renderMarkdown(clean.trim());
+    if (hasDemo) {
+      html += '<a class="avx-demo-btn" href="' + DEMO_FORM_URL + '">' +
+        '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>' +
+        'Book a live demo</a>';
+    }
+    return html;
+  }
   function inlineFormat(s) {
     return s
       // [text](url) — restrict to safe protocols / relative paths
@@ -464,7 +493,7 @@
           <span class="avx-header-mark">${LOGO_SVG}</span>
           <div class="avx-header-text">
             <div class="avx-header-title">Ask Avoxan</div>
-            <div class="avx-header-sub">${IS_MEDSPA ? 'AI assistant · For Houston med spas' : 'AI assistant · Trained on our writing'}</div>
+            <div class="avx-header-sub">AI assistant · Trained on our writing</div>
           </div>
           <button class="avx-close" aria-label="Close chat" data-action="close">&times;</button>
         </header>
@@ -503,9 +532,7 @@
     introEl = document.createElement('div');
     introEl.className = 'avx-intro';
     introEl.innerHTML = `
-      <p class="avx-intro-line">${IS_MEDSPA
-        ? 'Ask about the AI Front Desk, pricing, or how it books into your JaneApp or Zenoti. For a walkthrough, <a href="#book">book a free audit</a>.'
-        : 'Ask anything about pricing, process, or whether we\'re a fit. For real conversations, <a href="/contact">book a call</a>.'}</p>
+      <p class="avx-intro-line">Ask anything about pricing, process, or whether we're a fit. For real conversations, <a href="/contact">book a call</a>.</p>
       <div class="avx-suggestions"></div>
     `;
     const sugBox = introEl.querySelector('.avx-suggestions');
@@ -542,7 +569,7 @@
     if (role === 'user') {
       el.textContent = content;
     } else {
-      el.innerHTML = renderMarkdown(content);
+      el.innerHTML = renderBot(content);
     }
     if (animate) {
       el.style.opacity = '0';
@@ -609,7 +636,7 @@
       const res = await fetch(API_PATH, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: history.slice(-MAX_HISTORY), context: IS_MEDSPA ? 'medspa' : 'site' })
+        body: JSON.stringify({ messages: history.slice(-MAX_HISTORY), context: 'site' })
       });
 
       if (!res.ok || !res.body) {
@@ -651,7 +678,7 @@
                 thread.appendChild(botEl);
               }
               assistantText += chunk;
-              botEl.innerHTML = renderMarkdown(assistantText);
+              botEl.innerHTML = renderBot(assistantText);
               scrollToBottom();
             }
             // finish_reason on the last frame signals end; no special action needed

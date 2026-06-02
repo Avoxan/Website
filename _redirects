@@ -3,6 +3,8 @@
 # ──────────────────────────────────────────────────────────────────
 
 # ── Top-level pages (.html → extensionless)
+/ai-receptionist.html /ai-receptionist  301
+/ai-receptionist-plumbers.html /ai-receptionist-plumbers  301
 /services.html        /services        301
 /pricing.html         /pricing         301
 /process.html         /process         301

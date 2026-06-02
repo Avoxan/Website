@@ -1,126 +1,109 @@
 /**
- * /api/contact — Cloudflare Pages Function
- * ─────────────────────────────────────────────────────────────────────
- * Handles POST submissions from the contact form on /contact.html and
- * forwards them to hello@avoxan.com via the Resend transactional-email
- * API. Returns JSON so the page can show an in-place success/error
- * state without a navigation.
+ * /api/contact - Cloudflare Pages Function
  *
- * ─── ONE-TIME SETUP ──────────────────────────────────────────────────
- *   1. Sign up at https://resend.com (free tier: 3,000 emails/month,
- *      100/day — more than enough for a contact form).
- *   2. Add and verify the `avoxan.com` domain in Resend's dashboard.
- *      Resend will give you 3 DNS records (SPF, DKIM, return-path) —
- *      add them in Cloudflare DNS, click "Verify," done in <5 minutes.
- *   3. Create an API key in Resend → API Keys.
- *   4. In Cloudflare Pages dashboard → your site → Settings →
- *      Environment variables → add the following (set them on BOTH
- *      "Production" and "Preview" if you want previews to work):
- *
- *        RESEND_API_KEY   = re_xxxxxxxxxxxxxxxxxxx   (from step 3)
- *        CONTACT_EMAIL    = hello@avoxan.com         (where leads go)
- *        FROM_EMAIL       = Avoxan <contact@avoxan.com>
- *                                       (must be on the verified domain)
- *
- *   5. Redeploy. That's it.
- *
- * If RESEND_API_KEY is missing, the function still returns success to
- * the user (so the form never *looks* broken during setup) but logs the
- * submission to the Cloudflare Functions log — visible in your Pages
- * dashboard under Deployments → [deployment] → Functions → Real-time
- * logs. No submission is ever lost.
- * ─────────────────────────────────────────────────────────────────────
+ * Handles the website discovery form plus the AI receptionist forms, then
+ * sends the submission to the same Resend-powered inbox workflow.
  */
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const SUBJECT_PREFIX_BY_FORM = {
+  website_discovery: 'New Website Discovery Call Lead',
+  ai_receptionist: 'New AI Receptionist Lead',
+  ai_receptionist_plumbers: 'New Houston Plumber AI Receptionist Lead',
+};
+
+const FORM_TYPE_LABELS = {
+  website_discovery: 'Website discovery',
+  ai_receptionist: 'AI receptionist',
+  ai_receptionist_plumbers: 'Houston plumber AI receptionist',
+};
+
+const FIELD_LABELS = {
+  form_type: 'Form type',
+  source_page: 'Page/source',
+  name: 'Name',
+  business: 'Business name',
+  business_name: 'Business name',
+  company: 'Business name',
+  email: 'Email',
+  phone: 'Phone number',
+  website: 'Website',
+  industry: 'Industry',
+  emergency_service: 'Emergency / after-hours service',
+  missed_calls: 'Missed calls per week',
+  demo_time: 'Preferred demo time',
+  best_time: 'Best way/time',
+  message: 'Message',
+};
+
+const ORDERED_FIELDS = [
+  'form_type',
+  'source_page',
+  'name',
+  'business',
+  'business_name',
+  'company',
+  'email',
+  'phone',
+  'website',
+  'industry',
+  'emergency_service',
+  'missed_calls',
+  'demo_time',
+  'best_time',
+  'message',
+];
 
 export async function onRequestPost(context) {
   const { request, env } = context;
 
   let formData;
   try {
-    // Accept both multipart/form-data and application/x-www-form-urlencoded
     formData = await request.formData();
   } catch (err) {
     return json({ ok: false, error: 'Invalid form data' }, 400);
   }
 
-  // Honeypot — bots that fill every input get silently dropped.
-  // Returning success keeps the bot from retrying.
+  // Honeypot: bots that fill every field get silently dropped.
   if ((formData.get('bot-field') || '').toString().trim()) {
     return json({ ok: true });
   }
 
-  // Pull and trim every field
-  const name     = (formData.get('name')      || '').toString().trim();
-  const email    = (formData.get('email')     || '').toString().trim();
-  const phone    = (formData.get('phone')     || '').toString().trim();
-  const website  = (formData.get('website')   || '').toString().trim();
-  const bestTime = (formData.get('best_time') || '').toString().trim();
-  const message  = (formData.get('message')   || '').toString().trim();
-
-  // Server-side validation (don't trust client-side `required` alone)
-  if (!name || !email || !message) {
-    return json(
-      { ok: false, error: 'Name, email, and message are required.' },
-      400
-    );
-  }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    return json({ ok: false, error: 'That email address looks off.' }, 400);
-  }
-  if (message.length > 5000) {
-    return json({ ok: false, error: 'Message is too long (5000 chars max).' }, 400);
+  const fields = collectFields(formData);
+  const validationError = validateSubmission(fields);
+  if (validationError) {
+    return json({ ok: false, error: validationError }, 400);
   }
 
-  // Build readable email bodies
-  const subject = `New Avoxan inquiry — ${name}`;
-  const textBody = [
-    `New inquiry from ${name}`,
-    '',
-    `Email:           ${email}`,
-    phone    ? `Phone:           ${phone}`             : null,
-    website  ? `Website:         ${website}`           : null,
-    bestTime ? `Best to reach:   ${bestTime}`          : null,
-    '',
-    'Message',
-    '─────────────────────────',
-    message,
-    '─────────────────────────',
-    '',
-    'Sent from avoxan.com/contact',
-    `Submitted: ${new Date().toISOString()}`,
-  ].filter((l) => l !== null).join('\n');
+  const formType = fields.form_type || 'unknown';
+  const name = fields.name || '';
+  const business = fields.business || fields.business_name || fields.company || '';
+  const subjectName = business || name || 'Unknown';
+  const subject = buildSubject(formType, subjectName);
+  const submittedAt = new Date();
+  const textBody = buildTextBody(subject, fields, submittedAt);
+  const htmlBody = buildHtmlBody(subject, fields, submittedAt);
 
-  const htmlBody = `
-    <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:560px;color:#14110f;line-height:1.55;">
-      <h2 style="font-family:Georgia,serif;font-weight:500;font-size:22px;border-bottom:2px solid #C04A1F;padding-bottom:10px;margin:0 0 18px;">
-        New inquiry from ${esc(name)}
-      </h2>
-      <table style="width:100%;border-collapse:collapse;margin-bottom:20px;font-size:14px;">
-        <tr><td style="padding:6px 14px 6px 0;color:#6b6661;width:130px;">Email</td>
-            <td><a href="mailto:${esc(email)}" style="color:#14110f;">${esc(email)}</a></td></tr>
-        ${phone    ? `<tr><td style="padding:6px 14px 6px 0;color:#6b6661;">Phone</td><td>${esc(phone)}</td></tr>` : ''}
-        ${website  ? `<tr><td style="padding:6px 14px 6px 0;color:#6b6661;">Website</td><td><a href="${esc(website)}" style="color:#14110f;">${esc(website)}</a></td></tr>` : ''}
-        ${bestTime ? `<tr><td style="padding:6px 14px 6px 0;color:#6b6661;">Best to reach</td><td>${esc(bestTime)}</td></tr>` : ''}
-      </table>
-      <h3 style="font-family:Georgia,serif;font-weight:500;font-size:16px;margin:0 0 10px;color:#14110f;">Message</h3>
-      <div style="white-space:pre-wrap;background:#F2EBDC;padding:16px 18px;border-left:3px solid #C04A1F;border-radius:4px;font-size:14px;line-height:1.6;">${esc(message)}</div>
-      <p style="color:#9a958f;font-size:12px;margin-top:24px;">
-        Sent from avoxan.com/contact · ${new Date().toUTCString()}
-      </p>
-    </div>
-  `;
-
-  // If RESEND_API_KEY is missing, log and return success.
-  // This keeps the form working during initial deploy / before Resend
-  // is configured — submissions appear in the Pages Functions log.
   if (!env.RESEND_API_KEY) {
-    console.log('[contact] RESEND_API_KEY not set — logging submission:');
+    console.log('[contact] RESEND_API_KEY not set - logging submission:');
     console.log(textBody);
     return json({ ok: true, mode: 'logged' });
   }
 
-  const toEmail   = env.CONTACT_EMAIL || 'hello@avoxan.com';
-  const fromEmail = env.FROM_EMAIL    || 'Avoxan <contact@avoxan.com>';
+  const toEmail = env.CONTACT_EMAIL || 'hello@avoxan.com';
+  const fromEmail = env.FROM_EMAIL || 'Avoxan <contact@avoxan.com>';
+  const payload = {
+    from: fromEmail,
+    to: [toEmail],
+    subject,
+    text: textBody,
+    html: htmlBody,
+  };
+
+  if (fields.email && EMAIL_RE.test(fields.email)) {
+    payload.reply_to = fields.email;
+  }
 
   try {
     const res = await fetch('https://api.resend.com/emails', {
@@ -129,24 +112,16 @@ export async function onRequestPost(context) {
         Authorization: `Bearer ${env.RESEND_API_KEY}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        from: fromEmail,
-        to: [toEmail],
-        reply_to: email,
-        subject,
-        text: textBody,
-        html: htmlBody,
-      }),
+      body: JSON.stringify(payload),
     });
 
     if (!res.ok) {
       const body = await res.text();
       console.error('[contact] Resend API error', res.status, body);
-      // We still got the data — log it so nothing is lost.
       console.log('[contact] Lost-email submission body:');
       console.log(textBody);
       return json(
-        { ok: false, error: "Couldn't reach the mail server — try again, or just email hello@avoxan.com directly." },
+        { ok: false, error: "Couldn't reach the mail server - try again, or just email hello@avoxan.com directly." },
         502
       );
     }
@@ -163,11 +138,145 @@ export async function onRequestPost(context) {
   }
 }
 
-// Block all other HTTP methods cleanly
 export const onRequestGet = () =>
   json({ ok: false, error: 'POST only' }, 405);
 
-// ─── helpers ─────────────────────────────────────────────────────────
+function collectFields(formData) {
+  const fields = {};
+
+  for (const [key, rawValue] of formData.entries()) {
+    if (key === 'bot-field') continue;
+
+    const value = String(rawValue || '').trim();
+    if (Object.prototype.hasOwnProperty.call(fields, key)) {
+      fields[key] = [fields[key], value].filter(Boolean).join(', ');
+    } else {
+      fields[key] = value;
+    }
+  }
+
+  return fields;
+}
+
+function validateSubmission(fields) {
+  const formType = fields.form_type || 'unknown';
+  const name = fields.name || '';
+  const business = fields.business || fields.business_name || fields.company || '';
+  const email = fields.email || '';
+  const phone = fields.phone || '';
+  const message = fields.message || '';
+
+  if (formType === 'website_discovery') {
+    if (!name || !email || !message) {
+      return 'Name, email, and message are required.';
+    }
+  } else if (formType === 'ai_receptionist' || formType === 'ai_receptionist_plumbers') {
+    if (!name || !business || !phone) {
+      return 'Name, business name, and phone number are required.';
+    }
+  } else if (!name && !business) {
+    return 'Name or business name is required.';
+  }
+
+  if (email && !EMAIL_RE.test(email)) {
+    return 'That email address looks off.';
+  }
+
+  if (message.length > 5000) {
+    return 'Message is too long (5000 chars max).';
+  }
+
+  return null;
+}
+
+function buildSubject(formType, subjectName) {
+  const prefix = SUBJECT_PREFIX_BY_FORM[formType];
+  if (prefix) return `${prefix}: ${subjectName}`;
+  return `New Avoxan Form Submission: ${subjectName}`;
+}
+
+function buildTextBody(subject, fields, submittedAt) {
+  const lines = [
+    subject,
+    '',
+    ...orderedFieldKeys(fields).map((key) => `${fieldLabel(key)}: ${displayValue(key, fields[key])}`),
+    '',
+    `Submitted: ${submittedAt.toISOString()}`,
+  ];
+
+  return lines.join('\n');
+}
+
+function buildHtmlBody(subject, fields, submittedAt) {
+  const rows = orderedFieldKeys(fields).map((key) => `
+        <tr>
+          <td style="padding:7px 14px 7px 0;color:#6b6661;width:170px;vertical-align:top;">${esc(fieldLabel(key))}</td>
+          <td style="padding:7px 0;vertical-align:top;">${formatHtmlValue(key, fields[key])}</td>
+        </tr>
+  `).join('');
+
+  return `
+    <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:640px;color:#14110f;line-height:1.55;">
+      <h2 style="font-family:Georgia,serif;font-weight:500;font-size:22px;border-bottom:2px solid #C04A1F;padding-bottom:10px;margin:0 0 18px;">
+        ${esc(subject)}
+      </h2>
+      <table style="width:100%;border-collapse:collapse;margin-bottom:20px;font-size:14px;">
+        ${rows}
+      </table>
+      <p style="color:#9a958f;font-size:12px;margin-top:24px;">
+        Submitted ${esc(submittedAt.toUTCString())}
+      </p>
+    </div>
+  `;
+}
+
+function orderedFieldKeys(fields) {
+  const seen = new Set();
+  const keys = [];
+
+  ORDERED_FIELDS.forEach((key) => {
+    if (Object.prototype.hasOwnProperty.call(fields, key)) {
+      keys.push(key);
+      seen.add(key);
+    }
+  });
+
+  Object.keys(fields).forEach((key) => {
+    if (!seen.has(key)) keys.push(key);
+  });
+
+  return keys;
+}
+
+function fieldLabel(key) {
+  return FIELD_LABELS[key] || key
+    .replace(/[_-]+/g, ' ')
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+function displayValue(key, value) {
+  if (key === 'form_type') {
+    return FORM_TYPE_LABELS[value] || value || 'Not provided';
+  }
+  return value || 'Not provided';
+}
+
+function formatHtmlValue(key, value) {
+  const display = displayValue(key, value);
+  if (!value) return `<span style="color:#9a958f;">${esc(display)}</span>`;
+
+  if (key === 'email' && EMAIL_RE.test(value)) {
+    return `<a href="mailto:${esc(value)}" style="color:#14110f;">${esc(value)}</a>`;
+  }
+
+  if (key === 'website') {
+    const href = /^https?:\/\//i.test(value) ? value : `https://${value}`;
+    return `<a href="${esc(href)}" style="color:#14110f;">${esc(value)}</a>`;
+  }
+
+  return `<span style="white-space:pre-wrap;">${esc(display)}</span>`;
+}
+
 function json(payload, status = 200) {
   return new Response(JSON.stringify(payload), {
     status,
@@ -180,6 +289,10 @@ function json(payload, status = 200) {
 
 function esc(s) {
   return String(s).replace(/[&<>"']/g, (c) => ({
-    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;',
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;',
   }[c]));
 }
