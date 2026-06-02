@@ -62,8 +62,8 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/avoxan.css">
-<link rel="stylesheet" href="css/avoxan-refresh.css">
+<link rel="stylesheet" href="css/avoxan.css?v=20260602">
+<link rel="stylesheet" href="css/avoxan-refresh.css?v=20260602-hero">
 
 <script type="application/ld+json">
 {
@@ -107,6 +107,264 @@
 .aire-status { margin-top:0.9rem; font-size:0.9rem; font-weight:500; }
 @media (max-width:880px){ .aire-grid { grid-template-columns:1fr; } }
 @media (max-width:560px){ .aire-row { grid-template-columns:1fr; } }
+
+/* Critical AI receptionist hero CSS, inlined so the live page cannot collapse if refresh CSS is cached or delayed. */
+.heroA {
+  position: relative;
+  width: 100%;
+  min-height: clamp(560px, 82vh, 860px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #7d4426;
+}
+.heroA-media { position: absolute; inset: 0; z-index: 0; }
+.heroA-media video,
+.heroA-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
+  display: block;
+}
+.heroA-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(20,17,15,.78) 0%, rgba(20,17,15,.55) 32%, rgba(20,17,15,.12) 58%, rgba(20,17,15,0) 75%),
+    linear-gradient(0deg, rgba(20,17,15,.35) 0%, rgba(20,17,15,0) 40%);
+}
+.heroA-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 2rem;
+}
+.heroA-copy { max-width: 36rem; color: var(--cream); }
+.heroA .eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .78rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #F0A073;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+.heroA h1 {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: "opsz" 144, "SOFT" 30, "wght" 400;
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  line-height: .95;
+  letter-spacing: -.04em;
+  margin-bottom: 1.5rem;
+  color: #FBF4E8;
+}
+.heroA h1 .italic {
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 80, "wght" 350;
+  color: #E8722F;
+}
+.heroA .deck {
+  font-size: clamp(1.05rem, 1.3vw, 1.22rem);
+  line-height: 1.55;
+  color: rgba(248,243,230,.86);
+  max-width: 40ch;
+  margin-bottom: 2.25rem;
+}
+.heroA-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+.heroA .btn-text {
+  color: #FBF4E8;
+  text-decoration: underline;
+  text-decoration-color: rgba(251,244,232,.4);
+  text-underline-offset: 4px;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.heroA .proof-card {
+  position: absolute;
+  z-index: 3;
+  background: #FBF7EF;
+  border-radius: 16px;
+  padding: .95rem 1.1rem;
+  box-shadow: 0 18px 45px -15px rgba(0,0,0,.5);
+  display: flex;
+  gap: .7rem;
+  align-items: flex-start;
+  width: min(17rem, 80%);
+  border: 1px solid rgba(255,255,255,.7);
+  opacity: 0;
+  animation: heroAFloatIn .7s cubic-bezier(.2,.7,.3,1) forwards .5s,
+             heroADrift 6s ease-in-out infinite 1.5s;
+}
+.heroA .proof-card .ic {
+  flex: 0 0 auto;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(46,160,90,.15);
+}
+.heroA .proof-card .ic svg { width: 1rem; height: 1rem; stroke: #2EA05A; }
+.heroA .proof-card .ct .t { font-weight: 600; font-size: .92rem; color: var(--ink); line-height: 1.2; }
+.heroA .proof-card .ct .d { font-size: .78rem; color: var(--muted); line-height: 1.35; margin-top: .2rem; }
+.heroA .card-pos { right: 6%; top: 14%; }
+@keyframes heroAFloatIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes heroADrift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+.heroA-media .poster-fallback { display: none; }
+
+.heroB { display: none; }
+@media (max-width: 600px) {
+  .heroA { display: none; }
+  .heroB { display: flex; }
+}
+.heroB {
+  position: relative;
+  margin: 1rem;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #2a1610;
+  min-height: 182vw;
+  flex-direction: column;
+}
+.heroB::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(120% 65% at 70% 90%, #C04A1F 0%, #8E3514 40%, #3a1d12 75%, #2a1610 100%);
+}
+.heroB::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(20,13,9,.97) 0%, rgba(20,13,9,.95) 40%, rgba(20,13,9,.55) 55%, rgba(20,13,9,.08) 70%, rgba(20,13,9,0) 80%);
+}
+.heroB-copy { position: relative; z-index: 3; padding: 2.5rem 1.5rem 1.25rem; }
+.heroB .eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .74rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #F0A073;
+  font-weight: 500;
+  display: inline-block;
+  margin-bottom: 1.1rem;
+}
+.heroB h1 {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: "opsz" 144, "SOFT" 30, "wght" 400;
+  font-size: clamp(2.3rem, 9vw, 3rem);
+  line-height: .98;
+  letter-spacing: -.03em;
+  color: #FFF7EC;
+  margin-bottom: 1.1rem;
+}
+.heroB h1 .italic {
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 80, "wght" 350;
+  color: #E8722F;
+}
+.heroB .deck {
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: rgba(255,247,236,.9);
+  margin-bottom: 1.75rem;
+}
+.heroB-actions { display: flex; flex-direction: column; gap: 1rem; align-items: flex-start; }
+.heroB .btn-text {
+  color: #FFF7EC;
+  text-decoration: underline;
+  text-decoration-color: rgba(255,247,236,.5);
+  text-underline-offset: 4px;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.heroB-visual {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 1.5rem 2.5rem;
+}
+.heroB .phone {
+  position: relative;
+  width: min(15rem, 62%);
+  aspect-ratio: 9 / 19.5;
+  background: #0c0a09;
+  border-radius: 34px;
+  border: 3px solid #2c2622;
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,.6);
+  padding: .5rem;
+  overflow: hidden;
+}
+.heroB .phone-screen {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(170deg, #161210, #0d0a08);
+  border-radius: 26px;
+  display: flex;
+  flex-direction: column;
+  padding: 1.1rem .8rem .8rem;
+  color: #fff;
+  position: relative;
+}
+.heroB .phone-screen.call { justify-content: space-between; align-items: center; padding: 2.4rem .8rem 1.4rem; text-align: center; }
+.heroB .call-top { margin-top: .6rem; }
+.heroB .call-status { font-family: 'JetBrains Mono', monospace; font-size: .66rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); }
+.heroB .call-from { font-size: .92rem; font-weight: 600; color: #fff; margin-top: .4rem; }
+.heroB .call-center { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+.heroB .call-ring { width: 4.6rem; height: 4.6rem; border-radius: 50%; background: rgba(46,160,90,.12); display: flex; align-items: center; justify-content: center; position: relative; }
+.heroB .call-ring::before, .heroB .call-ring::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid rgba(46,160,90,.45); animation: cpulse 2.4s ease-out infinite; }
+.heroB .call-ring::after { animation-delay: 1.2s; }
+@keyframes cpulse { 0% { transform: scale(1); opacity: .7; } 100% { transform: scale(1.9); opacity: 0; } }
+.heroB .call-dot { width: 2.7rem; height: 2.7rem; border-radius: 50%; background: #2EA05A; display: flex; align-items: center; justify-content: center; }
+.heroB .call-dot svg { width: 1.4rem; height: 1.4rem; }
+.heroB .call-answering { font-size: .74rem; color: rgba(255,255,255,.6); font-family: 'Geist', sans-serif; }
+.heroB .call-bottom { display: flex; gap: 2.4rem; margin-bottom: .4rem; }
+.heroB .call-btn { width: 2.6rem; height: 2.6rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.heroB .call-btn svg { width: 1.2rem; height: 1.2rem; }
+.heroB .call-btn.decline { background: #E5484D; transform: rotate(135deg); }
+.heroB .call-btn.answer { background: #2EA05A; }
+.heroB .lead-card {
+  position: absolute;
+  z-index: 4;
+  left: 1.1rem;
+  bottom: 1.1rem;
+  background: #FBF7EF;
+  border-radius: 16px;
+  padding: .9rem 1rem;
+  box-shadow: 0 20px 48px -16px rgba(0,0,0,.55);
+  width: min(15rem, 66%);
+  opacity: 0;
+  animation: heroBFloatIn .7s cubic-bezier(.2,.7,.3,1) forwards .6s;
+}
+.heroB .lead-card .lh { display: flex; align-items: center; gap: .4rem; font-weight: 700; font-size: .84rem; color: var(--ink); margin-bottom: .55rem; }
+.heroB .lead-card .lh .chk { width: 1.2rem; height: 1.2rem; border-radius: 50%; background: #2EA05A; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+.heroB .lead-card .lh .chk svg { width: .68rem; height: .68rem; stroke: #fff; }
+.heroB .lead-row { display: flex; gap: .45rem; font-size: .72rem; line-height: 1.5; }
+.heroB .lead-row b { color: var(--muted); font-weight: 600; min-width: 3.2rem; flex: 0 0 auto; }
+.heroB .lead-row span { color: var(--ink-soft); }
+.heroB .lead-foot { margin-top: .6rem; padding-top: .5rem; border-top: 1px solid var(--line); font-size: .66rem; color: #2EA05A; font-weight: 500; }
+@keyframes heroBFloatIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+  .heroA-media video { display: none; }
+  .heroA-media .poster-fallback { display: block; }
+  .heroA .proof-card,
+  .heroB .lead-card { opacity: 1; animation: none; }
+  .heroB .call-ring::before,
+  .heroB .call-ring::after { animation: none; }
+}
 </style>
 </head>
   <script src="/js/avoxan-chat.js" defer></script>
