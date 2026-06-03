@@ -198,13 +198,13 @@
   display: flex;
   gap: .6rem;
   align-items: center;
-  width: min(13rem, 72%);
+  width: min(15rem, 78%);
   border: 1px solid rgba(94,107,79,.32);
   opacity: 0;
   animation: heroAFloatIn .7s cubic-bezier(.2,.7,.3,1) forwards .5s,
              heroADrift 7s ease-in-out infinite 1.5s;
 }
-.heroA .proof-card .ic {
+.heroA .proof-card .lh {
   flex: 0 0 auto;
   width: 24px;
   height: 24px;
@@ -214,10 +214,16 @@
   justify-content: center;
   background: var(--sage);
 }
-.heroA .proof-card .ic svg { width: .75rem; height: .75rem; stroke: #fff; }
-.heroA .proof-card .ct .t { font-family: 'Fraunces', serif; font-weight: 500; font-size: .88rem; color: var(--ink); line-height: 1.2; }
-.heroA .proof-card .ct .d { font-size: .72rem; color: var(--muted); line-height: 1.3; margin-top: .12rem; }
-.heroA .card-pos { right: 6%; top: 14%; }
+.heroA .proof-card .lh .chk { display: flex; align-items: center; justify-content: center; }
+.heroA .proof-card .lh .chk svg { width: .75rem; height: .75rem; stroke: #fff; }
+.heroA .proof-card .lead-copy { font-size: .72rem; color: var(--muted); line-height: 1.35; }
+.heroA .proof-card .lead-copy strong { display: block; font-family: 'Fraunces', serif; font-size: .88rem; color: var(--ink); font-weight: 500; line-height: 1.2; }
+.heroA .proof-card .lead-foot { display: block; margin-top: .18rem; font-family: 'JetBrains Mono', monospace; font-size: .56rem; color: var(--sage); }
+.heroA .proof-card .lead-alert { color: #C04A1F; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.heroA .card-pos { right: clamp(3rem, 28vw, 44rem); top: 14%; }
+@media (max-width: 960px) {
+  .heroA .card-pos { right: 2rem; top: 10%; }
+}
 @keyframes heroAFloatIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes heroADrift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(11px); } }
 .heroA-media .poster-fallback { display: none; }
@@ -301,7 +307,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem 1.5rem .75rem;
+  overflow: visible;
+  padding: 2rem 1.5rem 3.4rem;
 }
 .heroB .phone {
   position: relative;
@@ -346,8 +353,8 @@
 .heroB .lead-card {
   position: absolute;
   z-index: 4;
-  right: 1rem;
-  bottom: .65rem;
+  right: max(.85rem, calc(50% - 7.2rem));
+  bottom: 1rem;
   display: flex;
   align-items: center;
   gap: .6rem;
@@ -356,18 +363,36 @@
   border-radius: 13px;
   padding: .7rem .85rem;
   box-shadow: 0 20px 36px -12px rgba(20,17,15,.32);
-  width: min(13rem, 70%);
+  width: min(14rem, 78vw);
   animation: heroBCardFloat 7s ease-in-out .8s infinite;
 }
 .heroB .lead-card .lh { display: flex; align-items: center; justify-content: center; flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; background: var(--sage); }
 .heroB .lead-card .lh .chk { display: flex; align-items: center; justify-content: center; }
 .heroB .lead-card .lh .chk svg { width: .75rem; height: .75rem; stroke: #fff; }
-.heroB .lead-card .lead-copy { font-size: .72rem; color: var(--muted); line-height: 1.3; }
+.heroB .lead-card .lead-copy { font-size: .72rem; color: var(--muted); line-height: 1.35; }
 .heroB .lead-card .lead-copy strong { display: block; font-family: 'Fraunces', serif; font-size: .88rem; color: var(--ink); font-weight: 500; line-height: 1.2; }
 .heroB .lead-foot { display: block; margin-top: .18rem; font-family: 'JetBrains Mono', monospace; font-size: .56rem; color: var(--sage); }
+.heroB .lead-alert { color: #C04A1F; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 @keyframes heroBFloatIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes heroBPhoneFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-13px); } }
 @keyframes heroBCardFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(11px); } }
+@media (max-width: 600px) {
+  .heroB-visual { padding: 2rem 1.25rem 4.9rem; }
+  .heroB .lead-card {
+    display: flex !important;
+    left: 50%;
+    right: auto;
+    bottom: 1.25rem;
+    width: min(15rem, calc(100% - 2rem));
+    opacity: 1;
+    transform: translateX(-50%);
+    animation: heroBMobileCardFloat 7s ease-in-out .8s infinite;
+  }
+}
+@keyframes heroBMobileCardFloat {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(11px); }
+}
 @media (prefers-reduced-motion: reduce) {
   .heroA-media video { display: none; }
   .heroA-media .poster-fallback { display: block; }
@@ -444,8 +469,12 @@
 
   <!-- floating proof card -->
   <div class="proof-card card-pos" role="status">
-    <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-    <div class="ct"><div class="t">New lead captured</div><div class="d">Caller needs service · callback today</div></div>
+    <div class="lh" aria-hidden="true"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></div>
+    <div class="lead-copy">
+      <strong>New lead captured</strong>
+      Burst pipe under kitchen sink · Oak Forest, 77018
+      <span class="lead-foot"><span class="lead-alert">Emergency</span> callback ASAP</span>
+    </div>
   </div>
 
   <div class="heroA-inner">
@@ -503,8 +532,8 @@
       <div class="lh" aria-hidden="true"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></div>
       <div class="lead-copy">
         <strong>New lead captured</strong>
-        Caller needs service · callback today
-        <span class="lead-foot">Text sent to your team</span>
+        Burst pipe under kitchen sink · Oak Forest, 77018
+        <span class="lead-foot"><span class="lead-alert">Emergency</span> callback ASAP</span>
       </div>
     </div>
   </div>
@@ -620,7 +649,7 @@
     <div class="demo-copy">
       <div class="section-label">Hear it for yourself</div>
       <h2 class="section-title">Don't take our word for it, <span class="italic">hear it answer</span>.</h2>
-      <p class="demo-lede">Sixty seconds of the AI taking a real-style call: greeting, a couple of questions, capturing the job, and confirming a callback. Decide for yourself whether it sounds robotic.</p>
+      <p class="demo-lede">Sixty seconds of the AI taking a real-style call: greeting, a couple of questions, capturing the job, and confirming a callback. See for yourself how it handles a live call.</p>
       <div class="hero-actions" style="margin-top:2.25rem;">
         <a href="#book" class="btn-primary">
           Book a Free Demo
@@ -725,7 +754,7 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </p>
-    <p style="margin-top:1.1rem; font-size:0.9rem; color:var(--muted);">More trades coming soon. Don't see yours? It still works for you, just <a href="contact" style="color:var(--ink); text-decoration:underline; text-decoration-color:var(--line-strong);">book a call</a>.</p>
+    <p style="margin-top:1.1rem; font-size:0.9rem; color:var(--muted);">More trades coming soon. Don't see yours? It still works for you, just <a href="#book" style="color:var(--ink); text-decoration:underline; text-decoration-color:var(--line-strong);">book a call</a>.</p>
   </div>
 </section>
 
@@ -739,7 +768,7 @@
         <p style="margin-top:1.5rem; color: var(--ink-soft); line-height:1.6;">Honest answers about how it sounds, what it can't do, and whether you even need a website to use it.</p>
       </div>
       <div>
-        <details class="faq-item"><summary>Does it sound robotic?</summary><div class="answer">No, that's the first thing people check, so it's the first thing we tuned. It uses a natural voice, pauses, and conversational phrasing. Most callers don't realize they're talking to an AI. The demo above is the honest test: listen and judge for yourself.</div></details>
+        <details class="faq-item"><summary>Does it sound robotic?</summary><div class="answer">Avoxan is designed to sound natural, professional, and clear with natural conversational pauses. Its job is not to pretend to be human. Its job is to answer quickly, collect the right details, and help your team follow up faster.</div></details>
         <details class="faq-item"><summary>What if it can't answer something?</summary><div class="answer">It doesn't bluff. If a caller asks something outside what it knows, it takes a detailed message or escalates, it can forward to your cell or promise a callback and text you immediately. You're never trading a missed call for a wrong answer.</div></details>
         <details class="faq-item"><summary>Do I need a website to use this?</summary><div class="answer">No. The receptionist works on its own with just your phone number. It pairs nicely with an Avoxan website, the two share one lead inbox, but plenty of businesses start with the receptionist alone and add a site later.</div></details>
         <details class="faq-item"><summary>Is it really 24/7?</summary><div class="answer">Yes. It answers nights, weekends, and holidays with no shift to cover and no overtime. You decide whether it takes every call or only the ones you miss, but it's available around the clock either way.</div></details>
