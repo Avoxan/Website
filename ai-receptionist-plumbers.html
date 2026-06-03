@@ -188,6 +188,8 @@
 .lp-wave span:nth-child(odd){ animation-duration:0.9s; }
 .lp-wave span:nth-child(3n){ animation-duration:1.3s; }
 @keyframes lpWave { 0%,100%{transform:scaleY(0.35);opacity:0.7} 50%{transform:scaleY(1);opacity:1} }
+.lp-wave span { animation-play-state:paused; }
+.lp-player.is-playing .lp-wave span { animation-play-state:running; }
 .lp-player-note { margin-top:1rem; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:rgba(248,243,230,0.5); }
 .lp-audio-cta { margin-top:1.8rem; display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; }
 .lp-audio .lp-btn-secondary { color:#FBF4E8; text-decoration-color:rgba(251,244,232,0.4); }
@@ -291,13 +293,13 @@
     <span><span class="dot"></span>Keep your current number</span>
     <span>Answers missed &amp; after-hours calls</span>
     <span><span class="dot"></span>28-day money-back guarantee</span>
-    <span>Built for plumbers, HVAC &amp; electricians</span>
+    <span>Built for plumbers</span>
     <span><span class="dot"></span>Houston, TX</span>
     <span>Founding client pricing · limited spots</span>
     <span><span class="dot"></span>Keep your current number</span>
     <span>Answers missed &amp; after-hours calls</span>
     <span><span class="dot"></span>28-day money-back guarantee</span>
-    <span>Built for plumbers, HVAC &amp; electricians</span>
+    <span>Built for plumbers</span>
   </div>
 </div>
 
@@ -387,6 +389,7 @@
 
     <!-- AUDIO EMBED: replace this .lp-player block with an <audio controls> tag or a hosted player embed -->
     <div class="lp-player">
+      <audio class="lp-audio-el" preload="metadata" src="/assets/ai-receptionist-voice.mp3"></audio>
       <button class="lp-player-play" type="button" aria-label="Play the sample call">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
       </button>
@@ -394,7 +397,7 @@
         <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
     </div>
-    <p class="lp-player-note">Sample call · audio coming soon</p>
+    <p class="lp-player-note">Sample call · tap play to listen</p>
 
     <div class="lp-audio-cta">
       <a href="#book" class="btn-primary">Hear a Live Demo
@@ -456,7 +459,7 @@
       <div class="lp-card">
         <span class="lp-card-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 20h20L12 2z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>
         <h3>Emergency Flagging</h3>
-        <p>Marks urgent calls like burst pipes, active leaks, no hot water, or electrical issues.</p>
+        <p>Marks urgent calls like burst pipes, active leaks, no hot water, or sewer backups.</p>
       </div>
       <div class="lp-card">
         <span class="lp-card-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H7l-3 3V4z"/></svg></span>
@@ -665,5 +668,20 @@
 </footer>
 
 <script src="js/avoxan.js"></script>
+<script>
+(function () {
+  var player = document.querySelector('.lp-player');
+  if (!player) return;
+  var audio = player.querySelector('.lp-audio-el');
+  var btn = player.querySelector('.lp-player-play');
+  var path = btn ? btn.querySelector('svg path') : null;
+  if (!audio || !btn) return;
+  var PLAY = 'M8 5v14l11-7z', PAUSE = 'M7 5h3.4v14H7zM13.6 5H17v14h-3.4z';
+  btn.addEventListener('click', function(){ if (audio.paused) audio.play(); else audio.pause(); });
+  audio.addEventListener('play', function(){ player.classList.add('is-playing'); if (path) path.setAttribute('d', PAUSE); btn.setAttribute('aria-label', 'Pause the sample call'); });
+  audio.addEventListener('pause', function(){ player.classList.remove('is-playing'); if (path) path.setAttribute('d', PLAY); btn.setAttribute('aria-label', 'Play the sample call'); });
+  audio.addEventListener('ended', function(){ player.classList.remove('is-playing'); if (path) path.setAttribute('d', PLAY); audio.currentTime = 0; });
+})();
+</script>
 </body>
 </html>

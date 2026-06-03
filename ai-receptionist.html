@@ -96,6 +96,8 @@
 .aire-tick { flex:0 0 auto; width:24px; height:24px; margin-top:1px; border-radius:50%; background:rgba(94,122,79,0.18); color:#4F6E45; display:inline-flex; align-items:center; justify-content:center; }
 .aire-tick svg { width:13px; height:13px; }
 .problem-list--fixed li { align-items:flex-start; gap:0.85rem; }
+.demo-wave span { animation-play-state: paused; }
+.demo-player.is-playing .demo-wave span { animation-play-state: running; }
 .aire-form { background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(1.6rem,3vw,2.2rem); }
 .aire-field { display:block; margin-bottom:1.1rem; }
 .aire-field span { display:block; font-size:0.85rem; font-weight:500; color:var(--ink); margin-bottom:0.4rem; }
@@ -618,14 +620,14 @@
       </div>
     </div>
 
-    <!-- DEMO EMBED: replace this .demo-player card with the audio player / Loom embed -->
     <div class="demo-player">
+      <audio class="demo-audio" preload="metadata" src="/assets/ai-receptionist-voice.mp3"></audio>
       <div class="demo-player-head">
         <span class="demo-live"><span class="demo-live-dot"></span>Live demo</span>
-        <span class="demo-duration">0:60</span>
+        <span class="demo-duration">1:19</span>
       </div>
 
-      <button class="demo-play" type="button" aria-label="Play the 60-second demo">
+      <button class="demo-play" type="button" aria-label="Play the demo call">
         <span class="demo-play-pulse" aria-hidden="true"></span>
         <svg class="demo-play-icon" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
       </button>
@@ -639,7 +641,7 @@
         <p>"Thanks for calling, what can I help you with today?"</p>
       </div>
 
-      <p class="demo-note">60-second demo clip, coming soon</p>
+      <p class="demo-note">Sample call &middot; tap play to listen</p>
     </div>
 
   </div>
@@ -890,5 +892,23 @@
 </footer>
 <script src="js/avoxan.js"></script>
 <script src="js/avoxan-ai-pricing.js" defer></script>
+<script>
+(function () {
+  var player = document.querySelector('.demo-player');
+  if (!player) return;
+  var audio = player.querySelector('.demo-audio');
+  var btn = player.querySelector('.demo-play');
+  var path = player.querySelector('.demo-play-icon path');
+  var dur = player.querySelector('.demo-duration');
+  if (!audio || !btn) return;
+  var PLAY = 'M8 5v14l11-7z', PAUSE = 'M7 5h3.4v14H7zM13.6 5H17v14h-3.4z';
+  function fmt(t){ t = Math.max(0, Math.round(t) || 0); var m = Math.floor(t/60), s = t%60; return m + ':' + (s<10?'0':'') + s; }
+  audio.addEventListener('loadedmetadata', function(){ if (dur && isFinite(audio.duration)) dur.textContent = fmt(audio.duration); });
+  btn.addEventListener('click', function(){ if (audio.paused) audio.play(); else audio.pause(); });
+  audio.addEventListener('play', function(){ player.classList.add('is-playing'); if (path) path.setAttribute('d', PAUSE); btn.setAttribute('aria-label', 'Pause the demo call'); });
+  audio.addEventListener('pause', function(){ player.classList.remove('is-playing'); if (path) path.setAttribute('d', PLAY); btn.setAttribute('aria-label', 'Play the demo call'); });
+  audio.addEventListener('ended', function(){ player.classList.remove('is-playing'); if (path) path.setAttribute('d', PLAY); audio.currentTime = 0; });
+})();
+</script>
 </body>
 </html>
