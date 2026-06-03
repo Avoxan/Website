@@ -339,13 +339,13 @@ section{padding:5rem 0}
     <span><span class="dot"></span>Houston, TX</span>
     <span>Built for med spas &amp; aesthetic clinics</span>
     <span><span class="dot"></span>Books into JaneApp &amp; Zenoti</span>
-    <span>Free AI Front Desk audit, May 2026</span>
+    <span>Free AI Front Desk audit, <span class="js-bk" data-bk="my">June 2026</span></span>
     <span><span class="dot"></span>Your front desk, open 24/7</span>
     <span>3 spots remaining this month</span>
     <span><span class="dot"></span>Houston, TX</span>
     <span>Built for med spas &amp; aesthetic clinics</span>
     <span><span class="dot"></span>Books into JaneApp &amp; Zenoti</span>
-    <span>Free AI Front Desk audit, May 2026</span>
+    <span>Free AI Front Desk audit, <span class="js-bk" data-bk="my">June 2026</span></span>
     <span><span class="dot"></span>Your front desk, open 24/7</span>
     <span>3 spots remaining this month</span>
   </div>
@@ -760,7 +760,7 @@ section{padding:5rem 0}
       <!-- Calendly inline widget end -->
     </div>
 
-    <div class="final-cta-pill"><span class="dot"></span>3 audit slots remaining for May 2026</div>
+    <div class="final-cta-pill"><span class="dot"></span>3 audit slots remaining for <span class="js-bk" data-bk="my">June 2026</span></div>
   </div>
 </section>
 
@@ -790,5 +790,20 @@ section{padding:5rem 0}
 <!-- Avoxan AI chat widget (same script as the main site) -->
 <script src="/js/avoxan-chat.js" defer></script>
 
+<script>
+/* Auto-updating booking month - keeps "Booking <month year>" current so it never goes stale */
+(function () {
+  var els = document.querySelectorAll(".js-bk");
+  if (!els.length) return;
+  var M = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  var now = new Date();
+  els.forEach(function (el) {
+    var t = el.getAttribute("data-bk");
+    if (t === "m") el.textContent = M[now.getMonth()];
+    else if (t === "range") el.textContent = M[(now.getMonth()+1)%12] + " through " + M[(now.getMonth()+3)%12];
+    else el.textContent = M[now.getMonth()] + " " + now.getFullYear();
+  });
+})();
+</script>
 </body>
 </html>

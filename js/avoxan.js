@@ -232,3 +232,17 @@
   );
   document.querySelectorAll('.nav-cta').forEach((el) => makeMagnetic(el, 0.2));
 })();
+
+/* Auto-updating booking month - keeps "Booking <month year>" current so it never goes stale */
+(function () {
+  var els = document.querySelectorAll(".js-bk");
+  if (!els.length) return;
+  var M = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  var now = new Date();
+  els.forEach(function (el) {
+    var t = el.getAttribute("data-bk");
+    if (t === "m") el.textContent = M[now.getMonth()];
+    else if (t === "range") el.textContent = M[(now.getMonth()+1)%12] + " through " + M[(now.getMonth()+3)%12];
+    else el.textContent = M[now.getMonth()] + " " + now.getFullYear();
+  });
+})();
