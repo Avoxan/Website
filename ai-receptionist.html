@@ -191,35 +191,35 @@
 .heroA .proof-card {
   position: absolute;
   z-index: 3;
-  background: #FBF7EF;
-  border-radius: 16px;
-  padding: .95rem 1.1rem;
-  box-shadow: 0 18px 45px -15px rgba(0,0,0,.5);
+  background: var(--cream);
+  border-radius: 13px;
+  padding: .7rem .85rem;
+  box-shadow: 0 20px 36px -12px rgba(20,17,15,.32);
   display: flex;
-  gap: .7rem;
-  align-items: flex-start;
-  width: min(17rem, 80%);
-  border: 1px solid rgba(255,255,255,.7);
+  gap: .6rem;
+  align-items: center;
+  width: min(13rem, 72%);
+  border: 1px solid rgba(94,107,79,.32);
   opacity: 0;
   animation: heroAFloatIn .7s cubic-bezier(.2,.7,.3,1) forwards .5s,
-             heroADrift 6s ease-in-out infinite 1.5s;
+             heroADrift 7s ease-in-out infinite 1.5s;
 }
 .heroA .proof-card .ic {
   flex: 0 0 auto;
-  width: 1.9rem;
-  height: 1.9rem;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(46,160,90,.15);
+  background: var(--sage);
 }
-.heroA .proof-card .ic svg { width: 1rem; height: 1rem; stroke: #2EA05A; }
-.heroA .proof-card .ct .t { font-weight: 600; font-size: .92rem; color: var(--ink); line-height: 1.2; }
-.heroA .proof-card .ct .d { font-size: .78rem; color: var(--muted); line-height: 1.35; margin-top: .2rem; }
+.heroA .proof-card .ic svg { width: .75rem; height: .75rem; stroke: #fff; }
+.heroA .proof-card .ct .t { font-family: 'Fraunces', serif; font-weight: 500; font-size: .88rem; color: var(--ink); line-height: 1.2; }
+.heroA .proof-card .ct .d { font-size: .72rem; color: var(--muted); line-height: 1.3; margin-top: .12rem; }
 .heroA .card-pos { right: 6%; top: 14%; }
 @keyframes heroAFloatIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes heroADrift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes heroADrift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(11px); } }
 .heroA-media .poster-fallback { display: none; }
 
 .heroB { display: none; }
@@ -232,8 +232,8 @@
   margin: 1rem;
   border-radius: 24px;
   overflow: hidden;
-  background: #2a1610;
-  min-height: 182vw;
+  background: #14110F;
+  min-height: auto;
   flex-direction: column;
 }
 .heroB::before {
@@ -241,7 +241,9 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: radial-gradient(120% 65% at 70% 90%, #C04A1F 0%, #8E3514 40%, #3a1d12 75%, #2a1610 100%);
+  background:
+    radial-gradient(96% 58% at 52% 16%, rgba(242,235,220,.9) 0%, rgba(192,74,31,.62) 38%, rgba(20,17,15,0) 70%),
+    linear-gradient(0deg, #14110F 0%, #231510 44%, #8E3514 74%, #F2EBDC 100%);
 }
 .heroB::after {
   content: "";
@@ -249,9 +251,9 @@
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: linear-gradient(180deg, rgba(20,13,9,.97) 0%, rgba(20,13,9,.95) 40%, rgba(20,13,9,.55) 55%, rgba(20,13,9,.08) 70%, rgba(20,13,9,0) 80%);
+  background: linear-gradient(0deg, rgba(20,13,9,.98) 0%, rgba(20,13,9,.92) 38%, rgba(20,13,9,.42) 58%, rgba(20,13,9,.08) 78%, rgba(20,13,9,0) 90%);
 }
-.heroB-copy { position: relative; z-index: 3; padding: 2.5rem 1.5rem 1.25rem; }
+.heroB-copy { position: relative; z-index: 3; order: 2; padding: 1rem 1.5rem 2.4rem; }
 .heroB .eyebrow {
   font-family: 'JetBrains Mono', monospace;
   font-size: .74rem;
@@ -294,11 +296,12 @@
 .heroB-visual {
   position: relative;
   z-index: 2;
-  flex: 1;
+  order: 1;
+  flex: 0 0 auto;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  padding: 0 1.5rem 2.5rem;
+  align-items: center;
+  padding: 2rem 1.5rem .75rem;
 }
 .heroB .phone {
   position: relative;
@@ -310,6 +313,7 @@
   box-shadow: 0 30px 60px -20px rgba(0,0,0,.6);
   padding: .5rem;
   overflow: hidden;
+  animation: heroBPhoneFloat 7s ease-in-out infinite;
 }
 .heroB .phone-screen {
   width: 100%;
@@ -342,27 +346,32 @@
 .heroB .lead-card {
   position: absolute;
   z-index: 4;
-  left: 1.1rem;
-  bottom: 1.1rem;
-  background: #FBF7EF;
-  border-radius: 16px;
-  padding: .9rem 1rem;
-  box-shadow: 0 20px 48px -16px rgba(0,0,0,.55);
-  width: min(15rem, 66%);
-  opacity: 0;
-  animation: heroBFloatIn .7s cubic-bezier(.2,.7,.3,1) forwards .6s;
+  right: 1rem;
+  bottom: .65rem;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  background: var(--cream);
+  border: 1px solid rgba(94,107,79,.32);
+  border-radius: 13px;
+  padding: .7rem .85rem;
+  box-shadow: 0 20px 36px -12px rgba(20,17,15,.32);
+  width: min(13rem, 70%);
+  animation: heroBCardFloat 7s ease-in-out .8s infinite;
 }
-.heroB .lead-card .lh { display: flex; align-items: center; gap: .4rem; font-weight: 700; font-size: .84rem; color: var(--ink); margin-bottom: .55rem; }
-.heroB .lead-card .lh .chk { width: 1.2rem; height: 1.2rem; border-radius: 50%; background: #2EA05A; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
-.heroB .lead-card .lh .chk svg { width: .68rem; height: .68rem; stroke: #fff; }
-.heroB .lead-row { display: flex; gap: .45rem; font-size: .72rem; line-height: 1.5; }
-.heroB .lead-row b { color: var(--muted); font-weight: 600; min-width: 3.2rem; flex: 0 0 auto; }
-.heroB .lead-row span { color: var(--ink-soft); }
-.heroB .lead-foot { margin-top: .6rem; padding-top: .5rem; border-top: 1px solid var(--line); font-size: .66rem; color: #2EA05A; font-weight: 500; }
+.heroB .lead-card .lh { display: flex; align-items: center; justify-content: center; flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; background: var(--sage); }
+.heroB .lead-card .lh .chk { display: flex; align-items: center; justify-content: center; }
+.heroB .lead-card .lh .chk svg { width: .75rem; height: .75rem; stroke: #fff; }
+.heroB .lead-card .lead-copy { font-size: .72rem; color: var(--muted); line-height: 1.3; }
+.heroB .lead-card .lead-copy strong { display: block; font-family: 'Fraunces', serif; font-size: .88rem; color: var(--ink); font-weight: 500; line-height: 1.2; }
+.heroB .lead-foot { display: block; margin-top: .18rem; font-family: 'JetBrains Mono', monospace; font-size: .56rem; color: var(--sage); }
 @keyframes heroBFloatIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes heroBPhoneFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-13px); } }
+@keyframes heroBCardFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(11px); } }
 @media (prefers-reduced-motion: reduce) {
   .heroA-media video { display: none; }
   .heroA-media .poster-fallback { display: block; }
+  .heroB .phone,
   .heroA .proof-card,
   .heroB .lead-card { opacity: 1; animation: none; }
   .heroB .call-ring::before,
@@ -491,12 +500,12 @@
 
     <!-- floating lead-captured card with caller info -->
     <div class="lead-card">
-      <div class="lh"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Lead captured</div>
-      <div class="lead-row"><b>Name</b><span>Marcus Bell</span></div>
-      <div class="lead-row"><b>Phone</b><span>(713) 555-0182</span></div>
-      <div class="lead-row"><b>Address</b><span>Oak Forest, 77018</span></div>
-      <div class="lead-row"><b>Issue</b><span>Burst pipe under kitchen sink</span></div>
-      <div class="lead-foot">✓ Avoxan AI answers the call and then texts you, while you were at a job</div>
+      <div class="lh" aria-hidden="true"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></div>
+      <div class="lead-copy">
+        <strong>New lead captured</strong>
+        Caller needs service · callback today
+        <span class="lead-foot">Text sent to your team</span>
+      </div>
     </div>
   </div>
 </section>
