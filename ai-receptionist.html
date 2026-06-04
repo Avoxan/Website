@@ -197,8 +197,8 @@
   box-shadow: 0 20px 36px -12px rgba(20,17,15,.32);
   display: flex;
   gap: .6rem;
-  align-items: center;
-  width: min(15rem, 78%);
+  align-items: flex-start;
+  width: min(16.5rem, 82%);
   border: 1px solid rgba(94,107,79,.32);
   opacity: 0;
   animation: heroAFloatIn .7s cubic-bezier(.2,.7,.3,1) forwards .5s,
@@ -248,8 +248,8 @@
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(96% 58% at 52% 16%, rgba(242,235,220,.9) 0%, rgba(192,74,31,.62) 38%, rgba(20,17,15,0) 70%),
-    linear-gradient(0deg, #14110F 0%, #231510 44%, #8E3514 74%, #F2EBDC 100%);
+    radial-gradient(96% 58% at 52% 84%, rgba(242,235,220,.9) 0%, rgba(192,74,31,.62) 38%, rgba(20,17,15,0) 70%),
+    linear-gradient(180deg, #14110F 0%, #231510 44%, #8E3514 74%, #F2EBDC 100%);
 }
 .heroB::after {
   content: "";
@@ -257,9 +257,9 @@
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: linear-gradient(0deg, rgba(20,13,9,.98) 0%, rgba(20,13,9,.92) 38%, rgba(20,13,9,.42) 58%, rgba(20,13,9,.08) 78%, rgba(20,13,9,0) 90%);
+  background: linear-gradient(180deg, rgba(20,13,9,.98) 0%, rgba(20,13,9,.92) 38%, rgba(20,13,9,.42) 58%, rgba(20,13,9,.08) 78%, rgba(20,13,9,0) 90%);
 }
-.heroB-copy { position: relative; z-index: 3; order: 2; padding: 1rem 1.5rem 2.4rem; }
+.heroB-copy { position: relative; z-index: 3; order: 1; padding: 2.5rem 1.5rem 1.25rem; }
 .heroB .eyebrow {
   font-family: 'JetBrains Mono', monospace;
   font-size: .74rem;
@@ -302,7 +302,7 @@
 .heroB-visual {
   position: relative;
   z-index: 2;
-  order: 1;
+  order: 2;
   flex: 0 0 auto;
   display: flex;
   justify-content: center;
@@ -356,14 +356,14 @@
   right: max(.85rem, calc(50% - 7.2rem));
   bottom: 1rem;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: .6rem;
   background: var(--cream);
   border: 1px solid rgba(94,107,79,.32);
   border-radius: 13px;
   padding: .7rem .85rem;
   box-shadow: 0 20px 36px -12px rgba(20,17,15,.32);
-  width: min(14rem, 78vw);
+  width: min(15.5rem, 82vw);
   animation: heroBCardFloat 7s ease-in-out .8s infinite;
 }
 .heroB .lead-card .lh { display: flex; align-items: center; justify-content: center; flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; background: var(--sage); }
@@ -373,11 +373,19 @@
 .heroB .lead-card .lead-copy strong { display: block; font-family: 'Fraunces', serif; font-size: .88rem; color: var(--ink); font-weight: 500; line-height: 1.2; }
 .heroB .lead-foot { display: block; margin-top: .18rem; font-family: 'JetBrains Mono', monospace; font-size: .56rem; color: var(--sage); }
 .heroB .lead-alert { color: #C04A1F; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.heroA .proof-card .lead-row,
+.heroB .lead-card .lead-row { display: flex; gap: .4rem; font-size: .66rem; line-height: 1.45; color: var(--ink-soft); margin-top: .12rem; }
+.heroA .proof-card .lead-row b,
+.heroB .lead-card .lead-row b { color: var(--muted); font-weight: 600; min-width: 2.9rem; flex: 0 0 auto; }
+.heroA .proof-card .lead-row span,
+.heroB .lead-card .lead-row span { color: var(--ink-soft); }
+.heroA .proof-card .lead-foot,
+.heroB .lead-card .lead-foot { margin-top: .45rem; }
 @keyframes heroBFloatIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes heroBPhoneFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-13px); } }
 @keyframes heroBCardFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(11px); } }
 @media (max-width: 600px) {
-  .heroB-visual { padding: 2rem 1.25rem 4.9rem; }
+  .heroB-visual { padding: 1.5rem 1.25rem 8.5rem; }
   .heroB .lead-card {
     display: flex !important;
     left: 50%;
@@ -472,7 +480,10 @@
     <div class="lh" aria-hidden="true"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></div>
     <div class="lead-copy">
       <strong>New lead captured</strong>
-      Burst pipe under kitchen sink · Oak Forest, 77018
+      <span class="lead-row"><b>Name</b><span>Marcus Bell</span></span>
+      <span class="lead-row"><b>Phone</b><span>(713) 555-0182</span></span>
+      <span class="lead-row"><b>Address</b><span>Oak Forest, 77018</span></span>
+      <span class="lead-row"><b>Issue</b><span>Burst pipe under kitchen sink</span></span>
       <span class="lead-foot"><span class="lead-alert">Emergency</span> callback ASAP</span>
     </div>
   </div>
@@ -532,7 +543,10 @@
       <div class="lh" aria-hidden="true"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></div>
       <div class="lead-copy">
         <strong>New lead captured</strong>
-        Burst pipe under kitchen sink · Oak Forest, 77018
+        <span class="lead-row"><b>Name</b><span>Marcus Bell</span></span>
+        <span class="lead-row"><b>Phone</b><span>(713) 555-0182</span></span>
+        <span class="lead-row"><b>Address</b><span>Oak Forest, 77018</span></span>
+        <span class="lead-row"><b>Issue</b><span>Burst pipe under kitchen sink</span></span>
         <span class="lead-foot"><span class="lead-alert">Emergency</span> callback ASAP</span>
       </div>
     </div>

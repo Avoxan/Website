@@ -167,11 +167,13 @@
 /* floating bubble + captured card */
 .lp-fbubble { position:absolute; z-index:3; right:0; top:23%; max-width:178px; background:var(--ink); color:var(--cream); padding:0.6rem 0.8rem; border-radius:15px; border-bottom-right-radius:4px; font-size:0.76rem; line-height:1.4; box-shadow:0 18px 32px -10px rgba(20,17,15,0.32); animation:lpFloaty 6s ease-in-out infinite; }
 .lp-fbubble .who { display:block; font-family:'JetBrains Mono',monospace; font-size:0.58rem; letter-spacing:0.02em; color:#f0b79c; margin-bottom:0.3rem; }
-.lp-fcard { position:absolute; right:1%; bottom:1%; z-index:4; display:flex; align-items:center; gap:0.6rem; background:var(--cream); border:1px solid rgba(94,107,79,0.32); border-radius:13px; padding:0.7rem 0.85rem; box-shadow:0 20px 36px -12px rgba(20,17,15,0.32); animation:lpFloaty2 7s ease-in-out 0.8s infinite; }
+.lp-fcard { position:absolute; right:1%; bottom:1%; z-index:4; display:flex; align-items:flex-start; gap:0.6rem; max-width:196px; background:var(--cream); border:1px solid rgba(94,107,79,0.32); border-radius:13px; padding:0.7rem 0.85rem; box-shadow:0 20px 36px -12px rgba(20,17,15,0.32); animation:lpFloaty2 7s ease-in-out 0.8s infinite; }
 .lp-fcard-check { width:24px; height:24px; border-radius:50%; background:var(--sage); color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:0.75rem; font-weight:700; }
 .lp-fcard-txt { font-size:0.72rem; color:var(--muted); line-height:1.3; }
 .lp-fcard-txt strong { display:block; font-family:'Fraunces',serif; font-size:0.88rem; color:var(--ink); font-weight:500; }
-.lp-fcard-txt .sync { display:block; margin-top:0.18rem; font-family:'JetBrains Mono',monospace; font-size:0.56rem; color:var(--sage); }
+.lp-fcard-txt .sync { display:block; margin-top:0.4rem; font-family:'JetBrains Mono',monospace; font-size:0.58rem; color:var(--sienna); font-weight:600; }
+.lp-fcard-txt .lp-frow { display:flex; gap:0.35rem; font-size:0.66rem; line-height:1.42; color:var(--ink-soft); margin-top:0.13rem; }
+.lp-fcard-txt .lp-frow b { color:var(--muted); font-weight:600; min-width:2.7rem; flex:0 0 auto; }
 @keyframes lpFloaty { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-13px)} }
 @keyframes lpFloaty2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(11px)} }
 
@@ -264,18 +266,21 @@
 @media (max-width:880px){
   .lp-hero {
     background:
-      radial-gradient(95% 62% at 50% 18%, rgba(248,243,230,0.88) 0%, rgba(155,167,126,0.48) 43%, rgba(20,17,15,0) 73%),
-      linear-gradient(0deg, #14110F 0%, #221510 48%, #8E3514 74%, #F2EBDC 100%);
+      radial-gradient(95% 62% at 50% 82%, rgba(248,243,230,0.88) 0%, rgba(155,167,126,0.48) 43%, rgba(20,17,15,0) 73%),
+      linear-gradient(180deg, #14110F 0%, #221510 48%, #8E3514 74%, #F2EBDC 100%);
   }
   .lp-hero-grid, .lp-price-wrap, .lp-form-grid { grid-template-columns:1fr; }
   .lp-steps, .lp-cards { grid-template-columns:1fr; }
-  .lp-hero-visual { order:-1; }
+  .lp-hero-visual { order:1; }
 }
 @media (max-width:560px){
   .lp-field-row { grid-template-columns:1fr; }
-  .lp-art { max-width:340px; height:440px; }
-  .lp-phone { width:174px; }
+  .lp-art { max-width:360px; height:440px; }
+  .lp-phone { width:min(174px, 46vw); }
   .lp-fbubble { max-width:150px; font-size:0.7rem; }
+  .lp-fcard { max-width:min(184px, 52vw); right:0; }
+  .lp-fcard-txt .lp-frow { font-size:0.63rem; }
+  .lp-fcard-txt .lp-frow b { min-width:2.5rem; }
 }
 @media (prefers-reduced-motion:reduce){
   .lp-wave span, .lp-call-ring::before, .lp-call-ring::after,
@@ -325,7 +330,7 @@
         <p class="lp-hero-sub">Avoxan answers missed and after-hours calls, captures the customer's issue, location, urgency, and contact details, then texts the lead to your team before they call the next plumber on Google.</p>
 
         <div class="lp-actions">
-          <a href="#book" class="btn-primary">Book a Free Demo
+          <a href="#demo" class="btn-primary">Hear a Live Demo
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
           <a href="#how" class="lp-btn-secondary">See How It Works</a>
@@ -370,8 +375,11 @@
             <span class="lp-fcard-check">&check;</span>
             <div class="lp-fcard-txt">
               <strong>New lead captured</strong>
-              Memorial, 77024 &middot; active leak
-              <span class="sync">Callback ASAP</span>
+              <span class="lp-frow"><b>Name</b><span>Marcus Bell</span></span>
+              <span class="lp-frow"><b>Phone</b><span>(713) 555-0182</span></span>
+              <span class="lp-frow"><b>Address</b><span>Oak Forest, 77018</span></span>
+              <span class="lp-frow"><b>Issue</b><span>Burst pipe under kitchen sink</span></span>
+              <span class="sync">Emergency callback ASAP</span>
             </div>
           </div>
         </div>
