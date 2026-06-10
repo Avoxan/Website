@@ -58,11 +58,11 @@ Avoxan also runs an **AI Receptionist**: a voice agent that answers missed and a
   - General overview: [/ai-receptionist](/ai-receptionist) — for any business.
   - Houston plumbers / HVAC / electricians: [/ai-receptionist-plumbers](/ai-receptionist-plumbers) — trade-specific, with founding pricing and a live-demo form.
 - Pricing you may quote: one simple plan, the **Founding Houston Plumber Plan at $397/month** (500 AI receptionist minutes included each month). Month-to-month, no contract, **28-day money-back guarantee**, and setup is included for the first 3 Houston plumbing companies. Most local plumbing companies stay within the included minutes; if call volume grows, Avoxan reviews options with them first, no surprise billing. Don't push minute counts, sell the outcome: a missed call gets answered, qualified, and the lead sent to the team before the customer calls someone else.
-- IMPORTANT: When someone asks about the AI receptionist, missed calls, or after-hours answering, give a short honest answer, invite them to a quick live demo, and end that reply with the token [[BOOK_DEMO]] on its own line. Use the token only for AI-receptionist demo nudges, at most once per reply. Do not explain the token.
+- IMPORTANT: End your reply with the token [[BOOK_DEMO]] on its own line whenever the visitor (a) asks about the AI receptionist, missed calls, or after-hours answering, (b) asks for a demo, to hear it, to try it, or to see it in action, or (c) asks about quality or trustworthiness — how natural it sounds, whether it's accurate or reliable, whether it will annoy or confuse callers, whether customers can tell it's AI. Give a short honest answer first, then invite a quick live demo. For "what does it sound like" questions, also link the recorded sample call: [hear a sample call](/ai-receptionist-plumbers#demo). Use the token only for AI-receptionist demo nudges, at most once per reply. Do not explain the token.
 
 # Timeline
 - 4 weeks from kickoff to launch. 5 stages: strategy → wireframes → copy → design → build & QA.
-- Currently 3 slots remaining for May 2026.
+- Currently 3 slots remaining for {{MONTH}}.
 
 # Guarantees (in writing)
 - **14-day money back** — don't like the first design round, full refund. No kill fees.
@@ -72,14 +72,15 @@ Avoxan also runs an **AI Receptionist**: a voice agent that answers missed and a
 # Triage rules
 - "Should I hire you?" / "Are you a fit for [my biz]?" → give a 2-sentence honest take, then push to [book a call](/contact).
 - Exact pricing questions → quote the published number, then "for a tailored quote, [book a 20-min call](/contact)."
-- "When can you start?" → mention 3 slots remaining for May 2026, link to [/contact](/contact).
+- "When can you start?" → mention 3 slots remaining for {{MONTH}}, link to [/contact](/contact).
 - Technical "Webflow vs WordPress?" / "do I need [X]?" → give a real 2–3 sentence opinion. Builds trust.
 
 # Link map (use exact paths)
 - Book a call: /contact
 - AI receptionist (general): /ai-receptionist
 - AI receptionist for plumbers/HVAC/electricians: /ai-receptionist-plumbers
-- Book a live AI-receptionist demo: /ai-receptionist#book
+- Book a live AI-receptionist demo: /ai-receptionist#book (use /ai-receptionist-plumbers#book if the visitor is on the plumbers page)
+- Hear a recorded AI-receptionist sample call: /ai-receptionist-plumbers#demo
 - Pricing: /pricing
 - Process: /process
 - Case studies: /work/
@@ -147,9 +148,24 @@ export async function onRequestPost(context) {
     return jsonError(400, 'Last message must be from user');
   }
 
+  // Build the system prompt per-request: current booking month + visitor page context
+  const month = new Date().toLocaleString('en-US', { month: 'long', year: 'numeric' });
+  let systemContent = SYSTEM_PROMPT.split('{{MONTH}}').join(month);
+
+  // The widget sends the page the visitor is on; validate it's a simple relative path.
+  const page = typeof body.page === 'string' && /^\/[\w\-./]{0,120}$/.test(body.page) ? body.page : '';
+  if (page) {
+    systemContent += `\n\n# Visitor context\nThe visitor is currently on the ${page} page of avoxan.com.`;
+    if (/ai-receptionist-plumbers/.test(page)) {
+      systemContent += ' They are likely a Houston plumber, HVAC, or electrical company. Lead with the AI receptionist and the Founding Houston Plumber Plan; point demo nudges and booking links to /ai-receptionist-plumbers#book.';
+    } else if (/ai-receptionist/.test(page)) {
+      systemContent += ' They are reading about the AI receptionist — lead with that offer and invite a live demo where it fits.';
+    }
+  }
+
   // Groq uses OpenAI-compatible format: system message goes in the messages array
   const apiMessages = [
-    { role: 'system', content: SYSTEM_PROMPT },
+    { role: 'system', content: systemContent },
     ...cleaned
   ];
 

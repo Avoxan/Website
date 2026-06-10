@@ -13,13 +13,27 @@
   const STORAGE_KEY = 'avx_chat_v1';
   const MAX_HISTORY = 20;
   // AI receptionist pages (general + trade-specific) get receptionist-led prompts.
-  const IS_RECEPTIONIST = /ai-receptionist/i.test(location.pathname);
-  // Where the "Book a live demo" button points (the live-demo lead form).
-  const DEMO_FORM_URL = '/ai-receptionist#book';
-  const SUGGESTIONS = IS_RECEPTIONIST ? [
-    'How does the AI receptionist handle a missed call?',
+  const IS_PLUMBER = /ai-receptionist-plumbers/i.test(location.pathname);
+  const IS_RECEPTIONIST = !IS_PLUMBER && /ai-receptionist/i.test(location.pathname);
+  // Where the "Book a live demo" button points — the demo form on the page the visitor is already on.
+  const DEMO_FORM_URL = IS_PLUMBER ? '/ai-receptionist-plumbers#book' : '/ai-receptionist#book';
+  // Suggested questions, ordered so the most relevant for the current page sit on top.
+  const SUGGESTIONS = IS_PLUMBER ? [
+    // Plumber-specific first…
+    'How does it handle an after-hours emergency call?',
+    "What's in the Founding Houston Plumber Plan?",
+    'Can I hear a live demo?',
+    // …everything else below
     'Do I need to change my phone number?',
-    'How much does the AI receptionist cost?'
+    "What's included in the $1,500 website?"
+  ] : IS_RECEPTIONIST ? [
+    // AI-receptionist first…
+    'How does the AI receptionist handle a missed call?',
+    'How much does the AI receptionist cost?',
+    'Can I hear a live demo?',
+    // …everything else below
+    "What's included in the $1,500 website?",
+    'How fast can you launch a website?'
   ] : [
     'How does the Avoxan AI receptionist work?',
     "What's included in $1,500?",
@@ -639,7 +653,7 @@
       const res = await fetch(API_PATH, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: history.slice(-MAX_HISTORY), context: 'site' })
+        body: JSON.stringify({ messages: history.slice(-MAX_HISTORY), context: 'site', page: location.pathname })
       });
 
       if (!res.ok || !res.body) {
