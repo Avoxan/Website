@@ -43,6 +43,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
+<!-- Warm up Calendly connections so the booking widget loads in the background on page load -->
+<link rel="preconnect" href="https://assets.calendly.com" crossorigin>
+<link rel="preconnect" href="https://calendly.com" crossorigin>
+<link rel="dns-prefetch" href="https://assets.calendly.com">
+<link rel="dns-prefetch" href="https://calendly.com">
+<link rel="preload" as="script" href="https://assets.calendly.com/assets/external/widget.js">
+
 <link rel="stylesheet" href="css/avoxan-v2.css?v=12">
 <script src="/js/avoxan-chat.js" defer></script>
 </head>
@@ -133,12 +140,38 @@
         <div id="panel-calendly" class="booking-panel active" role="tabpanel">
           <p class="booking-panel-hint">Pick any 20-minute slot that works. You'll get a calendar invite within 2 minutes, no back-and-forth, no "what time zone are you in?"</p>
           <div class="calendly-shell">
-            <!-- Calendly inline widget begin -->
-            <div class="calendly-inline-widget"
-                 data-url="https://calendly.com/hello-avoxan/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=14110e&text_color=f2ebdc&primary_color=e85d26"
-                 style="min-width:320px;height:700px;"></div>
+            <!-- Theme-aware Calendly inline widget (renders on load; recolors with the site theme) -->
+            <div id="calendly-embed" class="calendly-inline-widget" style="min-width:320px;height:700px;"></div>
             <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-            <!-- Calendly inline widget end -->
+            <script>
+            (function () {
+              var el = document.getElementById('calendly-embed');
+              if (!el) return;
+              var BASE = 'https://calendly.com/hello-avoxan/30min';
+              var THEME = {
+                dark:  { background: '14110e', text: 'f2ebdc', primary: 'e85d26' },
+                light: { background: 'f4eee1', text: '1c1813', primary: 'd2521c' }
+              };
+              function pick() { return document.documentElement.classList.contains('light') ? THEME.light : THEME.dark; }
+              function buildUrl() {
+                var c = pick();
+                return BASE + '?hide_event_type_details=1&hide_gdpr_banner=1'
+                  + '&background_color=' + c.background + '&text_color=' + c.text + '&primary_color=' + c.primary;
+              }
+              function render() {
+                if (!window.Calendly || !window.Calendly.initInlineWidget) { setTimeout(render, 120); return; }
+                el.innerHTML = '';
+                window.Calendly.initInlineWidget({ url: buildUrl(), parentElement: el });
+              }
+              render();
+              // Recolor only when the theme actually flips (avoids needless reloads)
+              var last = pick().background;
+              new MutationObserver(function () {
+                var now = pick().background;
+                if (now !== last) { last = now; render(); }
+              }).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+            })();
+            </script>
           </div>
         </div>
 

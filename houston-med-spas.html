@@ -43,6 +43,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
+<!-- Warm up Calendly connections so the booking widget loads in the background on page load -->
+<link rel="preconnect" href="https://assets.calendly.com" crossorigin>
+<link rel="preconnect" href="https://calendly.com" crossorigin>
+<link rel="dns-prefetch" href="https://assets.calendly.com">
+<link rel="dns-prefetch" href="https://calendly.com">
+<link rel="preload" as="script" href="https://assets.calendly.com/assets/external/widget.js">
+
 <link rel="stylesheet" href="/css/avoxan-v2.css?v=12">
 
 <script type="application/ld+json">
@@ -350,9 +357,37 @@
   <h2 data-reveal>See what your front desk is <span class="it acc">missing</span> after hours.</h2>
   <p data-reveal>Book a free 20-minute audit. We'll look at where inquiries are slipping through today, show you what a 24/7 AI Front Desk would catch, and tell you straight whether it's worth doing for your spa.</p>
   <div class="calendly-shell" data-reveal style="max-width:780px;margin:2.5rem auto 0;text-align:left;">
-    <div class="calendly-inline-widget" style="min-width:320px;height:680px;"
-         data-url="https://calendly.com/hello-avoxan/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=14110f&text_color=ebe4d5&primary_color=ba481f"></div>
+    <!-- Theme-aware Calendly inline widget (renders on load; recolors with the site theme) -->
+    <div id="calendly-embed" class="calendly-inline-widget" style="min-width:320px;height:680px;"></div>
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <script>
+    (function () {
+      var el = document.getElementById('calendly-embed');
+      if (!el) return;
+      var BASE = 'https://calendly.com/hello-avoxan/30min';
+      var THEME = {
+        dark:  { background: '14110e', text: 'f2ebdc', primary: 'e85d26' },
+        light: { background: 'f4eee1', text: '1c1813', primary: 'd2521c' }
+      };
+      function pick() { return document.documentElement.classList.contains('light') ? THEME.light : THEME.dark; }
+      function buildUrl() {
+        var c = pick();
+        return BASE + '?hide_event_type_details=1&hide_gdpr_banner=1'
+          + '&background_color=' + c.background + '&text_color=' + c.text + '&primary_color=' + c.primary;
+      }
+      function render() {
+        if (!window.Calendly || !window.Calendly.initInlineWidget) { setTimeout(render, 120); return; }
+        el.innerHTML = '';
+        window.Calendly.initInlineWidget({ url: buildUrl(), parentElement: el });
+      }
+      render();
+      var last = pick().background;
+      new MutationObserver(function () {
+        var now = pick().background;
+        if (now !== last) { last = now; render(); }
+      }).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    })();
+    </script>
   </div>
   <div data-reveal style="margin-top:2rem;"><span class="pill"><span class="pulse"></span>3 audit slots remaining for <span class="js-bk" data-bk="my">June 2026</span></span></div>
 </section>
