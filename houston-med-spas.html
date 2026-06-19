@@ -357,37 +357,39 @@
   <h2 data-reveal>See what your front desk is <span class="it acc">missing</span> after hours.</h2>
   <p data-reveal>Book a free 20-minute audit. We'll look at where inquiries are slipping through today, show you what a 24/7 AI Front Desk would catch, and tell you straight whether it's worth doing for your spa.</p>
   <div class="calendly-shell" data-reveal style="max-width:780px;margin:2.5rem auto 0;text-align:left;">
-    <!-- Theme-aware Calendly inline widget (renders on load; recolors with the site theme) -->
+    <!-- Theme-aware Calendly inline widget. Themed data-url set BEFORE widget.js loads so the
+         standard auto-init renders the right colors immediately; JS API re-renders on theme toggle. -->
     <div id="calendly-embed" class="calendly-inline-widget" style="min-width:320px;height:680px;"></div>
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
     <script>
     (function () {
       var el = document.getElementById('calendly-embed');
       if (!el) return;
       var BASE = 'https://calendly.com/hello-avoxan/30min';
-      var THEME = {
-        dark:  { background: '14110e', text: 'f2ebdc', primary: 'e85d26' },
-        light: { background: 'f4eee1', text: '1c1813', primary: 'd2521c' }
-      };
-      function pick() { return document.documentElement.classList.contains('light') ? THEME.light : THEME.dark; }
-      function buildUrl() {
-        var c = pick();
+      function colors() {
+        return document.documentElement.classList.contains('light')
+          ? { b: 'f4eee1', t: '1c1813', p: 'd2521c' }
+          : { b: '14110e', t: 'f2ebdc', p: 'e85d26' };
+      }
+      function url() {
+        var c = colors();
         return BASE + '?hide_event_type_details=1&hide_gdpr_banner=1'
-          + '&background_color=' + c.background + '&text_color=' + c.text + '&primary_color=' + c.primary;
+          + '&background_color=' + c.b + '&text_color=' + c.t + '&primary_color=' + c.p;
       }
-      function render() {
-        if (!window.Calendly || !window.Calendly.initInlineWidget) { setTimeout(render, 120); return; }
-        el.innerHTML = '';
-        window.Calendly.initInlineWidget({ url: buildUrl(), parentElement: el });
-      }
-      render();
-      var last = pick().background;
+      el.setAttribute('data-url', url());
+      var last = colors().b;
       new MutationObserver(function () {
-        var now = pick().background;
-        if (now !== last) { last = now; render(); }
+        var now = colors().b;
+        if (now === last) return;
+        last = now;
+        if (window.Calendly && window.Calendly.initInlineWidget) {
+          el.innerHTML = '';
+          el.removeAttribute('data-url');
+          window.Calendly.initInlineWidget({ url: url(), parentElement: el });
+        }
       }).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
     })();
     </script>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
   </div>
   <div data-reveal style="margin-top:2rem;"><span class="pill"><span class="pulse"></span>3 audit slots remaining for <span class="js-bk" data-bk="my">June 2026</span></span></div>
 </section>

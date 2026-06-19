@@ -140,38 +140,42 @@
         <div id="panel-calendly" class="booking-panel active" role="tabpanel">
           <p class="booking-panel-hint">Pick any 20-minute slot that works. You'll get a calendar invite within 2 minutes, no back-and-forth, no "what time zone are you in?"</p>
           <div class="calendly-shell">
-            <!-- Theme-aware Calendly inline widget (renders on load; recolors with the site theme) -->
+            <!-- Theme-aware Calendly inline widget. The themed data-url is set BEFORE widget.js
+                 loads, so the standard auto-init renders the right colors immediately on page load.
+                 The MutationObserver re-renders (via the JS API) only when the theme is toggled. -->
             <div id="calendly-embed" class="calendly-inline-widget" style="min-width:320px;height:700px;"></div>
-            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
             <script>
             (function () {
               var el = document.getElementById('calendly-embed');
               if (!el) return;
               var BASE = 'https://calendly.com/hello-avoxan/30min';
-              var THEME = {
-                dark:  { background: '14110e', text: 'f2ebdc', primary: 'e85d26' },
-                light: { background: 'f4eee1', text: '1c1813', primary: 'd2521c' }
-              };
-              function pick() { return document.documentElement.classList.contains('light') ? THEME.light : THEME.dark; }
-              function buildUrl() {
-                var c = pick();
+              function colors() {
+                return document.documentElement.classList.contains('light')
+                  ? { b: 'f4eee1', t: '1c1813', p: 'd2521c' }
+                  : { b: '14110e', t: 'f2ebdc', p: 'e85d26' };
+              }
+              function url() {
+                var c = colors();
                 return BASE + '?hide_event_type_details=1&hide_gdpr_banner=1'
-                  + '&background_color=' + c.background + '&text_color=' + c.text + '&primary_color=' + c.primary;
+                  + '&background_color=' + c.b + '&text_color=' + c.t + '&primary_color=' + c.p;
               }
-              function render() {
-                if (!window.Calendly || !window.Calendly.initInlineWidget) { setTimeout(render, 120); return; }
-                el.innerHTML = '';
-                window.Calendly.initInlineWidget({ url: buildUrl(), parentElement: el });
-              }
-              render();
-              // Recolor only when the theme actually flips (avoids needless reloads)
-              var last = pick().background;
+              // Set themed URL before widget.js auto-inits this element.
+              el.setAttribute('data-url', url());
+              // Re-theme on a live theme toggle.
+              var last = colors().b;
               new MutationObserver(function () {
-                var now = pick().background;
-                if (now !== last) { last = now; render(); }
+                var now = colors().b;
+                if (now === last) return;
+                last = now;
+                if (window.Calendly && window.Calendly.initInlineWidget) {
+                  el.innerHTML = '';
+                  el.removeAttribute('data-url');
+                  window.Calendly.initInlineWidget({ url: url(), parentElement: el });
+                }
               }).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
             })();
             </script>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
           </div>
         </div>
 
