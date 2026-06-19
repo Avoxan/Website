@@ -1,0 +1,38 @@
+# Avoxan — robots.txt
+# Allow all standard search crawlers full access.
+User-agent: *
+Allow: /
+
+# Explicitly welcome AI / answer-engine crawlers (AEO).
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Keep noise out of the index.
+Disallow: /_v1_backup/
+Disallow: /_old_logo_backup/
+
+Sitemap: https://avoxan.com/sitemap.xml

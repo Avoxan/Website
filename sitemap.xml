@@ -15,7 +15,7 @@
 
   <url>
     <loc>https://avoxan.com/</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -40,14 +40,14 @@
 
   <url>
     <loc>https://avoxan.com/ai-receptionist</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://avoxan.com/ai-receptionist-plumbers</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -114,8 +114,44 @@
 
   <url>
     <loc>https://avoxan.com/blog/</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- AI receptionist cluster (new) -->
+  <url>
+    <loc>https://avoxan.com/blog/what-is-an-ai-receptionist</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://avoxan.com/blog/ai-receptionist-cost</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://avoxan.com/blog/ai-receptionist-vs-human-vs-answering-service</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://avoxan.com/blog/ai-receptionist-home-services</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://avoxan.com/blog/ai-employee-explained</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 

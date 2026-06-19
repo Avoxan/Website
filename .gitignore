@@ -1,0 +1,12 @@
+# Local preview server (dev only — never deploy)
+__serve.bat
+__serve.ps1
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+
+# Dependencies (if ever added)
+node_modules/
