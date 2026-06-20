@@ -238,6 +238,25 @@
     });
   });
 
+  /* ---------- "What's included" cards: tap to expand on mobile (accordion) ---------- */
+  (function railAccordion() {
+    var cards = doc.querySelectorAll(".rail-card");
+    if (!cards.length) return;
+    var mobile = window.matchMedia("(max-width: 640px)");
+    cards.forEach(function (card) {
+      card.addEventListener("click", function () {
+        if (!mobile.matches) return;            /* tablet/desktop show full cards already */
+        var willOpen = !card.classList.contains("open");
+        cards.forEach(function (c) { c.classList.remove("open"); });
+        if (willOpen) card.classList.add("open");
+      });
+    });
+    /* collapse any open card if the viewport grows past mobile */
+    mobile.addEventListener && mobile.addEventListener("change", function (e) {
+      if (!e.matches) cards.forEach(function (c) { c.classList.remove("open"); });
+    });
+  })();
+
   /* ---------- Booking tabs (contact page) ---------- */
   var tabs = doc.querySelectorAll(".booking-tab");
   if (tabs.length) {

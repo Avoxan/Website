@@ -1446,14 +1446,55 @@ html.light .avx-root{
   .rail{
     display: grid !important; grid-template-columns: 1fr 1fr; gap: .7rem;
     width: auto !important; transform: none !important; padding: 0 var(--pad);
+    align-items: start;                 /* a card can grow without stretching its row-mate */
   }
   .rail-card{
     flex: none !important; min-height: 0 !important; position: relative;
     padding: 1.2rem 1rem; border-radius: 16px;
+    cursor: pointer; -webkit-tap-highlight-color: transparent;
+    transition: border-color .35s var(--ease-out), background .35s var(--ease-out),
+                box-shadow .42s var(--ease-out), grid-column 0s;
   }
-  .rail-card p{ display: none; }
-  .rail-card h3{ font-size: 1.04rem; margin: .55rem 0 0; max-width: none; line-height: 1.22; }
-  .rail-value{ position: static; align-self: flex-start; margin-top: .75rem; }
+  /* the detail copy is collapsed by default and springs open when the card is tapped */
+  .rail-card p{
+    display: block; max-height: 0; opacity: 0; margin: 0; overflow: hidden;
+    transform: translateY(8px);
+    transition: max-height .45s var(--ease-out), opacity .3s ease, margin .45s var(--ease-out),
+                transform .5s cubic-bezier(.34,1.56,.64,1);
+  }
+  .rail-card h3{ font-size: 1.04rem; margin: .55rem 0 0; max-width: none; line-height: 1.22;
+                 padding-right: 1.2rem; }
+  .rail-value{ position: static; align-self: flex-start; margin-top: .75rem;
+               transition: transform .5s cubic-bezier(.34,1.56,.64,1); }
   .rail-progress{ display: none !important; }
   .rail-total{ margin-top: 1.8rem; }
+  /* chevron affordance — pops with a little overshoot when toggled */
+  .rail-card::after{
+    content: ""; position: absolute; top: 1.35rem; right: 1.05rem; width: 7px; height: 7px;
+    border-right: 1.5px solid var(--ember); border-bottom: 1.5px solid var(--ember);
+    transform: rotate(45deg); transform-origin: center;
+    transition: transform .4s cubic-bezier(.34,1.56,.64,1); opacity: .65;
+  }
+  /* expanded (detailed) state: full width, highlighted, detail revealed with a bubbly pop */
+  .rail-card.open{
+    grid-column: 1 / -1;
+    border-color: rgba(232,93,38,0.5); background: var(--surface-2);
+    box-shadow: 0 26px 54px -28px rgba(0,0,0,0.55);
+    transform-origin: center;
+    animation: railPop .52s cubic-bezier(.34,1.56,.64,1);
+  }
+  .rail-card.open p{ max-height: 360px; opacity: 1; margin-top: .7rem; transform: translateY(0); }
+  .rail-card.open .rail-value{ transform: scale(1.06); }
+  .rail-card.open::after{ transform: rotate(-135deg); opacity: 1; }
+}
+/* bubbly spring when a "What's included" card expands (mobile) */
+@keyframes railPop{
+  0%   { transform: scale(.96); }
+  45%  { transform: scale(1.025); }
+  72%  { transform: scale(.992); }
+  100% { transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce){
+  .rail-card.open{ animation: none !important; }
+  .rail-card p, .rail-card .rail-value, .rail-card::after{ transition-timing-function: ease !important; }
 }
