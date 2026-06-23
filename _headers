@@ -11,3 +11,22 @@
 
 /houston-med-spas.html
   X-Robots-Tag: noindex, nofollow
+
+# ──────────────────────────────────────────────────────────────────
+# Caching: always revalidate HTML so new deploys appear immediately and
+# a stale page can never get pinned in a browser/edge cache.
+# ──────────────────────────────────────────────────────────────────
+
+# The kill-switch service worker must never be cached.
+/sw.js
+  Cache-Control: no-cache, no-store, must-revalidate
+
+# Everything (HTML pages use clean, extensionless URLs) — revalidate.
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Versioned assets use ?v= cache-busting, so they can cache hard.
+/css/*
+  Cache-Control: public, max-age=31536000
+/js/*
+  Cache-Control: public, max-age=31536000
