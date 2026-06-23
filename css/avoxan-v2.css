@@ -286,6 +286,9 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:450; letter-spacing:-0.01
   max-width: 12ch;
 }
 .hero-title .it{ font-weight:380; }
+/* give the masked headline lines clip-room so descenders (g, y, j) are never cut,
+   even before the reveal finishes. The inner still starts fully below the clip box. */
+.hero-title .line-mask{ padding-bottom:.22em; }
 .hero-sub{
   display:grid; grid-template-columns: minmax(0,560px) auto; gap:3rem;
   align-items:end; justify-content:space-between;
@@ -407,6 +410,21 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:450; letter-spacing:-0.01
 .rail-total .em{ color:var(--ember-bright); }
 .rail-total a{ color:var(--cream); }
 
+/* Pricing page section switch (jump between AI receptionist & website pricing) */
+#pricing, #websites{ scroll-margin-top:6rem; }
+.price-switch{
+  display:inline-flex; gap:.3rem; margin:1.9rem 0 0; padding:.3rem;
+  border:1px solid var(--line-strong); border-radius:99px; background:var(--surface);
+}
+.price-switch .ps-tab{
+  font-family:var(--font-mono); font-size:.72rem; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--muted); padding:.6rem 1.15rem; border-radius:99px; text-decoration:none; white-space:nowrap;
+  transition:background .25s var(--ease-out), color .25s;
+}
+.price-switch .ps-tab.is-active{ background:var(--ember); color:#FFF4E8; }
+.price-switch .ps-tab:not(.is-active):hover{ color:var(--cream); }
+@media (max-width:480px){ .price-switch{ display:flex; } .price-switch .ps-tab{ flex:1; text-align:center; padding:.6rem .7rem; font-size:.66rem; } }
+
 /* ---------- Banner (AI receptionist) ---------- */
 .banner{
   margin:0 var(--pad);
@@ -443,7 +461,7 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:450; letter-spacing:-0.01
   background:
     radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232,93,38,0.12), transparent 60%),
     var(--surface);
-  padding:clamp(2.4rem,4vw,3.6rem); text-align:left; position:relative; overflow:hidden;
+  padding:clamp(2.4rem,4vw,3.6rem); text-align:left; position:relative; overflow:hidden; margin-bottom:1.25rem;
 }
 .price-tag-line{
   font-family:var(--font-mono); font-size:.74rem; letter-spacing:.2em;
@@ -737,6 +755,40 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:450; letter-spacing:-0.01
 }
 .addon-card p{ color:var(--muted); font-size:.93rem; }
 
+/* ---------- Web-design package tiers (distinctive, not generic add-on cards) ---------- */
+.pkg-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; align-items:stretch; margin-top:2.8rem; }
+.pkg-card{
+  position:relative; display:flex; flex-direction:column;
+  border:1px solid var(--line); border-radius:22px; padding:2.3rem 1.9rem 2rem; background:var(--surface);
+  transition:border-color .35s, transform .35s var(--ease-out), box-shadow .4s;
+}
+.pkg-card:hover{ border-color:rgba(232,93,38,0.45); transform:translateY(-6px); box-shadow:0 30px 60px -34px rgba(0,0,0,0.55); }
+.pkg-card.is-featured{
+  border-color:rgba(232,93,38,0.55);
+  background:radial-gradient(ellipse 92% 55% at 50% 0%, rgba(232,93,38,0.15), transparent 62%), var(--surface);
+  box-shadow:0 28px 64px -34px rgba(0,0,0,0.55);
+}
+.pkg-badge{
+  position:absolute; top:0; right:1.5rem; transform:translateY(-50%);
+  font-family:var(--font-mono); font-size:.58rem; letter-spacing:.14em; text-transform:uppercase;
+  color:#FFF4E8; background:var(--ember); padding:.34rem .7rem; border-radius:99px; white-space:nowrap;
+}
+.pkg-name{ font-family:var(--font-mono); font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:var(--ember); }
+.pkg-pre{ display:block; font-family:var(--font-mono); font-size:.64rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-top:1.2rem; }
+.pkg-price{ font-family:var(--font-display); font-size:clamp(2.3rem,4.4vw,3.1rem); font-weight:430; letter-spacing:-0.02em; line-height:1; margin:.1rem 0 .15rem; color:var(--cream); }
+.pkg-price .cur{ font-size:.5em; vertical-align:.55em; color:var(--ember-bright); margin-right:.05em; }
+.pkg-price.free{ color:var(--ember-bright); }
+.pkg-sub{ font-family:var(--font-mono); font-size:.7rem; color:var(--muted); letter-spacing:.02em; }
+.pkg-desc{ color:var(--muted); font-size:.9rem; line-height:1.5; margin:1rem 0 1.2rem; }
+.pkg-list{ list-style:none; margin:0 0 1.6rem; padding:0; display:flex; flex-direction:column; gap:.55rem; }
+.pkg-list li{ font-size:.86rem; color:var(--cream-soft); display:flex; align-items:flex-start; gap:.55rem; line-height:1.4; }
+.pkg-list .tk{ color:var(--ember); flex-shrink:0; margin-top:.12rem; }
+.pkg-list .tk svg{ width:14px; height:14px; display:block; }
+.pkg-cta{ margin-top:auto; font-family:var(--font-mono); font-size:.78rem; letter-spacing:.03em; color:var(--cream);
+  display:inline-flex; align-items:center; gap:.45rem; transition:color .25s, gap .25s; }
+.pkg-cta:hover{ color:var(--ember-bright); gap:.7rem; }
+@media (max-width:880px){ .pkg-grid{ grid-template-columns:1fr; max-width:460px; margin-inline:auto; } }
+
 /* ---------- Bridge (next chapter) ---------- */
 .bridge{
   margin:0 var(--pad);
@@ -797,10 +849,11 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:450; letter-spacing:-0.01
 .side-card li::before{ content:"—"; position:absolute; left:0; color:var(--ember); }
 .side-note{ font-size:.85rem !important; color:var(--faint) !important; margin-top:.6rem; }
 .contact-tag{
-  display:inline-flex; align-items:center; gap:.6rem; font-family:var(--font-mono);
-  font-size:.74rem; letter-spacing:.08em; color:var(--cream-soft);
+  display:inline-flex; align-items:center; gap:.5rem; font-family:var(--font-mono);
+  font-size:.74rem; letter-spacing:.08em; color:var(--cream-soft); white-space:nowrap; max-width:100%;
   border:1px solid var(--line-strong); border-radius:99px; padding:.5rem 1rem;
 }
+@media (max-width:640px){ .contact-tag{ font-size:.62rem; letter-spacing:.03em; padding:.45rem .8rem; gap:.45rem; } }
 .contact-tag .dot{ width:7px; height:7px; border-radius:50%; background:var(--ember-bright); animation:pulse 2s infinite; }
 
 /* Forms */
@@ -828,6 +881,13 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:450; letter-spacing:-0.01
 /* ---------- Misc ---------- */
 .kicker-link{ color:var(--cream); text-decoration:underline; text-decoration-color:rgba(232,93,38,0.5); text-underline-offset:3px; }
 .kicker-link:hover{ text-decoration-color:var(--ember); }
+/* Arrow links: underline only the text, SVG arrow sits after it and nudges on hover.
+   Scoped to links that have a .kl-txt span so existing/pricing links are unaffected. */
+.kicker-link:has(.kl-txt){ text-decoration:none; }
+.kicker-link .kl-txt{ text-decoration:underline; text-decoration-color:rgba(232,93,38,0.5); text-underline-offset:3px; }
+.kicker-link:hover .kl-txt{ text-decoration-color:var(--ember); }
+.kicker-link .kl-txt + svg{ width:14px; height:14px; vertical-align:middle; margin-left:.18rem; transition:transform .25s var(--ease-out); }
+.kicker-link:hover .kl-txt + svg{ transform:translateX(3px); }
 .totals-box{ text-align:right; }
 .totals-box .tl{ display:flex; justify-content:flex-end; gap:1.5rem; font-family:var(--font-mono); font-size:.9rem; color:var(--muted); padding:.3rem 0; }
 .totals-box .tl .strike{ text-decoration:line-through; color:var(--faint); }
@@ -1255,11 +1315,33 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:450; letter-spacing:-0.01
 .tick-list .tk{ color:var(--ember-bright); flex-shrink:0; margin-top:.15rem; }
 .tick-list .tk svg{ width:18px; height:18px; }
 
+/* ---------- Inline info tooltip ( ! badge, hover or tap ) ---------- */
+.tip{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:16px; height:16px; border-radius:50%; border:1px solid var(--line-strong);
+  color:var(--muted); font-family:var(--font-mono); font-size:.64rem; font-weight:500; line-height:1;
+  cursor:help; position:relative; vertical-align:middle; margin-left:.35rem; flex-shrink:0; user-select:none;
+  transition:color .2s, border-color .2s;
+}
+.tip:hover, .tip:focus{ color:var(--ember-bright); border-color:var(--ember); outline:none; }
+.tip::after{
+  content:attr(data-tip);
+  position:absolute; left:50%; bottom:calc(100% + 9px); transform:translateX(-50%) translateY(5px);
+  width:max-content; max-width:228px; padding:.65rem .8rem;
+  background:var(--surface-2); color:var(--cream-soft); border:1px solid var(--line-strong); border-radius:11px;
+  font-family:"Geist", ui-sans-serif, system-ui, sans-serif; font-size:.76rem; font-weight:400;
+  line-height:1.45; letter-spacing:0; text-transform:none; text-align:left; white-space:normal;
+  box-shadow:0 20px 44px -22px rgba(0,0,0,0.6);
+  opacity:0; visibility:hidden; transition:opacity .2s var(--ease-out), transform .2s var(--ease-out);
+  z-index:40; pointer-events:none;
+}
+.tip:hover::after, .tip:focus::after{ opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); }
+
 /* AI pricing plan card */
 .ai-plan{
   border:1px solid rgba(232,93,38,0.35); border-radius:24px;
   background:radial-gradient(ellipse 80% 50% at 50% 0%, rgba(232,93,38,0.12), transparent 60%), var(--surface);
-  padding:clamp(2.2rem,4vw,3.2rem); max-width:560px; margin:0 auto; position:relative; overflow:hidden;
+  padding:clamp(2.2rem,4vw,3.2rem); max-width:560px; margin:0 auto 1.25rem; position:relative; overflow:hidden;
 }
 .ai-plan-tag{ display:inline-block; font-family:var(--font-mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ember-bright); border:1px solid rgba(232,93,38,0.4); border-radius:99px; padding:.4rem .9rem; margin-bottom:1.6rem; }
 .ai-plan-name{ font-size:1.5rem; font-weight:480; }
@@ -1274,7 +1356,7 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:450; letter-spacing:-0.01
 .ai-plan .tick-list{ margin:1.6rem 0; }
 .ai-plan-cta{ width:100%; justify-content:center; margin-top:.5rem; }
 .ai-plan-subcta{ text-align:center; font-family:var(--font-mono); font-size:.74rem; color:var(--faint); margin-top:1rem; }
-.ai-reassure{ color:var(--muted); font-size:.92rem; max-width:60ch; margin:2rem auto 0; text-align:center; }
+.ai-reassure{ color:var(--muted); font-size:.92rem; max-width:60ch; margin:3.5rem auto 0; text-align:center; }
 
 @media (max-width: 1080px){
   .split-2{ grid-template-columns:1fr; }
@@ -1449,12 +1531,14 @@ html.light .avx-root{
     align-items: start;                 /* a card can grow without stretching its row-mate */
   }
   .rail-card{
-    flex: none !important; min-height: 0 !important; position: relative;
+    flex: none !important; min-height: 12.5rem; position: relative;
     padding: 1.2rem 1rem; border-radius: 16px;
     cursor: pointer; -webkit-tap-highlight-color: transparent;
     transition: border-color .35s var(--ease-out), background .35s var(--ease-out),
                 box-shadow .42s var(--ease-out), grid-column 0s;
   }
+  /* keep the section label clear of the chevron in the top-right corner */
+  .rail-card .rail-num{ display:block; padding-right:1.7rem; }
   /* the detail copy is collapsed by default and springs open when the card is tapped */
   .rail-card p{
     display: block; max-height: 0; opacity: 0; margin: 0; overflow: hidden;
@@ -1477,7 +1561,7 @@ html.light .avx-root{
   }
   /* expanded (detailed) state: full width, highlighted, detail revealed with a bubbly pop */
   .rail-card.open{
-    grid-column: 1 / -1;
+    grid-column: 1 / -1; min-height: auto;
     border-color: rgba(232,93,38,0.5); background: var(--surface-2);
     box-shadow: 0 26px 54px -28px rgba(0,0,0,0.55);
     transform-origin: center;
