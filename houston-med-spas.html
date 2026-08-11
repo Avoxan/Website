@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <title>Houston Med Spa Websites with a 24/7 AI Front Desk · Avoxan</title>
-<meta name="description" content="Avoxan builds Houston med spas a premium website with a 24/7 AI Front Desk built in, answers treatment questions instantly, qualifies clients, and books them into JaneApp or Zenoti while you're closed.">
+<meta name="description" content="Premium websites for Houston med spas with a 24/7 AI front desk built in. Answers treatment questions, qualifies clients and books into JaneApp or Zenoti.">
 
 <meta name="author" content="Akarshan Digital LLC">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -55,12 +55,68 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "serviceType": "Med spa website with 24/7 AI front desk",
-  "name": "Avoxan for Houston Med Spas",
-  "provider": {"@type": "Organization", "name": "Avoxan", "url": "https://avoxan.com/"},
-  "areaServed": {"@type": "City", "name": "Houston"},
-  "offers": {"@type": "Offer", "price": "2300", "priceCurrency": "USD", "description": "Premium med spa website plus 24/7 AI Front Desk, flat one-time build"}
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://avoxan.com/houston-med-spas#breadcrumb",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://avoxan.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Houston Med Spa Websites", "item": "https://avoxan.com/houston-med-spas"}
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://avoxan.com/houston-med-spas#service",
+      "serviceType": "Med spa website with 24/7 AI front desk",
+      "name": "Avoxan for Houston Med Spas",
+      "description": "A premium, conversion-built website for Houston med spas paired with a 24/7 AI Front Desk that answers treatment questions, qualifies clients, and books them into JaneApp or Zenoti after hours.",
+      "provider": {"@type": "Organization", "name": "Avoxan", "@id": "https://avoxan.com/#organization", "url": "https://avoxan.com/"},
+      "areaServed": {"@type": "City", "name": "Houston", "containedInPlace": {"@type": "State", "name": "Texas"}},
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Premium med spa website",
+          "description": "Flat one-time build, designed around your treatment menu. Pay 50% to start and 50% at launch. Includes 90 days of tuning and edits after launch.",
+          "url": "https://avoxan.com/houston-med-spas#pricing",
+          "availability": "https://schema.org/InStock",
+          "priceCurrency": "USD",
+          "price": "2300.00"
+        },
+        {
+          "@type": "Offer",
+          "name": "24/7 AI Front Desk",
+          "description": "Flat monthly AI front desk trained on your treatment menu. Free setup, no per-minute billing, month-to-month with no contract.",
+          "url": "https://avoxan.com/houston-med-spas#pricing",
+          "availability": "https://schema.org/InStock",
+          "priceCurrency": "USD",
+          "price": "397.00",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "397.00",
+            "priceCurrency": "USD",
+            "billingIncrement": 1,
+            "referenceQuantity": {"@type": "QuantitativeValue", "value": 1, "unitCode": "MON"}
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Website care plan",
+          "description": "Optional monthly plan covering website hosting, SSL, daily backups, security updates, monthly content edits, and GA4 reporting.",
+          "url": "https://avoxan.com/houston-med-spas#pricing",
+          "availability": "https://schema.org/InStock",
+          "priceCurrency": "USD",
+          "price": "150.00",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "150.00",
+            "priceCurrency": "USD",
+            "billingIncrement": 1,
+            "referenceQuantity": {"@type": "QuantitativeValue", "value": 1, "unitCode": "MON"}
+          }
+        }
+      ]
+    }
+  ]
 }
 </script>
 <script src="/js/avoxan-chat.js" defer></script>
@@ -210,14 +266,15 @@
       <span class="ai-plan-tag">The Med Spa Package</span>
       <h3 class="ai-plan-name">Premium Website + 24/7 AI Front Desk</h3>
       <div class="ai-plan-price"><span class="ai-plan-cur">$</span>2,300</div>
+      <p class="ai-plan-subcta" style="margin-top:.5rem;">One-time build · 50% to start, 50% at launch</p>
       <div class="totals-box" style="text-align:left;margin:1.4rem 0;">
-        <div class="tl"><span>Base med spa website</span><span>$1,500</span></div>
-        <div class="tl"><span>+ 24/7 AI Front Desk</span><span>$800</span></div>
-        <div class="tl bold"><span>Complete system</span><span class="final">$2,300</span></div>
+        <div class="tl"><span>Premium med spa website, built for your treatment menu</span><span>$2,300 once</span></div>
+        <div class="tl bold"><span>24/7 AI Front Desk</span><span class="final">$<span data-ai-price="amount">397</span>/mo</span></div>
+        <div class="tn">Free AI setup. No per-minute billing. Month-to-month, cancel anytime.</div>
       </div>
       <div class="ai-guarantee-callout">
-        <strong>Flat, one-time. Pay 50% to start, 50% at launch.</strong>
-        <span>Prefer to start lean? Launch the website at $1,500 and switch the AI Front Desk on whenever you're ready.</span>
+        <strong>One recovered booking covers the month</strong>
+        <span>The AI Front Desk runs at a flat $<span data-ai-price="amount">397</span>/month. For most Houston spas a single after-hours booking it catches pays for it outright, and everything past that is margin you were handing to the spa down the road.</span>
       </div>
       <ul class="tick-list">
         <li><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Premium, conversion-built med spa website</li>
@@ -236,15 +293,15 @@
       <div data-reveal>
         <div class="eyebrow">Optional · monthly</div>
         <h2 class="bridge-headline">One plan, <span class="it">zero hosting headaches</span>.</h2>
-        <p style="color:var(--muted);margin-top:1.2rem;max-width:50ch;">Your AI Front Desk needs hosting and tokens to run; your site needs security check-ins, backups, and small tweaks. Pay those providers directly, or bundle it all into one monthly plan. You still own everything, it's convenience, not lock-in.</p>
+        <p style="color:var(--muted);margin-top:1.2rem;max-width:50ch;">Your AI Front Desk already covers its own hosting and usage inside the monthly plan, there is nothing extra to buy there. Your website still needs security check-ins, backups, and the occasional tweak. Handle that yourself, or bundle it into one monthly plan. You still own everything, it's convenience, not lock-in.</p>
       </div>
       <div class="side-card" data-reveal data-reveal-delay="0.1">
-        <h3>Care plan, $199/mo</h3>
+        <h3>Website care plan, $150/mo</h3>
         <ul>
           <li>Website hosting, SSL, and daily backups</li>
-          <li>AI Front Desk hosting and token usage</li>
           <li>Security check-ins and updates</li>
-          <li>Small edits &amp; AI tuning as your menu changes</li>
+          <li>Monthly content edits as your treatment menu changes</li>
+          <li>GA4 monitoring and a monthly performance report</li>
         </ul>
         <p class="side-note">Cancel anytime. If you'd rather manage hosting yourself, that's completely fine too.</p>
       </div>
@@ -391,7 +448,7 @@
     </script>
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
   </div>
-  <div data-reveal style="margin-top:2rem;"><span class="pill"><span class="pulse"></span>3 audit slots remaining for <span class="js-bk" data-bk="my">June 2026</span></span></div>
+  <div data-reveal style="margin-top:2rem;"><span class="pill"><span class="pulse"></span>3 audit slots remaining for <span class="js-bk" data-bk="my">this month</span></span></div>
 </section>
 
 </main>
@@ -445,5 +502,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="/js/avoxan-v2.js?v=7" defer></script>
+<script src="/js/avoxan-ai-pricing.js" defer></script>
 </body>
 </html>

@@ -5,6 +5,7 @@
 # ── Top-level pages (.html → extensionless)
 /ai-receptionist.html /ai-receptionist  301
 /ai-receptionist-plumbers.html /ai-receptionist-plumbers  301
+/houston-med-spas.html /houston-med-spas  301
 /services.html        /services        301
 /pricing.html         /pricing         301
 /process.html         /process         301
@@ -39,6 +40,7 @@
 # Trailing-slash canonicalization
 # Removed /work/ and /blog/ to prevent directory index redirect loops.
 # ──────────────────────────────────────────────────────────────────
+/houston-med-spas/ /houston-med-spas 301
 /services/    /services    301
 /pricing/     /pricing     301
 /process/     /process     301

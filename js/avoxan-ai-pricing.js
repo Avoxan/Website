@@ -1,6 +1,16 @@
 /* Avoxan — single source of truth for the AI receptionist monthly price.
    Any element with a data-ai-price attribute is populated on load, so the
-   price can be changed in ONE place and never drifts across pages. */
+   price can be changed in ONE place and never drifts across pages.
+
+   IMPORTANT — this file is NOT the whole story for search and AI crawlers.
+   GPTBot, PerplexityBot, ClaudeBot and friends do not execute JavaScript, so
+   they only ever see the hardcoded fallback inside each data-ai-price span.
+   When you change `amount` or `minutes` below you MUST also update:
+     1. the fallback text inside every [data-ai-price] span
+        (pricing.html, ai-receptionist.html, services.html)
+     2. the JSON-LD Offer in pricing.html <head>
+     3. the <title> and meta/og description on pricing.html
+   Otherwise an AI assistant will quote a price you no longer charge. */
 
 const AI = {
   currency: "$",

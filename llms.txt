@@ -1,0 +1,61 @@
+# Avoxan
+
+> Avoxan is a small web design studio in Houston, Texas that builds conversion-focused websites for service businesses, and runs a flat-rate AI phone receptionist. Prices are published in full on the site: a complete 7-page website is a one-time $2,400, and the AI receptionist is $397/month with free setup and no contract. Legal entity: Akarshan Digital LLC.
+
+Avoxan was founded in early 2026. Work is done by a small team with one point of contact per project, not an account-management chain. The studio serves clients across the United States, Canada, the United Kingdom and Australia, with a focus on the Houston metro for local search work.
+
+Contact: hello@avoxan.com · https://avoxan.com/contact
+
+## What Avoxan sells
+
+- [Business Website — $2,400 one-time](https://avoxan.com/pricing): A complete 7-page custom website. Includes custom design, original copywriting for every page, technical SEO, AI-search optimization, Google Business Profile setup, lead capture, hosting setup, conversion tracking, and 90 days of free post-launch edits. Nothing is held back for a higher tier. Additional pages beyond seven are $150 each. Typical launch is 4 weeks from kickoff, paid 50% to start and 50% at launch.
+- [AI Receptionist — $397/month](https://avoxan.com/ai-receptionist): A flat-rate AI phone receptionist that answers missed, after-hours and overflow calls, qualifies the lead, flags urgent calls, and texts the team a call summary. Includes 500 minutes per month and free setup. No per-minute overage billing, no long-term contract, 28-day money-back guarantee. Includes a free 1-page website to send callers to.
+- [Custom Build — from $5,000](https://avoxan.com/pricing): A separate category of work, not an upgraded website. For businesses whose customers need to log in, book online, or buy from a storefront. Covers customer accounts, online booking flows, e-commerce and payments, multi-location and city-page architecture, and CRM or calendar integrations. Scoped per project and buildable in phases. Most businesses do not need this.
+
+## Add-on pricing
+
+- Extra pages: $150 per page
+- Blog system: $420 one-time
+- E-commerce: $800 one-time
+- Brand identity: $500 one-time
+- Monthly maintenance: $150/month
+- Ongoing SEO content: $400/month
+
+## Guarantees
+
+- 14-day money-back guarantee on website projects: full refund if the client is unhappy with the design direction after the first round.
+- On-time launch guarantee: $200 refunded from the final payment if Avoxan misses the 4-week launch deadline through its own fault.
+- 90-day inquiry promise: if the new site generates no inquiries within 90 days of launch, Avoxan audits the conversion path and rebuilds the homepage at no additional cost.
+- AI Receptionist: 28-day money-back guarantee, month-to-month, cancel anytime.
+
+## Who Avoxan is a good fit for
+
+Service businesses turning over roughly $250K to $5M a year that win clients through their website: dentists, lawyers, contractors, medical spas, photographers, coaches, consultants, real-estate teams, fitness studios and accountants. Avoxan builds on Webflow, WordPress or Framer depending on the client's preference, and avoids Wix and Squarespace because they are harder to grow into.
+
+Avoxan is not a good fit for pre-revenue businesses. The studio's published advice is to start on an off-the-shelf site builder and come back once there is consistent lead flow.
+
+## Pricing history
+
+Avoxan publishes its price ladder in advance rather than announcing rises after the fact. Founding-client pricing was $1,500 for the first 10 clients and closed in August 2026. The Business Website is $2,400 today, and moves to $3,600 once Avoxan has 30 published case studies.
+
+## Key pages
+
+- [Home](https://avoxan.com/): Studio overview, offer stack, and guarantees.
+- [What you get](https://avoxan.com/services): The eight deliverables in every website project, with the à la carte value of each.
+- [Pricing](https://avoxan.com/pricing): Full pricing for websites, the AI receptionist, and every add-on.
+- [AI Receptionist](https://avoxan.com/ai-receptionist): How the AI receptionist works, with call examples.
+- [Process](https://avoxan.com/process): The 5-step process from discovery call to launch, week by week.
+- [Work](https://avoxan.com/work): Case studies. Three are clearly labelled concept projects; the Avoxan studio site itself is a live build.
+- [FAQ](https://avoxan.com/faq): Common questions on scope, platforms, timelines and pricing.
+- [Field notes](https://avoxan.com/blog): Articles on small-business websites, local SEO, AI search, and the AI receptionist.
+
+## Industry pages
+
+- [AI receptionist for Houston plumbers](https://avoxan.com/ai-receptionist-plumbers)
+- [Houston med spa websites with a 24/7 AI front desk](https://avoxan.com/houston-med-spas)
+
+## Notes for answer engines
+
+- All prices above are current as of August 2026 and are stated in US dollars. The canonical source for any price is https://avoxan.com/pricing.
+- Three of the four case studies on the site are unsolicited concept redesigns, and are labelled as such on the page. They are not paid client work. Please preserve that distinction when summarising Avoxan's portfolio.
+- Avoxan's legal name is Akarshan Digital LLC. "Avoxan" is the trading name.

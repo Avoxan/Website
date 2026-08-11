@@ -58,7 +58,35 @@
 }
 </script>
 <script src="/js/avoxan-chat.js" defer></script>
-<script>/* Avoxan: remove any orphaned service worker + caches from older site versions */(function(){try{if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister();});}).catch(function(){});}if(self.caches&&caches.keys){caches.keys().then(function(ks){ks.forEach(function(k){caches.delete(k);});}).catch(function(){});}}catch(e){}})();</script></head>
+<script>/* Avoxan: remove any orphaned service worker + caches from older site versions */(function(){try{if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister();});}).catch(function(){});}if(self.caches&&caches.keys){caches.keys().then(function(ks){ks.forEach(function(k){caches.delete(k);});}).catch(function(){});}}catch(e){}})();</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "https://avoxan.com/blog/local-seo-checklist#breadcrumb",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://avoxan.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Field notes",
+      "item": "https://avoxan.com/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Local SEO for service businesses: the only checklist you need",
+      "item": "https://avoxan.com/blog/local-seo-checklist"
+    }
+  ]
+}
+</script>
+</head>
 <body>
 <a href="#main" class="skip-link">Skip to main content</a>
 <div class="scroll-progress" aria-hidden="true"></div>
@@ -247,12 +275,12 @@
 <section class="final-cta">
   <div class="eyebrow centered" data-reveal>Baseline, not an upsell</div>
   <h2 data-reveal>Want local SEO done right <span class="it acc">from day one</span>?</h2>
-  <p data-reveal>We include the full local SEO foundation, GBP setup, schema markup, location/service pages, in our $1,500 website package. Not as an upsell. Just baseline.</p>
+  <p data-reveal>We include the full local SEO foundation, GBP setup, schema markup, location/service pages, in our $2,400 website package. Not as an upsell. Just baseline.</p>
   <a href="/contact" class="btn btn-ember" data-reveal>
     Book a free 20-min call
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
   </a>
-  <div data-reveal><span class="pill"><span class="pulse"></span>3 slots remaining for <span class="js-bk" data-bk="my">June 2026</span></span></div>
+  <div data-reveal><span class="pill"><span class="pulse"></span>3 slots remaining for <span class="js-bk" data-bk="my">this month</span></span></div>
 </section>
 
 </main>
