@@ -7,9 +7,12 @@
    they only ever see the hardcoded fallback inside each data-ai-price span.
    When you change `amount` or `minutes` below you MUST also update:
      1. the fallback text inside every [data-ai-price] span
-        (pricing.html, ai-receptionist.html, services.html)
+        (pricing.html, ai-receptionist.html, services.html, houston-med-spas.html)
      2. the JSON-LD Offer in pricing.html <head>
-     3. the <title> and meta/og description on pricing.html
+     3. the meta/og description on pricing.html
+     4. /llms.txt                      — what ChatGPT / Perplexity / Claude read
+     5. functions/api/chat.js          — the site chatbot's system prompt
+     6. js/avoxan-chat.js              — the widget's suggested-question chips
    Otherwise an AI assistant will quote a price you no longer charge. */
 
 const AI = {

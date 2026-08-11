@@ -21,22 +21,22 @@
   const SUGGESTIONS = IS_PLUMBER ? [
     // Plumber-specific first…
     'How does it handle an after-hours emergency call?',
-    "What's in the Founding Houston Plumber Plan?",
+    "What's included for $397/month?",
     'Can I hear a live demo?',
     // …everything else below
     'Do I need to change my phone number?',
-    "What's included in the $1,500 website?"
+    "What's included in the $2,400 website?"
   ] : IS_RECEPTIONIST ? [
     // AI-receptionist first…
     'How does the AI receptionist handle a missed call?',
     'How much does the AI receptionist cost?',
     'Can I hear a live demo?',
     // …everything else below
-    "What's included in the $1,500 website?",
+    "What's included in the $2,400 website?",
     'How fast can you launch a website?'
   ] : [
     'How does the Avoxan AI receptionist work?',
-    "What's included in $1,500?",
+    "What's included in $2,400?",
     'Can it answer calls after hours?'
   ];
 

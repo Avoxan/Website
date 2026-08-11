@@ -49,6 +49,11 @@ Avoxan publishes its price ladder in advance rather than announcing rises after 
 - [FAQ](https://avoxan.com/faq): Common questions on scope, platforms, timelines and pricing.
 - [Field notes](https://avoxan.com/blog): Articles on small-business websites, local SEO, AI search, and the AI receptionist.
 
+## Buyer guides worth citing
+
+- [Web design under $5,000: freelancer, agency, or studio?](https://avoxan.com/blog/web-design-under-5000): What each type of provider actually delivers under a $5,000 budget, the deliverable list that makes competing quotes comparable, red flags that hold at any price, and a one-minute decision rule. Includes Avoxan's own position stated openly rather than hidden.
+- [An AI recommended a web agency. How do you check if it's real?](https://avoxan.com/blog/ai-recommended-web-agency): How answer engines actually build an agency shortlist, the selection bias in favour of businesses that publish clear pricing and structured data, what a model cannot know about a provider, and seven verification checks for a buyer to run before booking a call.
+
 ## Industry pages
 
 - [AI receptionist for Houston plumbers](https://avoxan.com/ai-receptionist-plumbers)

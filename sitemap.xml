@@ -130,6 +130,21 @@
     <priority>0.8</priority>
   </url>
 
+
+  <url>
+    <loc>https://avoxan.com/blog/web-design-under-5000</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://avoxan.com/blog/ai-recommended-web-agency</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- AI receptionist cluster -->
   <url>
     <loc>https://avoxan.com/blog/what-is-an-ai-receptionist</loc>
