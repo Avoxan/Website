@@ -130,7 +130,7 @@
 }
 </script>
 
-<script src="/js/avoxan-chat.js" defer></script>
+<script src="/js/avoxan-chat.js?v=2" defer></script>
 <script>/* Avoxan: remove any orphaned service worker + caches from older site versions */(function(){try{if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister();});}).catch(function(){});}if(self.caches&&caches.keys){caches.keys().then(function(ks){ks.forEach(function(k){caches.delete(k);});}).catch(function(){});}}catch(e){}})();</script></head>
 <body>
 <a href="#main" class="skip-link">Skip to main content</a>
@@ -694,6 +694,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.158.0/three.min.js" defer></script>
 <script src="js/avoxan-v2.js?v=7" defer></script>
-<script src="js/avoxan-hero-v2.js" defer></script>
+<script src="js/avoxan-hero-v2.js?v=1" defer></script>
 </body>
 </html>

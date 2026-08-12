@@ -1,16 +1,14 @@
 # ──────────────────────────────────────────────────────────────────
 # AVOXAN — Cloudflare Pages headers
 # ──────────────────────────────────────────────────────────────────
-# Keep the med spa landing page out of search engines at the HTTP
-# level (belt-and-suspenders with the <meta robots> tag in the page).
-# Scoped to this path only — the rest of the site indexes normally.
+# NOTE: /houston-med-spas previously carried an X-Robots-Tag of
+# "noindex, nofollow" here, from when it was a private cold-email
+# landing page. It is now a public, indexable page (in sitemap.xml,
+# linked from /ai-receptionist and /services), so that header has
+# been removed. An HTTP X-Robots-Tag OVERRIDES the <meta robots>
+# tag in the HTML — if you ever re-add a noindex here, the page will
+# drop out of search no matter what the page markup says.
 # ──────────────────────────────────────────────────────────────────
-
-/houston-med-spas
-  X-Robots-Tag: noindex, nofollow
-
-/houston-med-spas.html
-  X-Robots-Tag: noindex, nofollow
 
 # ──────────────────────────────────────────────────────────────────
 # Caching: always revalidate HTML so new deploys appear immediately and
@@ -25,7 +23,12 @@
 /*
   Cache-Control: public, max-age=0, must-revalidate
 
-# Versioned assets use ?v= cache-busting, so they can cache hard.
+# Versioned assets cache hard for a year. EVERY file under these paths
+# MUST be referenced with a ?v= query string that you bump on change —
+# otherwise returning visitors keep the old file for up to a year and
+# a fix you deploy never reaches them.
+# Current versions: avoxan-v2.css?v=18 · avoxan-v2.js?v=7
+#                   avoxan-chat.js?v=2 · avoxan-ai-pricing.js?v=2
 /css/*
   Cache-Control: public, max-age=31536000
 /js/*

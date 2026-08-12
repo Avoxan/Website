@@ -45,6 +45,43 @@
 
 <link rel="stylesheet" href="/css/avoxan-v2.css?v=18">
 
+<style>
+/* Category comparison table — scoped to this page so avoxan-v2.css needs no cache bust.
+   Attribute-per-row, option-per-column: reads as a comparison, not a pricing tier. */
+.cmp{
+  max-width:var(--maxw); margin:2.6rem auto 0;
+  border:1px solid var(--line); border-radius:18px; overflow:hidden; background:var(--surface);
+}
+.cmp-row{ display:grid; grid-template-columns:1.05fr 1fr 1fr 1fr; border-top:1px solid var(--line); }
+.cmp-row:first-child{ border-top:none; }
+.cmp-row > div{
+  padding:1.05rem 1.2rem; font-size:.92rem; line-height:1.45;
+  color:var(--cream-soft); display:flex; align-items:center;
+}
+.cmp-row > .cmp-attr{ color:var(--muted); font-size:.86rem; }
+.cmp-row.cmp-head > div{
+  font-family:var(--font-mono); font-size:.67rem; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--muted); align-items:flex-end; padding-top:1.2rem; padding-bottom:1rem;
+}
+.cmp-row.cmp-head > .cmp-us{ color:var(--ember); }
+.cmp-row > .cmp-us{ background:rgba(232,93,38,0.055); }
+.cmp-row > .cmp-us b{ color:var(--cream); font-weight:600; }
+.cmp-opt{ display:none; }
+
+@media (max-width:760px){
+  .cmp{ border-radius:14px; }
+  .cmp-row{ display:block; padding-bottom:.75rem; }
+  .cmp-row.cmp-head{ display:none; }
+  .cmp-row > div{ display:flex; gap:.7rem; padding:.4rem 1.1rem; font-size:.9rem; }
+  .cmp-row > .cmp-attr{
+    display:block; font-family:var(--font-mono); font-size:.66rem; letter-spacing:.13em;
+    text-transform:uppercase; color:var(--ember); padding-top:1rem; padding-bottom:.45rem;
+  }
+  .cmp-opt{ display:block; flex:0 0 6.4rem; color:var(--muted); font-size:.84rem; }
+  .cmp-row > .cmp-us{ background:rgba(232,93,38,0.075); }
+}
+</style>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -53,7 +90,7 @@
   "name": "Avoxan AI Receptionist",
   "provider": {"@type": "Organization", "name": "Avoxan", "url": "https://avoxan.com/"},
   "areaServed": {"@type": "Country", "name": "United States"},
-  "offers": {"@type": "Offer", "price": "397", "priceCurrency": "USD", "description": "Founding AI Receptionist plan, flat monthly, no contract, 28-day money-back guarantee"}
+  "offers": {"@type": "Offer", "price": "397", "priceCurrency": "USD", "description": "Flat monthly AI receptionist, free setup, no contract, 28-day money-back guarantee. Includes 500 minutes per month as a guide rather than a hard cap: the service keeps answering beyond 500 minutes, there is no per-minute overage rate, and any change to the monthly price is agreed with the client in advance."}
 }
 </script>
 <script type="application/ld+json">
@@ -65,11 +102,12 @@
     {"@type": "Question", "name": "What if it can't answer something?", "acceptedAnswer": {"@type": "Answer", "text": "It doesn't bluff. If a caller asks something outside what it knows, it takes a detailed message or escalates, forwarding to your cell or promising a callback and texting you immediately."}},
     {"@type": "Question", "name": "Do I need a website to use this?", "acceptedAnswer": {"@type": "Answer", "text": "No. The receptionist works on its own with just your phone number. It pairs nicely with an Avoxan website but plenty of businesses start with the receptionist alone."}},
     {"@type": "Question", "name": "Is it really 24/7?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. It answers nights, weekends, and holidays with no shift to cover and no overtime. You decide whether it takes every call or only the ones you miss."}},
-    {"@type": "Question", "name": "Can I keep my current number?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. You keep your existing business number. We set up call forwarding so the AI answers on your terms. Nothing about your number changes for your customers."}}
+    {"@type": "Question", "name": "Can I keep my current number?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. You keep your existing business number. We set up call forwarding so the AI answers on your terms. Nothing about your number changes for your customers."}},
+    {"@type": "Question", "name": "What happens if I go over the 500 included minutes?", "acceptedAnswer": {"@type": "Answer", "text": "Nothing automatic, and nothing stops working. The 500 minutes are a guide, not a hard cap. The receptionist keeps answering past minute 501, and Avoxan never charges a per-minute overage rate for going over. If usage runs over consistently, Avoxan contacts the client and either raises the included minutes or discusses a plan that fits the call volume. Any change to the monthly price is agreed in advance with the client, never applied automatically or billed as a surprise."}}
   ]
 }
 </script>
-<script src="/js/avoxan-chat.js" defer></script>
+<script src="/js/avoxan-chat.js?v=2" defer></script>
 <script>/* Avoxan: remove any orphaned service worker + caches from older site versions */(function(){try{if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister();});}).catch(function(){});}if(self.caches&&caches.keys){caches.keys().then(function(ks){ks.forEach(function(k){caches.delete(k);});}).catch(function(){});}}catch(e){}})();</script>
 <script type="application/ld+json">
 {
@@ -374,61 +412,61 @@
     <div class="sec-head" data-reveal style="text-align:center; margin-top:clamp(3.5rem,7vw,5rem);">
       <div class="eyebrow centered">The honest comparison</div>
       <h2 class="sec-title" style="margin-left:auto;margin-right:auto;">Why $397 and <span class="it">not $49</span>?</h2>
-      <p class="deck" style="margin:1.4rem auto 0;">Because there are three different things being sold, and only one of them arrives set up. Here's the whole market, including where we're the wrong choice.</p>
+      <p class="deck" style="margin:1.4rem auto 0;">Because three different things are being sold, and only one of them arrives already set up. The same six questions asked of each, including where we're the wrong choice.</p>
     </div>
 
-    <div class="pkg-grid">
-      <div class="pkg-card" data-reveal>
-        <span class="pkg-name">Self-serve AI tools</span>
-        <span class="pkg-pre">From</span>
-        <div class="pkg-price"><span class="cur">$</span>25<span class="pkg-per" style="font-size:1rem;">–299/mo</span></div>
-        <span class="pkg-sub">you build it yourself</span>
-        <p class="pkg-desc">Software you configure. Cheapest on paper, and genuinely fine if you enjoy setting it up.</p>
-        <ul class="pkg-list">
-          <li><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Lowest sticker price</li>
-          <li><span class="tk" style="color:var(--muted);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Setup fees typically $200–$2,000</li>
-          <li><span class="tk" style="color:var(--muted);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Per-minute overage, $0.10–$0.50</li>
-          <li><span class="tk" style="color:var(--muted);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>You write the scripts and maintain it</li>
-          <li><span class="tk" style="color:var(--muted);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>No website</li>
-        </ul>
+    <div class="cmp" data-reveal>
+      <div class="cmp-row cmp-head">
+        <div class="cmp-attr"></div>
+        <div>Self-serve AI tools</div>
+        <div class="cmp-us">Avoxan</div>
+        <div>Human answering service</div>
       </div>
 
-      <div class="pkg-card is-featured" data-reveal data-reveal-delay="0.07">
-        <span class="pkg-badge">Set up for you</span>
-        <span class="pkg-name">Avoxan</span>
-        <span class="pkg-pre">Flat</span>
-        <div class="pkg-price"><span class="cur">$</span><span data-ai-price="amount">397</span><span class="pkg-per" style="font-size:1rem;">/mo</span></div>
-        <span class="pkg-sub">built, trained &amp; tuned by us</span>
-        <p class="pkg-desc">A done-for-you service, not software you have to configure. One number, and it's the number on the invoice.</p>
-        <ul class="pkg-list">
-          <li><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><strong>Setup is free</strong>, we build and train it</li>
-          <li><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><strong>No per-minute overage, ever</strong></li>
-          <li><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span data-ai-price="minutes">500</span> minutes included each month</li>
-          <li><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><strong>Free 1-page website</strong> included</li>
-          <li><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Month-to-month, 28-day money back</li>
-        </ul>
-        <a href="#book" class="pkg-cta">Hear it answer a call
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+      <div class="cmp-row">
+        <div class="cmp-attr">Monthly base</div>
+        <div><span class="cmp-opt">Self-serve</span>$25–299</div>
+        <div class="cmp-us"><span class="cmp-opt">Avoxan</span><b>$<span data-ai-price="amount">397</span> flat</b></div>
+        <div><span class="cmp-opt">Human</span>$235+</div>
       </div>
 
-      <div class="pkg-card" data-reveal data-reveal-delay="0.14">
-        <span class="pkg-name">Human answering service</span>
-        <span class="pkg-pre">From</span>
-        <div class="pkg-price"><span class="cur">$</span>235<span class="pkg-per" style="font-size:1rem;">+/mo</span></div>
-        <span class="pkg-sub">plus per-minute billing</span>
-        <p class="pkg-desc">Real people, and the right answer if your calls genuinely need human judgement every time.</p>
-        <ul class="pkg-list">
-          <li><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Real people on the phone</li>
-          <li><span class="tk" style="color:var(--muted);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Billed per minute on top of the base</li>
-          <li><span class="tk" style="color:var(--muted);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Small included allowance, often under an hour</li>
-          <li><span class="tk" style="color:var(--muted);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Round-the-clock cover usually costs extra</li>
-          <li><span class="tk" style="color:var(--muted);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>No website</li>
-        </ul>
+      <div class="cmp-row">
+        <div class="cmp-attr">Setup fee</div>
+        <div><span class="cmp-opt">Self-serve</span>$200–2,000 typical</div>
+        <div class="cmp-us"><span class="cmp-opt">Avoxan</span><b>Free</b></div>
+        <div><span class="cmp-opt">Human</span>Varies by provider</div>
+      </div>
+
+      <div class="cmp-row">
+        <div class="cmp-attr">Per-minute overage</div>
+        <div><span class="cmp-opt">Self-serve</span>$0.10–0.50 a minute</div>
+        <div class="cmp-us"><span class="cmp-opt">Avoxan</span><b>None, ever</b></div>
+        <div><span class="cmp-opt">Human</span>Billed per minute</div>
+      </div>
+
+      <div class="cmp-row">
+        <div class="cmp-attr">Who builds &amp; trains it</div>
+        <div><span class="cmp-opt">Self-serve</span>You do</div>
+        <div class="cmp-us"><span class="cmp-opt">Avoxan</span><b>We do</b></div>
+        <div><span class="cmp-opt">Human</span>They do</div>
+      </div>
+
+      <div class="cmp-row">
+        <div class="cmp-attr">Website included</div>
+        <div><span class="cmp-opt">Self-serve</span>No</div>
+        <div class="cmp-us"><span class="cmp-opt">Avoxan</span><b>Free 1-page site</b></div>
+        <div><span class="cmp-opt">Human</span>No</div>
+      </div>
+
+      <div class="cmp-row">
+        <div class="cmp-attr">What a busy month costs</div>
+        <div><span class="cmp-opt">Self-serve</span>Base + overage, often past $300</div>
+        <div class="cmp-us"><span class="cmp-opt">Avoxan</span><b>$<span data-ai-price="amount">397</span>. Same as any month.</b></div>
+        <div><span class="cmp-opt">Human</span>Commonly $400–870</div>
       </div>
     </div>
 
-    <p class="ai-reassure"><strong>The sticker price and the bill are different numbers.</strong> A $49 plan with a $500 setup fee and $0.30-a-minute overage lands well past $300 in a busy month, and you still built it yourself. We quote one number because we'd rather you could predict it. If you only ever miss two calls a month, a cheap self-serve tool is genuinely the better buy and we'll tell you so on the call. <span style="color:var(--muted);">Ranges above reflect typical published rates across each category as of August 2026, not any single provider.</span></p>
+    <p class="ai-reassure"><strong>The sticker price and the bill are different numbers.</strong> That last row is the whole argument: a cheap plan with a setup fee and per-minute overage stops being cheap in the month your phone actually rings. We quote one number because we'd rather you could predict it. And if you only ever miss two calls a month, a self-serve tool genuinely is the better buy, and we'll tell you so on the call. <span style="color:var(--muted);">Figures reflect typical published rates across each category as of August 2026, not any single provider.</span></p>
   </div>
 </section>
 
@@ -472,6 +510,7 @@
         <details class="faq-item"><summary>Do I need a website to use this?</summary><div class="answer">No. The receptionist works on its own with just your phone number. It pairs nicely with an Avoxan website, the two share one lead inbox, but plenty of businesses start with the receptionist alone and add a site later.</div></details>
         <details class="faq-item"><summary>Is it really 24/7?</summary><div class="answer">Yes. It answers nights, weekends, and holidays with no shift to cover and no overtime. You decide whether it takes every call or only the ones you miss, but it's available around the clock either way.</div></details>
         <details class="faq-item"><summary>Can I keep my current number?</summary><div class="answer">Yes. You keep your existing business number. We set up call forwarding so the AI answers on your terms, all calls, after-hours only, or just the ones you don't pick up. Nothing about your number changes for your customers.</div></details>
+        <details class="faq-item"><summary>What happens if I go over the 500 included minutes?</summary><div class="answer">Nothing automatic, and nothing breaks. The 500 minutes are a guide, not a hard cap: your receptionist keeps answering past minute 501, and you are never charged an overage rate for going over. If your usage runs over consistently, we contact you, and either raise your included minutes or talk through a plan that fits your call volume. Any change to what you pay is agreed with you first, in advance. We would rather have that conversation than send you a bill you did not expect.</div></details>
       </div>
     </div>
   </div>
@@ -617,7 +656,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="/js/avoxan-v2.js?v=7" defer></script>
-<script src="/js/avoxan-ai-pricing.js" defer></script>
+<script src="/js/avoxan-ai-pricing.js?v=2" defer></script>
 <script>
 (function () {
   var player = document.querySelector('.demo-player');
