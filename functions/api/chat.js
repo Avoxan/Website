@@ -10,11 +10,16 @@
 //   5. Redeploy.
 //
 // Optional env vars:
-//   GROQ_MODEL         override model (default: Llama 4 Scout)
+//   GROQ_MODEL         override model (default: openai/gpt-oss-120b)
 //   ALLOWED_ORIGINS    comma-separated origins (default: avoxan.com,www.avoxan.com)
 
-const DEFAULT_MODEL = 'llama-3.3-70b-versatile';
-const MAX_TOKENS = 500;
+const DEFAULT_MODEL = 'openai/gpt-oss-120b';
+// gpt-oss is a reasoning model: its hidden reasoning tokens are billed and counted
+// as completion tokens. The budget below has to cover reasoning + the visible reply,
+// so it is deliberately larger than the ~150-word answer the system prompt asks for.
+// Drop reasoning_effort/max_completion_tokens back to `max_tokens: 500` if GROQ_MODEL
+// is ever pointed at a non-reasoning model like llama-3.3-70b-versatile.
+const MAX_TOKENS = 1200;
 const MAX_HISTORY = 16;
 const MAX_USER_CHARS = 2000;
 
@@ -199,7 +204,10 @@ export async function onRequestPost(context) {
       body: JSON.stringify({
         model: env.GROQ_MODEL || DEFAULT_MODEL,
         messages: apiMessages,
-        max_tokens: MAX_TOKENS,
+        max_completion_tokens: MAX_TOKENS,
+        // Keep gpt-oss's thinking short — this is a website FAQ bot, not a math
+        // solver, and every reasoning token is latency the visitor waits through.
+        reasoning_effort: 'low',
         temperature: 0.5,
         stream: true
       })

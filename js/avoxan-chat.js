@@ -460,10 +460,19 @@
     if (inList) html += '</ul>';
     return html || '<p></p>';
   }
+  // Safety net for reasoning models (gpt-oss): Groq normally returns their thinking
+  // in a separate `reasoning` field we never read, but if it ever arrives inline the
+  // escaped tags would render as visible text. Drops closed blocks and the
+  // still-streaming tail of an open one.
+  function stripReasoning(text) {
+    return text
+      .replace(/<think>[\s\S]*?<\/think>/gi, '')
+      .replace(/<think>[\s\S]*$/i, '');
+  }
   // Renders a bot message and turns the [[BOOK_DEMO]] token into a CTA button.
   function renderBot(text) {
     const hasDemo = text.indexOf('[[BOOK_DEMO]]') !== -1;
-    let clean = text.replace(/\[\[BOOK_DEMO\]\]/g, '');
+    let clean = stripReasoning(text).replace(/\[\[BOOK_DEMO\]\]/g, '');
     clean = clean.replace(/\[\[[A-Z_]*$/, ''); // hide a partial token still streaming in
     let html = renderMarkdown(clean.trim());
     if (hasDemo) {
@@ -708,7 +717,8 @@
       }
 
       if (assistantText) {
-        history.push({ role: 'assistant', content: assistantText });
+        // Keep reasoning out of the history we send back up on the next turn.
+        history.push({ role: 'assistant', content: stripReasoning(assistantText) });
         saveHistory();
       } else {
         typingEl.remove();
