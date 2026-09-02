@@ -178,13 +178,52 @@
         "@type": "OfferCatalog",
         "name": "Optional add-ons",
         "itemListElement": [
-          {"@type": "Offer", "name": "Extra page", "priceCurrency": "USD", "price": "150.00", "description": "Per additional page, designed and written to the same standard."},
-          {"@type": "Offer", "name": "Blog system", "priceCurrency": "USD", "price": "420.00", "description": "Editorial blog architecture with categories, related posts, article schema, and one ghost-written launch post."},
-          {"@type": "Offer", "name": "E-commerce", "priceCurrency": "USD", "price": "800.00", "description": "Up to 25 products on Shopify, Webflow Ecommerce, or WooCommerce, with cart, checkout, and Stripe integration."},
-          {"@type": "Offer", "name": "Brand identity", "priceCurrency": "USD", "price": "500.00", "description": "Logo, type system, colour palette, and a brand guidelines PDF delivered alongside the website."},
+          {
+            "@type": "Offer",
+            "name": "Extra page",
+            "category": "Website add-on",
+            "url": "https://avoxan.com/pricing#addons",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "USD",
+            "price": "150.00",
+            "description": "Per additional page beyond the eight included, designed and written to the same standard. Extra pages are deliberately held at $150 each so that a business needing 10 or 12 pages adds pages rather than moving up to a Custom Build."
+          },
+          {
+            "@type": "Offer",
+            "name": "Blog system",
+            "category": "Website add-on",
+            "url": "https://avoxan.com/pricing#addons",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "USD",
+            "price": "420.00",
+            "description": "Editorial blog architecture with categories, related posts, and Article schema, plus one ghost-written launch post."
+          },
+          {
+            "@type": "Offer",
+            "name": "E-commerce",
+            "category": "Website add-on",
+            "url": "https://avoxan.com/pricing#addons",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "USD",
+            "price": "1200.00",
+            "description": "Up to 25 products on Shopify, Webflow Ecommerce, or WooCommerce, with cart, checkout, and Stripe integration."
+          },
+          {
+            "@type": "Offer",
+            "name": "Brand identity",
+            "category": "Website add-on",
+            "url": "https://avoxan.com/pricing#addons",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "USD",
+            "price": "1000.00",
+            "description": "Logo, type system, color palette, and a brand guidelines PDF, produced in parallel with the website so the launch is unified."
+          },
           {
             "@type": "Offer",
             "name": "Monthly maintenance",
+            "category": "Website add-on",
+            "url": "https://avoxan.com/pricing#addons",
+            "availability": "https://schema.org/InStock",
             "priceCurrency": "USD",
             "price": "150.00",
             "description": "Hosting, security updates, monthly content edits, GA4 monitoring, and a monthly performance report. Cancel any time.",
@@ -199,12 +238,15 @@
           {
             "@type": "Offer",
             "name": "Ongoing SEO content",
+            "category": "Website add-on",
+            "url": "https://avoxan.com/pricing#addons",
+            "availability": "https://schema.org/InStock",
             "priceCurrency": "USD",
-            "price": "400.00",
-            "description": "Four SEO-optimized articles per month, written and published, targeted at the queries your customers actually search.",
+            "price": "700.00",
+            "description": "Four SEO-optimized articles per month, researched, written and published, targeted at the queries your customers actually search.",
             "priceSpecification": {
               "@type": "UnitPriceSpecification",
-              "price": "400.00",
+              "price": "700.00",
               "priceCurrency": "USD",
               "billingIncrement": 1,
               "referenceQuantity": {"@type": "QuantitativeValue", "value": 1, "unitCode": "MON"}
@@ -427,20 +469,21 @@
   </div>
 </section>
 
-<section class="section tight">
+<section class="section tight" id="addons">
   <div class="wrap">
     <div class="sec-head" data-reveal>
       <div class="eyebrow">Add-ons (optional)</div>
-      <h2 class="sec-title">If you need more than 8 pages, the math is <span class="it">predictable</span>.</h2>
+      <h2 class="sec-title">Add-on pricing is published too, so the math stays <span class="it">predictable</span>.</h2>
+      <p class="deck" style="margin-top:1.4rem; max-width:62ch;">None of this is required, and we'll say so on the call if you don't need it. One deliberate exception to our price ladder: <strong>extra pages stay $150 each</strong>. If you need 10 or 12 pages you add pages, you don't get moved up a category.</p>
     </div>
 
     <div class="addons-grid">
-      <div class="addon-card" data-reveal><h3>Extra pages</h3><p class="addon-price">+$150 / page</p><p>Service pages, location pages, team bios, legal pages, additional case studies. Designed to the same standard, written to the same depth.</p></div>
+      <div class="addon-card" data-reveal><h3>Extra pages</h3><p class="addon-price">+$150 / page</p><p>Service pages, location pages, team bios, legal pages, additional case studies. Designed to the same standard, written to the same depth. Held at $150 on purpose.</p></div>
       <div class="addon-card" data-reveal data-reveal-delay="0.07"><h3>Blog system</h3><p class="addon-price">+$420</p><p>Editorial blog architecture with categories, related posts, and proper article schema. Plus one launch post we ghost-write for you.</p></div>
-      <div class="addon-card" data-reveal data-reveal-delay="0.14"><h3>E-commerce</h3><p class="addon-price">+$800</p><p>Up to 25 products on Shopify, Webflow Ecommerce, or WooCommerce. Cart, checkout, and Stripe integration included.</p></div>
-      <div class="addon-card" data-reveal><h3>Brand identity</h3><p class="addon-price">+$500</p><p>Logo, type system, color palette, brand guidelines PDF. Done in parallel with the website so launch is unified.</p></div>
+      <div class="addon-card" data-reveal data-reveal-delay="0.14"><h3>E-commerce</h3><p class="addon-price">+$1,200</p><p>Up to 25 products on Shopify, Webflow Ecommerce, or WooCommerce. Cart, checkout, and Stripe integration included.</p></div>
+      <div class="addon-card" data-reveal><h3>Brand identity</h3><p class="addon-price">+$1,000</p><p>Logo, type system, color palette, brand guidelines PDF. Done in parallel with the website so launch is unified.</p></div>
       <div class="addon-card" data-reveal data-reveal-delay="0.07"><h3>Monthly maintenance</h3><p class="addon-price">$150 / month</p><p>Hosting, security updates, monthly content edits, GA4 monitoring, monthly performance report. Cancel any time.</p></div>
-      <div class="addon-card" data-reveal data-reveal-delay="0.14"><h3>Ongoing SEO content</h3><p class="addon-price">$400 / month</p><p>Four SEO-optimized articles per month, written and published. Targeted at search queries your customers are actually typing.</p></div>
+      <div class="addon-card" data-reveal data-reveal-delay="0.14"><h3>Ongoing SEO content</h3><p class="addon-price">$700 / month</p><p>Four SEO-optimized articles per month, researched, written and published. Targeted at search queries your customers are actually typing.</p></div>
     </div>
   </div>
 </section>
