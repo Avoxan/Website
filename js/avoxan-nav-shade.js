@@ -1,30 +1,43 @@
 /* ──────────────────────────────────────────────────────────────────
-   AVOXAN — shaped nav backdrop ("the shade")
+   AVOXAN — notch nav backdrop ("the shade")
    ──────────────────────────────────────────────────────────────────
-   Draws a full-width panel behind the nav whose bottom edge is a soft
-   organic wave rather than a straight line, pours it down on load, and
-   straightens it into an ordinary bar as the visitor scrolls.
+   Draws an iPhone-style notch hanging from the top of the page behind
+   the centred nav links, pours it down on load, and widens it into an
+   ordinary full-width header bar as the visitor scrolls.
 
    WHY IT EXISTS
    The light-mode hero is a photograph lit from the upper left, which
-   leaves the top-right corner in shadow — exactly where the nav links
-   sit in near-black. This guarantees the nav always has its own ground
-   to sit on, whatever the photo behind it is doing, and turns a
-   legibility fix into part of the design rather than a compromise.
+   leaves the top-right corner in shadow — exactly where the nav sits in
+   near-black. The notch gives the links their own ground whatever the
+   photo is doing, and turns a legibility fix into a piece of design.
 
    HOW THE MORPH WORKS
-   No morph library. The bottom edge is a fixed set of anchor points,
-   and the path is rebuilt from scratch each frame from two scalars:
+   No morph library. The whole shape is generated from four numbers, so
+   the notch and the finished bar are the same path with different
+   inputs and there is nothing to interpolate badly:
 
-     drop  0 → 1   entrance: the colour pours down from the top edge
-     flat  0 → 1   scroll:   the wave straightens into a rectangle
+     half    half-width of the shape   notch width → full width
+     depth   how far it hangs          notch depth → bar height
+     rO      concave shoulder radius   → 0
+     rI      bottom corner radius      → 0
 
-   Because every state is generated from the same anchors, the command
-   structure never changes and there is nothing to interpolate badly.
+   Two scalars drive those:
+     drop  0 → 1   entrance: the shape grows down from the top edge
+     flat  0 → 1   scroll:   the notch widens into the bar
+
+   At flat = 1 the shoulders vanish, half reaches the full half-width
+   and the path is an exact rectangle.
+
+   PIXEL UNITS, NOT PROPORTIONS
+   The viewBox is set to the nav's real pixel width and re-measured on
+   resize. A stretched proportional viewBox would skew the corner radii
+   into ellipses at wide viewports, which on a shape this recognisable
+   reads immediately as wrong.
 
    SCOPE
-   Homepage only. It hooks itself to .hero, which no other page uses,
-   because the photo hero is the only place the problem exists.
+   Homepage only — it binds to .hero, which no other page uses. Below
+   1080px the links collapse into the burger menu, so there is nothing
+   to wrap: it renders the plain bar instead.
    ────────────────────────────────────────────────────────────── */
 
 (function () {
@@ -34,31 +47,24 @@
   var hero = document.querySelector(".hero");
   if (!nav || !hero) return;
 
-  // Horizontal anchors across a 1000-unit viewBox. The SVG stretches to
-  // any width (preserveAspectRatio="none"), so these are proportions,
-  // not pixels — the wave widens with the viewport instead of tiling.
-  var X = [0, 160, 340, 520, 700, 860, 1000];
+  var inner = nav.querySelector(".nv-inner");
+  var links = nav.querySelector(".nv-links");
+  if (!inner || !links) return;
 
-  // Resting depth of the edge at each anchor, in viewBox units. Kept
-  // deliberately irregular so it reads as drawn rather than as a sine
-  // wave. Every value stays below the nav's own content (~75px) so no
-  // link is ever left hanging off the bottom of the shade.
-  var WAVE = [118, 88, 104, 90, 110, 96, 82];
+  var NOTCH_DEPTH = 62;   // how far the notch hangs at rest
+  var BAR_HEIGHT  = 74;   // height of the finished header bar
+  var SHOULDER    = 20;   // concave radius where the notch meets the top
+  var CORNER      = 22;   // bottom corner radius of the notch
+  var SIDE_PAD    = 30;   // breathing room each side of the link row
+  var VIEW_H      = 96;   // tall enough for either state
+  var SCROLL_RANGE = 140; // px of scroll from notch to bar
+  var COLLAPSE_AT = 1080; // below this the links are in the burger menu
 
-  // Where the edge sits once fully straightened.
-  var FLAT = 76;
+  var K = 0.5523; // circle-to-cubic constant
 
-  var VIEW_H = 160;
-  var SCROLL_RANGE = 140; // px of scroll to go from full wave to flat
-
-  /* ── Build the SVG ─────────────────────────────────────────────
-     Injected rather than written into the HTML so that every page
-     keeps one shared nav markup, and so a visitor without JS simply
-     gets the nav exactly as it is today.                          */
   var NS = "http://www.w3.org/2000/svg";
   var svg = document.createElementNS(NS, "svg");
   svg.setAttribute("class", "nv-shade");
-  svg.setAttribute("viewBox", "0 0 1000 " + VIEW_H);
   svg.setAttribute("preserveAspectRatio", "none");
   svg.setAttribute("aria-hidden", "true");
   svg.setAttribute("focusable", "false");
@@ -66,51 +72,70 @@
   var path = document.createElementNS(NS, "path");
   svg.appendChild(path);
   nav.insertBefore(svg, nav.firstChild);
-  nav.classList.add("has-shade");
+  nav.classList.add("has-shade", "has-notch");
+
+  var W = 0;          // nav width in px
+  var notchHalf = 0;  // half-width of the notch at rest
+
+  function measure() {
+    W = nav.clientWidth || window.innerWidth;
+    // The CTA and theme toggle are positioned out of flow in notch mode,
+    // so this is the width of the link row alone — exactly what the
+    // notch should wrap.
+    var linkRow = links.getBoundingClientRect().width;
+    notchHalf = Math.min(linkRow / 2 + SIDE_PAD, W / 2);
+    svg.setAttribute("viewBox", "0 0 " + W + " " + VIEW_H);
+  }
 
   /* ── Geometry ──────────────────────────────────────────────────
-     A smooth cubic through each pair of anchors: control points sit a
-     third of the way along horizontally and level with their own
-     anchor vertically, which gives an even, hand-drawn-looking curve
-     with no cusps at the joins.                                    */
-  function buildPath(ys) {
-    var last = ys.length - 1;
-    var d = "M0 0 H1000 V" + ys[last].toFixed(2);
-    for (var i = last - 1; i >= 0; i--) {
-      var x1 = X[i + 1], y1 = ys[i + 1];
-      var x0 = X[i], y0 = ys[i];
-      var dx = (x1 - x0) / 3;
-      d += " C" + (x1 - dx).toFixed(2) + " " + y1.toFixed(2) +
-           " " + (x0 + dx).toFixed(2) + " " + y0.toFixed(2) +
-           " " + x0.toFixed(2) + " " + y0.toFixed(2);
-    }
-    return d + " Z";
+     Traced left to right: along the top edge, a concave shoulder down
+     into the notch, down the side, round the bottom, up the far side,
+     a mirrored shoulder back out, and along the top edge to the end.
+     The top edge is a zero-height line, so only the notch is painted. */
+  function buildPath(half, depth, rO, rI) {
+    var cx = W / 2;
+    var L = cx - half;
+    var R = cx + half;
+
+    // Never let a radius exceed the space available for it, or the
+    // curves cross over themselves as the shape widens.
+    rO = Math.min(rO, L, depth / 2);
+    rI = Math.min(rI, half, depth / 2);
+
+    var f = function (n) { return n.toFixed(2); };
+    var d = "M0 0";
+    d += " L" + f(L - rO) + " 0";
+    d += " C" + f(L - rO + K * rO) + " 0 " + f(L) + " " + f(rO - K * rO) + " " + f(L) + " " + f(rO);
+    d += " L" + f(L) + " " + f(depth - rI);
+    d += " C" + f(L) + " " + f(depth - rI + K * rI) + " " + f(L + rI - K * rI) + " " + f(depth) + " " + f(L + rI) + " " + f(depth);
+    d += " L" + f(R - rI) + " " + f(depth);
+    d += " C" + f(R - rI + K * rI) + " " + f(depth) + " " + f(R) + " " + f(depth - rI + K * rI) + " " + f(R) + " " + f(depth - rI);
+    d += " L" + f(R) + " " + f(rO);
+    d += " C" + f(R) + " " + f(rO - K * rO) + " " + f(R + rO - K * rO) + " 0 " + f(R + rO) + " 0";
+    d += " L" + f(W) + " 0 Z";
+    return d;
   }
 
-  // On narrow screens the wave is shallower — at phone widths a deep
-  // curve eats real estate above the fold for no benefit.
-  function amplitude() {
-    return window.innerWidth <= 640 ? 0.5 : 1;
-  }
-
-  var drop = 0; // entrance progress
-  var flat = 0; // scroll-flatten progress
+  var drop = 0;
+  var flat = 0;
 
   function render() {
-    var amp = amplitude();
-    var ys = [];
-    for (var i = 0; i < WAVE.length; i++) {
-      var rest = FLAT + (WAVE[i] - FLAT) * amp; // shallower on mobile
-      var y = rest + (FLAT - rest) * flat;      // straighten on scroll
-      ys.push(y * drop);                        // pour down on load
-    }
-    path.setAttribute("d", buildPath(ys));
+    // Collapsed nav: no link row to wrap, so it is always the plain bar.
+    var collapsed = window.innerWidth <= COLLAPSE_AT;
+    var t = collapsed ? 1 : flat;
+
+    var half  = notchHalf + (W / 2 - notchHalf) * t;
+    var depth = (NOTCH_DEPTH + (BAR_HEIGHT - NOTCH_DEPTH) * t) * drop;
+    var rO    = SHOULDER * (1 - t);
+    var rI    = CORNER * (1 - t);
+
+    path.setAttribute("d", buildPath(half, depth, rO, rI));
+    nav.classList.toggle("is-notched", !collapsed && t < 0.5);
   }
 
-  /* ── Scroll: wave → rectangle ──────────────────────────────────
-     Own listener rather than piggybacking the nav's, so this file
-     stays self-contained; it is passive and rAF-throttled, so it
-     costs a single style write per frame at most.                 */
+  /* ── Scroll: notch → bar ───────────────────────────────────────
+     Passive and rAF-throttled, and bails when the value has not
+     actually changed, so it costs at most one style write per frame. */
   var queued = false;
   function onScroll() {
     if (queued) return;
@@ -124,17 +149,25 @@
     });
   }
 
+  function onResize() { measure(); render(); }
+
   window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", function () { render(); }, { passive: true });
+  window.addEventListener("resize", onResize, { passive: true });
+
+  // Web fonts change the link row's width when they swap in, which
+  // would leave the notch cut to the wrong size.
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(onResize).catch(function () {});
+  }
 
   /* ── Entrance ──────────────────────────────────────────────────
-     Skipped entirely when the visitor prefers reduced motion, or when
-     the page is restored part-scrolled (a refresh, or the back
-     button) — pouring the colour down under a nav that is already
-     supposed to be a plain bar would look like a glitch.           */
+     Skipped under prefers-reduced-motion, and when the page loads
+     already scrolled — growing a notch under a nav that is meant to be
+     a plain bar reads as a glitch on a refresh or a back button.    */
   var reduced = window.matchMedia &&
                 window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  measure();
   flat = Math.min(1, Math.max(0, window.scrollY / SCROLL_RANGE));
 
   if (reduced || window.scrollY > 4) {
@@ -143,15 +176,14 @@
     return;
   }
 
-  var DURATION = 900;
+  var DURATION = 850;
   var started = null;
   render(); // paint the zero-height state before the first frame
 
   requestAnimationFrame(function step(now) {
     if (started === null) started = now;
     var p = Math.min(1, (now - started) / DURATION);
-    // easeOutCubic — quick to arrive, settles gently
-    drop = 1 - Math.pow(1 - p, 3);
+    drop = 1 - Math.pow(1 - p, 3); // easeOutCubic
     render();
     if (p < 1) requestAnimationFrame(step);
   });

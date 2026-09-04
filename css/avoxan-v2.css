@@ -113,8 +113,33 @@ body::after{
    element is never created, .has-shade is never set, and the nav renders
    exactly as it did before. */
 .nv-shade{
-  position:absolute; top:0; left:0; width:100%; height:160px;
+  position:absolute; top:0; left:0; width:100%; height:96px;
   display:block; pointer-events:none; z-index:0;
+}
+
+/* Notch layout: logo pinned left, links centred inside the notch, CTA
+   and theme toggle pinned right. Done in CSS rather than by rearranging
+   markup so all 30 pages keep one shared nav, and so a visitor without
+   JS gets today's layout untouched.
+
+   Only above the burger breakpoint — below it .nv-links is display:none
+   and there is nothing to centre.
+
+   Vertical centring uses the `translate` property, not `transform`, so
+   the existing translateY(-2px) hover lifts on the CTA and the toggle
+   keep working instead of being overwritten. */
+@media (min-width: 1081px){
+  .nv.has-notch .nv-inner{ position:relative; justify-content:center; }
+  .nv.has-notch .nv-logo{
+    position:absolute; left:var(--pad); top:50%; translate:0 -50%;
+  }
+  .nv.has-notch .nv-links{ margin-left:0; gap:1.7rem; }
+  .nv.has-notch .nv-links .nv-cta{
+    position:absolute; right:calc(var(--pad) + 3.4rem); top:50%; translate:0 -50%;
+  }
+  .nv.has-notch .theme-toggle{
+    position:absolute; right:var(--pad); top:50%; translate:0 -50%;
+  }
 }
 .nv-shade path{ fill: var(--bg); }
 /* Keep the nav's own content above the backdrop. */
