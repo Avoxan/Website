@@ -29,6 +29,7 @@
 # a fix you deploy never reaches them.
 # Current versions: avoxan-v2.css?v=18 · avoxan-v2.js?v=7
 #                   avoxan-chat.js?v=2 · avoxan-ai-pricing.js?v=2
+#                   avoxan-analytics.js?v=1 · avoxan-booking.js?v=1
 /css/*
   Cache-Control: public, max-age=31536000
 /js/*

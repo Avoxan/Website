@@ -52,6 +52,7 @@
 
 <link rel="stylesheet" href="css/avoxan-v2.css?v=18">
 <script src="/js/avoxan-chat.js?v=2" defer></script>
+<script src="/js/avoxan-analytics.js?v=1" defer></script>
 <script>/* Avoxan: remove any orphaned service worker + caches from older site versions */(function(){try{if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister();});}).catch(function(){});}if(self.caches&&caches.keys){caches.keys().then(function(ks){ks.forEach(function(k){caches.delete(k);});}).catch(function(){});}}catch(e){}})();</script>
 <script type="application/ld+json">
 {
@@ -186,42 +187,10 @@
         <div id="panel-calendly" class="booking-panel active" role="tabpanel">
           <p class="booking-panel-hint">Pick any 20-minute slot that works. You'll get a calendar invite within 2 minutes, no back-and-forth, no "what time zone are you in?"</p>
           <div class="calendly-shell">
-            <!-- Theme-aware Calendly inline widget. The themed data-url is set BEFORE widget.js
-                 loads, so the standard auto-init renders the right colors immediately on page load.
-                 The MutationObserver re-renders (via the JS API) only when the theme is toggled. -->
-            <div id="calendly-embed" class="calendly-inline-widget" style="min-width:320px;height:700px;"></div>
-            <script>
-            (function () {
-              var el = document.getElementById('calendly-embed');
-              if (!el) return;
-              var BASE = 'https://calendly.com/hello-avoxan/30min';
-              function colors() {
-                return document.documentElement.classList.contains('light')
-                  ? { b: 'f4eee1', t: '1c1813', p: 'd2521c' }
-                  : { b: '14110e', t: 'f2ebdc', p: 'e85d26' };
-              }
-              function url() {
-                var c = colors();
-                return BASE + '?hide_event_type_details=1&hide_gdpr_banner=1'
-                  + '&background_color=' + c.b + '&text_color=' + c.t + '&primary_color=' + c.p;
-              }
-              // Set themed URL before widget.js auto-inits this element.
-              el.setAttribute('data-url', url());
-              // Re-theme on a live theme toggle.
-              var last = colors().b;
-              new MutationObserver(function () {
-                var now = colors().b;
-                if (now === last) return;
-                last = now;
-                if (window.Calendly && window.Calendly.initInlineWidget) {
-                  el.innerHTML = '';
-                  el.removeAttribute('data-url');
-                  window.Calendly.initInlineWidget({ url: url(), parentElement: el });
-                }
-              }).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-            })();
-            </script>
-            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            <!-- Themed, lazy-loaded Calendly embed. Rendering and theming are
+                 handled by /js/avoxan-booking.js, shared with /pricing,
+                 /services and /ai-receptionist so all four stay identical. -->
+            <div id="calendly-embed" data-calendly-embed style="min-width:320px;height:700px;"></div>
           </div>
         </div>
 
@@ -417,5 +386,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="js/avoxan-v2.js?v=7" defer></script>
+<script src="/js/avoxan-booking.js?v=1" defer></script>
 </body>
 </html>

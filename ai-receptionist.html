@@ -108,6 +108,7 @@
 }
 </script>
 <script src="/js/avoxan-chat.js?v=2" defer></script>
+<script src="/js/avoxan-analytics.js?v=1" defer></script>
 <script>/* Avoxan: remove any orphaned service worker + caches from older site versions */(function(){try{if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister();});}).catch(function(){});}if(self.caches&&caches.keys){caches.keys().then(function(ks){ks.forEach(function(k){caches.delete(k);});}).catch(function(){});}}catch(e){}})();</script>
 <script type="application/ld+json">
 {
@@ -586,7 +587,7 @@
         <div class="side-card subtle">
           <h3>Prefer to talk first?</h3>
           <p>Book a 20-minute call and we'll walk through your call volume and let the AI ring you so you can hear it.</p>
-          <p><a href="/contact" class="kicker-link"><span class="kl-txt">Book a 20-min call</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></p>
+          <p><a href="#book-a-call" class="kicker-link"><span class="kl-txt">Book a 20-min call</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></p>
         </div>
       </div>
     </div>
@@ -598,12 +599,43 @@
   <div class="eyebrow centered" data-reveal>Standalone or with your Avoxan website</div>
   <h2 data-reveal>Stop losing the call that was a <span class="it acc">paying job</span>.</h2>
   <p data-reveal>Book a 20-minute call. We'll walk through how many missed, after-hours, and overflow calls you're likely missing, let the AI call you so you can hear it, and tell you straight whether it's worth it for your business.</p>
-  <a href="/contact" class="btn btn-ember" data-reveal>
+  <a href="#book-a-call" class="btn btn-ember" data-reveal>
     Book a free 20-min call
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
   </a>
   <div data-reveal><span class="pill"><span class="pulse"></span>Works standalone or with your Avoxan website</span></div>
 </section>
+
+<!-- ============ BOOK DIRECTLY ============ -->
+<!-- The booking widget is embedded here rather than linking to /contact.
+     Analytics for Aug-Sep 2026 showed only 3 of 64 visitors ever reached
+     the contact page, so the extra hop between "I want to talk" and the
+     calendar was removing almost everyone. Widget loads lazily via
+     /js/avoxan-booking.js when it approaches the viewport. -->
+<section class="section tight" id="book-a-call">
+  <div class="wrap narrow">
+    <div class="eyebrow centered" data-reveal style="justify-content:center;">Book a call</div>
+    <h2 class="sec-title" data-reveal style="text-align:center;margin:1.2rem auto 0;">Or just pick a time and we'll <span class="it acc">talk it through</span>.</h2>
+    <p class="deck" data-reveal style="text-align:center;margin:1.4rem auto 2.5rem;">Prefer a conversation to a form? Pick any slot below. We'll walk through your call volume, let the AI ring you so you can hear it, and tell you straight whether it's worth $397 a month for your business.</p>
+
+    <div class="booking-card" data-reveal>
+      <div class="calendly-shell">
+        <div data-calendly-embed style="min-width:320px;height:700px;"></div>
+      </div>
+      <div class="booking-foot">
+        <div class="booking-foot-row">
+          <span class="booking-foot-label">Prefer plain email?</span>
+          <a href="mailto:hello@avoxan.com" class="booking-foot-link">hello@avoxan.com</a>
+        </div>
+        <div class="booking-foot-row">
+          <span class="booking-foot-label">No slot that works?</span>
+          <a href="/contact" class="booking-foot-link">Send a note instead</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 </main>
 
@@ -656,6 +688,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="/js/avoxan-v2.js?v=7" defer></script>
+<script src="/js/avoxan-booking.js?v=1" defer></script>
 <script src="/js/avoxan-ai-pricing.js?v=2" defer></script>
 <script>
 (function () {
