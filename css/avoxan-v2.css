@@ -105,6 +105,26 @@ body::after{
   border-bottom-color: var(--line);
 }
 .nv.is-hidden{ transform: translateY(-100%); }
+
+/* ---------- Shaped nav backdrop ("the shade") ----------
+   Injected by js/avoxan-nav-shade.js on the homepage only. It gives the
+   nav its own ground so the links stay legible over the light-mode hero
+   photo, whose top-right corner falls into shadow. Without JS the
+   element is never created, .has-shade is never set, and the nav renders
+   exactly as it did before. */
+.nv-shade{
+  position:absolute; top:0; left:0; width:100%; height:160px;
+  display:block; pointer-events:none; z-index:0;
+}
+.nv-shade path{ fill: var(--bg); }
+/* Keep the nav's own content above the backdrop. */
+.nv-inner{ position:relative; z-index:1; }
+/* Once scrolled the shade IS the bar, so the default translucent
+   background would double up and read muddy. The border stays. */
+.nv.has-shade.is-scrolled{
+  background: transparent;
+  -webkit-backdrop-filter:none; backdrop-filter:none;
+}
 .nv-inner{
   max-width: var(--maxw); margin:0 auto; padding:1.1rem var(--pad);
   display:flex; align-items:center; justify-content:space-between; gap:2rem;
@@ -1457,6 +1477,10 @@ html.light{
 
 /* Hardcoded-dark spots overridden for light */
 html.light .nv.is-scrolled{ background: rgba(244,238,225,0.85); border-bottom-color: var(--line); }
+/* Same reasoning as the dark rule: where the shade is drawn it is the
+   bar, so the translucent background must not stack on top of it. This
+   needs its own light-mode selector to outrank the line above. */
+html.light .nv.has-shade.is-scrolled{ background: transparent; }
 html.light .pill{ background: rgba(255,255,255,0.6); }
 html.light .g-point{ background: rgba(255,255,255,0.55); }
 html.light .menu-overlay{ background: rgba(244,238,225,0.98); }
