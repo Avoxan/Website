@@ -50,6 +50,49 @@
     el.setAttribute("data-url", url());
   }
 
+  /* ── Hiding Calendly's white loading screen ────────────────────
+     Calendly's iframe paints its own white loading state, which is a
+     bright slab in the middle of a dark page for the second or two it
+     takes to boot. It lives on calendly.com, so we cannot restyle it —
+     the browser blocks cross-origin styling.
+
+     What we can do is not show it. The shell renders our own themed
+     skeleton, the iframe sits at opacity 0 on top of it, and we only
+     fade the iframe in once it fires load. The visitor sees our
+     placeholder, then the booking grid, and never the white flash.
+
+     The iframe is created by Calendly's script, not by us, so we watch
+     the container for it rather than querying once.               */
+  function revealWhenLoaded(el) {
+    function attach(frame) {
+      if (!frame || frame.__avxBound) return false;
+      frame.__avxBound = true;
+      // Already complete (cache, bfcache) — no load event is coming.
+      if (frame.contentWindow && frame.dataset.loaded !== "1") {
+        frame.addEventListener("load", function () {
+          frame.dataset.loaded = "1";
+          el.setAttribute("data-calendly-state", "ready");
+        });
+      }
+      return true;
+    }
+
+    if (attach(el.querySelector("iframe"))) return;
+
+    var mo = new MutationObserver(function () {
+      if (attach(el.querySelector("iframe"))) mo.disconnect();
+    });
+    mo.observe(el, { childList: true, subtree: true });
+
+    // Safety net: if Calendly never fires load (blocked, offline, an
+    // extension eating the frame), stop hiding it after 8s so the
+    // visitor gets whatever Calendly managed to render, or its own
+    // error state, rather than our skeleton forever.
+    setTimeout(function () {
+      el.setAttribute("data-calendly-state", "ready");
+    }, 8000);
+  }
+
   var scriptRequested = false;
   function loadWidgetScript() {
     if (scriptRequested) return;
@@ -60,12 +103,21 @@
     document.body.appendChild(s);
   }
 
-  Array.prototype.forEach.call(nodes, prime);
+  Array.prototype.forEach.call(nodes, function (el) {
+    prime(el);
+    el.setAttribute("data-calendly-state", "loading");
+    revealWhenLoaded(el);
+  });
 
   /* ── Load on approach ──────────────────────────────────────────
-     rootMargin buys 400px of runway so the widget has started
-     fetching by the time it scrolls into view. Browsers without
-     IntersectionObserver simply load it immediately.             */
+     rootMargin buys 1200px of runway — roughly a full viewport of
+     scrolling — so on a normal scroll the widget has usually finished
+     booting before it reaches the screen, and the skeleton above is
+     never seen at all. Still far short of loading it on page load,
+     which is what we are avoiding: a visitor who never scrolls that
+     far still pays nothing for it.
+
+     Browsers without IntersectionObserver simply load it immediately. */
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (entries) {
       for (var i = 0; i < entries.length; i++) {
@@ -75,7 +127,7 @@
           return;
         }
       }
-    }, { rootMargin: "400px" });
+    }, { rootMargin: "1200px" });
     Array.prototype.forEach.call(nodes, function (el) { io.observe(el); });
   } else {
     loadWidgetScript();

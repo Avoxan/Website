@@ -833,6 +833,40 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:450; letter-spacing:-0.01
 .booking-tab.active{ border-color:var(--ember); background:rgba(232,93,38,0.08); }
 .booking-panel-hint{ color:var(--muted); font-size:.95rem; margin-bottom:1.5rem; }
 .calendly-shell{ border-radius:16px; overflow:hidden; border:1px solid var(--line); }
+
+/* ---------- Calendly loading skeleton ----------
+   Calendly's iframe paints a white loading screen we cannot restyle
+   (it is cross-origin). So we cover it: the embed shows our own themed
+   placeholder, and js/avoxan-booking.js flips data-calendly-state to
+   "ready" on the iframe's load event, fading the real widget in over
+   the top. Without JS the [data-calendly-state] attribute is never
+   set, no rule below matches, and the widget renders as normal. */
+[data-calendly-embed]{ position:relative; background:var(--surface); }
+[data-calendly-embed]::before{
+  content:"Loading the calendar…";
+  position:absolute; inset:0; z-index:1;
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-mono); font-size:.75rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--faint);
+  background:
+    linear-gradient(105deg, transparent 38%, rgba(232,93,38,0.05) 50%, transparent 62%),
+    var(--surface);
+  background-size:220% 100%, auto;
+  animation:calendly-sheen 1.6s ease-in-out infinite;
+  transition:opacity .45s ease;
+}
+[data-calendly-embed] iframe{ opacity:0; transition:opacity .45s ease; }
+[data-calendly-embed][data-calendly-state="ready"]::before{ opacity:0; pointer-events:none; }
+[data-calendly-embed][data-calendly-state="ready"] iframe{ opacity:1; }
+@keyframes calendly-sheen{
+  from{ background-position:120% 0, 0 0; }
+  to  { background-position:-20% 0, 0 0; }
+}
+@media (prefers-reduced-motion: reduce){
+  [data-calendly-embed]::before{ animation:none; }
+  [data-calendly-embed]::before,
+  [data-calendly-embed] iframe{ transition:none; }
+}
 .booking-foot{ margin-top:2rem; border-top:1px solid var(--line); padding-top:1.5rem; display:grid; gap:.8rem; }
 .booking-foot-row{ display:flex; justify-content:space-between; gap:1.5rem; font-size:.9rem; flex-wrap:wrap; }
 .booking-foot-label{ font-family:var(--font-mono); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--faint); }
