@@ -1517,23 +1517,23 @@ html.light .hero::before{
     linear-gradient(to bottom, rgba(244,238,225,0.22), rgba(244,238,225,0) 32%, rgba(244,238,225,0.34));
 }
 
-/* Light mode swaps the additive WebGL ember hero for a warm still photo. Dark mode is untouched. */
+/* Light mode swaps the additive WebGL ember hero for a warm still photo. Dark mode is untouched.
+
+   EXPERIMENT — "paper, grid, ink" hero. This points at light-hero-paper.jpg
+   instead of light-hero-bg.*. The previous still life is untouched on disk;
+   to go back, restore the two rules below to light-hero-bg.jpg / .webp.
+
+   No .webp companion yet, so the image-set block that used to sit here is
+   gone and every browser gets the JPEG. Before this ships, encode a webp
+   (the old pair was 257KB jpg / 141KB webp) and restore image-set. */
 html.light #hero-canvas, html.light .ph-canvas{ display: none; }
 html.light .hero{
-  background: url("../assets/light-hero-bg.jpg") center center / cover no-repeat, var(--bg);
-}
-@supports (background-image: image-set(url("../assets/light-hero-bg.webp") type("image/webp"))){
-  html.light .hero{
-    background: image-set(
-        url("../assets/light-hero-bg.webp") type("image/webp"),
-        url("../assets/light-hero-bg.jpg")  type("image/jpeg")
-      ) center center / cover no-repeat, var(--bg);
-  }
+  background: url("../assets/light-hero-paper.jpg") center center / cover no-repeat, var(--bg);
 }
 /* Mobile (≤640) light hero uses the portrait photo; desktop & tablet keep the landscape one. */
 @media (max-width: 640px){
   html.light .hero{
-    background: url("../assets/light-hero-bg-mobile.jpg") center top / cover no-repeat, var(--bg);
+    background: url("../assets/light-hero-paper-mobile.jpg") center top / cover no-repeat, var(--bg);
   }
   /* On mobile the hero is content-height, so nav + headline + paragraph sit over the
      whole photo — use a strong top-weighted cream veil so all of it stays legible,
@@ -1547,16 +1547,10 @@ html.light .hero{
   }
   html.light .hero-lede{ color:var(--cream-soft); }
 }
-@supports (background-image: image-set(url("../assets/light-hero-bg-mobile.webp") type("image/webp"))){
-  @media (max-width: 640px){
-    html.light .hero{
-      background: image-set(
-          url("../assets/light-hero-bg-mobile.webp") type("image/webp"),
-          url("../assets/light-hero-bg-mobile.jpg")  type("image/jpeg")
-        ) center top / cover no-repeat, var(--bg);
-    }
-  }
-}
+/* The mobile image-set block that sat here is removed with the paper
+   experiment: there is no webp companion yet, and image-set would
+   override the rule above and put the old photo back on phones.
+   Restore it alongside the webp when this ships. */
 html.light .page-hero{
   background:
     radial-gradient(ellipse 70% 60% at 82% 0%, rgba(210,82,28,0.09), transparent 60%),
