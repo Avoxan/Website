@@ -27,8 +27,9 @@
 # MUST be referenced with a ?v= query string that you bump on change —
 # otherwise returning visitors keep the old file for up to a year and
 # a fix you deploy never reaches them.
-# Current versions: avoxan-v2.css?v=18 · avoxan-v2.js?v=7
-#                   avoxan-chat.js?v=2 · avoxan-ai-pricing.js?v=2
+# Current versions: avoxan-v2.css?v=19 · avoxan-v2.js?v=8
+#                   avoxan-hero-v2.js?v=2 · avoxan-chat.js?v=2
+#                   avoxan-ai-pricing.js?v=2
 /css/*
   Cache-Control: public, max-age=31536000
 /js/*
