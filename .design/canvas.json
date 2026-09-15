@@ -1,15 +1,11 @@
 {
   "artboards": [
-    { "file": "Main.dc.html",            "x": 0,    "y": 0,    "w": 1440, "h": 900,  "title": "A — Bone" },
-    { "file": "DirectionLedger.dc.html", "x": 1560, "y": 0,    "w": 1440, "h": 900,  "title": "B — Ledger" },
-    { "file": "DirectionNight.dc.html",  "x": 0,    "y": 1060, "w": 1440, "h": 900,  "title": "C — Night" },
-    { "file": "DirectionPress.dc.html",  "x": 1560, "y": 1060, "w": 1440, "h": 900,  "title": "D — Press" },
-    { "file": "Density.dc.html",         "x": 0,    "y": 2120, "w": 1440, "h": 1080, "title": "A — how the dense content behaves" }
+    { "file": "Main.dc.html",  "x": 0,    "y": 0, "w": 1440, "h": 8200, "title": "Homepage — Ledger", "print": "flow" },
+    { "file": "Phone.dc.html", "x": 1560, "y": 0, "w": 390,  "h": 2180, "title": "Homepage — phone",  "print": "flow" }
   ],
   "annotations": [
-    { "id": "note-brief", "x": 0, "y": -190, "w": 560, "text": "Four directions, four different feelings — not four shades of one.\n\nNothing here reuses the current palette, type or section rhythm. Pick the one that feels right and I build it out; the other three get deleted." },
-    { "id": "note-density", "x": 0, "y": 2010, "w": 620, "text": "The answer to \"large type and empty space, but all the SEO content\": one idea per screen.\n\nEvery word stays in the DOM, so the schema and rankings are untouched. What changes is pacing — the eight deliverables get a whole viewport instead of a crowded card. Thirteen sections become thirteen moments." },
-    { "id": "note-perf", "x": 3120, "y": 0, "w": 420, "text": "All four drop three.js, GSAP and ScrollTrigger — 167KB of CDN JavaScript the current homepage loads before it paints." }
+    { "id": "note-build", "x": 0, "y": -220, "w": 620, "text": "The whole homepage as one typeset document — twelve numbered sections, masthead to colophon.\n\nEvery word is your real indexed copy. All thirteen of the current sections are present; none of the content was cut to make it feel spacious. The air comes from rhythm and rules, not from deletion." },
+    { "id": "note-phone", "x": 1560, "y": -220, "w": 380, "text": "Phone, 390px. The 190px label column collapses above its section and every table reflows to stacked rows — the ledger logic survives narrow." }
   ],
-  "launch": { "view": "canvas" }
+  "launch": { "view": "focused", "file": "Main.dc.html" }
 }
