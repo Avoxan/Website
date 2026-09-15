@@ -1,16 +1,15 @@
 {
   "artboards": [
-    { "file": "Main.dc.html",          "x": 0,    "y": 0,    "w": 1440, "h": 900,  "title": "Home — hero" },
-    { "file": "MobileHero.dc.html",    "x": 1560, "y": 0,    "w": 390,  "h": 844,  "title": "Home — phone" },
-    { "file": "OfferRail.dc.html",     "x": 0,    "y": 1060, "w": 1440, "h": 1040, "title": "Eight deliverables" },
-    { "file": "Work.dc.html",          "x": 1560, "y": 1060, "w": 1440, "h": 900,  "title": "Work — result-led" },
-    { "file": "About.dc.html",         "x": 0,    "y": 2260, "w": 1440, "h": 900,  "title": "About — Direction A, hard light" },
-    { "file": "AboutEngraved.dc.html", "x": 1560, "y": 2260, "w": 1440, "h": 900,  "title": "About — Direction B, engraved" }
+    { "file": "Main.dc.html",            "x": 0,    "y": 0,    "w": 1440, "h": 900,  "title": "A — Bone" },
+    { "file": "DirectionLedger.dc.html", "x": 1560, "y": 0,    "w": 1440, "h": 900,  "title": "B — Ledger" },
+    { "file": "DirectionNight.dc.html",  "x": 0,    "y": 1060, "w": 1440, "h": 900,  "title": "C — Night" },
+    { "file": "DirectionPress.dc.html",  "x": 1560, "y": 1060, "w": 1440, "h": 900,  "title": "D — Press" },
+    { "file": "Density.dc.html",         "x": 0,    "y": 2120, "w": 1440, "h": 1080, "title": "A — how the dense content behaves" }
   ],
   "annotations": [
-    { "id": "note-hero", "x": 0, "y": -150, "w": 460, "text": "Headline on its own ground, video panel bleeding off the right edge — no type sitting on a photograph, so the contrast fight disappears.\n\nVideo: preload=\"none\", script-started. Zero bytes until it is wanted." },
-    { "id": "note-about", "x": 0, "y": 2110, "w": 520, "text": "Two directions for the portrait moment — both do the same thing: severe at rest, warm on hover or press.\n\nA: hard light, dark ground, cold grey to warm.\nB: line engraving that redraws into a photograph, on cream.\n\nPick one; the other gets deleted." },
-    { "id": "note-copy", "x": 3060, "y": 1060, "w": 400, "text": "All copy here is your real, indexed text. Anything in [BRACKETS] is a placeholder for a fact I do not have." }
+    { "id": "note-brief", "x": 0, "y": -190, "w": 560, "text": "Four directions, four different feelings — not four shades of one.\n\nNothing here reuses the current palette, type or section rhythm. Pick the one that feels right and I build it out; the other three get deleted." },
+    { "id": "note-density", "x": 0, "y": 2010, "w": 620, "text": "The answer to \"large type and empty space, but all the SEO content\": one idea per screen.\n\nEvery word stays in the DOM, so the schema and rankings are untouched. What changes is pacing — the eight deliverables get a whole viewport instead of a crowded card. Thirteen sections become thirteen moments." },
+    { "id": "note-perf", "x": 3120, "y": 0, "w": 420, "text": "All four drop three.js, GSAP and ScrollTrigger — 167KB of CDN JavaScript the current homepage loads before it paints." }
   ],
   "launch": { "view": "canvas" }
 }

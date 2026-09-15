@@ -7,76 +7,45 @@
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500&family=Geist:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,100..900&family=JetBrains+Mono:wght@400;500&display=swap">
   <style>
-    body { margin: 0; background: #0C0A08; }
-    a { color: #E85D26; text-decoration: none; }
-    a:hover { color: #FF7A3D; }
-    .disp { font-family: Fraunces, Georgia, serif; font-variation-settings: 'opsz' 144, 'SOFT' 30; }
-    .body { font-family: Geist, -apple-system, BlinkMacSystemFont, sans-serif; font-variation-settings: 'opsz' 14; }
-    .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+    body { margin: 0; background: #F7F5F0; }
+    a { color: #E2452B; text-decoration: none; } a:hover { color: #C0351E; }
+    .g { font-family: Archivo, 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+    .m { font-family: 'JetBrains Mono', ui-monospace, monospace; }
   </style>
 </helmet>
 
-<div style="width: 1440px; height: 900px; background: #0C0A08; color: #F2EBDC; position: relative; overflow: hidden;">
+<div style="width: 1440px; height: 900px; background: #F7F5F0; color: #14120F; position: relative; box-sizing: border-box; padding: 44px 60px;">
 
-  <div style="position: absolute; inset: 0; background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'160\' height=\'160\'><filter id=\'n\'><feTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\'/></filter><rect width=\'160\' height=\'160\' filter=\'url(%23n)\' opacity=\'0.5\'/></svg>'); opacity: 0.045; pointer-events: none; z-index: 6;"></div>
+  <div style="display: flex; justify-content: space-between; align-items: baseline;">
+    <span class="g" style="font-size: 15px; font-weight: 700; letter-spacing: -0.02em;">AVOXAN</span>
+    <span class="m" style="font-size: 11px; letter-spacing: 0.08em; color: #14120F;">Work · Pricing · Journal · <span style="color: #E2452B;">Book</span></span>
+  </div>
 
-  <div style="position: absolute; right: 0; top: 0; width: 620px; height: 900px; background: linear-gradient(200deg, #241A12 0%, #14110E 45%, #0C0A08 100%); z-index: 1;">
-    <div style="position: absolute; inset: 0; background: radial-gradient(ellipse 70% 50% at 72% 28%, rgba(232,93,38,0.26), transparent 62%);"></div>
-    <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 240px; background: linear-gradient(90deg, #0C0A08 0%, rgba(12,10,8,0.7) 40%, rgba(12,10,8,0) 100%);"></div>
-    <div class="mono" style="position: absolute; left: 300px; bottom: 44px; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #5E5648; display: flex; align-items: center; gap: 10px;">
-      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="2" stroke-linejoin="round"><path d="M7 4l12 8-12 8z"/></svg>
-      [ placeholder ] hero loop · 6s · webm · preload none
+  <h1 class="g" style="position: absolute; left: 60px; right: 60px; top: 330px; margin: 0; font-size: 158px; line-height: 0.86; letter-spacing: -0.052em; font-weight: 600; font-variation-settings: 'wdth' 96;">
+    Websites that<br>quietly do<br>the selling.
+  </h1>
+
+  <div style="position: absolute; left: 60px; bottom: 46px; display: flex; align-items: flex-end; gap: 80px;">
+    <div style="max-width: 300px;">
+      <div class="m" style="font-size: 11px; letter-spacing: 0.08em; line-height: 1.75; color: #6B6660;">
+        A Houston studio for service<br>businesses. One flat price,<br>one predictable timeline.
+      </div>
+    </div>
+    <div class="m" style="font-size: 11px; letter-spacing: 0.08em; color: #14120F;">
+      <div style="display: flex; gap: 8px;"><span style="color: #E2452B;">$2,400</span><span style="color: #B3ADA5;">flat</span></div>
+      <div style="display: flex; gap: 8px; margin-top: 5px;"><span>4 weeks</span><span style="color: #B3ADA5;">to launch</span></div>
+      <div style="display: flex; gap: 8px; margin-top: 5px;"><span>14 days</span><span style="color: #B3ADA5;">money back</span></div>
     </div>
   </div>
 
-  <div style="position: absolute; left: 0; right: 0; top: 0; height: 84px; display: flex; align-items: center; justify-content: space-between; padding: 0 64px; z-index: 5; box-sizing: border-box;">
-    <div class="disp" style="font-size: 21px; font-weight: 600; letter-spacing: -0.01em;">Avoxan</div>
-    <div class="body" style="display: flex; gap: 34px; font-size: 14px; color: #D9D0BE;">
-      <span>Websites</span><span>AI Receptionist</span><span>Work</span><span>Pricing</span><span>Blog</span>
-    </div>
-    <div class="body" style="display: flex; align-items: center; gap: 18px;">
-      <span style="display: inline-flex; align-items: center; gap: 9px; background: #E85D26; color: #FFF4E8; font-size: 14px; font-weight: 500; padding: 11px 22px; border-radius: 99px;">
-        Book a call
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </span>
-    </div>
+  <div style="position: absolute; right: 60px; bottom: 46px; text-align: right;">
+    <div class="m" style="font-size: 11px; letter-spacing: 0.08em; color: #B3ADA5;">03 spots · October</div>
+    <div class="g" style="font-size: 20px; font-weight: 600; letter-spacing: -0.02em; margin-top: 10px; border-bottom: 2px solid #E2452B; display: inline-block; padding-bottom: 3px;">Book a call</div>
   </div>
 
-  <div style="position: absolute; left: 64px; top: 208px; width: 830px; z-index: 4;">
-    <div class="mono" style="font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.22em; color: #E85D26; display: flex; align-items: center; gap: 12px; margin-bottom: 34px;">
-      <span style="width: 5px; height: 5px; background: #E85D26; border-radius: 50%;"></span>
-      Houston, Texas · 3 spots left this month
-    </div>
-    <h1 class="disp" style="margin: 0; font-size: 104px; line-height: 0.96; letter-spacing: -0.028em; font-weight: 420; color: #F2EBDC;">
-      Websites that<br>
-      <em style="font-weight: 380; font-style: italic; font-variation-settings: 'opsz' 144, 'SOFT' 70;">quietly</em> do the<br>
-      selling for you.
-    </h1>
-    <p class="body" style="margin: 38px 0 0; font-size: 17px; line-height: 1.62; color: #968C7B; max-width: 470px; text-wrap: pretty;">
-      A small Houston studio building conversion-focused websites for service businesses. One flat price. One predictable timeline. No retainers, no surprises, no jargon.
-    </p>
-    <div style="display: flex; align-items: center; gap: 20px; margin-top: 44px;">
-      <span class="body" style="display: inline-flex; align-items: center; gap: 11px; background: #E85D26; color: #FFF4E8; font-size: 16px; font-weight: 500; padding: 16px 30px; border-radius: 99px;">
-        Book a free 20-min call
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </span>
-      <span class="body" style="display: inline-flex; align-items: center; gap: 11px; border: 1px solid rgba(242,235,220,0.22); color: #F2EBDC; font-size: 16px; font-weight: 500; padding: 16px 30px; border-radius: 99px;">See the work</span>
-    </div>
-  </div>
-
-  <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 72px; border-top: 1px solid rgba(242,235,220,0.10); display: flex; align-items: center; gap: 46px; padding: 0 64px; z-index: 5; box-sizing: border-box; background: rgba(12,10,8,0.6);">
-    <span class="mono" style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #F2EBDC;">$2,400 flat</span>
-    <span style="color: #5E5648; font-size: 9px;">◆</span>
-    <span class="mono" style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #F2EBDC;">Launch in 4 weeks</span>
-    <span style="color: #5E5648; font-size: 9px;">◆</span>
-    <span class="mono" style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #F2EBDC;">14-day money-back</span>
-    <span style="color: #5E5648; font-size: 9px;">◆</span>
-    <span class="mono" style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #F2EBDC;">Copy &amp; SEO included</span>
-    <span style="color: #5E5648; font-size: 9px;">◆</span>
-    <span class="mono" style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #968C7B;">AI receptionist answers 24/7</span>
-  </div>
+  <div class="m" style="position: absolute; left: 60px; top: 132px; font-size: 11px; letter-spacing: 0.08em; color: #B3ADA5;">01 / Houston, Texas</div>
 
 </div>
 </x-dc>
