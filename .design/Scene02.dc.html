@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,100..900&family=JetBrains+Mono:wght@400;500&display=swap">
+  <style>
+    body { margin: 0; background: #0A0A0A; }
+    a { color: #E85D26; } a:hover { color: #FF7A3D; }
+    .a { font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; }
+    .m { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+    .rail { position: absolute; top: 120px; bottom: 120px; width: 1px; background: #2A2A28; }
+    .tick { position: absolute; left: -5px; width: 11px; height: 1px; background: #4A4A46; }
+    .rlab { position: absolute; font-size: 9px; letter-spacing: 0.2em; color: #5C5C56; white-space: nowrap; }
+    @keyframes ring { 0% { transform: scale(1); opacity: 0.85; } 100% { transform: scale(3.1); opacity: 0; } }
+    .r1 { position: absolute; border: 1px solid #E85D26; border-radius: 50%; inset: 0; animation: ring 3.4s cubic-bezier(0.22,1,0.36,1) infinite; }
+    .r2 { animation-delay: 1.15s; }
+    .r3 { animation-delay: 2.3s; }
+  </style>
+</helmet>
+
+<div style="width: 1440px; height: 900px; background: #0A0A0A; color: #F0EBE3; position: relative; overflow: hidden;">
+
+  <div class="rail" style="left: 70px;">
+    <div class="tick" style="top: 150px;"></div><div class="m rlab" style="top: 145px; left: 20px; color: #E85D26;">19:02 · MISSED</div>
+  </div>
+  <div class="rail" style="right: 70px;">
+    <div class="tick" style="top: 130px;"></div><div class="m rlab" style="top: 125px; right: 20px; color: #E85D26;">02 COST</div>
+  </div>
+
+  <div style="position: absolute; left: 172px; top: 342px; width: 74px; height: 74px;">
+    <div class="r1"></div><div class="r1 r2"></div><div class="r1 r3"></div>
+    <div style="position: absolute; inset: 26px; background: #E85D26; border-radius: 50%;"></div>
+  </div>
+
+  <div class="a" style="position: absolute; left: 300px; right: 140px; top: 240px; font-size: 118px; line-height: 0.92; letter-spacing: -0.042em; font-weight: 820;">
+    THE CALL<br>YOU MISS<br>IS THE JOB<br><span style="color: #E85D26;">YOU LOSE.</span>
+  </div>
+
+  <div class="m" style="position: absolute; left: 300px; top: 720px; font-size: 13px; line-height: 1.9; color: #6E6E68; max-width: 46ch;">
+    A customer called at 19:02 on a Tuesday.<br>It rang out. They called the next name on the list.
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

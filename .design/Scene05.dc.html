@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,100..900&family=JetBrains+Mono:wght@400;500&display=swap">
+  <style>
+    body { margin: 0; background: #0A0A0A; }
+    a { color: #E85D26; } a:hover { color: #FF7A3D; }
+    .a { font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; }
+    .m { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+    @keyframes drift { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+    .fill {
+      background-image:
+        radial-gradient(ellipse 40% 60% at 15% 30%, #FF7A3D, transparent 60%),
+        radial-gradient(ellipse 50% 70% at 48% 70%, #8A3A12, transparent 62%),
+        radial-gradient(ellipse 45% 65% at 82% 28%, #E85D26, transparent 60%),
+        linear-gradient(95deg, #2A1408, #7A2E0E, #E85D26, #4A1C08, #2A1408);
+      background-size: 200% 100%;
+      -webkit-background-clip: text; background-clip: text;
+      color: transparent;
+      animation: drift 22s linear infinite alternate;
+    }
+    .rail { position: absolute; top: 120px; bottom: 120px; width: 1px; background: #2A2A28; }
+    .tick { position: absolute; left: -5px; width: 11px; height: 1px; background: #4A4A46; }
+    .rlab { position: absolute; font-size: 9px; letter-spacing: 0.2em; color: #5C5C56; white-space: nowrap; }
+  </style>
+</helmet>
+
+<div style="width: 1440px; height: 900px; background: #0A0A0A; color: #F0EBE3; position: relative; overflow: hidden;">
+  <div class="rail" style="left: 70px;"></div>
+  <div class="rail" style="right: 70px;"><div class="tick" style="top: 520px;"></div><div class="m rlab" style="top: 515px; right: 20px; color: #E85D26;">05 PROOF</div></div>
+
+  <div class="m" style="position: absolute; left: 140px; top: 124px; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #6E6E68;">Built here, for here</div>
+
+  <div class="a fill" style="position: absolute; left: 100px; right: 100px; top: 244px; text-align: center; font-size: 222px; line-height: 0.84; letter-spacing: -0.058em; font-weight: 880;">HOUSTON</div>
+
+  <div class="m" style="position: absolute; left: 140px; right: 140px; top: 546px; display: grid; grid-template-columns: 1fr 150px 70px 70px 110px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #4A4A46; border-bottom: 1px solid #2A2A28; padding-bottom: 12px;">
+    <span>Project</span><span>Sector</span><span>Pages</span><span>Hours</span><span style="text-align:right;">Platform</span>
+  </div>
+  <div class="m" style="position: absolute; left: 140px; right: 140px; top: 588px; font-size: 14px; line-height: 3.1; color: #C9C4BB;">
+    <div style="display:grid; grid-template-columns: 1fr 150px 70px 70px 110px; border-bottom:1px solid #1C1C1A;"><span>Brightside Family Dental</span><span style="color:#6E6E68;">Dental</span><span>5</span><span>28</span><span style="text-align:right; color:#6E6E68;">Webflow</span></div>
+    <div style="display:grid; grid-template-columns: 1fr 150px 70px 70px 110px; border-bottom:1px solid #1C1C1A;"><span>Marin Ashby Studio</span><span style="color:#6E6E68;">Photography</span><span>7</span><span>34</span><span style="text-align:right; color:#6E6E68;">Framer</span></div>
+    <div style="display:grid; grid-template-columns: 1fr 150px 70px 70px 110px; border-bottom:1px solid #1C1C1A;"><span>Avery Reyes Law Group</span><span style="color:#6E6E68;">Immigration</span><span>9</span><span>41</span><span style="text-align:right; color:#6E6E68;">WordPress</span></div>
+  </div>
+
+  <div class="m" style="position: absolute; left: 140px; bottom: 74px; font-size: 10px; letter-spacing: 0.2em; color: #3A3A36;">LETTERS ARE A WINDOW — background-clip: text, swap the gradient for real Houston footage</div>
+</div>
+</x-dc>
+</body>
+</html>

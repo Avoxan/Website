@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,100..900&family=JetBrains+Mono:wght@400;500&display=swap">
+  <style>
+    body { margin: 0; background: #0A0A0A; }
+    a { color: #E85D26; } a:hover { color: #FF7A3D; }
+    .a { font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; }
+    .m { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+    .rail { position: absolute; top: 120px; bottom: 120px; width: 1px; background: #2A2A28; }
+    .tick { position: absolute; left: -5px; width: 11px; height: 1px; background: #4A4A46; }
+    .rlab { position: absolute; font-size: 9px; letter-spacing: 0.2em; color: #5C5C56; white-space: nowrap; }
+    .li { display: flex; justify-content: space-between; border-bottom: 1px solid #1C1C1A; }
+  </style>
+</helmet>
+
+<div style="width: 1440px; height: 900px; background: #0A0A0A; color: #F0EBE3; position: relative; overflow: hidden;">
+  <div class="rail" style="left: 70px;"></div>
+  <div class="rail" style="right: 70px;"><div class="tick" style="top: 260px;"></div><div class="m rlab" style="top: 255px; right: 20px; color: #E85D26;">03 WORK</div></div>
+
+  <div class="m" style="position: absolute; left: 140px; top: 120px; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #6E6E68;">What is included</div>
+
+  <div class="a" style="position: absolute; left: 132px; top: 148px; font-size: 300px; line-height: 0.78; letter-spacing: -0.06em; font-weight: 880; color: #E85D26;">08</div>
+
+  <div class="a" style="position: absolute; left: 140px; top: 462px; font-size: 62px; line-height: 0.96; letter-spacing: -0.035em; font-weight: 800;">THINGS.<br>ONE NUMBER.</div>
+
+  <div class="m" style="position: absolute; right: 140px; top: 168px; width: 540px; font-size: 12px; line-height: 2.75; color: #8A8A82;">
+    <div class="li"><span><span style="color:#4A4A46;">01</span>&nbsp;&nbsp;Custom-designed website</span><span style="color:#4A4A46;">1,200</span></div>
+    <div class="li"><span><span style="color:#4A4A46;">02</span>&nbsp;&nbsp;Professional copywriting</span><span style="color:#4A4A46;">800</span></div>
+    <div class="li"><span><span style="color:#4A4A46;">03</span>&nbsp;&nbsp;Brand &amp; imagery</span><span style="color:#4A4A46;">450</span></div>
+    <div class="li"><span><span style="color:#4A4A46;">04</span>&nbsp;&nbsp;On-page SEO setup</span><span style="color:#4A4A46;">600</span></div>
+    <div class="li"><span><span style="color:#4A4A46;">05</span>&nbsp;&nbsp;Google Business Profile</span><span style="color:#4A4A46;">300</span></div>
+    <div class="li"><span><span style="color:#4A4A46;">06</span>&nbsp;&nbsp;Lead system built in</span><span style="color:#4A4A46;">400</span></div>
+    <div class="li"><span><span style="color:#4A4A46;">07</span>&nbsp;&nbsp;Tracking &amp; insights</span><span style="color:#4A4A46;">250</span></div>
+    <div class="li" style="border-bottom-color:#2A2A28; color:#F0EBE3;"><span><span style="color:#4A4A46;">08</span>&nbsp;&nbsp;Ninety days of free edits</span><span style="color:#4A4A46;">1,400</span></div>
+    <div style="display:flex; justify-content:space-between; padding-top:16px;"><span style="color:#4A4A46; letter-spacing:0.18em;">STACK VALUE</span><span style="text-decoration:line-through; color:#6E6E68;">$5,400</span></div>
+  </div>
+
+  <div class="m" style="position: absolute; left: 140px; bottom: 96px; font-size: 10px; letter-spacing: 0.2em; color: #3A3A36;">EACH LINE COUNTS IN AS IT ENTERS — animation-timeline: view()</div>
+</div>
+</x-dc>
+</body>
+</html>

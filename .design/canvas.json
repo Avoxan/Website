@@ -1,11 +1,15 @@
 {
   "artboards": [
-    { "file": "Main.dc.html",  "x": 0,    "y": 0, "w": 1440, "h": 8200, "title": "Homepage — Ledger", "print": "flow" },
-    { "file": "Phone.dc.html", "x": 1560, "y": 0, "w": 390,  "h": 2180, "title": "Homepage — phone",  "print": "flow" }
+    { "file": "Main.dc.html",    "x": 0,    "y": 0, "w": 1440, "h": 900, "title": "01 — Silence" },
+    { "file": "Scene02.dc.html", "x": 1560, "y": 0, "w": 1440, "h": 900, "title": "02 — Cost" },
+    { "file": "Scene03.dc.html", "x": 3120, "y": 0, "w": 1440, "h": 900, "title": "03 — Work" },
+    { "file": "Scene04.dc.html", "x": 4680, "y": 0, "w": 1440, "h": 900, "title": "04 — Terms" },
+    { "file": "Scene05.dc.html", "x": 6240, "y": 0, "w": 1440, "h": 900, "title": "05 — Proof" },
+    { "file": "Scene06.dc.html", "x": 7800, "y": 0, "w": 1440, "h": 900, "title": "06 — Book" }
   ],
   "annotations": [
-    { "id": "note-build", "x": 0, "y": -220, "w": 620, "text": "The whole homepage as one typeset document — twelve numbered sections, masthead to colophon.\n\nEvery word is your real indexed copy. All thirteen of the current sections are present; none of the content was cut to make it feel spacious. The air comes from rhythm and rules, not from deletion." },
-    { "id": "note-phone", "x": 1560, "y": -220, "w": 380, "text": "Phone, 390px. The 190px label column collapses above its section and every table reflows to stacked rows — the ledger logic survives narrow." }
+    { "id": "note-arc", "x": 0, "y": -230, "w": 720, "text": "Six scenes, read left to right — this is the scroll, storyboarded.\n\nThe page stops being a document and becomes a sequence: a call that rang out at 19:02, what it cost, what we build, what it costs you, who we did it for, and the ask. The HUD rails on both edges track where you are, the way the reference sites do.\n\nThe motion you can see here is real CSS running now — the breathing headline, the ringing pulse, the drifting gradient inside HOUSTON, the sheen on the button. None of it is a picture of an effect." },
+    { "id": "note-tech", "x": 7800, "y": -230, "w": 480, "text": "Built on animation-timeline: view() and scroll(), position: sticky and clip-path — all native CSS now.\n\nSo this is more immersive than the current site AND drops all 167KB of GSAP, ScrollTrigger and three.js." }
   ],
-  "launch": { "view": "focused", "file": "Main.dc.html" }
+  "launch": { "view": "canvas" }
 }

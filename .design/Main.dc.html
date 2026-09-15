@@ -7,244 +7,54 @@
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,100..900&family=JetBrains+Mono:wght@400;500&display=swap">
   <style>
-    body { margin: 0; background: #FCFCFA; }
-    a { color: #B3241C; text-decoration: none; } a:hover { color: #8A1A14; }
-    .m { font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; }
-    .sec { display: grid; grid-template-columns: 190px 1fr; gap: 0; padding: 74px 0; border-top: 1px solid #DEDAD2; }
-    .tag { font-size: 10px; letter-spacing: 0.17em; text-transform: uppercase; line-height: 2; color: #8A867E; }
-    .tag b { display: block; color: #101010; font-weight: 400; }
-    .stmt { font-size: 31px; line-height: 1.44; font-weight: 300; letter-spacing: -0.016em; max-width: 25ch; margin: 0; }
-    .p { font-size: 14px; line-height: 1.95; font-weight: 400; color: #3A3833; max-width: 62ch; margin: 0; }
-    .num { font-size: 80px; font-weight: 300; letter-spacing: -0.05em; line-height: 1; }
-    .cap { font-size: 10px; letter-spacing: 0.17em; text-transform: uppercase; color: #8A867E; margin-top: 12px; }
-    .r { display: flex; justify-content: space-between; align-items: baseline; gap: 26px; padding: 17px 0; border-bottom: 1px solid #E8E4DC; }
-    .r:last-child { border-bottom: none; }
-    .lbl { font-size: 10px; letter-spacing: 0.17em; text-transform: uppercase; color: #8A867E; }
+    body { margin: 0; background: #0A0A0A; }
+    a { color: #E85D26; } a:hover { color: #FF7A3D; }
+    .a { font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; }
+    .m { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+    .rail { position: absolute; top: 120px; bottom: 120px; width: 1px; background: #2A2A28; }
+    .tick { position: absolute; left: -5px; width: 11px; height: 1px; background: #4A4A46; }
+    .rlab { position: absolute; font-size: 9px; letter-spacing: 0.2em; color: #5C5C56; white-space: nowrap; }
+    @keyframes breathe { 0%,100% { font-variation-settings: 'wght' 830, 'wdth' 100; } 50% { font-variation-settings: 'wght' 880, 'wdth' 103; } }
+    @keyframes sweep  { 0% { transform: translateY(0); opacity: 0; } 12% { opacity: 1; } 88% { opacity: 1; } 100% { transform: translateY(640px); opacity: 0; } }
+    .word { animation: breathe 7s ease-in-out infinite; }
+    .scan { position: absolute; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(232,93,38,0.55), transparent); animation: sweep 9s linear infinite; }
   </style>
 </helmet>
 
-<div class="m" style="width: 1440px; background: #FCFCFA; color: #101010; box-sizing: border-box; padding: 0 56px 0;">
+<div style="width: 1440px; height: 900px; background: #0A0A0A; color: #F0EBE3; position: relative; overflow: hidden;">
 
-  <!-- MASTHEAD -->
-  <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 30px 0 14px;">
-    <span style="font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; font-weight: 500;">Avoxan</span>
-    <span class="lbl">Houston, Texas · Est. 2024</span>
-    <span style="font-size: 10px; letter-spacing: 0.17em; text-transform: uppercase; display: flex; gap: 22px;">
-      <span>Included</span><span>Rate</span><span>Record</span><span>Journal</span><span style="color: #B3241C;">Book →</span>
-    </span>
+  <div class="scan" style="top: 130px;"></div>
+
+  <div class="rail" style="left: 70px;">
+    <div class="tick" style="top: 0;"></div>       <div class="m rlab" style="top: -5px; left: 20px;">18:47</div>
+    <div class="tick" style="top: 150px;"></div>   <div class="m rlab" style="top: 145px; left: 20px; color: #E85D26;">19:02</div>
+    <div class="tick" style="top: 340px;"></div>   <div class="m rlab" style="top: 335px; left: 20px;">21:30</div>
+    <div class="tick" style="top: 520px;"></div>   <div class="m rlab" style="top: 515px; left: 20px;">02:14</div>
+    <div class="m rlab" style="bottom: -4px; left: 20px; color: #3A3A36;">CALLS · TUESDAY</div>
   </div>
 
-  <!-- 01 STATEMENT -->
-  <div class="sec" style="padding-top: 96px; padding-bottom: 88px;">
-    <div class="tag">§ 01<b>Statement</b></div>
-    <div>
-      <p class="stmt">Websites that quietly do the selling for you.</p>
-      <p class="p" style="margin-top: 42px;">A small Houston studio building conversion-focused websites for service businesses, coaches and growing brands. One flat price. One predictable timeline. No retainers, no surprises, no jargon.</p>
-      <div style="display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 0; margin-top: 66px;">
-        <div><div class="num">2,400</div><div class="cap">USD · flat · complete</div></div>
-        <div><div class="num">04</div><div class="cap">Weeks · kickoff to live</div></div>
-        <div><div class="num" style="color: #B3241C;">14</div><div class="cap">Days · money back</div></div>
-      </div>
-      <div style="display: flex; gap: 30px; margin-top: 58px; align-items: baseline;">
-        <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-bottom: 1px solid #B3241C; color: #B3241C; padding-bottom: 4px;">Book a 20-minute call</span>
-        <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-bottom: 1px solid #C9C4BA; padding-bottom: 4px;">See the record</span>
-        <span class="lbl" style="margin-left: auto;">3 slots remaining · October</span>
-      </div>
-    </div>
+  <div class="rail" style="right: 70px;">
+    <div class="tick" style="top: 0; left: -5px;"></div>    <div class="m rlab" style="top: -5px; right: 20px; color: #E85D26;">01 SILENCE</div>
+    <div class="tick" style="top: 130px;"></div>            <div class="m rlab" style="top: 125px; right: 20px;">02 COST</div>
+    <div class="tick" style="top: 260px;"></div>            <div class="m rlab" style="top: 255px; right: 20px;">03 WORK</div>
+    <div class="tick" style="top: 390px;"></div>            <div class="m rlab" style="top: 385px; right: 20px;">04 TERMS</div>
+    <div class="tick" style="top: 520px;"></div>            <div class="m rlab" style="top: 515px; right: 20px;">05 PROOF</div>
+    <div class="tick" style="top: 650px;"></div>            <div class="m rlab" style="top: 645px; right: 20px;">06 BOOK</div>
   </div>
 
-  <!-- 02 THE PROBLEM -->
-  <div class="sec">
-    <div class="tag">§ 02<b>The honest part</b></div>
-    <div>
-      <p class="stmt">Most small business websites are expensive brochures that nobody reads.</p>
-      <p class="p" style="margin-top: 38px;">You paid a freelancer two grand for a "modern, mobile-friendly" website. They disappeared after launch. Now you have a beautiful page that ranks for nothing, converts no one, and you can't update without paying $80 an hour.</p>
-      <div style="margin-top: 44px; max-width: 700px;">
-        <div class="r"><span style="font-size: 14px;">Pretty designs that don't convert visitors into leads</span><span class="lbl">01</span></div>
-        <div class="r"><span style="font-size: 14px;">Agencies that ghost you the moment the site goes live</span><span class="lbl">02</span></div>
-        <div class="r"><span style="font-size: 14px;">Hidden retainers, hosting markups and surprise invoices</span><span class="lbl">03</span></div>
-        <div class="r"><span style="font-size: 14px;">Sites that take 6+ months and three rounds of escalations</span><span class="lbl">04</span></div>
-        <div class="r"><span style="font-size: 14px;">A "designer" who refuses to write any of the copy</span><span class="lbl">05</span></div>
-      </div>
-    </div>
-  </div>
+  <div class="m" style="position: absolute; left: 0; right: 0; top: 46px; text-align: center; font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase;">Avoxan</div>
 
-  <!-- 03 INCLUDED -->
-  <div class="sec">
-    <div class="tag">§ 03<b>Included</b></div>
-    <div>
-      <p class="stmt">A complete website system, not just pages.</p>
-      <p class="p" style="margin-top: 38px;">Eight deliverables, itemised at what each would cost bought separately. All of them, in every project, at the same number.</p>
-      <div style="margin-top: 50px;">
-        <div class="r" style="border-bottom-color: #101010;"><span class="lbl">Deliverable</span><span class="lbl">Retail</span></div>
-        <div class="r"><span style="font-size: 15px; display: flex; gap: 26px;"><span class="lbl" style="width: 24px; flex: none;">01</span>Custom-designed website · eight pages</span><span style="font-size: 13px; color: #8A867E;">$1,200</span></div>
-        <div class="r"><span style="font-size: 15px; display: flex; gap: 26px;"><span class="lbl" style="width: 24px; flex: none;">02</span>Professional copywriting · every page</span><span style="font-size: 13px; color: #8A867E;">$800</span></div>
-        <div class="r"><span style="font-size: 15px; display: flex; gap: 26px;"><span class="lbl" style="width: 24px; flex: none;">03</span>Brand &amp; imagery · type, colour, icons</span><span style="font-size: 13px; color: #8A867E;">$450</span></div>
-        <div class="r"><span style="font-size: 15px; display: flex; gap: 26px;"><span class="lbl" style="width: 24px; flex: none;">04</span>On-page SEO · schema, sitemap, vitals</span><span style="font-size: 13px; color: #8A867E;">$600</span></div>
-        <div class="r"><span style="font-size: 15px; display: flex; gap: 26px;"><span class="lbl" style="width: 24px; flex: none;">05</span>Google Business Profile · local search</span><span style="font-size: 13px; color: #8A867E;">$300</span></div>
-        <div class="r"><span style="font-size: 15px; display: flex; gap: 26px;"><span class="lbl" style="width: 24px; flex: none;">06</span>Lead system · forms, chat, booking</span><span style="font-size: 13px; color: #8A867E;">$400</span></div>
-        <div class="r"><span style="font-size: 15px; display: flex; gap: 26px;"><span class="lbl" style="width: 24px; flex: none;">07</span>Tracking &amp; insights · GA4, Console, Clarity</span><span style="font-size: 13px; color: #8A867E;">$250</span></div>
-        <div class="r" style="border-bottom-color: #101010;"><span style="font-size: 15px; display: flex; gap: 26px;"><span class="lbl" style="width: 24px; flex: none;">08</span>Ninety days of free edits · aftercare</span><span style="font-size: 13px; color: #8A867E;">$1,400</span></div>
-        <div class="r" style="border-bottom: none; padding-top: 22px;"><span class="lbl">Itemised stack value</span><span style="font-size: 20px; font-weight: 300; color: #8A867E; text-decoration: line-through;">$5,400</span></div>
-      </div>
-    </div>
-  </div>
+  <div class="m" style="position: absolute; left: 160px; top: 300px; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: #6E6E68;">Websites that</div>
 
-  <!-- 04 RATE -->
-  <div class="sec">
-    <div class="tag">§ 04<b>Rate</b></div>
-    <div>
-      <p class="stmt">No upsells. No feature-gating. One complete price.</p>
-      <div style="display: flex; align-items: flex-end; gap: 64px; margin-top: 48px;">
-        <div><div class="num" style="font-size: 132px; color: #B3241C;">2,400</div><div class="cap">Business website · 8 pages · USD</div></div>
-        <div style="padding-bottom: 14px;">
-          <div class="r" style="min-width: 300px;"><span class="lbl">Deposit to start</span><span style="font-size: 14px;">50%</span></div>
-          <div class="r" style="min-width: 300px;"><span class="lbl">To launch</span><span style="font-size: 14px;">4 weeks</span></div>
-          <div class="r" style="min-width: 300px;"><span class="lbl">Free edits</span><span style="font-size: 14px;">90 days</span></div>
-          <div class="r" style="min-width: 300px;"><span class="lbl">Extra pages</span><span style="font-size: 14px;">$150 each</span></div>
-        </div>
-      </div>
-      <p class="p" style="margin-top: 44px;">We don't run a "Starter" plan with the things you actually need held back for "Premium." That game is exhausting for everyone. Pay 50% to start, 50% on launch. Cards, ACH and wire.</p>
-    </div>
-  </div>
+  <div class="a word" style="position: absolute; left: 140px; right: 140px; top: 330px; font-size: 268px; line-height: 0.82; letter-spacing: -0.055em; font-weight: 850; text-align: center;">QUIETLY</div>
 
-  <!-- 05 RECEPTIONIST -->
-  <div class="sec">
-    <div class="tag">§ 05<b>And one more thing</b></div>
-    <div>
-      <p class="stmt">When the site makes the phone ring, don't let the call die in voicemail.</p>
-      <p class="p" style="margin-top: 38px;">Avoxan AI Receptionist catches missed and after-hours calls, talks to the caller, captures the details, and texts your team the lead while it is still warm. Use it by itself, or paired with your site so form leads and phone leads land in one system.</p>
-      <div style="display: flex; gap: 56px; margin-top: 46px; align-items: baseline;">
-        <div><span class="num" style="font-size: 52px;">$397</span><span class="lbl" style="margin-left: 12px;">per month</span></div>
-        <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-bottom: 1px solid #B3241C; color: #B3241C; padding-bottom: 4px;">Explore the receptionist →</span>
-      </div>
-    </div>
-  </div>
+  <div class="m" style="position: absolute; left: 0; right: 0; top: 590px; text-align: center; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: #6E6E68;">do the selling for you</div>
 
-  <!-- 06 SCHEDULE -->
-  <div class="sec">
-    <div class="tag">§ 06<b>Schedule</b></div>
-    <div>
-      <p class="stmt">From kickoff to launch in four weeks.</p>
-      <p class="p" style="margin-top: 38px;">A real timeline you can plan around. If we miss the deadline through any fault of ours, we refund $200.</p>
-      <div style="margin-top: 50px;">
-        <div class="r"><span style="font-size: 15px; display: flex; gap: 26px;"><span class="lbl" style="width: 24px; flex: none;">01</span>Free discovery call · twenty minutes, no pitch</span><span class="lbl">Day 0</span></div>
-        <div class="r"><span style="font-size: 15px; display: flex; gap: 26px;"><span class="lbl" style="width: 24px; flex: none;">02</span>Strategy &amp; sitemap · you approve before pixels</span><span class="lbl">Week 1</span></div>
-        <div class="r"><span style="font-size: 15px; display: flex; gap: 26px;"><span class="lbl" style="width: 24px; flex: none;">03</span>Design &amp; copywriting · homepage first, 2 rounds</span><span class="lbl">Week 2</span></div>
-        <div class="r"><span style="font-size: 15px; display: flex; gap: 26px;"><span class="lbl" style="width: 24px; flex: none;">04</span>Build &amp; QA · forms, tracking, 12+ devices</span><span class="lbl">Week 3</span></div>
-        <div class="r"><span style="font-size: 15px; display: flex; gap: 26px;"><span class="lbl" style="width: 24px; flex: none;">05</span>Launch &amp; training · DNS, walkthrough, 14-day watch</span><span class="lbl">Week 4</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 07 RECORD -->
-  <div class="sec">
-    <div class="tag">§ 07<b>Record</b></div>
-    <div>
-      <p class="stmt">How we think, shown in detail.</p>
-      <p class="p" style="margin-top: 38px;">Four projects walked through end to end. The strategy, the copy decisions, the technical setup, and where the actual time went.</p>
-      <div style="margin-top: 50px;">
-        <div class="r" style="border-bottom-color: #101010;"><span class="lbl" style="flex-grow: 1;">Project</span><span class="lbl" style="width: 150px; flex: none;">Sector</span><span class="lbl" style="width: 80px; flex: none;">Pages</span><span class="lbl" style="width: 80px; flex: none;">Hours</span><span class="lbl" style="width: 110px; flex: none;">Platform</span></div>
-        <div class="r"><span style="font-size: 15px; flex-grow: 1;">Brightside Family Dental</span><span style="font-size: 13px; color: #8A867E; width: 150px; flex: none;">Dental · Sugar Land</span><span style="font-size: 13px; width: 80px; flex: none;">5</span><span style="font-size: 13px; width: 80px; flex: none;">28</span><span style="font-size: 13px; color: #8A867E; width: 110px; flex: none;">Webflow</span></div>
-        <div class="r"><span style="font-size: 15px; flex-grow: 1;">Marin Ashby Studio</span><span style="font-size: 13px; color: #8A867E; width: 150px; flex: none;">Photography · Austin</span><span style="font-size: 13px; width: 80px; flex: none;">7</span><span style="font-size: 13px; width: 80px; flex: none;">34</span><span style="font-size: 13px; color: #8A867E; width: 110px; flex: none;">Framer</span></div>
-        <div class="r"><span style="font-size: 15px; flex-grow: 1;">Avery Reyes Law Group</span><span style="font-size: 13px; color: #8A867E; width: 150px; flex: none;">Immigration · Houston</span><span style="font-size: 13px; width: 80px; flex: none;">9</span><span style="font-size: 13px; width: 80px; flex: none;">41</span><span style="font-size: 13px; color: #8A867E; width: 110px; flex: none;">WordPress</span></div>
-        <div class="r"><span style="font-size: 15px; flex-grow: 1; color: #B3241C;">Avoxan.com — this site</span><span style="font-size: 13px; color: #8A867E; width: 150px; flex: none;">Live build</span><span style="font-size: 13px; width: 80px; flex: none;">30</span><span style="font-size: 13px; width: 80px; flex: none;">—</span><span style="font-size: 13px; color: #8A867E; width: 110px; flex: none;">Hand-built</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 08 GUARANTEES -->
-  <div class="sec">
-    <div class="tag">§ 08<b>Guarantees</b></div>
-    <div>
-      <p class="stmt">Three guarantees most agencies won't put in writing.</p>
-      <div style="display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 40px; margin-top: 52px;">
-        <div style="border-top: 1px solid #101010; padding-top: 20px;">
-          <div class="lbl">01 — Fourteen days</div>
-          <div style="font-size: 17px; margin-top: 14px; font-weight: 400;">Money back</div>
-          <p class="p" style="font-size: 13px; margin-top: 14px;">If after the first design round you're not happy with the direction, we refund every dollar. No kill fees, no deductions for hours spent.</p>
-        </div>
-        <div style="border-top: 1px solid #101010; padding-top: 20px;">
-          <div class="lbl">02 — Four weeks</div>
-          <div style="font-size: 17px; margin-top: 14px; font-weight: 400;">On time, or we pay you</div>
-          <p class="p" style="font-size: 13px; margin-top: 14px;">If we miss the launch deadline through any fault of ours, we refund $200 from the final payment.</p>
-        </div>
-        <div style="border-top: 1px solid #B3241C; padding-top: 20px;">
-          <div class="lbl" style="color: #B3241C;">03 — Ninety days</div>
-          <div style="font-size: 17px; margin-top: 14px; font-weight: 400;">Inquiry promise</div>
-          <p class="p" style="font-size: 13px; margin-top: 14px;">If the site doesn't generate a single inquiry in 90 days, we audit the conversion path and rebuild the homepage at no cost.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 09 METHOD -->
-  <div class="sec">
-    <div class="tag">§ 09<b>Method</b></div>
-    <div>
-      <p class="stmt">A studio built around the things bigger agencies skip.</p>
-      <div style="margin-top: 50px;">
-        <div class="r"><span style="font-size: 15px; width: 330px; flex: none;">You talk to the people building it</span><p class="p" style="font-size: 13px; max-width: 46ch;">No account-manager relay race. One point of contact, beginning to end.</p></div>
-        <div class="r"><span style="font-size: 15px; width: 330px; flex: none;">We obsess over the boring stuff</span><p class="p" style="font-size: 13px; max-width: 46ch;">Speed, schema, mobile menus, accessibility. The pretty part is the easy part.</p></div>
-        <div class="r"><span style="font-size: 15px; width: 330px; flex: none;">You own everything</span><p class="p" style="font-size: 13px; max-width: 46ch;">Domain, hosting, design files, CMS access. No design licence held over you.</p></div>
-        <div class="r"><span style="font-size: 15px; width: 330px; flex: none;">Built to be edited by you</span><p class="p" style="font-size: 13px; max-width: 46ch;">Platforms a non-technical person can run, plus a recorded walkthrough of your build.</p></div>
-        <div class="r"><span style="font-size: 15px; width: 330px; flex: none;">Honest pricing, always</span><p class="p" style="font-size: 13px; max-width: 46ch;">$2,400 is $2,400. No padded invoices, no stock-photo licensing fees, no hosting markup.</p></div>
-        <div class="r"><span style="font-size: 15px; width: 330px; flex: none;">The price ladder is published in advance</span><p class="p" style="font-size: 13px; max-width: 46ch;">Founding rate closed August 2026 exactly when we said. $2,400 today, $3,600 at 30 case studies.</p></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 10 QUESTIONS -->
-  <div class="sec">
-    <div class="tag">§ 10<b>Questions</b></div>
-    <div>
-      <p class="stmt">Things people ask before booking.</p>
-      <div style="margin-top: 50px; max-width: 860px;">
-        <div class="r"><span style="font-size: 15px;">Who is the ideal Avoxan client?</span><span class="lbl" style="color: #B3241C;">+</span></div>
-        <div style="padding: 4px 0 22px; border-bottom: 1px solid #E8E4DC;"><p class="p" style="font-size: 13px;">Service businesses doing $250K–$5M a year. Coaches, consultants, dentists, lawyers, real-estate teams, photographers, contractors. People who get clients through their website and need it to actually work, not just exist.</p></div>
-        <div class="r"><span style="font-size: 15px;">Why is your pricing lower than other agencies?</span><span class="lbl">+</span></div>
-        <div class="r"><span style="font-size: 15px;">What platforms do you build on?</span><span class="lbl">+</span></div>
-        <div class="r"><span style="font-size: 15px;">What if I hate it?</span><span class="lbl">+</span></div>
-      </div>
-      <div style="margin-top: 30px;"><span class="lbl">See the full list — 15 questions →</span></div>
-    </div>
-  </div>
-
-  <!-- 11 JOURNAL -->
-  <div class="sec">
-    <div class="tag">§ 11<b>Journal</b></div>
-    <div>
-      <p class="stmt">Honest writing about small business websites.</p>
-      <div style="margin-top: 50px;">
-        <div class="r"><span class="lbl" style="width: 120px; flex: none;">Pricing</span><span style="font-size: 15px; flex-grow: 1;">How much should a small business website actually cost in 2026?</span><span class="lbl">9 min</span></div>
-        <div class="r"><span class="lbl" style="width: 120px; flex: none;">Conversion</span><span style="font-size: 15px; flex-grow: 1;">Why your beautiful website isn't generating any leads</span><span class="lbl">7 min</span></div>
-        <div class="r"><span class="lbl" style="width: 120px; flex: none;">SEO</span><span style="font-size: 15px; flex-grow: 1;">Local SEO for service businesses: the only checklist you need</span><span class="lbl">11 min</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 12 BOOKING -->
-  <div class="sec" style="padding-bottom: 96px;">
-    <div class="tag">§ 12<b>Booking</b></div>
-    <div>
-      <p class="stmt" style="font-size: 38px;">Let's see if a website is what you actually need.</p>
-      <p class="p" style="margin-top: 38px;">Twenty minutes. No slide deck, no sales pressure. We'll ask about your business and tell you straight whether Avoxan can help, or whether your money is better spent somewhere else.</p>
-      <div style="display: flex; align-items: baseline; gap: 34px; margin-top: 50px;">
-        <span style="font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; background: #B3241C; color: #FCFCFA; padding: 17px 32px;">Book a 20-minute call</span>
-        <span class="lbl">3 slots remaining · October</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- COLOPHON -->
-  <div style="border-top: 1px solid #101010; padding: 40px 0 46px; display: grid; grid-template-columns: 190px 1fr 1fr 1fr 1fr; gap: 0;">
-    <div class="tag">Colophon</div>
-    <div class="lbl" style="line-height: 2.2;"><b style="display:block;color:#101010;font-weight:400;">The work</b>What you get<br>AI Receptionist<br>Pricing<br>Process</div>
-    <div class="lbl" style="line-height: 2.2;"><b style="display:block;color:#101010;font-weight:400;">Read</b>Field notes<br>Website cost 2026<br>Local SEO checklist<br>Cited by AI</div>
-    <div class="lbl" style="line-height: 2.2;"><b style="display:block;color:#101010;font-weight:400;">Talk</b>Book a call<br>FAQ<br>hello@avoxan.com</div>
-    <div class="lbl" style="line-height: 2.2; text-align: right;"><b style="display:block;color:#101010;font-weight:400;">Avoxan</b>© 2026 Akarshan Digital LLC<br>Houston, Texas<br>Privacy · Terms<br><span style="color:#B3241C;">Hand-built — see how</span></div>
+  <div style="position: absolute; left: 0; right: 0; bottom: 96px; text-align: center;">
+    <div class="m" style="font-size: 11px; letter-spacing: 0.2em; color: #4A4A46;">SCROLL</div>
+    <div style="width: 1px; height: 46px; background: linear-gradient(#4A4A46, transparent); margin: 14px auto 0;"></div>
   </div>
 
 </div>
