@@ -10,3 +10,6 @@ desktop.ini
 
 # Dependencies (if ever added)
 node_modules/
+
+# Design canvas build output (regenerated from .design/*.dc.html)
+.design/avoxan-rebuild.html
