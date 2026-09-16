@@ -585,6 +585,10 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:450; letter-spacing:-0.01
 .work-visual{
   position:relative; aspect-ratio: 16/11; overflow:hidden; background:var(--bg-2);
 }
+/* <picture> exists only to offer the AVIF sources; it must not become a box of
+   its own between the frame and the image, or the img's height:100% resolves
+   against an auto-height parent and inline layout adds a gap under it. */
+.work-visual picture, .showcase-frame picture{ display:block; width:100%; height:100%; }
 .work-visual img{
   width:100%; height:100%; object-fit:cover; object-position:top center;
   transition:transform 1s var(--ease-out); filter:saturate(.92);

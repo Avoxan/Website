@@ -27,10 +27,19 @@
 # MUST be referenced with a ?v= query string that you bump on change —
 # otherwise returning visitors keep the old file for up to a year and
 # a fix you deploy never reaches them.
-# Current versions: avoxan-v2.css?v=19 · avoxan-v2.js?v=8
+# Current versions: avoxan-v2.css?v=20 · avoxan-v2.js?v=8
 #                   avoxan-hero-v2.js?v=2 · avoxan-chat.js?v=2
 #                   avoxan-ai-pricing.js?v=2
 /css/*
   Cache-Control: public, max-age=31536000
 /js/*
   Cache-Control: public, max-age=31536000
+
+# Case-study AVIFs carry their pixel width in the filename (…-760.avif,
+# …-1448.avif), so a re-export lands on a new name rather than overwriting one
+# a browser is still holding. That makes them safe to cache immutably without a
+# ?v= string. The .avif suffix is load-bearing: the extensionless case-study
+# pages (/work/brightside-family-dental) can never match this rule, so a
+# mistake here cannot pin an HTML page for a year.
+/work/*.avif
+  Cache-Control: public, max-age=31536000, immutable
