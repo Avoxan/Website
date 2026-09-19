@@ -11,7 +11,10 @@
   --cream: #F2EBDC;
   --cream-soft: #D9D0BE;
   --muted: #968C7B;
-  --faint: #5E5648;
+  /* 4.67:1 on --bg. The previous #5E5648 was 2.73:1, which fails WCAG AA for
+     small text — and 22 of this token's 23 uses are small text (eyebrows,
+     captions, footer labels, form notes). */
+  --faint: #847A68;
   --ember: #E85D26;
   --ember-bright: #FF7A3D;
   --ember-deep: #9C3A14;
@@ -727,7 +730,7 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:450; letter-spacing:-0.01
   display:grid; grid-template-columns: 1.6fr repeat(3,1fr); gap:3rem;
 }
 .footer-brand p{ color:var(--muted); font-size:.95rem; max-width:34ch; margin-top:1.3rem; }
-.footer h5{
+.footer h2{
   font-family:var(--font-mono); font-size:.72rem; font-weight:500;
   letter-spacing:.2em; text-transform:uppercase; color:var(--faint); margin-bottom:1.3rem;
 }
@@ -1348,7 +1351,7 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:450; letter-spacing:-0.01
 .demo-player.is-playing .demo-play-pulse{ animation:demopulse 1.6s ease-out infinite; }
 @keyframes demopulse{ 0%{ transform:scale(1); opacity:.6; } 100%{ transform:scale(1.8); opacity:0; } }
 .demo-wave{ display:flex; gap:4px; align-items:center; justify-content:center; height:54px; position:relative; }
-.demo-wave span{ width:3px; height:100%; border-radius:3px; background:var(--faint);
+.demo-wave span{ width:3px; height:100%; border-radius:3px; background:#5E5648;
   transform:scaleY(.18); transition:transform .2s; }
 .demo-player.is-playing .demo-wave span{ background:var(--ember); animation:wavebar 1.2s ease-in-out infinite; }
 .demo-wave span:nth-child(2n){ animation-delay:.1s; } .demo-wave span:nth-child(3n){ animation-delay:.25s; }
@@ -1461,7 +1464,10 @@ html.light{
   --cream: #1C1813;
   --cream-soft: #463E33;
   --muted: #6E6456;
-  --faint: #A4977F;
+  /* 5.09:1 on --bg, 4.66:1 on --bg-2. #A4977F was 2.48:1 — the light theme had
+     the same AA failure as dark. This sits very close to --muted, so the
+     muted/faint distinction is largely lost in light mode; legibility wins. */
+  --faint: #6F634D;
   --ember: #D2521C;
   --ember-bright: #BF471A;
   --ember-deep: #8A3211;
@@ -1640,7 +1646,7 @@ html.light .avx-root{
   padding-bottom: clamp(2.5rem, 5vw, 3.5rem);
   border-bottom:1px solid var(--line);
 }
-.nf-col h5{
+.nf-col h2{
   font-family:var(--font-mono); font-size:.72rem; font-weight:500;
   letter-spacing:.14em; text-transform:uppercase; color:var(--faint);
   margin-bottom:1.3rem;
