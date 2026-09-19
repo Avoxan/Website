@@ -102,3 +102,11 @@
 /work-with-us/        /contact           301
 /get-started          /contact           301
 /get-started/         /contact           301
+
+# Case-study mockups were JPEGs carrying a .png extension; renamed to match
+# their real format. These keep any already-indexed image URL working — which
+# matters now that 404.html makes a missing path a real 404 instead of
+# silently serving the homepage.
+/work/brightside-mockup.png   /work/brightside-mockup.jpg    301
+/work/marin-ashby-mockup.png  /work/marin-ashby-mockup.jpg   301
+/work/avery-reyes-mockup.png  /work/avery-reyes-mockup.jpg   301

@@ -1631,3 +1631,34 @@ html.light .avx-root{
   .rail-card.open{ animation: none !important; }
   .rail-card p, .rail-card .rail-value, .rail-card::after{ transition-timing-function: ease !important; }
 }
+
+/* ============================================================
+   404 — page not found
+   ============================================================ */
+.nf-grid{
+  display:grid; grid-template-columns: repeat(3, 1fr); gap:3rem;
+  padding-bottom: clamp(2.5rem, 5vw, 3.5rem);
+  border-bottom:1px solid var(--line);
+}
+.nf-col h5{
+  font-family:var(--font-mono); font-size:.72rem; font-weight:500;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--faint);
+  margin-bottom:1.3rem;
+}
+.nf-col ul{ list-style:none; }
+.nf-col ul li + li{ margin-top:.8rem; }
+.nf-col ul a{
+  color:var(--muted); text-decoration:none; font-size:.95rem;
+  display:inline-block; transition:color .25s, transform .25s var(--ease-out);
+}
+.nf-col ul a:hover{ color:var(--ember-bright); transform:translateX(4px); }
+
+.nf-cta{ margin-top: clamp(2.5rem, 5vw, 3.5rem); }
+.nf-cta p{ color:var(--muted); max-width:52ch; margin-bottom:1.8rem; }
+
+@media (max-width: 860px){
+  .nf-grid{ grid-template-columns: repeat(2, 1fr); gap:2.2rem; }
+}
+@media (max-width: 560px){
+  .nf-grid{ grid-template-columns: 1fr; gap:2rem; }
+}
