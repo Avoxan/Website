@@ -27,7 +27,8 @@
 # MUST be referenced with a ?v= query string that you bump on change —
 # otherwise returning visitors keep the old file for up to a year and
 # a fix you deploy never reaches them.
-# Current versions: avoxan-v2.css?v=22 · avoxan-v2.js?v=8
+# Current versions: avoxan-v2.css?v=22 · avoxan-fonts.css?v=1
+#                   avoxan-v2.js?v=8
 #                   avoxan-hero-v2.js?v=2 · avoxan-chat.js?v=2
 #                   avoxan-ai-pricing.js?v=2
 /css/*
@@ -43,3 +44,14 @@
 # mistake here cannot pin an HTML page for a year.
 /work/*.avif
   Cache-Control: public, max-age=31536000, immutable
+
+# Self-hosted webfonts (declared in /css/avoxan-fonts.css). These have no ?v=
+# string, so if you ever re-subset them, save the result under a NEW filename
+# (…-var2.woff2) and update the @font-face src — overwriting one in place would
+# leave returning visitors on the old file for up to a year.
+# The CORS header is not needed while the fonts and the pages share an origin,
+# but @font-face always fetches in CORS mode, so it is what keeps them working
+# if the CSS is ever served from a different hostname than the fonts.
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
