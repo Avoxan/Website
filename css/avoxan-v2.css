@@ -220,11 +220,51 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:450; letter-spacing:-0.01
 .line-mask > .line-inner{ display:block; transform:translateY(110%); }
 .no-js .line-mask > .line-inner, .reveal-done .line-inner{ transform:none; }
 
-[data-reveal]{ opacity:0; transform:translateY(40px); will-change: transform, opacity; }
+/* No will-change here: this matches 45+ nodes on the homepage alone, and a
+   standing layer-promotion hint on all of them costs memory and compositing
+   for an animation that runs exactly once. GSAP promotes what it animates. */
+[data-reveal]{ opacity:0; transform:translateY(40px); }
 .no-js [data-reveal]{ opacity:1; transform:none; }
+
+/* ---------- Hero entrance ----------
+   This used to be driven entirely by GSAP: avoxan-v2.js stripped .no-js (which
+   dropped the hero headline back to translateY(110%)) and set the stagger
+   elements to opacity:0, then animated both home. That put the largest text in
+   the viewport behind a third-party CDN script, and gave two bad outcomes
+   depending on who won the race — either the hero painted and then visibly
+   vanished when the JS landed, or it never painted until GSAP had run (PSI
+   measured ~2.5s of LCP "element render delay" on mobile).
+
+   The same entrance now runs straight off this stylesheet, so it starts at
+   first paint, is deterministic, and nothing can hide the hero after the fact. */
+@keyframes heroRise{ from{ opacity:0; transform:translateY(46px); } to{ opacity:1; transform:none; } }
+@keyframes heroLift{ from{ transform:translateY(46px); }   to{ transform:none; } }
+@keyframes heroLine{ from{ transform:translateY(110%); }   to{ transform:translateY(0); } }
+
+[data-hero-stagger]{ animation: heroRise 1.1s var(--ease-out) both; }
+.hero-pills[data-hero-stagger]{ animation-delay:0s; }
+.hero-ctas[data-hero-stagger] { animation-delay:.18s; }
+
+/* The lede (homepage) and the deck (inner pages) are the largest text in the
+   mobile viewport, so they are what Chrome measures as LCP — and an element
+   that starts at opacity:0 isn't eligible to *be* LCP until the fade finishes.
+   Fading them in cost ~1.2s of LCP on its own, GSAP or no GSAP. They lift into
+   place instead, at full opacity from the first frame, which reads the same
+   next to the masked headline. */
+.hero-lede[data-hero-stagger],
+.page-hero .deck[data-hero-stagger]{ animation-name: heroLift; animation-delay:.09s; }
+/* the inner-page h1 gets its own masked slide-up (.hl-mask) built in JS */
+.page-hero h1[data-hero-stagger]{ animation:none; }
+
+.hero-title .line-mask > .line-inner{ animation: heroLine 1.25s var(--ease-out) both; }
+.hero-title .line-mask:nth-child(1) > .line-inner{ animation-delay:.04s; }
+.hero-title .line-mask:nth-child(2) > .line-inner{ animation-delay:.13s; }
+.hero-title .line-mask:nth-child(3) > .line-inner{ animation-delay:.22s; }
+
 @media (prefers-reduced-motion: reduce){
   [data-reveal]{ opacity:1 !important; transform:none !important; }
   .line-mask > .line-inner{ transform:none !important; }
+  [data-hero-stagger], .hero-title .line-mask > .line-inner{ animation:none !important; }
 }
 
 /* ---------- Buttons ---------- */
@@ -446,13 +486,16 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:450; letter-spacing:-0.01
   display:flex; gap:5px; align-items:center; height:64px; margin-top:1.8rem;
 }
 .wave i{
-  width:3px; border-radius:3px; background:var(--ember); display:block;
-  animation: wavebar 1.4s ease-in-out infinite;
+  width:3px; height:100%; border-radius:3px; background:var(--ember); display:block;
+  transform:scaleY(.12); animation: wavebar 1.4s ease-in-out infinite;
 }
 .wave i:nth-child(2n){ animation-delay:.15s; } .wave i:nth-child(3n){ animation-delay:.3s; }
 .wave i:nth-child(5n){ animation-delay:.45s; } .wave i:nth-child(7n){ animation-delay:.6s; }
-@keyframes wavebar{ 0%,100%{ height:12%; opacity:.5; } 50%{ height:100%; opacity:1; } }
-@media (prefers-reduced-motion: reduce){ .wave i{ animation:none; height:40%; } }
+/* scaleY, not height: animating height ran layout for all 28 bars on every
+   frame, which is what PSI was flagging as non-composited animations and
+   forced reflow. Transform and opacity stay on the compositor. */
+@keyframes wavebar{ 0%,100%{ transform:scaleY(.12); opacity:.5; } 50%{ transform:scaleY(1); opacity:1; } }
+@media (prefers-reduced-motion: reduce){ .wave i{ animation:none; transform:scaleY(.4); } }
 
 /* ---------- Pricing panel ---------- */
 .price-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:clamp(2.5rem,6vw,6rem); align-items:center; }
@@ -542,6 +585,10 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:450; letter-spacing:-0.01
 .work-visual{
   position:relative; aspect-ratio: 16/11; overflow:hidden; background:var(--bg-2);
 }
+/* <picture> exists only to offer the AVIF sources; it must not become a box of
+   its own between the frame and the image, or the img's height:100% resolves
+   against an auto-height parent and inline layout adds a gap under it. */
+.work-visual picture, .showcase-frame picture{ display:block; width:100%; height:100%; }
 .work-visual img{
   width:100%; height:100%; object-fit:cover; object-position:top center;
   transition:transform 1s var(--ease-out); filter:saturate(.92);
@@ -1217,13 +1264,14 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:450; letter-spacing:-0.01
 .ps-answer{ align-items:center; justify-content:center; text-align:center;
   animation:psStAnswer 14s ease-in-out infinite; }
 .ps-wave{ display:flex; align-items:center; gap:5px; height:64px; margin:18px 0; }
-.ps-wave i{ width:5px; height:18px; border-radius:3px;
-  background:linear-gradient(var(--ember-bright),var(--ember)); animation:psWave 1s ease-in-out infinite; }
+.ps-wave i{ width:5px; height:52px; border-radius:3px;
+  background:linear-gradient(var(--ember-bright),var(--ember)); transform:scaleY(.27);
+  animation:psWave 1s ease-in-out infinite; }
 .ps-wave i:nth-child(1){ animation-delay:-.9s } .ps-wave i:nth-child(2){ animation-delay:-.2s }
 .ps-wave i:nth-child(3){ animation-delay:-.6s } .ps-wave i:nth-child(4){ animation-delay:-.1s }
 .ps-wave i:nth-child(5){ animation-delay:-.8s } .ps-wave i:nth-child(6){ animation-delay:-.3s }
 .ps-wave i:nth-child(7){ animation-delay:-.5s } .ps-wave i:nth-child(8){ animation-delay:-.15s }
-@keyframes psWave{ 0%,100%{ height:14px } 50%{ height:52px } }
+@keyframes psWave{ 0%,100%{ transform:scaleY(.27) } 50%{ transform:scaleY(1) } }
 .ps-caption{ font-family:var(--font-display); font-style:italic; font-size:1.06rem;
   line-height:1.3; color:var(--ps-fg); max-width:19ch; }
 .ps-listening{ margin-top:16px; font-family:var(--font-mono); font-size:.6rem; letter-spacing:.14em;
@@ -1300,7 +1348,8 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:450; letter-spacing:-0.01
 .demo-player.is-playing .demo-play-pulse{ animation:demopulse 1.6s ease-out infinite; }
 @keyframes demopulse{ 0%{ transform:scale(1); opacity:.6; } 100%{ transform:scale(1.8); opacity:0; } }
 .demo-wave{ display:flex; gap:4px; align-items:center; justify-content:center; height:54px; position:relative; }
-.demo-wave span{ width:3px; height:18%; border-radius:3px; background:var(--faint); transition:height .2s; }
+.demo-wave span{ width:3px; height:100%; border-radius:3px; background:var(--faint);
+  transform:scaleY(.18); transition:transform .2s; }
 .demo-player.is-playing .demo-wave span{ background:var(--ember); animation:wavebar 1.2s ease-in-out infinite; }
 .demo-wave span:nth-child(2n){ animation-delay:.1s; } .demo-wave span:nth-child(3n){ animation-delay:.25s; }
 .demo-wave span:nth-child(4n){ animation-delay:.4s; } .demo-wave span:nth-child(5n){ animation-delay:.15s; }
@@ -1581,4 +1630,35 @@ html.light .avx-root{
 @media (prefers-reduced-motion: reduce){
   .rail-card.open{ animation: none !important; }
   .rail-card p, .rail-card .rail-value, .rail-card::after{ transition-timing-function: ease !important; }
+}
+
+/* ============================================================
+   404 — page not found
+   ============================================================ */
+.nf-grid{
+  display:grid; grid-template-columns: repeat(3, 1fr); gap:3rem;
+  padding-bottom: clamp(2.5rem, 5vw, 3.5rem);
+  border-bottom:1px solid var(--line);
+}
+.nf-col h5{
+  font-family:var(--font-mono); font-size:.72rem; font-weight:500;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--faint);
+  margin-bottom:1.3rem;
+}
+.nf-col ul{ list-style:none; }
+.nf-col ul li + li{ margin-top:.8rem; }
+.nf-col ul a{
+  color:var(--muted); text-decoration:none; font-size:.95rem;
+  display:inline-block; transition:color .25s, transform .25s var(--ease-out);
+}
+.nf-col ul a:hover{ color:var(--ember-bright); transform:translateX(4px); }
+
+.nf-cta{ margin-top: clamp(2.5rem, 5vw, 3.5rem); }
+.nf-cta p{ color:var(--muted); max-width:52ch; margin-bottom:1.8rem; }
+
+@media (max-width: 860px){
+  .nf-grid{ grid-template-columns: repeat(2, 1fr); gap:2.2rem; }
+}
+@media (max-width: 560px){
+  .nf-grid{ grid-template-columns: 1fr; gap:2rem; }
 }

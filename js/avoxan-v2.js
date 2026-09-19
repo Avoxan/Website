@@ -125,40 +125,37 @@
     doc.querySelectorAll("[data-reveal]").forEach(function (el) {
       el.style.opacity = "1"; el.style.transform = "none";
     });
+    /* the hero headline runs its own CSS entrance — leave its masks shut until
+       that finishes (heroMasks below), or the lines slide in from outside them */
     doc.querySelectorAll(".line-mask .line-inner").forEach(function (el) {
-      el.style.transform = "none";
+      if (!el.closest("[data-hero-title]")) el.style.transform = "none";
     });
-    doc.querySelectorAll(".line-mask").forEach(function (el) { el.style.overflow = "visible"; });
+    doc.querySelectorAll(".line-mask").forEach(function (el) {
+      if (!el.closest("[data-hero-title]")) el.style.overflow = "visible";
+    });
   }
+
+  /* ---------- Hero entrance ----------
+     Owned by CSS keyframes now (see .hero-title / [data-hero-stagger] in
+     avoxan-v2.css) so the hero never waits on — and can never be hidden by —
+     GSAP arriving from a CDN. All that's left for JS is to open the line masks
+     once the slide has finished, so descenders aren't clipped afterwards. */
+  (function heroMasks() {
+    var heroTitle = doc.querySelector("[data-hero-title]");
+    if (!heroTitle) return;
+    var done = function () { heroTitle.classList.add("reveal-done"); };
+    if (reduceMotion || !heroTitle.getAnimations) { done(); return; }
+    var running = heroTitle.getAnimations({ subtree: true });
+    if (!running.length) { done(); return; }
+    /* .finished resolves immediately for animations that already ended, so this
+       is safe however late this deferred script happens to run. */
+    Promise.all(running.map(function (a) { return a.finished; })).then(done, done);
+  })();
 
   if (reduceMotion || !hasGSAP) {
     revealAllInstantly();
   } else {
     var gsap = window.gsap;
-
-    /* Hero entrance (elements marked data-hero-stagger). The inner-page hero h1 is
-       handled separately by heroHeadline() as a masked slide-up, so exclude it here
-       to avoid double-animating (which caused the overlap/flash on load). */
-    var heroEls = Array.prototype.filter.call(
-      doc.querySelectorAll("[data-hero-stagger]"),
-      function (el) { return !el.matches(".page-hero h1"); }
-    );
-    if (heroEls.length) {
-      gsap.fromTo(heroEls,
-        { opacity: 0, y: 46 },
-        { opacity: 1, y: 0, duration: 1.1, ease: "power3.out", stagger: 0.12, delay: 0.15, clearProps: "transform" }
-      );
-    }
-    /* Hero title: lines are pre-wrapped in .line-mask > .line-inner in the HTML
-       (.line-inner starts at translateY(110%) via CSS; animate it home) */
-    var heroTitle = doc.querySelector("[data-hero-title]");
-    if (heroTitle) {
-      gsap.to(heroTitle.querySelectorAll(".line-inner"), {
-        y: 0, yPercent: 0,
-        duration: 1.3, ease: "power4.out", stagger: 0.09, delay: 0.2,
-        onComplete: function () { heroTitle.classList.add("reveal-done"); }
-      });
-    }
 
     if (hasST) {
       var ST = window.ScrollTrigger;
@@ -336,7 +333,13 @@
     mask.appendChild(inner);
     h1.appendChild(mask);
 
-    if (reduceMotion) { h1.classList.add("is-in", "is-done"); return; }
+    /* If this script only got here well after the headline was already on
+       screen, playing the entrance now would mean yanking visible text back
+       under its mask and sliding it in again — a flash the visitor reads as a
+       glitch, and one more thing standing between the page and a stable LCP.
+       Past that point, just land it in its final state. */
+    var tooLateToAnimate = performance.now() > 700;
+    if (reduceMotion || tooLateToAnimate) { h1.classList.add("is-in", "is-done"); return; }
 
     /* trigger the transition on the next frame so the initial (down) state paints first */
     requestAnimationFrame(function () {
