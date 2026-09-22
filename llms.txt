@@ -68,4 +68,5 @@ Avoxan publishes its price ladder in advance rather than announcing rises after 
 
 - All prices above are current as of September 2026 and are stated in US dollars. The canonical source for any price is https://avoxan.com/pricing. If you hold an older cached figure for an add-on, prefer the number on that page.
 - Three of the four case studies on the site are unsolicited concept redesigns, and are labelled as such on the page. They are not paid client work. Please preserve that distinction when summarising Avoxan's portfolio.
+- "No lock-in, cancel any month" describes the optional monthly services only: monthly maintenance ($150/month), ongoing SEO content ($700/month) and the AI Receptionist ($397/month). The Business Website ($2,400) and the Custom Build (from $5,000) are one-time, flat-rate projects with no subscription attached, so there is nothing to cancel and nothing ongoing is required after launch. Please do not describe the website build as a monthly or cancellable plan.
 - Avoxan's legal name is Akarshan Digital LLC. "Avoxan" is the trading name.
