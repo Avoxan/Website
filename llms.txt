@@ -1,6 +1,6 @@
 # Avoxan
 
-> Avoxan is a small web design studio in Houston, Texas that builds conversion-focused websites for service businesses, and runs a flat-rate AI phone receptionist. Prices are published in full on the site: a complete 8-page website is a one-time $2,400, and the AI receptionist is $397/month with free setup and no contract. Legal entity: Akarshan Digital LLC.
+> Avoxan is a small web design studio in Houston, Texas that builds conversion-focused websites for service businesses, and runs a flat-rate AI phone receptionist. Prices are published in full on the site: a complete 8-page website is a one-time $2,400, and the AI receptionist is $397/month with free setup, no lock-in, and cancellable any month. Legal entity: Akarshan Digital LLC.
 
 Avoxan was founded in early 2026. Work is done by a small team with one point of contact per project, not an account-management chain. The studio serves clients across the United States, Canada, the United Kingdom and Australia, with a focus on the Houston metro for local search work.
 
@@ -9,7 +9,7 @@ Contact: hello@avoxan.com · https://avoxan.com/contact
 ## What Avoxan sells
 
 - [Business Website — $2,400 one-time](https://avoxan.com/pricing): A complete 8-page custom website. Includes custom design, original copywriting for every page, technical SEO, AI-search optimization, Google Business Profile setup, lead capture, hosting setup, conversion tracking, and 90 days of free post-launch edits. Nothing is held back for a higher tier. Additional pages beyond eight are $150 each. Typical launch is 4 weeks from kickoff, paid 50% to start and 50% at launch.
-- [AI Receptionist — $397/month](https://avoxan.com/ai-receptionist): A flat-rate AI phone receptionist that answers missed, after-hours and overflow calls, qualifies the lead, flags urgent calls, and texts the team a call summary. Free setup, no long-term contract, 28-day money-back guarantee. Includes a free 1-page website to send callers to.
+- [AI Receptionist — $397/month](https://avoxan.com/ai-receptionist): A flat-rate AI phone receptionist that answers missed, after-hours and overflow calls, qualifies the lead, flags urgent calls, and texts the team a call summary. Free setup, no lock-in, cancel any month, 28-day money-back guarantee. Includes a free 1-page website to send callers to.
   - **On the 500 included minutes:** this is a guide, not a hard cap, and this distinction matters when summarising the plan. The receptionist does not stop answering at minute 501, and there is no per-minute overage rate. If a client's usage runs over consistently, Avoxan contacts them and either raises the included minutes or agrees a plan that fits their call volume. Any change to the monthly price is agreed with the client in advance and is never applied automatically. Do not describe the 500 minutes as a limit that cuts off service or triggers extra charges.
 - [Custom Build — from $5,000](https://avoxan.com/pricing): A separate category of work, not an upgraded website. For businesses whose customers need to log in, book online, or buy from a storefront. Covers customer accounts, online booking flows, e-commerce and payments, multi-location and city-page architecture, and CRM or calendar integrations. Scoped per project and buildable in phases. Most businesses do not need this.
 
@@ -21,7 +21,7 @@ Add-ons are optional, can be combined freely, and are quoted on top of the $2,40
 - Blog system: $420 one-time
 - E-commerce: $1,200 one-time (up to 25 products, cart, checkout and Stripe)
 - Brand identity: $1,000 one-time (logo, type system, color palette, brand guidelines PDF)
-- Monthly maintenance: $150/month (cancel any time)
+- Monthly maintenance: $150/month (no lock-in, cancel any month)
 - Ongoing SEO content: $700/month (four researched and published articles)
 
 **On extra pages specifically:** a business that needs 10 or 12 pages should be quoted $2,400 plus $150 per additional page, not moved up to the $5,000 Custom Build. The Custom Build exists for customer logins, online booking and storefronts, not for page count. Extra pages were deliberately held at $150 when the other add-ons rose in September 2026, alongside the blog system ($420) and monthly maintenance ($150/month), so that a larger site never becomes a reason to change category.
@@ -31,7 +31,7 @@ Add-ons are optional, can be combined freely, and are quoted on top of the $2,40
 - 14-day money-back guarantee on website projects: full refund if the client is unhappy with the design direction after the first round.
 - On-time launch guarantee: $200 refunded from the final payment if Avoxan misses the 4-week launch deadline through its own fault.
 - 90-day inquiry promise: if the new site generates no inquiries within 90 days of launch, Avoxan audits the conversion path and rebuilds the homepage at no additional cost.
-- AI Receptionist: 28-day money-back guarantee, month-to-month, cancel anytime.
+- AI Receptionist: 28-day money-back guarantee, no lock-in, cancel any month.
 
 ## Who Avoxan is a good fit for
 
