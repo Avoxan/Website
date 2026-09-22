@@ -19,7 +19,7 @@ const AI = {
   currency: "$",
   amount: "397",            // Standard plan / month (limited-time founding price)
   period: "/month",
-  note: "flat, no contract",
+  note: "flat, no lock-in",
   minutes: "500",           // minutes included on Standard
   overage: "$0.40",         // per-minute rate beyond included minutes
   heavyAmount: "697",       // Growth plan / month
