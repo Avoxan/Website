@@ -55,7 +55,3 @@
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
   Access-Control-Allow-Origin: *
-
-# Merch/print artwork (pins, hats): keep it out of search results.
-/brand/*
-  X-Robots-Tag: noindex
