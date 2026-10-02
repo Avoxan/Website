@@ -6,6 +6,8 @@
 (function () {
   "use strict";
 
+  var THREE_SRC = "https://cdnjs.cloudflare.com/ajax/libs/three.js/0.158.0/three.min.js";
+
   var canvas = document.getElementById("hero-canvas");
   var hero = document.querySelector(".hero");
   if (!canvas || !hero) return;
@@ -17,7 +19,45 @@
     hero.classList.add("no-webgl");
   }
 
-  if (typeof window.THREE === "undefined" || reduceMotion) { fallback(); return; }
+  /* ---------- Loading policy ----------
+     This effect is decoration. three.js is ~128 KiB over the wire plus parse,
+     compile and a shader build, and it used to be a plain <script defer> in the
+     document — so it competed with the hero's own text for the main thread
+     before first paint. Two changes: don't load it at all where it can't pay
+     for itself, and everywhere else fetch it only once the page has loaded.
+     The .no-webgl gradient is the designed fallback for exactly this. */
+  var conn = navigator.connection || {};
+  var skip =
+    reduceMotion ||
+    window.innerWidth < 768 ||                      /* phones: gradient instead */
+    conn.saveData === true ||
+    /(^|-)2g$/.test(conn.effectiveType || "") ||
+    (navigator.hardwareConcurrency || 8) <= 4;      /* low-end CPUs */
+
+  if (skip) { fallback(); return; }
+
+  if (window.THREE) {
+    boot();
+  } else if (document.readyState === "complete") {
+    loadThree();
+  } else {
+    window.addEventListener("load", loadThree, { once: true });
+  }
+
+  function loadThree() {
+    /* one more beat after load so any remaining layout/paint work goes first */
+    var idle = window.requestIdleCallback || function (fn) { return setTimeout(fn, 200); };
+    idle(function () {
+      var s = document.createElement("script");
+      s.src = THREE_SRC;
+      s.async = true;
+      s.onload = function () { if (window.THREE) boot(); else fallback(); };
+      s.onerror = fallback;
+      document.head.appendChild(s);
+    }, { timeout: 2000 });
+  }
+
+  function boot() {
 
   var THREE = window.THREE;
   var renderer, scene, camera, points, material;
@@ -158,4 +198,6 @@
     camera.lookAt(0, 0, 0);
     renderer.render(scene, camera);
   })();
+
+  }   /* boot */
 })();

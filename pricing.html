@@ -39,11 +39,10 @@
 <meta property="og:image" content="https://avoxan.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="css/avoxan-v2.css?v=18">
+<link rel="preload" as="style" href="/css/avoxan-fonts.css?v=1">
+<link rel="stylesheet" media="print" onload="this.media='all';this.onload=null" href="/css/avoxan-fonts.css?v=1">
+<noscript><link rel="stylesheet" href="/css/avoxan-fonts.css?v=1"></noscript>
+<link rel="stylesheet" href="css/avoxan-v2.css?v=22">
 
 <!-- Structured pricing data. Keep every price here in sync with the visible page
      and with the AI constant in js/avoxan-ai-pricing.js. -->
@@ -84,7 +83,7 @@
       "@id": "https://avoxan.com/#ai-receptionist",
       "name": "Avoxan AI Receptionist",
       "serviceType": "AI phone receptionist for local service businesses",
-      "description": "A flat-rate AI receptionist that answers missed, after-hours and overflow calls, qualifies the lead, flags urgent calls, and texts your team a call summary. Includes 500 minutes per month, free setup, and a free 1-page website. No per-minute overage billing and no long-term contract.",
+      "description": "A flat-rate AI receptionist that answers missed, after-hours and overflow calls, qualifies the lead, flags urgent calls, and texts your team a call summary. Includes 500 minutes per month, free setup, and a free 1-page website. No per-minute overage billing, no lock-in, and cancellable any month.",
       "provider": {"@id": "https://avoxan.com/#organization"},
       "areaServed": {"@type": "Country", "name": "United States"},
       "offers": {
@@ -226,7 +225,7 @@
             "availability": "https://schema.org/InStock",
             "priceCurrency": "USD",
             "price": "150.00",
-            "description": "Hosting, security updates, monthly content edits, GA4 monitoring, and a monthly performance report. Cancel any time.",
+            "description": "Hosting, security updates, monthly content edits, GA4 monitoring, and a monthly performance report. No lock-in, cancel any month.",
             "priceSpecification": {
               "@type": "UnitPriceSpecification",
               "price": "150.00",
@@ -260,7 +259,6 @@
 </script>
 
 <script src="/js/avoxan-chat.js?v=2" defer></script>
-<script src="/js/avoxan-analytics.js?v=1" defer></script>
 <script>/* Avoxan: remove any orphaned service worker + caches from older site versions */(function(){try{if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister();});}).catch(function(){});}if(self.caches&&caches.keys){caches.keys().then(function(ks){ks.forEach(function(k){caches.delete(k);});}).catch(function(){});}}catch(e){}})();</script></head>
 <body>
 <a href="#main" class="skip-link">Skip to main content</a>
@@ -333,7 +331,7 @@
       <span class="ai-plan-tag">★ Includes a free 1-page website</span>
       <h3 class="ai-plan-name">AI Receptionist</h3>
       <div class="ai-plan-price"><span class="ai-plan-cur">$</span><span data-ai-price="amount">397</span><span class="ai-plan-per">/month</span></div>
-      <p class="ai-plan-subcta" style="margin-top:.5rem;">Free setup · No per-minute surprises · No contract</p>
+      <p class="ai-plan-subcta" style="margin-top:.5rem;">Free setup · No per-minute surprises · No lock-in</p>
 
       <div class="ai-guarantee-callout">
         <strong>Recover one missed job and it's paid for</strong>
@@ -352,14 +350,14 @@
         <li><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>No phone number change &amp; free setup</li>
         <li><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><strong>No per-minute overage billing</strong></li>
         <li><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><strong>★ FREE 1-page website</strong> to send callers to<span class="tip" tabindex="0" role="note" aria-label="Optional $67 one-time setup — only if you add the landing page. The AI receptionist setup itself is always free." data-tip="Optional $67 one-time setup — only if you add the landing page. The AI receptionist setup itself is always free.">!</span></span></li>
-        <li><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Month-to-month, 28-day money-back guarantee</li>
+        <li><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>No lock-in, cancel any month, 28-day money-back guarantee</li>
       </ul>
 
-      <a href="#book-a-call" class="btn btn-ember ai-plan-cta">
+      <a href="contact" class="btn btn-ember ai-plan-cta">
         Book a free demo
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <p class="ai-plan-subcta">Free setup. No long-term contract. Cancel anytime.</p>
+      <p class="ai-plan-subcta">Free setup. No lock-in. Cancel any month.</p>
     </div>
     <p class="ai-reassure">No per-minute games and no surprise overage bills. Most local service businesses stay within the included minutes; if your call volume grows, we review options with you first, never a surprise charge.</p>
   </div>
@@ -483,7 +481,7 @@
       <div class="addon-card" data-reveal data-reveal-delay="0.07"><h3>Blog system</h3><p class="addon-price">+$420</p><p>Editorial blog architecture with categories, related posts, and proper article schema. Plus one launch post we ghost-write for you.</p></div>
       <div class="addon-card" data-reveal data-reveal-delay="0.14"><h3>E-commerce</h3><p class="addon-price">+$1,200</p><p>Up to 25 products on Shopify, Webflow Ecommerce, or WooCommerce. Cart, checkout, and Stripe integration included.</p></div>
       <div class="addon-card" data-reveal><h3>Brand identity</h3><p class="addon-price">+$1,000</p><p>Logo, type system, color palette, brand guidelines PDF. Done in parallel with the website so launch is unified.</p></div>
-      <div class="addon-card" data-reveal data-reveal-delay="0.07"><h3>Monthly maintenance</h3><p class="addon-price">$150 / month</p><p>Hosting, security updates, monthly content edits, GA4 monitoring, monthly performance report. Cancel any time.</p></div>
+      <div class="addon-card" data-reveal data-reveal-delay="0.07"><h3>Monthly maintenance</h3><p class="addon-price">$150 / month</p><p>Hosting, security updates, monthly content edits, GA4 monitoring, monthly performance report. No lock-in, cancel any month.</p></div>
       <div class="addon-card" data-reveal data-reveal-delay="0.14"><h3>Ongoing SEO content</h3><p class="addon-price">$700 / month</p><p>Four SEO-optimized articles per month, researched, written and published. Targeted at search queries your customers are actually typing.</p></div>
     </div>
   </div>
@@ -533,43 +531,12 @@
   <div class="eyebrow centered" data-reveal>One honest conversation</div>
   <h2 data-reveal>Let's see if a <span class="it acc">website</span> is what you actually need.</h2>
   <p data-reveal>Book a 20-minute call. No slide deck, no sales pressure. We'll ask about your business and tell you straight whether Avoxan can help, or whether your money is better spent somewhere else.</p>
-  <a href="#book-a-call" class="btn btn-ember" data-reveal>
+  <a href="contact" class="btn btn-ember" data-reveal>
     Book a free 20-min call
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
   </a>
   <div data-reveal><span class="pill"><span class="pulse"></span>3 slots remaining for <span class="js-bk" data-bk="my">this month</span></span></div>
 </section>
-
-<!-- ============ BOOK DIRECTLY ============ -->
-<!-- The booking widget is embedded here rather than linking to /contact.
-     Analytics for Aug-Sep 2026 showed only 3 of 64 visitors ever reached
-     the contact page, so the extra hop between "I want to talk" and the
-     calendar was removing almost everyone. Widget loads lazily via
-     /js/avoxan-booking.js when it approaches the viewport. -->
-<section class="section tight" id="book-a-call">
-  <div class="wrap narrow">
-    <div class="eyebrow centered" data-reveal style="justify-content:center;">Book a call</div>
-    <h2 class="sec-title" data-reveal style="text-align:center;margin:1.2rem auto 0;">Twenty minutes, and you'll know the <span class="it acc">real number</span>.</h2>
-    <p class="deck" data-reveal style="text-align:center;margin:1.4rem auto 2.5rem;">Pick any slot below. We'll walk through your scope, tell you which of these prices actually applies to you, and say so plainly if the answer is none of them. Calendar invite lands within two minutes.</p>
-
-    <div class="booking-card" data-reveal>
-      <div class="calendly-shell">
-        <div data-calendly-embed style="min-width:320px;height:700px;"></div>
-      </div>
-      <div class="booking-foot">
-        <div class="booking-foot-row">
-          <span class="booking-foot-label">Prefer plain email?</span>
-          <a href="mailto:hello@avoxan.com" class="booking-foot-link">hello@avoxan.com</a>
-        </div>
-        <div class="booking-foot-row">
-          <span class="booking-foot-label">No slot that works?</span>
-          <a href="/contact" class="booking-foot-link">Send a note instead</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 
 </main>
 
@@ -583,7 +550,7 @@
       <p>A small Houston web studio building conversion-focused websites for service businesses, coaches, and growing brands. One flat price. One predictable timeline.</p>
     </div>
     <div>
-      <h5>The work</h5>
+      <h2>The work</h2>
       <ul>
         <li><a href="services">What you get</a></li>
         <li><a href="ai-receptionist">AI Receptionist</a></li>
@@ -593,7 +560,7 @@
       </ul>
     </div>
     <div>
-      <h5>Read</h5>
+      <h2>Read</h2>
       <ul>
         <li><a href="blog/">Field notes</a></li>
         <li><a href="blog/website-cost-2026">Website cost in 2026</a></li>
@@ -602,7 +569,7 @@
       </ul>
     </div>
     <div>
-      <h5>Talk</h5>
+      <h2>Talk</h2>
       <ul>
         <li><a href="contact">Book a call</a></li>
         <li><a href="faq">FAQ</a></li>
@@ -614,15 +581,14 @@
   <div class="footer-word" aria-hidden="true">AVOXAN</div>
 
   <div class="footer-bottom">
-    <span>© <span data-year>2026</span> Akarshan Digital LLC · Houston, Texas</span>
+    <span>© <span data-year>2026</span> Akarshan Digital LLC · Houston, Texas · <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a></span>
     <span>Site hand-built, see <a href="work/avoxan-studio-site">how</a></span>
   </div>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-<script src="js/avoxan-v2.js?v=7" defer></script>
-<script src="/js/avoxan-booking.js?v=1" defer></script>
+<script src="js/avoxan-v2.js?v=8" defer></script>
 <script src="js/avoxan-ai-pricing.js?v=2" defer></script>
 <script>
 (function () {

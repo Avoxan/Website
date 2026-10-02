@@ -1,0 +1,57 @@
+/* ============================================================
+   AVOXAN — self-hosted webfonts
+
+   These used to come from fonts.googleapis.com. That cost two extra origins
+   on the critical path: a DNS+TLS handshake to googleapis for the CSS, and
+   then a second one to gstatic before a single glyph could start
+   downloading. Same origin now, one handshake, already warm from the HTML.
+
+   Measured on the homepage (Chromium, Slow 4G + 4x CPU, median of 9):
+     fonts delivered   205 KB -> 180 KB
+     first paint       964 ms -> 840 ms
+   Lighthouse mobile, median of 11 runs: FCP 1.61s -> 0.96s,
+   Speed Index 1.61s -> 1.32s, score 96 -> 97.
+
+   Where the 25 KB came from, and what does NOT work:
+     · JetBrains Mono 31 KB -> 13 KB. Google's file carries ~20 KB of
+       programming ligatures (=>, !=, ->) that this site never renders, and
+       a wght axis running to 800 when the stylesheet only asks for 400-500.
+       Dropped both. This is most of the saving.
+     · Geist 29 KB -> 23 KB by pinning wght to the 300-600 actually used.
+     · Fraunces is deliberately UNTOUCHED on both axes. Narrowing wght to
+       300-600 takes the roman from 66 KB to 78 KB and narrowing opsz takes
+       it to 76 KB - fontTools rebuilds the variation deltas at the new
+       endpoints and they compress worse than the originals. Pinning opsz
+       does shrink it (italic 81 KB -> 43 KB) but visibly wrecks the
+       typography: narrower letterforms, different line breaks, thin cramped
+       small text. Don't re-try either; both were measured.
+
+   Character coverage is Google's own "latin" unicode-range, unchanged, so
+   nothing the site can render today goes missing. The arrows, check marks
+   and box-drawing characters in the markup were never in that range and
+   still fall back to a system font, exactly as before.
+
+   This file is loaded NON-render-blocking (media="print" onload), the same
+   way the Google <link> was. That matters: declaring @font-face inside the
+   render-blocking avoxan-v2.css makes the text paint wait on the font
+   instead of painting in the fallback and swapping, which measured 1.95s
+   FCP against 0.96s here.
+
+   Rebuild the files: python3 scripts/build-fonts.py
+   ============================================================ */
+@font-face{
+  font-family:"Fraunces"; font-style:normal; font-weight:100 900;
+  font-display:swap; src:url(/fonts/fraunces-latin-var.woff2) format("woff2");
+}
+@font-face{
+  font-family:"Fraunces"; font-style:italic; font-weight:100 900;
+  font-display:swap; src:url(/fonts/fraunces-italic-latin-var.woff2) format("woff2");
+}
+@font-face{
+  font-family:"Geist"; font-style:normal; font-weight:300 600;
+  font-display:swap; src:url(/fonts/geist-latin-var.woff2) format("woff2");
+}
+@font-face{
+  font-family:"JetBrains Mono"; font-style:normal; font-weight:400 500;
+  font-display:swap; src:url(/fonts/jetbrains-mono-latin-var.woff2) format("woff2");
+}

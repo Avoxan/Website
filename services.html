@@ -39,13 +39,11 @@
 <meta property="og:image" content="https://avoxan.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="css/avoxan-v2.css?v=18">
+<link rel="preload" as="style" href="/css/avoxan-fonts.css?v=1">
+<link rel="stylesheet" media="print" onload="this.media='all';this.onload=null" href="/css/avoxan-fonts.css?v=1">
+<noscript><link rel="stylesheet" href="/css/avoxan-fonts.css?v=1"></noscript>
+<link rel="stylesheet" href="css/avoxan-v2.css?v=22">
 <script src="/js/avoxan-chat.js?v=2" defer></script>
-<script src="/js/avoxan-analytics.js?v=1" defer></script>
 <script>/* Avoxan: remove any orphaned service worker + caches from older site versions */(function(){try{if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister();});}).catch(function(){});}if(self.caches&&caches.keys){caches.keys().then(function(ks){ks.forEach(function(k){caches.delete(k);});}).catch(function(){});}}catch(e){}})();</script>
 <script type="application/ld+json">
 {
@@ -454,7 +452,7 @@
             <ul>
               <li>Unlimited small-edit requests for 90 days</li>
               <li>Same-day or next-business-day turnaround</li>
-              <li>Optional maintenance retainer after the 90 days if you want to keep it going</li>
+              <li>Optional maintenance plan after the 90 days if you want to keep it going, cancel any month</li>
             </ul>
           </div>
         </div>
@@ -471,7 +469,7 @@
     <div>
       <div class="eyebrow">Optional add-on</div>
       <h2>And when the phone rings while you're working, <span class="it">something answers it</span>.</h2>
-      <p>The website gets you found. But a lot of service businesses lose just as many leads to a phone that rings while they're on a job. Our AI receptionist is a separate monthly service that answers your calls 24/7, talks to the caller, captures the job details, and texts you the lead, even after hours. It's not part of the $2,400 build; it's an ongoing service you can add whenever you want. From $<span data-ai-price="amount">397</span>/mo, no contract.</p>
+      <p>The website gets you found. But a lot of service businesses lose just as many leads to a phone that rings while they're on a job. Our AI receptionist is a separate monthly service that answers your calls 24/7, talks to the caller, captures the job details, and texts you the lead, even after hours. It's not part of the $2,400 build; it's an ongoing service you can add whenever you want. From $<span data-ai-price="amount">397</span>/mo, no lock-in, cancel any month.</p>
       <p style="margin-top:1rem;">Some industries get a dedicated page with their own examples, integrations, and pricing: <a href="ai-receptionist-plumbers">AI receptionist for Houston plumbers</a> and <a href="houston-med-spas">med spa websites with a 24/7 AI front desk</a>.</p>
       <div class="wave" aria-hidden="true">
         <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
@@ -505,43 +503,12 @@
   <div class="eyebrow centered" data-reveal>One honest conversation</div>
   <h2 data-reveal>Let's see if a <span class="it acc">website</span> is what you actually need.</h2>
   <p data-reveal>Book a 20-minute call. No slide deck, no sales pressure. We'll ask about your business and tell you straight whether Avoxan can help, or whether your money is better spent somewhere else.</p>
-  <a href="#book-a-call" class="btn btn-ember" data-reveal>
+  <a href="contact" class="btn btn-ember" data-reveal>
     Book a free 20-min call
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
   </a>
   <div data-reveal><span class="pill"><span class="pulse"></span>3 slots remaining for <span class="js-bk" data-bk="my">this month</span></span></div>
 </section>
-
-<!-- ============ BOOK DIRECTLY ============ -->
-<!-- The booking widget is embedded here rather than linking to /contact.
-     Analytics for Aug-Sep 2026 showed only 3 of 64 visitors ever reached
-     the contact page, so the extra hop between "I want to talk" and the
-     calendar was removing almost everyone. Widget loads lazily via
-     /js/avoxan-booking.js when it approaches the viewport. -->
-<section class="section tight" id="book-a-call">
-  <div class="wrap narrow">
-    <div class="eyebrow centered" data-reveal style="justify-content:center;">Book a call</div>
-    <h2 class="sec-title" data-reveal style="text-align:center;margin:1.2rem auto 0;">Talk through <span class="it acc">your eight pages</span>.</h2>
-    <p class="deck" data-reveal style="text-align:center;margin:1.4rem auto 2.5rem;">Pick any slot below. Twenty minutes, no slide deck, no sales pressure. We'll map these deliverables onto your actual business and tell you what you do and don't need. Calendar invite lands within two minutes.</p>
-
-    <div class="booking-card" data-reveal>
-      <div class="calendly-shell">
-        <div data-calendly-embed style="min-width:320px;height:700px;"></div>
-      </div>
-      <div class="booking-foot">
-        <div class="booking-foot-row">
-          <span class="booking-foot-label">Prefer plain email?</span>
-          <a href="mailto:hello@avoxan.com" class="booking-foot-link">hello@avoxan.com</a>
-        </div>
-        <div class="booking-foot-row">
-          <span class="booking-foot-label">No slot that works?</span>
-          <a href="/contact" class="booking-foot-link">Send a note instead</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 
 </main>
 
@@ -555,7 +522,7 @@
       <p>A small Houston web studio building conversion-focused websites for service businesses, coaches, and growing brands. One flat price. One predictable timeline.</p>
     </div>
     <div>
-      <h5>The work</h5>
+      <h2>The work</h2>
       <ul>
         <li><a href="services">What you get</a></li>
         <li><a href="ai-receptionist">AI Receptionist</a></li>
@@ -565,7 +532,7 @@
       </ul>
     </div>
     <div>
-      <h5>Read</h5>
+      <h2>Read</h2>
       <ul>
         <li><a href="blog/">Field notes</a></li>
         <li><a href="blog/website-cost-2026">Website cost in 2026</a></li>
@@ -574,7 +541,7 @@
       </ul>
     </div>
     <div>
-      <h5>Talk</h5>
+      <h2>Talk</h2>
       <ul>
         <li><a href="contact">Book a call</a></li>
         <li><a href="faq">FAQ</a></li>
@@ -586,15 +553,14 @@
   <div class="footer-word" aria-hidden="true">AVOXAN</div>
 
   <div class="footer-bottom">
-    <span>© <span data-year>2026</span> Akarshan Digital LLC · Houston, Texas</span>
+    <span>© <span data-year>2026</span> Akarshan Digital LLC · Houston, Texas · <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a></span>
     <span>Site hand-built, see <a href="work/avoxan-studio-site">how</a></span>
   </div>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-<script src="js/avoxan-v2.js?v=7" defer></script>
-<script src="/js/avoxan-booking.js?v=1" defer></script>
+<script src="js/avoxan-v2.js?v=8" defer></script>
 <script src="js/avoxan-ai-pricing.js?v=2" defer></script>
 </body>
 </html>
