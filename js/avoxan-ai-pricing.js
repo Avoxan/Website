@@ -17,14 +17,17 @@
 
 const AI = {
   currency: "$",
-  amount: "397",            // Standard plan / month (limited-time founding price)
+  amount: "397",            // Front Desk plan / month (the full plan the AI pages describe)
   period: "/month",
   note: "flat, no lock-in",
-  minutes: "500",           // minutes included on Standard
-  overage: "$0.40",         // per-minute rate beyond included minutes
-  heavyAmount: "697",       // Growth plan / month
-  heavyMinutes: "1,300"     // minutes included on Growth
+  minutes: "1,000",         // minutes included on Front Desk, a guide not a cap
+  overage: "none",          // there is no per-minute overage billing on any plan
+  heavyAmount: "197",       // kept for old markup: Answer plan / month
+  heavyMinutes: "400",      // minutes included on Answer
+  fromAmount: "97"          // Catch plan / month, the entry price ("from $97")
 };
+/* Plans (Oct 2026): Catch $97 (text-back), Answer $197 (400 min),
+   Front Desk $397 (1,000 min). Yearly = 10x monthly. See /pricing#ai. */
 
 (function () {
   function render() {

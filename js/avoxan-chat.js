@@ -21,7 +21,7 @@
   const SUGGESTIONS = IS_PLUMBER ? [
     // Plumber-specific first…
     'How does it handle an after-hours emergency call?',
-    "What's included for $397/month?",
+    "Which AI receptionist plan fits me?",
     'Can I hear a live demo?',
     // …everything else below
     'Do I need to change my phone number?',

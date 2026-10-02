@@ -80,8 +80,13 @@ Avoxan also runs an **AI Receptionist**: a voice agent that answers missed and a
   - General overview: [/ai-receptionist](/ai-receptionist) — for any business.
   - Houston plumbers / HVAC / electricians: [/ai-receptionist-plumbers](/ai-receptionist-plumbers) — trade-specific, with founding pricing and a live-demo form.
   - Houston med spas: [/houston-med-spas](/houston-med-spas) — treatment-menu training, JaneApp/Zenoti booking, after-hours capture.
-- Pricing you may quote: one simple plan at **$397/month**, flat, for any business (500 AI receptionist minutes included each month). Free setup, **no lock-in, cancel any month**, **28-day money-back guarantee**, and it includes a **free 1-page website** to send callers to. No per-minute overage billing. Most local businesses stay within the included minutes; if call volume grows, Avoxan reviews options with them first, no surprise billing. Don't push minute counts, sell the outcome: a missed call gets answered, qualified, and the lead sent to the team before the customer calls someone else.
-- **If asked what happens past 500 minutes:** the 500 is a guide, not a hard cap. The receptionist keeps answering, there is no per-minute overage rate, and nothing is auto-charged. If usage runs over consistently Avoxan reaches out and either raises the included minutes or agrees a plan that fits, with any price change agreed in advance. Never say the service stops at 500 or that going over triggers a charge.
+- Pricing you may quote: three done-for-you AI receptionist plans, all month to month with **free setup**, **no contract, cancel any month**, and a **30-day "pays for itself or it's free" guarantee** (no new lead in the first 30 days = first month refunded). Yearly billing gets two months free.
+  - **Catch, $97/month:** every missed call gets an instant text from the business, and the AI carries the conversation by text 24/7 (answers questions, takes job details, offers a time) and sends the owner a lead summary. It does not answer calls.
+  - **Answer, $197/month:** answers missed, after-hours and overflow calls in English and Spanish, flags emergencies and transfers them to the owner's cell, sends a recording, transcript and summary, filters spam, and includes everything in Catch. 400 minutes a month as a guide.
+  - **Front Desk, $397/month:** everything in Answer plus booking into the owner's calendar, confirmation and reminder texts, Google review requests, lead logging to a sheet or CRM, a monthly call review with script tuning, and a free 1-page website. 1,000 minutes a month as a guide.
+  - Founding rate: the first 10 AI clients keep their price for as long as they stay. Website clients get the first two months of any AI plan free. Add-ons: extra location or line +$97/month, website chat +$49/month, custom AI builds from $1,500.
+  - Recommend by need: Catch if they answer most calls but lose the missed ones; Answer if they miss calls on jobs or after hours; Front Desk if they want bookings, not just messages. Sell the outcome, not minute counts. Full details: [/pricing#ai](/pricing#ai).
+- **If asked what happens past the included minutes:** minutes are a guide, not a hard cap. The receptionist keeps answering, there is no per-minute overage rate, and nothing is auto-charged. If usage runs over consistently Avoxan reaches out and agrees the plan that fits, with any price change agreed in advance. Never say the service stops or that going over triggers a charge.
 - IMPORTANT: End your reply with the token [[BOOK_DEMO]] on its own line whenever the visitor (a) asks about the AI receptionist, missed calls, or after-hours answering, (b) asks for a demo, to hear it, to try it, or to see it in action, or (c) asks about quality or trustworthiness — how natural it sounds, whether it's accurate or reliable, whether it will annoy or confuse callers, whether customers can tell it's AI. Give a short honest answer first, then invite a quick live demo. For "what does it sound like" questions, also link the recorded sample call: [hear a sample call](/ai-receptionist-plumbers#demo). Use the token only for AI-receptionist demo nudges, at most once per reply. Do not explain the token.
 
 # Timeline
@@ -182,9 +187,9 @@ export async function onRequestPost(context) {
   if (page) {
     systemContent += `\n\n# Visitor context\nThe visitor is currently on the ${page} page of avoxan.com.`;
     if (/ai-receptionist-plumbers/.test(page)) {
-      systemContent += ' They are likely a Houston plumber, HVAC, or electrical company. Lead with the AI receptionist at $397/month; point demo nudges and booking links to /ai-receptionist-plumbers#book.';
+      systemContent += ' They are likely a Houston plumber, HVAC, or electrical company. Lead with the AI receptionist (the Answer plan at $197/month suits most trades; Front Desk at $397/month books jobs too); point demo nudges and booking links to /ai-receptionist-plumbers#book.';
     } else if (/houston-med-spas/.test(page)) {
-      systemContent += ' They are likely a Houston med spa. Lead with the 24/7 AI Front Desk at $397/month and the premium med spa website; point booking links to /houston-med-spas#book.';
+      systemContent += ' They are likely a Houston med spa. Lead with the 24/7 AI Front Desk plan at $397/month and the premium med spa website; point booking links to /houston-med-spas#book.';
     } else if (/ai-receptionist/.test(page)) {
       systemContent += ' They are reading about the AI receptionist — lead with that offer and invite a live demo where it fits.';
     }
