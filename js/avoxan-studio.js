@@ -207,7 +207,7 @@
       peek.style.left = px + "px"; peek.style.top = py + "px";
       raf = Math.abs(tx - px) + Math.abs(ty - py) > 0.5 ? requestAnimationFrame(loop) : null;
     }
-    $$(".offer[data-peek]").forEach(function (o) {
+    $$("[data-peek]").forEach(function (o) {
       o.addEventListener("mouseenter", function (e) {
         peekImg.src = o.getAttribute("data-peek");
         px = tx = e.clientX + 200; py = ty = e.clientY;
