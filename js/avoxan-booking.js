@@ -31,11 +31,14 @@
   function colors() {
     return document.documentElement.classList.contains("light")
       ? { b: "f4eee1", t: "1c1813", p: "d2521c" }
-      : { b: "14110e", t: "f2ebdc", p: "e85d26" };
+      : { b: "15110e", t: "f1eae0", p: "e4703f" };
   }
 
-  function url() {
+  // A page can pin its own palette: data-cal-colors="background,text,primary"
+  function url(el) {
     var c = colors();
+    var own = el && el.getAttribute("data-cal-colors");
+    if (own) { own = own.split(","); c = { b: own[0], t: own[1], p: own[2] }; }
     return BASE + "?hide_event_type_details=1&hide_gdpr_banner=1"
       + "&background_color=" + c.b
       + "&text_color=" + c.t
@@ -47,7 +50,7 @@
   // colors on first paint, with no flash of the wrong theme.
   function prime(el) {
     el.classList.add("calendly-inline-widget");
-    el.setAttribute("data-url", url());
+    el.setAttribute("data-url", url(el));
   }
 
   /* ── Hiding Calendly's white loading screen ────────────────────
@@ -150,7 +153,7 @@
     Array.prototype.forEach.call(nodes, function (el) {
       el.innerHTML = "";
       el.removeAttribute("data-url");
-      window.Calendly.initInlineWidget({ url: url(), parentElement: el });
+      window.Calendly.initInlineWidget({ url: url(el), parentElement: el });
     });
   }).observe(document.documentElement, {
     attributes: true,

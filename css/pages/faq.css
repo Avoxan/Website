@@ -1,0 +1,59 @@
+/* ==================================================================
+   /faq — the answer desk. One big search field, a sticky topic index
+   and every answer open to Google and to people at the same time.
+   ================================================================== */
+
+.fq-ph{padding-bottom:clamp(40px,5vw,70px)}
+.fq-ph h1{font-size:clamp(64px,12vw,210px)}
+
+.seek{position:relative;display:flex;align-items:center;margin-top:clamp(36px,5vw,64px);border-bottom:1.5px solid var(--line);transition:border-color .3s}
+.seek:focus-within{border-color:var(--accent)}
+.seek__icon{flex:none;width:clamp(26px,2.6vw,40px);height:auto;color:var(--faint)}
+.seek:focus-within .seek__icon{color:var(--accent)}
+.seek input{flex:1;min-width:0;border:0;background:none;color:var(--fg);font-family:var(--f-display);font-size:clamp(30px,4.4vw,68px);letter-spacing:-.02em;line-height:1.2;padding:12px 0 18px clamp(12px,1.6vw,24px);outline:none}
+.seek input::placeholder{color:var(--faint)}
+.seek input::-webkit-search-cancel-button{-webkit-appearance:none}
+.seek__kbd{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:8px;box-shadow:inset 0 0 0 1px var(--line);color:var(--faint)}
+.seek:focus-within .seek__kbd{opacity:0}
+
+.fq{padding-block:clamp(30px,4vw,60px) clamp(100px,12vw,170px)}
+.fq__grid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:clamp(30px,5vw,90px);align-items:start}
+
+.fq__nav{position:sticky;top:110px}
+.fq__navh{color:var(--faint);margin:0 0 14px}
+.fq__nav ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.fq__nav button{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;padding:11px 14px;border:0;border-radius:10px;background:none;color:var(--mute);font:inherit;font-size:15.5px;text-align:left;cursor:pointer;transition:background .25s,color .25s}
+.fq__nav button:hover{color:var(--fg);background:var(--surface)}
+.fq__nav button.on{color:var(--on-accent);background:var(--accent)}
+.fq__nav button span{font-family:var(--f-mono);font-size:11px;opacity:.7}
+.fq__ask{display:block;margin-top:28px;padding:18px;border-radius:14px;box-shadow:inset 0 0 0 1px var(--line);color:var(--mute);font-size:15px;line-height:1.45;transition:box-shadow .3s}
+.fq__ask b{display:block;color:var(--fg);font-weight:500;margin-top:4px}
+.fq__ask:hover{box-shadow:inset 0 0 0 1px var(--accent)}
+
+.fq__meta{color:var(--faint);margin:0 0 10px;min-height:1em}
+.fq__group+.fq__group{margin-top:clamp(56px,6vw,90px)}
+.fq__gh{display:flex;align-items:baseline;gap:16px;margin:0 0 8px;font-family:var(--f-display);font-weight:400;font-size:clamp(34px,3.6vw,54px);letter-spacing:-.025em;line-height:1}
+.fq__gh .mono{color:var(--accent)}
+.fq .qa details{scroll-margin-top:110px}
+.fq .qa details p{font-size:17px;line-height:1.65}
+.fq .qa details p strong{color:var(--fg);font-weight:500}
+.fq .qa details p a{text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px}
+.fq .qa details:target summary{color:var(--accent)}
+.fq mark{background:rgba(228,112,63,.28);color:var(--fg);border-radius:3px;padding:0 2px}
+.fq [data-hide]{display:none}
+
+.fq__empty{padding:clamp(30px,4vw,56px);border-radius:22px;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line)}
+.fq__empty-h{margin:0 0 8px;font-family:var(--f-display);font-size:clamp(30px,3vw,44px);line-height:1.05}
+.fq__empty p{color:var(--mute);margin:0 0 22px}
+.fq__empty .fq__empty-h{color:var(--fg)}
+
+@media (max-width:900px){
+  .fq__grid{grid-template-columns:1fr}
+  .fq__nav{position:sticky;top:64px;z-index:5;margin-inline:calc(var(--gutter)*-1);padding:10px var(--gutter);background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .fq__navh,.fq__ask{display:none}
+  .fq__nav ul{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+  .fq__nav ul::-webkit-scrollbar{display:none}
+  .fq__nav button{white-space:nowrap;padding:9px 14px;box-shadow:inset 0 0 0 1px var(--line);border-radius:999px;font-size:14px}
+  .fq__nav button.on{box-shadow:none}
+  .seek__kbd{display:none}
+}

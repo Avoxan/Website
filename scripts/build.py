@@ -20,11 +20,13 @@ then the page body (everything that goes inside <main>):
       "nav": "services",
       "css": ["pages/services.css"],
       "js": ["pages/services.js"],
-      "schema": [ {...}, {...} ]
+      "schema": [ {...}, {...} ],
+      "faq_schema": "#faq"      (optional: FAQPage built from <details> Q&As)
     }
     -->
     <section>...</section>
     <!--after-footer-->            (optional: markup placed after the footer)
+    <!--include call-deck.html-->  (pulls in src/_partials/call-deck.html)
 
 The build wraps it in the shared <head>, header, mobile menu and footer, and
 writes the finished, plain HTML file to the repo root. Hosting does not
@@ -141,8 +143,16 @@ FOOTER = """<footer class="ftr" data-palette="studio">
 """
 
 
+PARTIALS = os.path.join(SRC, "_partials")
+
+
+def include(m):
+    return open(os.path.join(PARTIALS, m.group(1)), encoding="utf-8").read().rstrip("\n")
+
+
 def parse(path):
     raw = open(path, encoding="utf-8").read()
+    raw = re.sub(r"<!--include ([\w.-]+)-->", include, raw)
     m = re.match(r"\s*<!--page\s*(\{.*?\})\s*-->\s*", raw, re.S)
     if not m:
         raise SystemExit(f"{path}: missing <!--page {{...}} --> front matter")
@@ -152,6 +162,21 @@ def parse(path):
     if "<!--after-footer-->" in body:
         body, after = body.split("<!--after-footer-->", 1)
     return meta, body.strip("\n"), after.strip("\n")
+
+
+def strip_tags(s):
+    s = re.sub(r"<[^>]+>", "", s)
+    return re.sub(r"\s+", " ", html.unescape(s)).strip()
+
+
+def faq_schema(body, at_id):
+    """Build FAQPage schema from every <details><summary>Q</summary>A</details>
+    in the body, so the visible answers and the structured data never drift."""
+    qs = []
+    for q, a in re.findall(r"<details[^>]*>\s*<summary[^>]*>(.*?)</summary>(.*?)</details>", body, re.S):
+        qs.append({"@type": "Question", "name": strip_tags(q),
+                   "acceptedAnswer": {"@type": "Answer", "text": strip_tags(a)}})
+    return {"@type": "FAQPage", "@id": at_id, "mainEntity": qs}
 
 
 def render(meta, body, after):
@@ -217,6 +242,8 @@ def render(meta, body, after):
         head.append(f'<link rel="stylesheet" href="/css/{esc(c)}?v={CSS_V}">')
 
     graph = list(meta.get("schema", []))
+    if meta.get("faq_schema"):
+        graph.append(faq_schema(body, canonical + meta["faq_schema"]))
     if meta.get("org", True):
         graph.insert(0, ORG)
     crumbs = meta.get("breadcrumb")
@@ -246,7 +273,8 @@ def render(meta, body, after):
 def main():
     filt = sys.argv[1] if len(sys.argv) > 1 else ""
     n = 0
-    for dirpath, _, files in os.walk(SRC):
+    for dirpath, dirs, files in os.walk(SRC):
+        dirs[:] = [d for d in dirs if not d.startswith("_")]  # _partials etc. are not pages
         for f in sorted(files):
             if not f.endswith(".html"):
                 continue
