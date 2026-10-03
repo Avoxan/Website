@@ -1,5 +1,5 @@
 /* ==================================================================
-   AVOXAN STUDIO — homepage behaviour
+   AVOXAN STUDIO — homepage behavior
    No libraries. Everything here is enhancement: with this file blocked
    the page renders complete (the head script drops back to .no-js after
    3s if __avxReady never gets set).
@@ -45,7 +45,7 @@
   }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
   $$("[data-reveal], #weeks").forEach(function (el) { revealIO.observe(el); });
 
-  /* ---------- palette: the page takes on each client's colours ---------- */
+  /* ---------- palette: the page takes on each client's colors ---------- */
   var paletteIO = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
       if (!e.isIntersecting) return;

@@ -48,7 +48,8 @@
 .fq__empty .fq__empty-h{color:var(--fg)}
 
 @media (max-width:900px){
-  .fq__grid{grid-template-columns:1fr}
+  .fq__grid{grid-template-columns:minmax(0,1fr)}
+  .fq__nav,.fq__list{min-width:0}
   .fq__nav{position:sticky;top:64px;z-index:5;margin-inline:calc(var(--gutter)*-1);padding:10px var(--gutter);background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
   .fq__navh,.fq__ask{display:none}
   .fq__nav ul{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}

@@ -541,7 +541,7 @@
             </button>
           </form>
           <div class="avx-disclosure">
-            AI — can be wrong. For binding answers, <a href="/contact">book a 20-min call →</a>
+            AI — can be wrong. For binding answers, <a href="/contact#book">book a 30-minute call →</a>
           </div>
         </footer>
       </div>

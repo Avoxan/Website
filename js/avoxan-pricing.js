@@ -1,5 +1,5 @@
 /* ==================================================================
-   AVOXAN — /pricing behaviour
+   AVOXAN — /pricing behavior
    Billing toggle, missed-call calculator, and the text-back demo.
    All enhancement: without this file the page shows monthly prices,
    the calculator's default result and the full demo conversation.
