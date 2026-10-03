@@ -218,3 +218,33 @@
     });
   }
 })();
+
+/* ---------- forms: post to /api/contact without leaving the page ---------- */
+(function () {
+  "use strict";
+  Array.prototype.forEach.call(document.querySelectorAll("form[data-form]"), function (form) {
+    var status = form.querySelector("[data-form-status]");
+    var btn = form.querySelector("button[type=submit]");
+    function say(msg, state) { if (!status) return; status.hidden = false; status.textContent = msg; status.setAttribute("data-state", state); }
+    form.addEventListener("submit", function (e) {
+      if (!window.fetch || !window.FormData) return; // plain POST fallback
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var label = btn ? btn.innerHTML : "";
+      if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
+      fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
+        .then(function (r) { return r.json().catch(function () { return { ok: r.ok }; }); })
+        .then(function (d) {
+          if (d && d.ok) {
+            say(form.getAttribute("data-success") || "Got it. We'll get back to you within one business day.", "ok");
+            form.reset();
+            if (window.gtag) try { window.gtag("event", "form_submit", { form_name: form.getAttribute("data-form") }); } catch (x) {}
+          } else {
+            say((d && d.error) || "That didn't go through. Try again, or email hello@avoxan.com.", "err");
+          }
+        })
+        .catch(function () { say("That didn't go through. Try again, or email hello@avoxan.com.", "err"); })
+        .then(function () { if (btn) { btn.disabled = false; btn.innerHTML = label; } });
+    });
+  });
+})();

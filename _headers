@@ -55,3 +55,10 @@
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
   Access-Control-Allow-Origin: *
+
+# Page sources and build scripts are not pages. They are served (Pages
+# publishes the whole repo) but must never be indexed.
+/src/*
+  X-Robots-Tag: noindex, nofollow
+/scripts/*
+  X-Robots-Tag: noindex, nofollow
