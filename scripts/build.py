@@ -44,7 +44,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "src")
 SITE = "https://avoxan.com"
 SITE_MODIFIED = "2026-10-03"  # default <lastmod>; pages can set "modified" in front matter
-CSS_V = "4"  # bump on ANY change under /css or /js: _headers caches them for a year
+CSS_V = "5"  # bump on ANY change under /css or /js: _headers caches them for a year
 
 NAV = [
     ("work", "/work/", "Work"),

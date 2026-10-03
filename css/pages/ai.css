@@ -16,14 +16,14 @@
 .ai-ph__facts li+li{padding-left:20px;border-left:1px solid var(--line)}
 .ai-ph__facts b{display:block;font-family:var(--f-display);font-weight:400;font-size:clamp(34px,3.4vw,52px);letter-spacing:-.02em;text-transform:none;color:var(--fg);margin-bottom:6px}
 
-.ai-h2{font-family:var(--f-display);font-weight:400;font-size:clamp(46px,6vw,96px);line-height:.92;letter-spacing:-.035em;margin:14px 0 0;text-wrap:balance}
+.ai-h2{font-family:var(--f-display);font-weight:400;font-size:clamp(46px,6vw,96px);line-height:1;letter-spacing:-.035em;margin:14px 0 0;text-wrap:balance}
 .ai-h2 em{color:var(--accent)}
 
 /* ---------- the call deck ---------- */
 .call{padding-block:clamp(60px,8vw,110px) clamp(90px,11vw,160px);background:linear-gradient(180deg,transparent,rgba(228,112,63,.05) 30%,transparent)}
 .call__head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:14px 48px;align-items:end;margin-bottom:clamp(30px,4vw,56px)}
 .call__head .kick{grid-column:1/-1}
-.call__head h2{font-family:var(--f-display);font-weight:400;font-size:clamp(46px,6.6vw,108px);line-height:.92;letter-spacing:-.035em;margin:0}
+.call__head h2{font-family:var(--f-display);font-weight:400;font-size:clamp(46px,6.6vw,108px);line-height:1;letter-spacing:-.035em;margin:0}
 .call__head h2 em{color:var(--accent)}
 .call__head p:last-child{margin:0;color:var(--mute);max-width:46ch}
 .call__note{margin:16px 0 0;color:var(--faint);font-size:10.5px}
@@ -148,7 +148,7 @@
 .trade--spa{background:radial-gradient(120% 90% at 100% 0%,rgba(214,170,140,.26),transparent 60%),#17120F}
 .trade:hover{transform:translateY(-4px)}
 .trade .mono{color:var(--accent)}
-.trade b{font-family:var(--f-display);font-weight:400;font-size:clamp(34px,3.4vw,54px);line-height:.98;letter-spacing:-.02em;max-width:16ch}
+.trade b{font-family:var(--f-display);font-weight:400;font-size:clamp(34px,3.4vw,54px);line-height:1;letter-spacing:-.02em;max-width:16ch}
 .trade p{margin:0;color:var(--mute);max-width:40ch}
 .trade__go{margin-top:auto;color:var(--fg)!important}
 .trades__also{margin:28px 0 0;color:var(--mute);max-width:70ch}

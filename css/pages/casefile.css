@@ -15,7 +15,7 @@
 .cf-shot img{width:100%;height:auto;border-radius:18px;box-shadow:0 0 0 1px var(--line),0 80px 140px -60px rgba(0,0,0,.9)}
 
 .cf-two{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(36px,6vw,100px);align-items:start}
-.cf-h2{font-family:var(--f-display);font-weight:400;font-size:clamp(46px,6vw,96px);line-height:.92;letter-spacing:-.035em;margin:14px 0 0;text-wrap:balance}
+.cf-h2{font-family:var(--f-display);font-weight:400;font-size:clamp(46px,6vw,96px);line-height:1;letter-spacing:-.035em;margin:14px 0 0;text-wrap:balance}
 .cf-h2 em{color:var(--accent)}
 .cf-copy p{margin:0 0 1em;color:var(--mute);font-size:18px;max-width:56ch}
 .cf-goals{list-style:none;margin:28px 0 0;padding:0;border-top:1px solid var(--line)}

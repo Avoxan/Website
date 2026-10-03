@@ -17,7 +17,7 @@
 .fld select option{background:#fff;color:#2A1F1C}
 
 .ms-kick{color:var(--accent);margin:0 0 18px}
-.ms-h2{font-family:var(--f-display);font-weight:400;font-size:clamp(44px,5.6vw,92px);line-height:.95;letter-spacing:-.03em;margin:0;text-wrap:balance}
+.ms-h2{font-family:var(--f-display);font-weight:400;font-size:clamp(44px,5.6vw,92px);line-height:1;letter-spacing:-.03em;margin:0;text-wrap:balance}
 .ms-h2 em{color:var(--accent)}
 .ms-p{color:var(--mute);font-size:18px;max-width:54ch;margin:22px 0 0}
 .ms-sec{padding-block:clamp(90px,11vw,160px);border-top:1px solid var(--line)}
@@ -26,7 +26,7 @@
 /* opener */
 .ms-ph{padding-top:calc(120px + env(safe-area-inset-top,0px));padding-bottom:clamp(70px,9vw,120px);background:radial-gradient(70% 60% at 85% 20%,#EBDCD1,transparent 70%)}
 .ms-ph__grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(40px,6vw,100px);align-items:center}
-.ms-ph h1{font-family:var(--f-display);font-weight:400;font-size:clamp(54px,7.6vw,128px);line-height:.92;letter-spacing:-.035em;margin:0;text-wrap:balance}
+.ms-ph h1{font-family:var(--f-display);font-weight:400;font-size:clamp(54px,7.6vw,128px);line-height:1;letter-spacing:-.035em;margin:0;text-wrap:balance}
 .ms-ph h1 em{color:var(--accent)}
 .ms-lede{color:var(--mute);font-size:clamp(17px,1.4vw,20px);max-width:52ch;margin:clamp(24px,3vw,36px) 0 0}
 .ms-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(28px,3vw,40px)}

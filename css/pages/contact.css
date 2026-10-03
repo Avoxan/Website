@@ -36,7 +36,7 @@ a.dir__row:hover::before,a.dir__row:focus-visible::before{transform:scaleY(1)}
 a.dir__row:hover,a.dir__row:focus-visible{color:var(--on-accent)}
 a.dir__row:hover .dir__d,a.dir__row:hover .dir__n{color:var(--on-accent)}
 .dir__n{color:var(--faint);transition:color .4s}
-.dir__t{font-family:var(--f-display);font-size:clamp(40px,5.4vw,88px);line-height:.95;letter-spacing:-.03em;color:inherit;overflow-wrap:anywhere}
+.dir__t{font-family:var(--f-display);font-size:clamp(40px,5.4vw,88px);line-height:1;letter-spacing:-.03em;color:inherit;overflow-wrap:anywhere}
 .dir__row--mail .dir__t{font-size:clamp(30px,4.2vw,68px)}
 .dir__row--mail .dir__t:hover{color:var(--accent)}
 .dir__d{color:var(--mute);max-width:40ch;transition:color .4s}
@@ -49,7 +49,7 @@ a.dir__row:hover .dir__go{transform:rotate(-45deg)}
 
 /* note */
 .note__grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:clamp(40px,6vw,100px);align-items:start}
-.note__h{font-family:var(--f-display);font-weight:400;font-size:clamp(46px,6vw,96px);line-height:.92;letter-spacing:-.035em;margin:14px 0 clamp(30px,4vw,52px)}
+.note__h{font-family:var(--f-display);font-weight:400;font-size:clamp(46px,6vw,96px);line-height:1;letter-spacing:-.035em;margin:14px 0 clamp(30px,4vw,52px)}
 .note__h em{color:var(--accent)}
 .chips{border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
 .chips legend{float:left;width:100%;padding:0;margin-bottom:10px;font-size:14px;color:var(--mute)}

@@ -72,7 +72,7 @@
 @media (max-width:560px){.plat{grid-template-columns:1fr}}
 
 .hou__grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(30px,5vw,80px);align-items:center}
-.hou h2{font-family:var(--f-display);font-weight:400;font-size:clamp(46px,6vw,96px);line-height:.92;letter-spacing:-.035em;margin:14px 0 22px}
+.hou h2{font-family:var(--f-display);font-weight:400;font-size:clamp(46px,6vw,96px);line-height:1;letter-spacing:-.035em;margin:14px 0 22px}
 .hou h2 em{color:var(--accent)}
 .hou__grid p{color:var(--mute);max-width:52ch;margin:0 0 14px}
 .hou__map{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
@@ -91,7 +91,7 @@
 @media (max-width:760px){.fit{grid-template-columns:1fr}}
 
 .sfaq{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(30px,5vw,80px)}
-.sfaq__h{font-family:var(--f-display);font-weight:400;font-size:clamp(46px,6vw,96px);line-height:.92;letter-spacing:-.035em;margin:14px 0 18px}
+.sfaq__h{font-family:var(--f-display);font-weight:400;font-size:clamp(46px,6vw,96px);line-height:1;letter-spacing:-.035em;margin:14px 0 18px}
 .sfaq__h em{color:var(--accent)}
 .sfaq__more{color:var(--mute);margin:0}
 @media (max-width:860px){.sfaq{grid-template-columns:1fr}}
