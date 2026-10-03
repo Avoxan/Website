@@ -182,7 +182,7 @@ def faq_schema(body, at_id):
 def render(meta, body, after):
     title = meta["title"]
     desc = meta["description"]
-    canonical = SITE + meta.get("canonical", "/")
+    canonical = SITE + (meta.get("canonical") or "/")
     og_title = meta.get("og_title", title)
     og_desc = meta.get("og_description", desc)
     og_image = meta.get("og_image", SITE + "/og-image.png")
@@ -201,7 +201,7 @@ def render(meta, body, after):
         f'<meta name="description" content="{esc(desc)}">',
         '<meta name="author" content="Akarshan Digital LLC">',
         f'<meta name="robots" content="{esc(robots)}">',
-        f'<link rel="canonical" href="{esc(canonical)}">',
+        f'<link rel="canonical" href="{esc(canonical)}">' if meta.get("canonical", "/") is not None else "",
         '<meta name="geo.region" content="US-TX">',
         '<meta name="geo.placename" content="Houston">',
         f'<meta name="theme-color" content="{esc(theme)}">',

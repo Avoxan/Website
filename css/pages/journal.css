@@ -118,3 +118,5 @@
   .jx-mast{grid-template-columns:1fr 1fr}
   .jx-mast span:nth-child(2){display:none}
 }
+.legal .toc a::before{display:none}
+.legal .post-hd h1{max-width:none}

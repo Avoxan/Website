@@ -1,0 +1,52 @@
+/* ==================================================================
+   /work/avoxan-studio-site — a case file. Spec sheet, a full-bleed
+   screenshot, and a numbered decision log (D-01 … D-10).
+   ================================================================== */
+
+.cf-ph h1{font-size:clamp(60px,10vw,176px)}
+.cf-ph .kick{margin:0 0 18px}
+.cf-spec{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:clamp(40px,5vw,70px) 0 0;border-top:1px solid var(--line)}
+.cf-spec div{padding:18px 18px 0 0}
+.cf-spec div+div{padding-left:18px;border-left:1px solid var(--line)}
+.cf-spec dt{color:var(--faint);font-size:10.5px;margin-bottom:8px}
+.cf-spec dd{margin:0;font-size:16px}
+
+.cf-shot{margin:0 auto;max-width:calc(var(--max) + 120px);padding-inline:var(--gutter)}
+.cf-shot img{width:100%;height:auto;border-radius:18px;box-shadow:0 0 0 1px var(--line),0 80px 140px -60px rgba(0,0,0,.9)}
+
+.cf-two{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(36px,6vw,100px);align-items:start}
+.cf-h2{font-family:var(--f-display);font-weight:400;font-size:clamp(46px,6vw,96px);line-height:.92;letter-spacing:-.035em;margin:14px 0 0;text-wrap:balance}
+.cf-h2 em{color:var(--accent)}
+.cf-copy p{margin:0 0 1em;color:var(--mute);font-size:18px;max-width:56ch}
+.cf-goals{list-style:none;margin:28px 0 0;padding:0;border-top:1px solid var(--line)}
+.cf-goals li{padding:16px 0;border-bottom:1px solid var(--line);color:var(--mute);font-size:17px}
+.cf-goals b{color:var(--fg);font-weight:500}
+
+.adr{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.adr li{position:relative;display:flex;flex-direction:column;gap:10px;padding:clamp(24px,2.6vw,36px);border-radius:22px;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line)}
+.adr__n{color:var(--accent);font-size:11px}
+.adr h3{margin:4px 0 6px;font-family:var(--f-display);font-weight:400;font-size:clamp(28px,2.6vw,38px);line-height:1.02;letter-spacing:-.015em}
+.adr p{margin:0;color:var(--mute);font-size:16px;line-height:1.6}
+.adr p b{color:var(--fg);font-weight:500}
+.adr__cost{margin-top:auto!important;padding-top:14px;border-top:1px dashed var(--line)}
+.adr__cost b{color:var(--accent)!important}
+
+.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:clamp(36px,4vw,60px) 0 0;border-top:1px solid var(--line)}
+.nums div{padding:26px 24px 30px 0;border-bottom:1px solid var(--line)}
+.nums div:not(:nth-child(3n+1)){padding-left:24px;border-left:1px solid var(--line)}
+.nums dt{font-family:var(--f-display);font-size:clamp(70px,8vw,130px);line-height:.85;letter-spacing:-.04em;color:var(--fg)}
+.nums dt small{font-size:.3em;letter-spacing:0;color:var(--accent);margin-left:6px}
+.nums dd{margin:12px 0 0;color:var(--faint);font-size:11px}
+
+.cf-todo{list-style:none;margin:0;padding:0;border-top:1px solid var(--line);counter-reset:td}
+.cf-todo li{position:relative;padding:20px 0 20px 46px;border-bottom:1px solid var(--line);color:var(--mute);font-size:18px;counter-increment:td}
+.cf-todo li::before{content:counter(td,decimal-leading-zero);position:absolute;left:0;top:23px;font-family:var(--f-mono);font-size:11px;color:var(--accent)}
+
+@media (max-width:900px){
+  .cf-spec{grid-template-columns:1fr 1fr}
+  .cf-spec div:nth-child(3){padding-left:0;border-left:0}
+  .cf-two,.adr{grid-template-columns:1fr}
+  .nums{grid-template-columns:1fr 1fr}
+  .nums div:not(:nth-child(3n+1)){padding-left:0;border-left:0}
+  .nums div:nth-child(even){padding-left:20px;border-left:1px solid var(--line)}
+}

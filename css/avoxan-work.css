@@ -35,7 +35,7 @@
 .w-row .arr{color:var(--faint);transition:transform .5s var(--ease),color .3s}
 .w-row:hover h2{transform:translateX(12px);color:var(--accent)}
 .w-row:hover .arr{transform:translate(3px,3px);color:var(--fg)}
-.w-row--concepts h2{font-size:clamp(24px,2.4vw,36px);color:var(--mute)}
+.w-row--concepts h2{color:var(--mute)}
 @media (max-width:900px){
   .w-index__head{display:none}
   .w-row{grid-template-columns:40px minmax(0,1fr) 20px;gap:4px 12px}
@@ -131,3 +131,15 @@
 .w-cta__row .btns{display:flex;flex-wrap:wrap;gap:12px}
 
 @media (prefers-reduced-motion:reduce){.sf__view{overflow-y:auto}.sf__view img{transition:none}.sf__hint{display:none}}
+
+/* ---------- 04 · this site ---------- */
+.self__card{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,4vw,60px);align-items:center;color:var(--fg)}
+.self__card figure{margin:0;border-radius:16px;overflow:hidden;box-shadow:0 0 0 1px var(--line),0 50px 100px -50px rgba(0,0,0,.8)}
+.self__card img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;transition:transform .9s var(--ease)}
+.self__card:hover img{transform:scale(1.03)}
+.self__meta{display:grid;gap:14px;align-content:start}
+.self__meta h3{font-family:var(--f-display);font-weight:400;font-size:clamp(36px,3.6vw,56px);line-height:1;letter-spacing:-.02em;margin:0}
+.self__meta p{margin:0;color:var(--mute);max-width:40ch}
+.self__meta .tag b{color:var(--accent);margin-right:10px;font-weight:400}
+.self__meta .more{justify-self:start}
+@media (max-width:900px){.self__card{grid-template-columns:1fr}}
