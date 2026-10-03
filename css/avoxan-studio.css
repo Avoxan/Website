@@ -599,3 +599,7 @@ em,.it{font-style:italic}
 .qa details[open] summary::after{transform:rotate(45deg)}
 .qa details p{margin:0 0 22px;color:var(--mute);max-width:66ch}
 .qa details p a{color:var(--fg)}
+
+/* ---------- chat launcher (js/avoxan-chat.js) ---------- */
+.avx-root{transition:opacity .5s var(--ease),transform .6s var(--ease)}
+.js:not(.chat-on) .avx-root{opacity:0;transform:translateY(16px);pointer-events:none}

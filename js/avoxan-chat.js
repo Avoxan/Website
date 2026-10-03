@@ -16,7 +16,7 @@
   const IS_PLUMBER = /ai-receptionist-plumbers/i.test(location.pathname);
   const IS_RECEPTIONIST = !IS_PLUMBER && /ai-receptionist/i.test(location.pathname);
   // Where the "Book a live demo" button points — the demo form on the page the visitor is already on.
-  const DEMO_FORM_URL = IS_PLUMBER ? '/ai-receptionist-plumbers#book' : '/ai-receptionist#book';
+  const DEMO_FORM_URL = IS_PLUMBER ? '/ai-receptionist-plumbers#demo' : '/ai-receptionist#demo';
   // Suggested questions, ordered so the most relevant for the current page sit on top.
   const SUGGESTIONS = IS_PLUMBER ? [
     // Plumber-specific first…
@@ -45,16 +45,16 @@
   // Falls back gracefully if brand CSS variables aren't defined yet.
   const CSS = `
   .avx-root {
-    --avx-cream: var(--cream, #F2EBDC);
-    --avx-cream-warm: var(--cream-warm, #ECE3CE);
-    --avx-cream-accent: var(--accent-cream, #E8DFC9);
-    --avx-ink: var(--ink, #1A1814);
-    --avx-ink-soft: var(--ink-soft, #4A4540);
-    --avx-muted: var(--muted, #8A8278);
-    --avx-sienna: var(--sienna, #C04A1F);
+    --avx-cream: #F4EEE5;
+    --avx-cream-warm: #ECE4D8;
+    --avx-cream-accent: #E9DFD1;
+    --avx-ink: #1A1611;
+    --avx-ink-soft: #4A433C;
+    --avx-muted: #857C71;
+    --avx-sienna: #CA5B2B;
     --avx-sienna-deep: #A8401B;
-    --avx-line: var(--line, rgba(26, 24, 20, 0.08));
-    --avx-line-strong: var(--line-strong, rgba(26, 24, 20, 0.15));
+    --avx-line: rgba(26, 22, 17, 0.09);
+    --avx-line-strong: rgba(26, 22, 17, 0.16);
     --avx-shadow: 0 12px 40px -8px rgba(26, 24, 20, 0.25), 0 4px 12px -4px rgba(26, 24, 20, 0.1);
     position: fixed;
     bottom: 1.5rem;
@@ -162,7 +162,7 @@
   .avx-header-mark svg { width: 100%; height: 100%; display: block; }
   .avx-header-text { flex: 1; min-width: 0; }
   .avx-header-title {
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: 'Instrument Serif', Georgia, serif;
     font-variation-settings: "opsz" 144, "SOFT" 50, "wght" 500;
     font-size: 1.1rem;
     line-height: 1.15;
@@ -207,7 +207,7 @@
 
   /* Intro state */
   .avx-intro-line {
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: 'Instrument Serif', Georgia, serif;
     font-variation-settings: "opsz" 144, "SOFT" 70, "wght" 400;
     font-style: italic;
     font-size: 1rem;
@@ -269,7 +269,7 @@
   .avx-msg-bot p:last-child { margin-bottom: 0; }
   .avx-msg-bot strong { font-weight: 600; color: var(--avx-ink); }
   .avx-msg-bot em {
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: 'Instrument Serif', Georgia, serif;
     font-variation-settings: "opsz" 144, "SOFT" 60, "wght" 400;
     font-style: italic;
   }

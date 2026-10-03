@@ -130,7 +130,7 @@ FOOTER = """<footer class="ftr" data-palette="studio">
       </div>
       <div>
         <h4 class="mono">Journal</h4>
-        <ul><li><a href="/blog/website-cost-2026">Website cost in 2026</a></li><li><a href="/blog/local-seo-checklist">Local SEO checklist</a></li><li><a href="/blog/what-is-an-ai-receptionist">What is an AI receptionist?</a></li><li><a href="/blog/">All field notes</a></li></ul>
+        <ul><li><a href="/blog/website-cost-2026">Website cost in 2026</a></li><li><a href="/blog/local-seo-checklist">Local SEO checklist</a></li><li><a href="/blog/what-is-an-ai-receptionist">What is an AI receptionist?</a></li><li><a href="/blog/">All journal entries</a></li></ul>
       </div>
     </div>
   </div>
@@ -261,6 +261,8 @@ def render(meta, body, after):
         scripts.append(f'<script src="/js/{esc(j)}?v={CSS_V}" defer></script>')
     if meta.get("booking"):
         scripts.append('<script src="/js/avoxan-booking.js" defer></script>')
+    if meta.get("chat", True):
+        scripts.append(f'<script src="/js/avoxan-chat.js?v={CSS_V}" defer></script>')
     scripts.append('<script src="/js/avoxan-analytics.js" defer></script>')
 
     body_cls = f' class="{esc(meta["body_class"])}"' if meta.get("body_class") else ""

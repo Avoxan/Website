@@ -18,6 +18,9 @@
   function onScrollHeader() {
     var y = window.scrollY;
     hdr.classList.toggle("is-solid", y > 40);
+    // The chat launcher waits until the visitor starts scrolling, so it never
+    // sits on top of a hero. Once shown it stays.
+    if (y > 280) root.classList.add("chat-on");
     hdr.classList.toggle("is-hidden", y > 600 && y > lastY && !root.classList.contains("menu-open"));
     lastY = y;
   }
