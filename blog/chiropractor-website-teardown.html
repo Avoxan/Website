@@ -1,27 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en-US" class="no-js">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<title>How we'd build a website for a chiropractor (full teardown) · Avoxan</title>
-<meta name="description" content="A page-by-page teardown of how to build a chiropractic website that turns "I am in pain right now" searches into booked first appointments.">
-
+<title>How we&#x27;d build a website for a chiropractor (full teardown) · Avoxan Journal</title>
+<meta name="description" content="A page-by-page teardown of how to build a chiropractic website that turns ">
 <meta name="author" content="Akarshan Digital LLC">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-<meta name="GPTBot" content="index, follow">
-<meta name="ChatGPT-User" content="index, follow">
-<meta name="PerplexityBot" content="index, follow">
-<meta name="ClaudeBot" content="index, follow">
-<meta name="Google-Extended" content="index, follow">
-
 <link rel="canonical" href="https://avoxan.com/blog/chiropractor-website-teardown">
-
 <meta name="geo.region" content="US-TX">
 <meta name="geo.placename" content="Houston">
-
-<meta name="theme-color" content="#0C0A08">
-<script>try{if(localStorage.getItem('avoxan-theme')==='light')document.documentElement.classList.add('light')}catch(e){}</script>
+<meta name="theme-color" content="#0D0B09">
+<meta name="color-scheme" content="dark">
 <meta name="format-detection" content="telephone=no">
 
 <link rel="icon" type="image/svg+xml" href="/avoxan-logo.svg">
@@ -33,128 +24,192 @@
 
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Avoxan">
-<meta property="og:title" content="How we'd build a website for a chiropractor (full teardown) · Avoxan">
-<meta property="og:description" content="A page-by-page strategic teardown of a chiropractic website built to convert pain searches into booked first appointments.">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="How we&#x27;d build a website for a chiropractor (full teardown).">
+<meta property="og:description" content="A page-by-page teardown of how to build a chiropractic website that turns ">
 <meta property="og:url" content="https://avoxan.com/blog/chiropractor-website-teardown">
 <meta property="og:image" content="https://avoxan.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How we&#x27;d build a website for a chiropractor (full teardown).">
+<meta name="twitter:description" content="A page-by-page teardown of how to build a chiropractic website that turns ">
+<meta name="twitter:image" content="https://avoxan.com/og-image.png">
+<meta property="article:published_time" content="2026-05-14">
+<meta property="article:modified_time" content="2026-10-03">
 
-<link rel="preload" as="style" href="/css/avoxan-fonts.css?v=1">
-<link rel="stylesheet" media="print" onload="this.media='all';this.onload=null" href="/css/avoxan-fonts.css?v=1">
-<noscript><link rel="stylesheet" href="/css/avoxan-fonts.css?v=1"></noscript>
-<link rel="stylesheet" href="/css/avoxan-v2.css?v=22">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "How we'd build a website for a chiropractor (full strategic teardown)",
-  "description": "A page-by-page strategy for a chiropractic website that converts pain searches into booked first appointments.",
-  "author": {"@type": "Person", "name": "Akarsh", "jobTitle": "Designer and developer", "worksFor": {"@id": "https://avoxan.com/#organization"}},
-  "publisher": {"@type": "Organization", "name": "Avoxan", "logo": {"@type": "ImageObject", "url": "https://avoxan.com/avoxan-logo-512.png"}},
-  "datePublished": "2026-05-14",
-  "mainEntityOfPage": "https://avoxan.com/blog/chiropractor-website-teardown"
-}
+<script>
+  /* Runs before paint: JS-only styles apply once we know JS runs, motion only
+     when the visitor hasn't asked for less. If the main script never loads,
+     the page falls back to its complete no-JS state after 3s. */
+  (function(d){d.classList.remove('no-js');d.classList.add('js');
+    try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('motion')}catch(e){}
+    setTimeout(function(){if(!window.__avxReady){d.classList.remove('js','motion');d.classList.add('no-js')}},3000);
+  })(document.documentElement);
 </script>
-<script src="/js/avoxan-chat.js?v=2" defer></script>
-<script>/* Avoxan: remove any orphaned service worker + caches from older site versions */(function(){try{if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister();});}).catch(function(){});}if(self.caches&&caches.keys){caches.keys().then(function(ks){ks.forEach(function(k){caches.delete(k);});}).catch(function(){});}}catch(e){}})();</script>
+<link rel="preload" href="/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/instrument-serif-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/avoxan-studio.css?v=5">
+<link rel="stylesheet" href="/css/pages/journal.css?v=5">
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "@id": "https://avoxan.com/blog/chiropractor-website-teardown#breadcrumb",
-  "itemListElement": [
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": [
+    "Organization",
+    "ProfessionalService"
+   ],
+   "@id": "https://avoxan.com/#org",
+   "name": "Avoxan",
+   "legalName": "Akarshan Digital LLC",
+   "url": "https://avoxan.com/",
+   "logo": "https://avoxan.com/avoxan-logo-512.png",
+   "email": "hello@avoxan.com",
+   "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Houston",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+   },
+   "areaServed": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://avoxan.com/"
+     "@type": "City",
+     "name": "Houston"
     },
     {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Field notes",
-      "item": "https://avoxan.com/blog"
+     "@type": "State",
+     "name": "Texas"
     },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "How we'd build a website for a chiropractor (full teardown)",
-      "item": "https://avoxan.com/blog/chiropractor-website-teardown"
+    "US"
+   ]
+  },
+  {
+   "@type": "BlogPosting",
+   "@id": "https://avoxan.com/blog/chiropractor-website-teardown#article",
+   "headline": "How we'd build a website for a chiropractor (full teardown).",
+   "description": "A page-by-page teardown of how to build a chiropractic website that turns ",
+   "articleSection": "Teardown",
+   "wordCount": 893,
+   "datePublished": "2026-05-14",
+   "dateModified": "2026-10-03",
+   "inLanguage": "en-US",
+   "image": "https://avoxan.com/og-image.png",
+   "mainEntityOfPage": "https://avoxan.com/blog/chiropractor-website-teardown",
+   "author": {
+    "@type": "Person",
+    "@id": "https://avoxan.com/#akarsh",
+    "name": "Akarsh",
+    "jobTitle": "Designer and developer",
+    "worksFor": {
+     "@id": "https://avoxan.com/#org"
     }
-  ]
+   },
+   "publisher": {
+    "@id": "https://avoxan.com/#org"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://avoxan.com/blog/chiropractor-website-teardown#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://avoxan.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Journal",
+     "item": "https://avoxan.com/blog/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "How we'd build a website for a chiropractor (full teardown).",
+     "item": "https://avoxan.com/blog/chiropractor-website-teardown"
+    }
+   ]
+  }
+ ]
 }
 </script>
 </head>
 <body>
-<a href="#main" class="skip-link">Skip to main content</a>
-<div class="scroll-progress" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
 
-<nav class="nv" aria-label="Primary">
-  <div class="nv-inner">
-    <a href="/" class="nv-logo" aria-label="Avoxan home">
-      <img src="/avoxan-logo.svg" alt="" width="30" height="40">
-      Avoxan
+<header class="hdr" id="hdr">
+  <div class="wrap hdr__in">
+    <a class="brand" href="/" aria-label="Avoxan, home">
+      <img src="/avoxan-logo.svg" alt="" width="22" height="22">Avoxan
     </a>
-    <div class="nv-links">
+    <nav class="nav" aria-label="Main">
+      <a href="/work/">Work</a>
       <a href="/services">Services</a>
-      <a href="/ai-receptionist">AI Receptionist</a>
+      <a href="/ai-receptionist">AI receptionist</a>
       <a href="/pricing">Pricing</a>
       <a href="/process">Process</a>
-      <a href="/work/">Work</a>
-      <a href="/blog/" class="active">Blog</a>
-      <a href="/faq">FAQ</a>
-      <a href="/contact" class="nv-cta">Book a call</a>
-    </div>
-    <button class="nv-burger" aria-label="Toggle navigation menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+      <a href="/blog/" aria-current="page">Journal</a>
+    </nav>
+    <a class="btn hdr__cta" href="/contact" data-cta="header">Start a project</a>
+    <button class="hdr__menu" id="menuBtn" aria-expanded="false" aria-controls="sheet"><span></span><span></span><span class="sr-only">Menu</span></button>
   </div>
-</nav>
+</header>
 
-<div class="menu-overlay" aria-label="Mobile navigation">
-  <a href="/"><span class="mo-num">00</span>Home</a>
-  <a href="/services"><span class="mo-num">01</span>Services</a>
-  <a href="/ai-receptionist"><span class="mo-num">02</span>AI Receptionist</a>
-  <a href="/pricing"><span class="mo-num">03</span>Pricing</a>
-  <a href="/process"><span class="mo-num">04</span>Process</a>
-  <a href="/work/"><span class="mo-num">05</span>Work</a>
-  <a href="/blog/"><span class="mo-num">06</span>Blog</a>
-  <a href="/faq"><span class="mo-num">07</span>FAQ</a>
-  <a href="/contact"><span class="mo-num">08</span>Book a call</a>
-  <div class="mo-foot">
-    <span>Houston, TX</span>
-    <span>hello@avoxan.com</span>
-  </div>
+<div class="sheet" id="sheet" aria-hidden="true">
+  <nav aria-label="Mobile">
+    <a href="/work/">Work</a>
+    <a href="/services">Services</a>
+    <a href="/ai-receptionist">AI receptionist</a>
+    <a href="/pricing">Pricing</a>
+    <a href="/process">Process</a>
+    <a href="/blog/">Journal</a>
+    <a href="/contact">Start a project</a>
+  </nav>
+  <div class="sheet__foot mono"><span>hello@avoxan.com</span><span>Houston, TX</span></div>
 </div>
 
 <main id="main">
 
-<section class="page-hero">
-  <div class="wrap narrow">
-    <nav class="crumbs" aria-label="Breadcrumb">
-      <a href="/">Home</a><span class="sep">/</span><a href="/blog/">Field notes</a><span class="sep">/</span><span class="here">Niche teardown</span>
-    </nav>
-    <h1 data-hero-stagger>How we'd build a website for a <span class="it acc">chiropractor</span> (full teardown).</h1>
-    <p class="deck" data-hero-stagger>Most chiropractor websites look identical: a smiling person getting their back cracked, "Welcome to Our Practice," a bullet list of services, contact info. Here's how we'd actually approach a chiropractic site to drive new-patient bookings, page by page.</p>
-    <div class="post-meta" data-hero-stagger>
-      <span class="cat">Niche teardown</span><span class="dotsep">·</span><span>9 min read</span><span class="dotsep">·</span><span>May 14, 2026</span>
-    </div>
-  </div>
-</section>
+<div class="jr-progress" aria-hidden="true"><i data-progress></i></div>
 
-<section class="section tight">
-  <div class="wrap">
-    <article class="article">
-      <div class="tldr"><strong>TL;DR</strong><p>For a chiropractor, the website's single job is to convert "I'm in pain right now" Google searches into booked first appointments. Most sites fail because they front-load credentials instead of urgency, omit pricing, hide insurance information, and don't structure for symptom-based search queries. Here's the complete page-by-page strategy we'd use.</p></div>
+<article class="post">
+  <header class="post-hd">
+    <div class="wrap">
+      <ol class="crumbs mono" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li><a href="/blog/">Journal</a></li><li aria-current="page">Teardown</li></ol>
+      <p class="post-meta mono" data-reveal><span class="post-cat">Teardown</span><span>4 min read</span><span>Updated <time datetime="2026-10-03">Oct 3, 2026</time></span></p>
+      <h1 data-reveal>How we'd build a website for a <em>chiropractor</em> (full teardown).</h1>
+      <p class="post-deck" data-reveal>Most chiropractor websites look identical: a smiling person getting their back cracked, "Welcome to Our Practice," a bullet list of services, contact info. Here's how we'd actually approach a chiropractic site to drive new-patient bookings, page by page.</p>
+      <p class="post-by" data-reveal><span class="post-by__av" aria-hidden="true">A</span><span>By <b>Akarsh</b>, designer and developer at Avoxan · First published <time datetime="2026-05-14">May 14, 2026</time></span></p>
+    </div>
+  </header>
+
+  <div class="wrap post-grid">
+    <nav class="toc" aria-label="In this article">
+      <p class="mono toc__h">In this article</p>
+      <ol>
+          <li><a href="#the-strategy-in-one-sentence">The strategy in one sentence</a></li>
+          <li><a href="#page-1-homepage">Page 1: Homepage</a></li>
+          <li><a href="#page-2-symptom-pages-one-per-major-issue">Page 2: Symptom pages (one per major issue)</a></li>
+          <li><a href="#page-3-about-team">Page 3: About + Team</a></li>
+          <li><a href="#page-4-insurance-pricing">Page 4: Insurance &amp; Pricing</a></li>
+          <li><a href="#page-5-new-patient-page">Page 5: New patient page</a></li>
+          <li><a href="#technical-setup-specific-to-chiropractic">Technical setup specific to chiropractic</a></li>
+          <li><a href="#content-that-compounds-the-symptom-blog">Content that compounds: the symptom blog</a></li>
+          <li><a href="#what-we-d-specifically-not-do">What we&#x27;d specifically NOT do</a></li>
+      </ol>
+    </nav>
+
+    <div class="prose post-body">
+      <div class="tldr"><p class="mono">The short version</p><p>For a chiropractor, the website's single job is to convert "I'm in pain right now" Google searches into booked first appointments. Most sites fail because they front-load credentials instead of urgency, omit pricing, hide insurance information, and don't structure for symptom-based search queries. Here's the complete page-by-page strategy we'd use.</p></div>
 
       <p class="lede">If you run a chiropractic practice and your website isn't your top patient acquisition channel, your website is broken. People in pain don't ask their friends for a referral first, they Google "chiropractor near me" or "lower back pain chiropractor [their city]" and book the first practice that gives them confidence in under 90 seconds. Here's the build that wins those visits.</p>
 
-      <h2>The strategy in one sentence</h2>
+      <h2 id="the-strategy-in-one-sentence">The strategy in one sentence</h2>
       <blockquote>Be the obvious answer for someone in moderate pain right now who's never seen a chiropractor before.</blockquote>
       <p>Most chiropractor sites are written for people who already understand chiropractic. The biggest audience, and the highest-converting one, is people who don't. Adjust the entire site for the first-time visitor in mild-to-moderate pain.</p>
 
-      <h2>Page 1: Homepage</h2>
+      <h2 id="page-1-homepage">Page 1: Homepage</h2>
       <h3>Hero (above the fold)</h3>
       <p><strong>Headline:</strong> "Back, neck, or shoulder pain? See a chiropractor this week."</p>
       <p><strong>Subhead:</strong> "[City]'s [year started] chiropractic practice. Same-week appointments. Most insurance accepted. New patients: $79 first visit (vs. $189 standard)."</p>
@@ -168,10 +223,8 @@
       </ul>
       <h3>Section: "Pain you're feeling right now"</h3>
       <p>Three to five cards, each named by symptom: Lower Back Pain, Neck Pain, Headaches, Sciatica, Sports Injury. Each card has a one-paragraph description of what causes it and how chiropractic addresses it. Each links to a dedicated symptom page.</p>
-      <div class="deliverable">
-        <strong>Why symptom-led, not service-led</strong>
-        <p>Patients don't search "spinal manipulation" or "adjustment therapy." They search "my lower back has been hurting for a week." Build the site around the search, not the textbook.</p>
-      </div>
+      <aside class="note"><p class="note__h">Why symptom-led, not service-led</p><p>Patients don't search "spinal manipulation" or "adjustment therapy." They search "my lower back has been hurting for a week." Build the site around the search, not the textbook.</p>
+      </aside>
       <h3>Section: "What your first visit looks like"</h3>
       <p>Minute-by-minute walkthrough of a first appointment. From parking to checking out. This drastically reduces the anxiety of nervous first-timers, which is most of your highest-value patients.</p>
       <h3>Section: Real reviews (with names and dates visible)</h3>
@@ -179,7 +232,7 @@
       <h3>Section: Insurance &amp; pricing, fully visible</h3>
       <p>The single biggest objection for a first-time chiropractic patient is "how much will this cost me." Most sites hide it. Putting it on the homepage filters bad-fit leads and converts good ones faster.</p>
 
-      <h2>Page 2: Symptom pages (one per major issue)</h2>
+      <h2 id="page-2-symptom-pages-one-per-major-issue">Page 2: Symptom pages (one per major issue)</h2>
       <p>One dedicated page for each symptom: /lower-back-pain, /neck-pain, /headaches, /sciatica, /sports-injury, etc. Each page is 800-1,200 words and structured as follows:</p>
       <ol>
         <li>What causes [symptom] (in plain language)</li>
@@ -191,16 +244,16 @@
       </ol>
       <p>These pages are your local SEO workhorses. "Lower back pain chiropractor [city]" is a much higher-intent query than "chiropractor [city]" and far less competed.</p>
 
-      <h2>Page 3: About + Team</h2>
+      <h2 id="page-3-about-team">Page 3: About + Team</h2>
       <p>Skip the boilerplate "Dr. Smith graduated from..." Write each bio as: year started practicing → why they chose chiropractic specifically → which patient population they're "extra patient with" (e.g., "Dr. Smith does extensive work with post-collision patients and is especially careful with whiplash recoveries"). This makes the doctor feel like a real person, not a credential.</p>
 
-      <h2>Page 4: Insurance &amp; Pricing</h2>
+      <h2 id="page-4-insurance-pricing">Page 4: Insurance &amp; Pricing</h2>
       <p>One page that openly answers: which insurances you accept, what a first visit costs with and without insurance, what follow-up visits cost, what packages cost. Cite real prices. The transparency is itself a differentiator in this category.</p>
 
-      <h2>Page 5: New patient page</h2>
+      <h2 id="page-5-new-patient-page">Page 5: New patient page</h2>
       <p>A dedicated page for people who've never seen a chiropractor. What to expect. What to wear. What forms to fill out. What questions to ask. Patient-first language throughout. This page should be #2 or #3 in your nav.</p>
 
-      <h2>Technical setup specific to chiropractic</h2>
+      <h2 id="technical-setup-specific-to-chiropractic">Technical setup specific to chiropractic</h2>
       <ul class="checklist">
         <li>Chiropractor schema markup (subtype of MedicalBusiness) with services, accepted insurances, and hours</li>
         <li>Service schema for each treatment type</li>
@@ -212,10 +265,10 @@
         <li>HIPAA-compliant intake form for new patients</li>
       </ul>
 
-      <h2>Content that compounds: the symptom blog</h2>
+      <h2 id="content-that-compounds-the-symptom-blog">Content that compounds: the symptom blog</h2>
       <p>One monthly blog post answering a real patient question: "Is it okay to crack your own back?" "How long does it take to recover from a slipped disc?" "Should you ice or heat lower back pain?" Each post is 800-1,500 words and ranks locally for the long-tail query. Six months in, the blog drives 30-50% of your organic traffic.</p>
 
-      <h2>What we'd specifically NOT do</h2>
+      <h2 id="what-we-d-specifically-not-do">What we'd specifically NOT do</h2>
       <ul>
         <li><strong>Animated spine/vertebra graphics.</strong> Cliché, slow, distracting.</li>
         <li><strong>Stock photo of a smiling person mid-adjustment.</strong> Every chiropractor uses this. Use real photos of the actual practice.</li>
@@ -223,129 +276,79 @@
         <li><strong>Long lists of services with no descriptions.</strong> No one cares about "Activator Methods Technique" by name.</li>
       </ul>
 
-      <div class="author-bio" style="max-width:760px; margin:3.5rem auto 0; padding:1.7rem 1.8rem; border:1px solid var(--line); border-radius:18px; background:var(--surface);">
-        <div style="display:flex; gap:.85rem; align-items:center; margin-bottom:.9rem;">
-          <span aria-hidden="true" style="flex:0 0 auto; width:40px; height:40px; border-radius:50%; background:var(--surface-2); border:1px solid var(--line); display:grid; place-items:center; font-family:var(--font-mono); font-size:.9rem; color:var(--ember);">A</span>
-          <span style="color:var(--cream); font-weight:500;">Akarsh <span style="color:var(--muted); font-weight:400;">· Designer &amp; developer, Avoxan</span></span>
+
+      <aside class="post-author" aria-label="About the author">
+        <span class="post-by__av" aria-hidden="true">A</span>
+        <div>
+          <p class="post-author__name">Akarsh <span>· Designer and developer, Avoxan</span></p>
+          <p>Akarsh designs and builds websites at Avoxan, with a focus on conversion structure and the technical side of search: schema markup, page speed, and how a page gets read by search engines and AI assistants. Avoxan is a small studio in Houston, Texas that publishes every price on its <a href="/pricing">pricing page</a>.</p>
         </div>
-        <p style="margin:0; color:var(--muted); font-size:.92rem; line-height:1.65;">Designer and developer at Avoxan. Works across design and front-end build, with a focus on conversion structure and the technical side of search: schema markup, page speed, and how a page gets read by search engines and AI assistants. Avoxan is a small studio in Houston, Texas that publishes every price on its <a href="/pricing">pricing page</a>.</p>
-      </div>
-
-      <div class="post-foot">
-        <span class="by">Written by <strong>Akarsh</strong> · Avoxan · Houston web design studio</span>
-        <a href="/contact" class="kicker-link"><span class="kl-txt">Get a teardown for your practice</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </div>
-    </article>
+      </aside>
+    </div>
   </div>
-</section>
+</article>
 
-<section class="section tight">
+<section class="sec jr-more" aria-labelledby="more-h">
   <div class="wrap">
-    <div class="sec-head split" data-reveal>
-      <div>
-        <div class="eyebrow">Related essays</div>
-        <h2 class="sec-title">Three more <span class="it">in the same direction</span>.</h2>
+    <div class="jr-more__head">
+      <h2 id="more-h">Keep <em>reading.</em></h2>
+      <a class="link-u mono" href="/blog/">All journal entries →</a>
+    </div>
+    <div class="jr-cards">
+      <a class="jr-card" href="/blog/wedding-photographer-teardown"><span class="mono">Teardown · 4 min read</span><b>How we'd build a website for a wedding photographer (full teardown).</b><span class="jr-card__go mono">Read →</span></a>
+      <a class="jr-card" href="/blog/local-seo-checklist"><span class="mono">Local SEO · 4 min read</span><b>Local SEO for service businesses: the only checklist you need.</b><span class="jr-card__go mono">Read →</span></a>
+      <a class="jr-card" href="/blog/beautiful-website-no-leads"><span class="mono">Conversion · 4 min read</span><b>Why your beautiful website isn't generating any leads.</b><span class="jr-card__go mono">Read →</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-end" aria-labelledby="post-cta">
+  <div class="wrap">
+    <h2 id="post-cta">Want this done <em>for you?</em></h2>
+    <div class="cta-end__row">
+      <p>We design, write and build websites for Houston service businesses in about four weeks, from $2,400. Every price is published.</p>
+      <div class="btns">
+        <a class="btn" href="/contact" data-cta="post-chiropractor-website-teardown">Start a project <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a>
+        <a class="btn btn--ghost" href="/work/">See the work</a>
       </div>
     </div>
-    <div class="blog-grid">
-      <a class="blog-card" href="/blog/wedding-photographer-teardown" data-reveal>
-        <div class="blog-meta"><span class="cat">Niche teardown</span><span>10 min read</span></div>
-        <h3>How we'd build a wedding photographer's website</h3>
-        <p>The websites that win are the most strategically curated, not the prettiest.</p>
-        <span class="read">Read the essay</span>
-      </a>
-      <a class="blog-card" href="/blog/local-seo-checklist" data-reveal data-reveal-delay="0.08">
-        <div class="blog-meta"><span class="cat">SEO</span><span>11 min read</span></div>
-        <h3>Local SEO: the only checklist you need</h3>
-        <p>The four things that actually move local rankings, in priority order.</p>
-        <span class="read">Read the essay</span>
-      </a>
-      <a class="blog-card" href="/blog/beautiful-website-no-leads" data-reveal data-reveal-delay="0.16">
-        <div class="blog-meta"><span class="cat">Conversion</span><span>7 min read</span></div>
-        <h3>Why your beautiful website isn't generating leads</h3>
-        <p>The five conversion problems we see on almost every small business site.</p>
-        <span class="read">Read the essay</span>
-      </a>
-    </div>
   </div>
-</section>
-
-<section class="bridge section tight">
-  <div class="bridge-inner">
-    <div data-reveal>
-      <div class="eyebrow">Keep going</div>
-      <h2 class="bridge-headline">One more <span class="it">essay</span> if you have time.</h2>
-    </div>
-    <a href="/blog/wedding-photographer-teardown" class="bridge-card" data-reveal data-reveal-delay="0.1">
-      <span class="nm">Next chapter, Niche teardown</span>
-      <h3>How we'd build a wedding photographer's website</h3>
-      <p>Wedding photographers compete in an oversaturated market where the work itself is the product. The websites that win aren't the prettiest, they're the most strategically curated.</p>
-      <span class="go">Read on</span>
-    </a>
-  </div>
-</section>
-
-<section class="final-cta">
-  <div class="eyebrow centered" data-reveal>Works for any medical practice</div>
-  <h2 data-reveal>Run a chiropractic, dental, or <span class="it acc">medical practice</span>?</h2>
-  <p data-reveal>The same patient-first, symptom-led strategy works for any medical practice. Book a call and we'll outline how we'd approach your specific specialty.</p>
-  <a href="/contact" class="btn btn-ember" data-reveal>
-    Book a free 20-min call
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-  </a>
-  <div data-reveal><span class="pill"><span class="pulse"></span>3 slots remaining for <span class="js-bk" data-bk="my">this month</span></span></div>
 </section>
 
 </main>
 
-<footer class="footer" role="contentinfo">
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <a href="/" class="nv-logo" aria-label="Avoxan home">
-        <img src="/avoxan-logo.svg" alt="" width="30" height="40">
-        Avoxan
-      </a>
-      <p>A small Houston web studio building conversion-focused websites for service businesses, coaches, and growing brands. One flat price. One predictable timeline.</p>
-    </div>
-    <div>
-      <h2>The work</h2>
-      <ul>
-        <li><a href="/services">What you get</a></li>
-        <li><a href="/ai-receptionist">AI Receptionist</a></li>
-        <li><a href="/pricing">Pricing</a></li>
-        <li><a href="/process">Process</a></li>
-        <li><a href="/work/">Case studies</a></li>
-      </ul>
-    </div>
-    <div>
-      <h2>Read</h2>
-      <ul>
-        <li><a href="/blog/">Field notes</a></li>
-        <li><a href="/blog/website-cost-2026">Website cost in 2026</a></li>
-        <li><a href="/blog/local-seo-checklist">Local SEO checklist</a></li>
-        <li><a href="/blog/ai-search-citation">Getting cited by AI</a></li>
-      </ul>
-    </div>
-    <div>
-      <h2>Talk</h2>
-      <ul>
-        <li><a href="/contact">Book a call</a></li>
-        <li><a href="/faq">FAQ</a></li>
-        <li><a href="mailto:hello@avoxan.com">hello@avoxan.com</a></li>
-      </ul>
+<footer class="ftr" data-palette="studio">
+  <div class="wrap">
+    <div class="ftr__grid">
+      <div class="ftr__about">
+        <a class="brand" href="/"><img src="/avoxan-logo.svg" alt="" width="22" height="22">Avoxan</a>
+        <p style="margin-top:18px">A Houston web design and development studio for owner-led businesses that refuse to look small.</p>
+        <p class="ftr__nap mono">Houston, Texas · <a href="mailto:hello@avoxan.com">hello@avoxan.com</a></p>
+      </div>
+      <div>
+        <h4 class="mono">Studio</h4>
+        <ul><li><a href="/work/">Work</a></li><li><a href="/services">Services</a></li><li><a href="/process">Process</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/faq">FAQ</a></li><li><a href="/contact">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4 class="mono">AI receptionist</h4>
+        <ul><li><a href="/ai-receptionist">How it works</a></li><li><a href="/ai-receptionist-plumbers">For plumbers</a></li><li><a href="/houston-med-spas">For med spas</a></li><li><a href="/pricing#ai">Plans from $97</a></li></ul>
+      </div>
+      <div>
+        <h4 class="mono">Journal</h4>
+        <ul><li><a href="/blog/website-cost-2026">Website cost in 2026</a></li><li><a href="/blog/local-seo-checklist">Local SEO checklist</a></li><li><a href="/blog/what-is-an-ai-receptionist">What is an AI receptionist?</a></li><li><a href="/blog/">All journal entries</a></li></ul>
+      </div>
     </div>
   </div>
-
-  <div class="footer-word" aria-hidden="true">AVOXAN</div>
-
-  <div class="footer-bottom">
-    <span>© <span data-year>2026</span> Akarshan Digital LLC · Houston, Texas · <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a></span>
-    <span>Site hand-built, see <a href="/work/avoxan-studio-site">how</a></span>
+  <div class="ftr__word" aria-hidden="true">Avoxan</div>
+  <div class="wrap ftr__legal">
+    <span>© 2026 Akarshan Digital LLC. Avoxan is a trading name of Akarshan Digital LLC.</span>
+    <span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · Houston, Texas</span>
   </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-<script src="/js/avoxan-v2.js?v=8" defer></script>
+<script src="/js/avoxan-studio.js?v=5" defer></script>
+<script src="/js/pages/journal.js?v=5" defer></script>
+<script src="/js/avoxan-chat.js?v=5" defer></script>
+<script src="/js/avoxan-analytics.js?v=5" defer></script>
 </body>
 </html>

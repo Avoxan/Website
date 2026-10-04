@@ -1,0 +1,207 @@
+<!--page
+{
+ "title": "How we'd build a website for a wedding photographer (full teardown) · Avoxan Journal",
+ "description": "A page-by-page strategic teardown of a wedding photographer's website: ruthless curation, a real philosophy, visible pricing, and an inquiry process built to filter for fit.",
+ "canonical": "/blog/wedding-photographer-teardown",
+ "nav": "journal",
+ "css": [
+  "pages/journal.css"
+ ],
+ "js": [
+  "pages/journal.js"
+ ],
+ "og_type": "article",
+ "og_title": "How we'd build a website for a wedding photographer (full teardown).",
+ "article": {
+  "published": "2026-05-17",
+  "modified": "2026-10-03"
+ },
+ "breadcrumb": [
+  [
+   "Home",
+   "/"
+  ],
+  [
+   "Journal",
+   "/blog/"
+  ],
+  [
+   "How we'd build a website for a wedding photographer (full teardown).",
+   "/blog/wedding-photographer-teardown"
+  ]
+ ],
+ "schema": [
+  {
+   "@type": "BlogPosting",
+   "@id": "https://avoxan.com/blog/wedding-photographer-teardown#article",
+   "headline": "How we'd build a website for a wedding photographer (full teardown).",
+   "description": "A page-by-page strategic teardown of a wedding photographer's website: ruthless curation, a real philosophy, visible pricing, and an inquiry process built to filter for fit.",
+   "articleSection": "Teardown",
+   "wordCount": 993,
+   "datePublished": "2026-05-17",
+   "dateModified": "2026-10-03",
+   "inLanguage": "en-US",
+   "image": "https://avoxan.com/og-image.png",
+   "mainEntityOfPage": "https://avoxan.com/blog/wedding-photographer-teardown",
+   "author": {
+    "@type": "Person",
+    "@id": "https://avoxan.com/#akarsh",
+    "name": "Akarsh",
+    "jobTitle": "Designer and developer",
+    "worksFor": {
+     "@id": "https://avoxan.com/#org"
+    }
+   },
+   "publisher": {
+    "@id": "https://avoxan.com/#org"
+   }
+  }
+ ]
+}
+-->
+<div class="jr-progress" aria-hidden="true"><i data-progress></i></div>
+
+<article class="post">
+  <header class="post-hd">
+    <div class="wrap">
+      <ol class="crumbs mono" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li><a href="/blog/">Journal</a></li><li aria-current="page">Teardown</li></ol>
+      <p class="post-meta mono" data-reveal><span class="post-cat">Teardown</span><span>4 min read</span><span>Updated <time datetime="2026-10-03">Oct 3, 2026</time></span></p>
+      <h1 data-reveal>How we'd build a website for a <em>wedding photographer</em> (full teardown).</h1>
+      <p class="post-deck" data-reveal>Wedding photographers compete in an oversaturated market where the work itself is the product. The websites that win aren't the prettiest, they're the most strategically curated. Here's the full build approach.</p>
+      <p class="post-by" data-reveal><span class="post-by__av" aria-hidden="true">A</span><span>By <b>Akarsh</b>, designer and developer at Avoxan · First published <time datetime="2026-05-17">May 17, 2026</time></span></p>
+    </div>
+  </header>
+
+  <div class="wrap post-grid">
+    <nav class="toc" aria-label="In this article">
+      <p class="mono toc__h">In this article</p>
+      <ol>
+          <li><a href="#the-strategy-in-one-sentence">The strategy in one sentence</a></li>
+          <li><a href="#page-1-homepage">Page 1: Homepage</a></li>
+          <li><a href="#page-2-full-portfolio-galleries">Page 2: Full Portfolio / Galleries</a></li>
+          <li><a href="#page-3-about">Page 3: About</a></li>
+          <li><a href="#page-4-investment-pricing">Page 4: Investment / Pricing</a></li>
+          <li><a href="#page-5-faq">Page 5: FAQ</a></li>
+          <li><a href="#page-6-inquiry">Page 6: Inquiry</a></li>
+          <li><a href="#the-journal-blog">The journal / blog</a></li>
+          <li><a href="#technical-setup-for-photographers-specifically">Technical setup for photographers specifically</a></li>
+          <li><a href="#what-we-d-specifically-not-do">What we&#x27;d specifically NOT do</a></li>
+      </ol>
+    </nav>
+
+    <div class="prose post-body">
+      <div class="tldr"><p class="mono">The short version</p><p>A wedding photographer's website should answer four questions in under 30 seconds: what your style actually is, who you're for, what you charge minimum, and what booking you means logistically. Most photographer sites are massive image dumps that answer none of these. Cut the image count by 80%, write a real philosophy, show your pricing minimum, and structure your inquiry process to filter for fit.</p></div>
+
+      <p class="lede">The wedding photography market in any mid-sized city has 200+ active photographers competing on roughly the same visual deliverables. The ones who book the highest-paying clients aren't necessarily the most technically skilled, they're the ones whose websites communicate clearly who they are and what they cost. Here's how we'd build that site.</p>
+
+      <h2 id="the-strategy-in-one-sentence">The strategy in one sentence</h2>
+      <blockquote>Stop competing as "a wedding photographer." Become the obvious answer for one specific kind of couple.</blockquote>
+      <p>Pick a positioning: documentary, fine-art editorial, fun-and-candid, dark moody, light-and-airy, adventure/elopement, traditional cultural weddings, LGBTQ+ weddings. Whatever it is, claim it openly on the homepage. The photographer who positions for everyone gets booked by no one with budget.</p>
+
+      <h2 id="page-1-homepage">Page 1: Homepage</h2>
+      <h3>Hero (above the fold)</h3>
+      <p><strong>Headline:</strong> One short emotional/positional line. Not "[Name] Photography." Something like "Quiet light. Real love." for documentary. "Loud joy. Big rooms." for fun-and-candid. "Stolen mountain mornings." for elopement.</p>
+      <p><strong>Subhead:</strong> Position + location + minimum information. "Documentary wedding photography for couples who'd rather have 30 great photos than 600 average ones. Austin + everywhere worth flying to. From $6,500."</p>
+      <p><strong>CTA:</strong> "Check our calendar" (links to availability) or "Start an inquiry."</p>
+      <h3>The image curation rule</h3>
+      <p>The homepage should show 8-12 images. Not 60. Not 100. The math: every weak image is a reason someone clicks away. Show your absolute best work, ruthlessly edited. If you can't pick 12 from your portfolio, you have a curation problem more than a quantity problem.</p>
+      <aside class="note"><p class="note__h">The "drunk friend" curation test</p><p>Imagine showing your portfolio to a drunk friend who scrolls fast. Which 12 images make them say "wait, go back to that one"? Those are your homepage images. Everything else is for the full gallery page.</p>
+      </aside>
+      <h3>Section: A real philosophy paragraph</h3>
+      <p>200-300 words on how you actually shoot. What you do, what you don't do, what you believe. Specific. Opinionated. This is what convinces a $10K couple that you're worth booking versus the $4K photographer they were also considering.</p>
+      <h3>Section: Pricing, minimum visible</h3>
+      <p>"Coverage starts at $6,500. Full pricing guide sent after a quick fit-check call."</p>
+      <p>Hide the full breakdown if you want, but show the starting number. This is the single biggest lead-quality lever for wedding photographers. Hiding the minimum guarantees an inbox full of $2,500-budget inquiries.</p>
+      <h3>Section: 2-3 featured weddings</h3>
+      <p>Not a grid. Editorial story format. Each features 8-12 images and 200-400 words of narrative about the day. This is what convinces couples that you understand how to tell a story, not just shoot pretty frames.</p>
+      <h3>Section: Real reviews</h3>
+      <p>Three to five testimonials from past couples with their first names, wedding date, and venue. Not anonymized "M &amp; J, 2024." Real and specific.</p>
+
+      <h2 id="page-2-full-portfolio-galleries">Page 2: Full Portfolio / Galleries</h2>
+      <p>This is where the 200+ images live. But still curated by wedding, not dumped in a grid. Each wedding should have its own page with 30-50 images max, in narrative order (getting ready → ceremony → portraits → reception), with venue/date/location credited.</p>
+
+      <h2 id="page-3-about">Page 3: About</h2>
+      <p>800+ words. Long. Personal. Photographers under-invest in About pages and overspend on portfolios. The About page is what closes the booking, the portfolio is what gets them to the About page.</p>
+      <p>Structure: who you are, why photography, your philosophy on weddings specifically, what you do outside work, what kind of couples you click with, what kind of weddings you decline. Be specific. Be opinionated. Be human.</p>
+
+      <h2 id="page-4-investment-pricing">Page 4: Investment / Pricing</h2>
+      <p>Either fully transparent (3-4 tiers with prices) or partially transparent ("collections start at $6,500, full guide upon inquiry"). Pick one. Don't be coy. If you go partial, the inquiry form should require a budget range field so you filter at intake.</p>
+
+      <h2 id="page-5-faq">Page 5: FAQ</h2>
+      <p>15-25 real questions answered. "How many photos will we get?" "What if it rains?" "Do you travel?" "How long until we get our gallery?" "Do you have backup equipment?" "Are you insured?" "Can we see a full gallery?" Mark this up with FAQPage schema, it ranks well and AI search tools cite it.</p>
+
+      <h2 id="page-6-inquiry">Page 6: Inquiry</h2>
+      <p>Don't use a generic contact form. Build a real inquiry form with the right filtering fields:</p>
+      <ul>
+        <li>Names</li>
+        <li>Email</li>
+        <li>Wedding date (or "still planning")</li>
+        <li>Venue/location (or "still planning")</li>
+        <li>Estimated guest count</li>
+        <li>Budget range for photography (with tiered options matching your pricing)</li>
+        <li>How did you hear about us? (use UTM tracking, but ask anyway)</li>
+        <li>What drew you to the work? (open text, this is qualitative gold)</li>
+      </ul>
+      <p>Photographers who use generic 3-field contact forms drown in unqualified leads. Photographers who use 8-field strategic inquiry forms get 60% fewer inquiries that are 5x more qualified.</p>
+
+      <h2 id="the-journal-blog">The journal / blog</h2>
+      <p>Long-form recaps of full weddings. Each is a 600-1,000-word piece with 25-40 images. Each ranks locally for venue-specific keywords ("Driskill Hotel wedding photographer," "Vista West Ranch wedding"). Couples search by venue. Photographers who write journals get found by venue. Two journals per month is a sustainable rhythm.</p>
+
+      <h2 id="technical-setup-for-photographers-specifically">Technical setup for photographers specifically</h2>
+      <ul class="checklist">
+        <li>Platform: Framer or Squarespace 7.1 (image-heavy, performance-critical)</li>
+        <li>WebP image format throughout, lazy-loaded, with proper srcset</li>
+        <li>Pinterest-friendly meta tags on every image (Pinterest is still a major referrer for wedding searches)</li>
+        <li>Instagram-to-site sync for the journal so you can publish from your phone</li>
+        <li>Schema markup: Photograph, CreativeWork, Person, LocalBusiness</li>
+        <li>Mobile galleries optimized for swipe, 60% of inquiries come from phones</li>
+        <li>Page load under 2.5 seconds on mobile despite image-heaviness</li>
+      </ul>
+
+      <h2 id="what-we-d-specifically-not-do">What we'd specifically NOT do</h2>
+      <ul>
+        <li><strong>Auto-playing background videos.</strong> Slow, distracting, mobile-hostile.</li>
+        <li><strong>Cursive script fonts in headers.</strong> The 2010s called.</li>
+        <li><strong>Watermarks on portfolio images.</strong> Looks unprofessional and prevents Pinterest sharing.</li>
+        <li><strong>Music auto-playing on page load.</strong> Has this, ever, in the history of the web, worked?</li>
+        <li><strong>A 100-photo grid homepage.</strong> The opposite of selling.</li>
+      </ul>
+
+
+      <aside class="post-author" aria-label="About the author">
+        <span class="post-by__av" aria-hidden="true">A</span>
+        <div>
+          <p class="post-author__name">Akarsh <span>· Designer and developer, Avoxan</span></p>
+          <p>Akarsh designs and builds websites at Avoxan, with a focus on conversion structure and the technical side of search: schema markup, page speed, and how a page gets read by search engines and AI assistants. Avoxan is a small studio in Houston, Texas that publishes every price on its <a href="/pricing">pricing page</a>.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</article>
+
+<section class="sec jr-more" aria-labelledby="more-h">
+  <div class="wrap">
+    <div class="jr-more__head">
+      <h2 id="more-h">Keep <em>reading.</em></h2>
+      <a class="link-u mono" href="/blog/">All journal entries →</a>
+    </div>
+    <div class="jr-cards">
+      <a class="jr-card" href="/blog/chiropractor-website-teardown"><span class="mono">Teardown · 4 min read</span><b>How we'd build a website for a chiropractor (full teardown).</b><span class="jr-card__go mono">Read →</span></a>
+      <a class="jr-card" href="/blog/beautiful-website-no-leads"><span class="mono">Conversion · 4 min read</span><b>Why your beautiful website isn't generating any leads.</b><span class="jr-card__go mono">Read →</span></a>
+      <a class="jr-card" href="/blog/website-cost-2026"><span class="mono">Pricing · 4 min read</span><b>How much should a small business website actually cost in 2026?</b><span class="jr-card__go mono">Read →</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-end" aria-labelledby="post-cta">
+  <div class="wrap">
+    <h2 id="post-cta">Want this done <em>for you?</em></h2>
+    <div class="cta-end__row">
+      <p>We design, write and build websites for Houston service businesses in about four weeks, from $2,400. Every price is published.</p>
+      <div class="btns">
+        <a class="btn" href="/contact" data-cta="post-wedding-photographer-teardown">Start a project <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a>
+        <a class="btn btn--ghost" href="/work/">See the work</a>
+      </div>
+    </div>
+  </div>
+</section>

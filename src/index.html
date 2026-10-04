@@ -1,0 +1,666 @@
+<!--page
+{
+ "priority": "1.0",
+ "title": "Avoxan | Houston Web Design & Development Studio",
+ "description": "Avoxan is a Houston design and build studio. Websites, booking systems and brands for owner-led businesses, from strategy and copy to design and code, launched in about four weeks.",
+ "canonical": "/",
+ "nav": "home",
+ "org": false,
+ "schema": [
+  {
+   "@type": [
+    "Organization",
+    "ProfessionalService"
+   ],
+   "@id": "https://avoxan.com/#org",
+   "name": "Avoxan",
+   "legalName": "Akarshan Digital LLC",
+   "url": "https://avoxan.com/",
+   "logo": "https://avoxan.com/avoxan-logo-512.png",
+   "image": "https://avoxan.com/og-image.png",
+   "email": "hello@avoxan.com",
+   "description": "Design and build studio in Houston, Texas. Websites, booking systems, brand identity and an AI phone receptionist for owner-led service businesses.",
+   "foundingDate": "2026",
+   "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Houston",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+   },
+   "areaServed": [
+    "US",
+    "CA",
+    "GB",
+    "AU"
+   ],
+   "priceRange": "$$",
+   "makesOffer": [
+    {
+     "@type": "Offer",
+     "name": "Business Website",
+     "price": "2400",
+     "priceCurrency": "USD",
+     "url": "https://avoxan.com/pricing",
+     "description": "A complete 8-page custom website with copywriting, technical SEO and 90 days of post-launch edits."
+    },
+    {
+     "@type": "Offer",
+     "name": "Custom Build",
+     "url": "https://avoxan.com/pricing",
+     "description": "Customer accounts, online booking, e-commerce and integrations. From $5,000, scoped per project.",
+     "priceSpecification": {
+      "@type": "PriceSpecification",
+      "minPrice": "5000",
+      "priceCurrency": "USD"
+     }
+    },
+    {
+     "@type": "Offer",
+     "name": "AI Receptionist",
+     "url": "https://avoxan.com/pricing#ai",
+     "description": "Three monthly plans: Catch $97, Answer $197, Front Desk $397. Free setup, no contract.",
+     "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "minPrice": "97",
+      "price": "97",
+      "priceCurrency": "USD",
+      "unitText": "MONTH"
+     }
+    }
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://avoxan.com/#website",
+   "url": "https://avoxan.com/",
+   "name": "Avoxan",
+   "publisher": {
+    "@id": "https://avoxan.com/#org"
+   }
+  }
+ ],
+ "og_title": "Avoxan | Houston Web Design & Development Studio",
+ "og_description": "Websites, booking systems and brands for owner-led businesses. Strategy, copy, design and code from one small Houston studio.",
+ "preload": [
+  {
+   "href": "/assets/studio/ember-poster.webp",
+   "as": "image",
+   "type": "image/webp"
+  }
+ ],
+ "booking": true
+}
+-->
+<!-- ================= HERO ================= -->
+<section class="hero" aria-labelledby="hero-h">
+  <div class="hero__film" aria-hidden="true">
+    <video id="heroFilm" autoplay muted loop playsinline preload="metadata" poster="assets/studio/ember-poster.webp">
+      <source src="assets/studio/ember-film.webm" type="video/webm">
+      <source src="assets/studio/ember-film.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="wrap hero__body">
+    <p class="hero__eyebrow mono">
+      <span><span class="dot" aria-hidden="true"></span>Booking October 2026 · 3 spots left</span>
+      <span>Design &amp; build studio · Houston, Texas</span>
+    </p>
+    <h1 id="hero-h">
+      <span class="ln"><span>For businesses</span></span>
+      <span class="ln"><span>that refuse to</span></span>
+      <span class="ln"><span>look <em>small.</em></span></span>
+    </h1>
+
+    <div class="hero__foot">
+      <div>
+        <p class="hero__lede">Avoxan designs and builds websites, booking systems and brands for owner-led businesses. <strong>Strategy, copy, design and code from one small team</strong>, launched in about four weeks.</p>
+        <div class="hero__ctas">
+          <a class="btn" href="#book" data-cta="hero">Start a project
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
+          <a class="btn btn--ghost" href="#work">See the work</a>
+        </div>
+      </div>
+
+      <div class="showing" aria-label="Recent work">
+        <div class="showing__h mono"><span>Recent work</span><span>2026</span></div>
+        <a href="#bag-chasers"><img src="assets/work/bc-home.webp" alt="" width="52" height="34" loading="lazy"><span><b>Bag Chasers Laundry Co.</b><small>Website &amp; booking engine</small></span><span class="arr" aria-hidden="true">→</span></a>
+        <a href="#clever"><img src="assets/work/cl-home.webp" alt="" width="52" height="34" loading="lazy"><span><b>The Clever Insurance</b><small>Brand &amp; website</small></span><span class="arr" aria-hidden="true">→</span></a>
+        <a href="#prep-doc"><img src="assets/work/pd-home.webp" alt="" width="52" height="34" loading="lazy"><span><b>thePrepDoc</b><small>Art direction &amp; website</small></span><span class="arr" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REEL ================= -->
+<section class="reel" aria-labelledby="reel-h">
+  <div class="reel__tilt" aria-hidden="true">
+    <div class="reel__col" style="--t:80s">
+      <img src="assets/work/bc-home-strip.webp" alt="" loading="lazy" decoding="async" width="720" height="1800">
+      <img src="assets/work/pd-pricing.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000">
+      <img src="assets/work/cl-employers.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000">
+      <img src="assets/work/bc-home-strip.webp" alt="" loading="lazy" decoding="async" width="720" height="1800">
+      <img src="assets/work/pd-pricing.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000">
+      <img src="assets/work/cl-employers.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000">
+    </div>
+    <div class="reel__col" style="--t:95s">
+      <img src="assets/work/cl-home-strip.webp" alt="" loading="lazy" decoding="async" width="720" height="1800">
+      <img src="assets/work/bc-schedule.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000">
+      <img src="assets/work/pd-divorce.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000">
+      <img src="assets/work/cl-home-strip.webp" alt="" loading="lazy" decoding="async" width="720" height="1800">
+      <img src="assets/work/bc-schedule.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000">
+      <img src="assets/work/pd-divorce.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000">
+    </div>
+    <div class="reel__col" style="--t:72s">
+      <img src="assets/work/pd-home-strip.webp" alt="" loading="lazy" decoding="async" width="720" height="1800">
+      <img src="assets/work/cl-benefits.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000">
+      <img src="assets/work/bc-areas.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000">
+      <img src="assets/work/pd-home-strip.webp" alt="" loading="lazy" decoding="async" width="720" height="1800">
+      <img src="assets/work/cl-benefits.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000">
+      <img src="assets/work/bc-areas.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000">
+    </div>
+    <div class="reel__col" style="--t:88s">
+      <img src="assets/work/bc-pricing.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000">
+      <img src="assets/work/pd-services.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000">
+      <img src="assets/work/cl-about.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000">
+      <img src="assets/work/bc-how.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000">
+      <img src="assets/work/bc-pricing.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000">
+      <img src="assets/work/pd-services.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000">
+      <img src="assets/work/cl-about.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000">
+      <img src="assets/work/bc-how.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000">
+    </div>
+  </div>
+  <div class="reel__cap">
+    <h2 id="reel-h" data-reveal>This season,<br><em class="it">at the studio.</em></h2>
+    <p data-reveal>A laundry route in Georgia, a benefits brokerage in Houston and a legal document practice in California. Every screen here is a page we designed and built.</p>
+  </div>
+</section>
+
+<!-- ================= INTRO ================= -->
+<section class="intro" aria-label="About the studio">
+  <div class="wrap">
+    <div class="intro__grid">
+      <p class="intro__label mono">The studio</p>
+      <p class="intro__text" data-words>Avoxan is a small studio in Houston. We take a few clients at a time and do the whole job ourselves: the strategy, the words, the design and the code. Owner-led businesses come to us so they can stop looking small. <em>They leave with the best website in their town.</em></p>
+    </div>
+    <div class="facts">
+      <div class="fact" data-reveal><b>One person to call</b><span>You talk to the person doing the work, from the first call through launch.</span></div>
+      <div class="fact" data-reveal><b>About four weeks</b><span>From discovery call to a live site, for a standard build.</span></div>
+      <div class="fact" data-reveal><b>Yours outright</b><span>The site, the words and every account are in your name when we hand over.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WORK ================= -->
+<section id="work" aria-labelledby="work-h">
+  <div class="wrap work-head">
+    <h2 id="work-h" data-reveal>Selected work</h2>
+    <p data-reveal>Real clients, shipped this year. Each project is shown in its own colors, the way its customers see it.</p>
+  </div>
+
+  <!-- ---------- 01 · BAG CHASERS ---------- -->
+  <article class="case" id="bag-chasers" data-palette="bc" style="--case-bg:#0C0B09;--case-fg:#F3EFE4" aria-labelledby="bc-h">
+    <div class="wrap">
+      <div class="case__top mono">
+        <span>01 / 03 · Laundry pickup &amp; delivery</span>
+        <span>Gwinnett County, Georgia</span>
+        <span class="live">Live since October 2026</span>
+      </div>
+      <h3 class="case__name" id="bc-h" data-reveal>Bag Chasers <em>Laundry&nbsp;Co.</em></h3>
+      <div class="case__intro">
+        <p class="case__line" data-reveal>A laundry pickup service that books, routes and bills itself.</p>
+        <ul class="chips" data-reveal>
+          <li>29-page website</li><li>Booking engine</li><li>CleanCloud integration</li><li>Customer accounts</li><li>Local SEO</li>
+        </ul>
+      </div>
+
+      <div class="stage">
+        <figure class="browser" data-reveal="clip">
+          <div class="browser__bar" aria-hidden="true">
+            <span class="browser__dots"><i></i><i></i><i></i></span>
+            <span class="browser__url"><svg viewBox="0 0 10 12" fill="currentColor"><path d="M2 5V3.5a3 3 0 0 1 6 0V5h.5A1.5 1.5 0 0 1 10 6.5v4A1.5 1.5 0 0 1 8.5 12h-7A1.5 1.5 0 0 1 0 10.5v-4A1.5 1.5 0 0 1 1.5 5H2Zm1.5 0h3V3.5a1.5 1.5 0 0 0-3 0V5Z"/></svg>bagchaserslaundry.com</span>
+          </div>
+          <img src="assets/work/bc-home.webp" alt="Bag Chasers homepage: 'You chase the bag. We handle the laundry.' in bold condensed type over the mascot, with a ZIP code checker" width="1600" height="1000" loading="lazy" decoding="async">
+        </figure>
+        <figure class="phone" data-speed="-0.12">
+          <img src="assets/work/bc-mob-schedule.webp" alt="The Bag Chasers booking page on a phone, with a running estimate of the order total" width="600" height="1299" loading="lazy" decoding="async">
+        </figure>
+      </div>
+
+      <div class="case__body">
+        <div data-reveal>
+          <h4 class="mono">The brief</h4>
+          <p>A new laundry pickup business in Gwinnett County needed more than a brochure. Customers had to be able to check their ZIP, book a window, store a card and manage their orders, and every booking had to reach the shop's point-of-sale system without anyone retyping it.</p>
+        </div>
+        <div data-reveal>
+          <h4 class="mono">What we built</h4>
+          <ol class="built">
+            <li>Live booking connected to CleanCloud, the shop's point-of-sale</li>
+            <li>A route-aware scheduler that recommends the windows when the van is already on your street</li>
+            <li>Card on file, charged only once the bag is weighed at the door</li>
+            <li>Customer accounts to track, reschedule and cancel pickups</li>
+            <li>A build that refuses to publish a page with a price that disagrees with the rate card</li>
+          </ol>
+        </div>
+        <div class="stats" data-reveal>
+          <div class="stat"><b>29</b><span>pages, one rate card behind all of them</span></div>
+          <div class="stat"><b>12</b><span>towns on the route</span></div>
+          <div class="stat"><b>5</b><span>steps from ZIP to booked</span></div>
+        </div>
+      </div>
+
+      <!-- the booking engine -->
+      <div class="engine" id="engine">
+        <div data-reveal>
+          <p class="mono" style="color:var(--accent)">Inside the booking engine</p>
+          <h3>The van already knows <em>your street.</em></h3>
+          <p>Most laundry sites end at a contact form. This one runs the business: it reads the route, prices the order and hands a real pickup to the shop.</p>
+          <!-- Verbatim, design review call, 1 Sep 2026, 00:55:09-00:55:13 -->
+          <blockquote class="ask"><p>"It would literally do all the logistics for me."</p><cite class="mono">Michael, on what the scheduler needed to do</cite></blockquote>
+          <ul class="steps" role="tablist" aria-label="Booking steps">
+            <li><button role="tab" aria-selected="true" aria-controls="pane-1" id="tab-1"><span class="n">01</span><span><b>Check the ZIP</b><span>One field tells a visitor whether the van comes to them, across 12 towns and 18 ZIP codes.</span></span></button></li>
+            <li><button role="tab" aria-selected="false" aria-controls="pane-2" id="tab-2"><span class="n">02</span><span><b>Pick a window</b><span>Windows on a street the van is already running are recommended first, at 2% off the order.</span></span></button></li>
+            <li><button role="tab" aria-selected="false" aria-controls="pane-3" id="tab-3"><span class="n">03</span><span><b>Card on file</b><span>Nothing is charged at booking. The bag is weighed at the door and the card is charged for that total.</span></span></button></li>
+            <li><button role="tab" aria-selected="false" aria-controls="pane-4" id="tab-4"><span class="n">04</span><span><b>Straight into the shop</b><span>The booking lands in CleanCloud as a real pickup, and the customer manages it from their account.</span></span></button></li>
+          </ul>
+        </div>
+
+        <div class="device" data-reveal aria-live="polite">
+          <div class="device__top"><span>bagchaserslaundry.com/schedule</span><span class="device__prog" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></span></div>
+
+          <div class="pane on" id="pane-1" role="tabpanel" aria-labelledby="tab-1">
+            <p class="mono" style="color:#8A7A52;margin:0">Step 1 · Address</p>
+            <h5>Where are we picking up?</h5>
+            <div class="field"><span>30043</span><span class="ok">✓ Lawrenceville · We run your street</span></div>
+            <p class="note">Your address decides which van runs your street, and which windows are worth offering you.</p>
+          </div>
+
+          <div class="pane" id="pane-2" role="tabpanel" aria-labelledby="tab-2">
+            <p class="mono" style="color:#8A7A52;margin:0">Step 3 · Window</p>
+            <h5>Pick a pickup window</h5>
+            <div class="slots">
+              <div class="slot rec"><b>Tue · 12–3pm</b><span class="badge">Van nearby · 2% off</span><small>We are already on your street this afternoon</small></div>
+              <div class="slot"><b>Tue · 9am–12pm</b><span></span><small>Standard window</small></div>
+              <div class="slot"><b>Wed · 3–6pm</b><span></span><small>Standard window</small></div>
+            </div>
+          </div>
+
+          <div class="pane" id="pane-3" role="tabpanel" aria-labelledby="tab-3">
+            <p class="mono" style="color:#8A7A52;margin:0">Step 5 · Confirm</p>
+            <h5>Nothing charged today</h5>
+            <div class="card">
+              <div class="card__row"><span>CARD ON FILE</span><span>•••• 4242</span></div>
+              <div class="card__row"><span>30 LB AT $2.09/LB</span><span>EST. $62.70</span></div>
+            </div>
+            <p class="note">Your bag is weighed at the door and we text or email you the weighed total. The card is charged for that, and nothing else.</p>
+          </div>
+
+          <div class="pane" id="pane-4" role="tabpanel" aria-labelledby="tab-4">
+            <p class="mono" style="color:#8A7A52;margin:0">Your account</p>
+            <h5>Pickup booked</h5>
+            <div class="track">
+              <div class="done"><i></i><span>Booked</span><small>sent to CleanCloud</small></div>
+              <div><i></i><span>Picked up &amp; weighed</span><small>Tue, 12–3pm</small></div>
+              <div><i></i><span>Washed &amp; folded</span><small>—</small></div>
+              <div><i></i><span>Delivered</span><small>within 2 days</small></div>
+            </div>
+            <div class="track"><div class="act" style="border:0"><span>Reschedule</span><span>Cancel</span><span>Order history</span></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="strip">
+        <div class="strip__h mono"><span>More from the build</span><span>Swipe →</span></div>
+        <div class="strip__row">
+          <figure><img src="assets/work/bc-pricing.webp" alt="Pricing page: one rate, $2.09 per pound, set very large" loading="lazy" decoding="async" width="1600" height="1000"><figcaption>Pricing, one rate set large</figcaption></figure>
+          <figure><img src="assets/work/bc-areas.webp" alt="Service areas page: 'Where we run.' with a ZIP checker and town counts" loading="lazy" decoding="async" width="1600" height="1000"><figcaption>Service areas and ZIP checker</figcaption></figure>
+          <figure><img src="assets/work/bc-how.webp" alt="How it works page: a branded laundry bag on a front porch, headline 'Leave the bag.'" loading="lazy" decoding="async" width="1600" height="1000"><figcaption>How it works</figcaption></figure>
+          <figure><img src="assets/work/bc-schedule.webp" alt="Desktop booking form with five steps and a running order estimate" loading="lazy" decoding="async" width="1600" height="1000"><figcaption>The five-step booking flow</figcaption></figure>
+        </div>
+      </div>
+
+      <!-- Verbatim from the design review call, 1 Sep 2026, 01:13:16-01:13:39 -->
+      <figure class="say" data-reveal>
+        <blockquote>The design's perfect. I liked it from the very beginning. I love it, I'm excited about it.</blockquote>
+        <figcaption><b>Michael</b>Owner, Bag Chasers Laundry Co.</figcaption>
+      </figure>
+
+      <div class="case__cta">
+        <a class="btn" href="https://bagchaserslaundry.com/" target="_blank" rel="noopener">Visit the live site
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" stroke="currentColor" stroke-width="1.6"/></svg></a>
+        <a class="btn btn--ghost" href="#record">Hear from the client</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- ---------- 02 · THE CLEVER INSURANCE ---------- -->
+  <article class="case" id="clever" data-palette="cl" style="--case-bg:#EFE9DE;--case-fg:#0F3A2D" aria-labelledby="cl-h">
+    <div class="wrap">
+      <div class="case__top mono">
+        <span>02 / 03 · Employee benefits brokerage</span>
+        <span>Houston, Texas</span>
+        <span>2026</span>
+      </div>
+      <h3 class="case__name" id="cl-h" data-reveal>The Clever <em>Insurance</em></h3>
+      <div class="case__intro">
+        <p class="case__line" data-reveal>A benefits brokerage whose website now feels like calling them.</p>
+        <ul class="chips" data-reveal>
+          <li>Brand system</li><li>Copywriting</li><li>13-page website</li><li>Sourced data &amp; schema</li><li>Zero-JavaScript build</li>
+        </ul>
+      </div>
+
+      <div class="stage">
+        <figure class="browser" data-reveal="clip">
+          <div class="browser__bar" aria-hidden="true">
+            <span class="browser__dots"><i></i><i></i><i></i></span>
+            <span class="browser__url"><svg viewBox="0 0 10 12" fill="currentColor"><path d="M2 5V3.5a3 3 0 0 1 6 0V5h.5A1.5 1.5 0 0 1 10 6.5v4A1.5 1.5 0 0 1 8.5 12h-7A1.5 1.5 0 0 1 0 10.5v-4A1.5 1.5 0 0 1 1.5 5H2Zm1.5 0h3V3.5a1.5 1.5 0 0 0-3 0V5Z"/></svg>cleverbenefitsolutions.com</span>
+          </div>
+          <img src="assets/work/cl-home.webp" alt="The Clever Insurance homepage: 'Employee benefits built around relationships, not call centers', beside a photo of Julie and Cody Wall" width="1600" height="1000" loading="lazy" decoding="async">
+        </figure>
+        <figure class="phone" data-speed="-0.12">
+          <img src="assets/work/cl-mob.webp" alt="The Clever Insurance homepage on a phone" width="600" height="1299" loading="lazy" decoding="async">
+        </figure>
+      </div>
+
+      <div class="case__body">
+        <div data-reveal>
+          <h4 class="mono">The brief</h4>
+          <p>Julie and Cody Wall place group health, dental, vision, life and disability plans for Texas businesses, then service them all year. Clients stay because a person who knows their plan answers the phone. The site had to say that plainly, and carry figures on a subject where a wrong number costs trust.</p>
+        </div>
+        <div data-reveal>
+          <h4 class="mono">What we built</h4>
+          <ol class="built">
+            <li>The "Evergreen &amp; Linen" brand system and a redrawn clover mark</li>
+            <li>A full copy deck, written from their own words</li>
+            <li>Every statistic shown with a visible, dated source</li>
+            <li>One data file that feeds both the page and its structured data, so they can never disagree</li>
+            <li>A palette audited for contrast on every surface it touches</li>
+          </ol>
+        </div>
+        <div class="stats" data-reveal>
+          <div class="stat"><b>13</b><span>pages, mobile first</span></div>
+          <div class="stat"><b>0</b><span>frameworks shipped to the browser</span></div>
+          <div class="stat"><b>2–1,000</b><span>employee groups the copy speaks to</span></div>
+        </div>
+      </div>
+
+      <div class="strip">
+        <div class="strip__h mono"><span>More from the build</span><span>Swipe →</span></div>
+        <div class="strip__row">
+          <figure><img src="assets/work/cl-about.webp" alt="About page: 'Small on purpose. That's the point.' over a portrait of Julie and Cody" loading="lazy" decoding="async" width="1600" height="1000"><figcaption>About, small on purpose</figcaption></figure>
+          <figure><img src="assets/work/cl-benefits.webp" alt="Employee benefits page: 'A benefits package your team will actually use.'" loading="lazy" decoding="async" width="1600" height="1000"><figcaption>Employee benefits</figcaption></figure>
+          <figure><img src="assets/work/cl-employers.webp" alt="For employers page on deep evergreen: 'The part that happens after you sign.'" loading="lazy" decoding="async" width="1600" height="1000"><figcaption>For employers</figcaption></figure>
+        </div>
+      </div>
+
+      <!-- Verbatim from the website review call, 30 Sep 2026, 01:21:33-01:21:53 -->
+      <figure class="say" data-reveal>
+        <blockquote>This is my third website build I've been part of, and by far the best. Not even close. Not just the layout, the aesthetics, but the way you listen to what Julie and I said.</blockquote>
+        <figcaption><b>Cody Wall</b>President, The Clever Insurance</figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <!-- ---------- 03 · THEPREPDOC ----------
+       Embargoed: thePrepDoc is a surprise for its owner, revealed on
+       1 November 2026. Do not ship this article to the public site
+       before then. -->
+  <article class="case" id="prep-doc" data-palette="pd" style="--case-bg:#1B1117;--case-fg:#F5ECE6" aria-labelledby="pd-h">
+    <div class="wrap">
+      <div class="case__top mono">
+        <span>03 / 03 · Legal document assistant</span>
+        <span>All of California</span>
+        <span>Launching November 2026</span>
+      </div>
+      <h3 class="case__name" id="pd-h" data-reveal>the<em>prep</em>doc</h3>
+      <div class="case__intro">
+        <p class="case__line" data-reveal>Court paperwork help, staged like a Victorian parlor after hours.</p>
+        <ul class="chips" data-reveal>
+          <li>Art direction</li><li>12-page website</li><li>Self-serve content editing</li><li>Booking &amp; payments</li><li>Compliance</li>
+        </ul>
+      </div>
+
+      <div class="stage">
+        <figure class="browser" data-reveal="clip">
+          <div class="browser__bar" aria-hidden="true">
+            <span class="browser__dots"><i></i><i></i><i></i></span>
+            <span class="browser__url"><svg viewBox="0 0 10 12" fill="currentColor"><path d="M2 5V3.5a3 3 0 0 1 6 0V5h.5A1.5 1.5 0 0 1 10 6.5v4A1.5 1.5 0 0 1 8.5 12h-7A1.5 1.5 0 0 1 0 10.5v-4A1.5 1.5 0 0 1 1.5 5H2Zm1.5 0h3V3.5a1.5 1.5 0 0 0-3 0V5Z"/></svg>theprepdoc.com</span>
+          </div>
+          <img src="assets/work/pd-home.webp" alt="thePrepDoc homepage: 'Court paperwork, done right, without a $5,000 lawyer' beside a fringed pink lamp and a ribboned stack of papers" width="1600" height="1000" loading="lazy" decoding="async">
+        </figure>
+        <figure class="phone" data-speed="-0.12">
+          <img src="assets/work/pd-mob.webp" alt="thePrepDoc homepage on a phone" width="600" height="1299" loading="lazy" decoding="async">
+        </figure>
+      </div>
+
+      <div class="case__body">
+        <div data-reveal>
+          <h4 class="mono">The brief</h4>
+          <p>Brenda prepares divorce, custody, probate and small-claims paperwork for Californians handling their own case. She closes on the phone, so the site has one job: get a nervous visitor to call, text or book a free consult, while staying inside the state's rules for legal document assistants.</p>
+        </div>
+        <div data-reveal>
+          <h4 class="mono">What we built</h4>
+          <ol class="built">
+            <li>"The Parlor": velvet, gilt and lamplight, drawn from her love of Victorian homes and 1950s glamour</li>
+            <li>An art-directed still life for every page, with no stock photography</li>
+            <li>Required disclosures in English and Spanish in every footer</li>
+            <li>A content editor so she can change prices, court fees, hours and FAQs herself</li>
+            <li>Booking, intake and payments wired through Cal.com, Tally and Stripe</li>
+          </ol>
+        </div>
+        <div class="stats" data-reveal>
+          <div class="stat"><b>12</b><span>pages, each with its own scene</span></div>
+          <div class="stat"><b>2</b><span>languages in every footer</span></div>
+          <div class="stat"><b>0</b><span>stock photos</span></div>
+        </div>
+      </div>
+
+      <div class="strip">
+        <div class="strip__h mono"><span>More from the build</span><span>Swipe →</span></div>
+        <div class="strip__row">
+          <figure><img src="assets/work/pd-services.webp" alt="Services page set like a theater program, with a pink lamp and a pigeonhole desk" loading="lazy" decoding="async" width="1600" height="1000"><figcaption>Services, set as a theater program</figcaption></figure>
+          <figure><img src="assets/work/pd-pricing.webp" alt="Pricing page: 'Clear prices. No surprises.' beside an antique cash register" loading="lazy" decoding="async" width="1600" height="1000"><figcaption>Pricing</figcaption></figure>
+          <figure><img src="assets/work/pd-divorce.webp" alt="Divorce page: 'Divorce paperwork, done for you, from $400' with peonies and a key" loading="lazy" decoding="async" width="1600" height="1000"><figcaption>Divorce</figcaption></figure>
+          <figure><img src="assets/work/pd-contact.webp" alt="Contact page with a pink rotary telephone and a rotary-dial call button" loading="lazy" decoding="async" width="1600" height="1000"><figcaption>Contact, with a rotary dial</figcaption></figure>
+        </div>
+      </div>
+
+      <!-- Verbatim from the design review call, 26 Sep 2026, 00:37:39-00:38:06. Embargoed until 1 Nov 2026. -->
+      <figure class="say" data-reveal>
+        <blockquote>I love her website. It's coming together great. I think that is gonna put it over the top for her.</blockquote>
+        <figcaption><b>Michael</b>Commissioned the site for thePrepDoc</figcaption>
+      </figure>
+    </div>
+  </article>
+</section>
+
+<!-- ================= OVERHEARD =================
+     Every line is verbatim from recorded client review calls (Sep 2026),
+     only trimmed, never reworded. Deliberately unattributed; the caption
+     says where they come from and makes no claim about how many clients. -->
+<section class="overheard" data-palette="studio" aria-labelledby="oh-h">
+  <div class="wrap overheard__head">
+    <div>
+      <p class="mono" style="color:var(--accent)">Overheard</p>
+      <h2 id="oh-h" data-reveal>Overheard on <em>client calls.</em></h2>
+    </div>
+    <p data-reveal>Unscripted lines from our recorded review calls this year. Trimmed for length, never reworded.</p>
+  </div>
+  <div class="oh-rows">
+    <div class="oh-row">
+      <div class="oh-track" style="--t:96s">
+        <ul class="oh-set"><li class="it">You've done an amazing job.</li><li>I really like that layout. I think that looks really, really good, y'all.</li><li class="it">It'd take a lot of time to do this, didn't you?</li><li>That actually looked really good. Wow. Nice job.</li><li class="it">I absolutely love that idea.</li><li>I really like that. That's a cool design.</li><li class="it">I'm on board.</li><li>Love that. That's a good way to set it up.</li><li class="it">If you came up with that right now… genius.</li></ul>
+        <ul class="oh-set" aria-hidden="true"><li class="it">You've done an amazing job.</li><li>I really like that layout. I think that looks really, really good, y'all.</li><li class="it">It'd take a lot of time to do this, didn't you?</li><li>That actually looked really good. Wow. Nice job.</li><li class="it">I absolutely love that idea.</li><li>I really like that. That's a cool design.</li><li class="it">I'm on board.</li><li>Love that. That's a good way to set it up.</li><li class="it">If you came up with that right now… genius.</li></ul>
+      </div>
+    </div>
+    <div class="oh-row">
+      <div class="oh-track" style="--t:112s">
+        <ul class="oh-set"><li>No, I think you hit on all the high points, I really do.</li><li class="it">I think that's actually a very, very smart idea.</li><li>That looks really cool.</li><li>I like the way you just simplified the language too.</li><li class="it">That's awesome. I love that.</li><li>I trust you guys with all the backend stuff.</li><li>I like that almost even better.</li><li class="it">You're a genius.</li><li>That background turned out great.</li></ul>
+        <ul class="oh-set" aria-hidden="true"><li>No, I think you hit on all the high points, I really do.</li><li class="it">I think that's actually a very, very smart idea.</li><li>That looks really cool.</li><li>I like the way you just simplified the language too.</li><li class="it">That's awesome. I love that.</li><li>I trust you guys with all the backend stuff.</li><li>I like that almost even better.</li><li class="it">You're a genius.</li><li>That background turned out great.</li></ul>
+      </div>
+    </div>
+    <div class="oh-row">
+      <div class="oh-track" style="--t:104s">
+        <ul class="oh-set"><li class="it">We're very, very happy.</li><li>Awesome work once again.</li><li>I like what you did with the get-your-actual-number. I feel like that's really cool.</li><li>Yeah, that's cool. I like it.</li><li class="it">I really like the way you laid that out, too. That's perfect.</li><li>I love that idea.</li><li>I'm happy with it.</li><li class="it">I think the website's great.</li><li>I like the way it hovers there, too.</li><li>That's very, very helpful.</li></ul>
+        <ul class="oh-set" aria-hidden="true"><li class="it">We're very, very happy.</li><li>Awesome work once again.</li><li>I like what you did with the get-your-actual-number. I feel like that's really cool.</li><li>Yeah, that's cool. I like it.</li><li class="it">I really like the way you laid that out, too. That's perfect.</li><li>I love that idea.</li><li>I'm happy with it.</li><li class="it">I think the website's great.</li><li>I like the way it hovers there, too.</li><li>That's very, very helpful.</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ON THE RECORD ================= -->
+<section class="calls" id="record" data-palette="studio" aria-labelledby="rec-h">
+  <div class="wrap">
+    <div class="calls__head">
+      <div>
+        <p class="mono" style="color:var(--accent)">On the record</p>
+        <h2 id="rec-h" data-reveal>Don't take our word for it. <em>Take theirs.</em></h2>
+      </div>
+      <p data-reveal>We record our client calls, with permission, from the first discovery call to the launch review. These are unedited moments from those calls.</p>
+    </div>
+
+    <div class="room" data-reveal>
+      <div class="room__bar">
+        <span class="rec-ind"><i></i>REC</span>
+        <span class="room__title">Avoxan · Client reviews</span>
+        <span class="room__time" id="callTime">00:42:13</span>
+      </div>
+
+      <div class="room__main">
+        <div class="tiles" id="tiles">
+          <!-- To publish a clip: set data-clip to the video file and (optionally) data-poster.
+               The tile then shows the poster and plays the clip in the viewer. -->
+          <button class="tile speaking" data-clip="" data-poster="" style="--av:#D6AA4E;--av-fg:#111" aria-label="Michael, Bag Chasers Laundry Co., clip pending">
+            <span class="tile__avatar">M</span>
+            <span class="tile__play">Clip pending</span>
+            <span class="tile__name"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1a2.5 2.5 0 0 0-2.5 2.5v4a2.5 2.5 0 0 0 5 0v-4A2.5 2.5 0 0 0 8 1Zm-5 6.5h1.3a3.7 3.7 0 0 0 7.4 0H13a5 5 0 0 1-4.3 4.95V15H7.3v-2.55A5 5 0 0 1 3 7.5Z"/></svg>Michael · Bag Chasers Laundry Co.</span>
+          </button>
+          <button class="tile" data-clip="" data-poster="" style="--av:#1E7A52;--av-fg:#F5F1E8" aria-label="Julie and Cody Wall, The Clever Insurance, clip pending">
+            <span class="tile__avatar">J&amp;C</span>
+            <span class="tile__play">Clip pending</span>
+            <span class="tile__name"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1a2.5 2.5 0 0 0-2.5 2.5v4a2.5 2.5 0 0 0 5 0v-4A2.5 2.5 0 0 0 8 1Zm-5 6.5h1.3a3.7 3.7 0 0 0 7.4 0H13a5 5 0 0 1-4.3 4.95V15H7.3v-2.55A5 5 0 0 1 3 7.5Z"/></svg>Julie &amp; Cody Wall · The Clever Insurance</span>
+          </button>
+          <button class="tile" data-clip="" data-poster="" style="--av:#E6A3C2;--av-fg:#2A1320" aria-label="Michael, for thePrepDoc, clip pending">
+            <span class="tile__avatar">PD</span>
+            <span class="tile__play">Clip pending</span>
+            <span class="tile__name"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1a2.5 2.5 0 0 0-2.5 2.5v4a2.5 2.5 0 0 0 5 0v-4A2.5 2.5 0 0 0 8 1Zm-5 6.5h1.3a3.7 3.7 0 0 0 7.4 0H13a5 5 0 0 1-4.3 4.95V15H7.3v-2.55A5 5 0 0 1 3 7.5Z"/></svg>thePrepDoc</span>
+          </button>
+          <div class="tile tile--seat">
+            <video autoplay muted loop playsinline preload="none" poster="assets/studio/ember-poster.webp" aria-hidden="true">
+              <source src="assets/studio/ember-film.webm" type="video/webm">
+              <source src="assets/studio/ember-film.mp4" type="video/mp4">
+            </video>
+            <div class="seat">
+              <b>This seat is open.</b>
+              <span>Your business, on the next call.</span>
+              <a class="btn" href="#book" data-cta="seat">Take the seat</a>
+            </div>
+            <span class="tile__name">You</span>
+          </div>
+        </div>
+
+        <aside class="chat" aria-label="What clients said">
+          <div class="chat__h"><span>Chat · Everyone</span><span>4</span></div>
+          <div class="chat__log">
+            <!-- All verbatim from recorded client calls; timestamps kept for the record. -->
+            <div class="msg"><span class="msg__who">From <b>Julie Wall</b>, The Clever Insurance</span><p class="msg__text">I feel like I'm on one of those HGTV shows looking at a new house.</p></div>
+            <div class="msg"><span class="msg__who">From <b>Michael</b>, Bag Chasers Laundry Co.</span><p class="msg__text">No, so far it's perfect. I love it, I have no issues with it.</p></div>
+            <div class="msg"><span class="msg__who">From <b>Cody Wall</b>, The Clever Insurance</span><p class="msg__text">It's very professional. I would have never even thought of doing something like that.</p></div>
+            <div class="msg"><span class="msg__who">From <b>Michael</b>, for thePrepDoc</span><p class="msg__text">It's very creative. Very creative.</p></div>
+          </div>
+          <div class="chat__in" aria-hidden="true">Type message here…</div>
+        </aside>
+      </div>
+
+      <div class="room__tools" aria-hidden="true">
+        <span class="tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Mute</span>
+        <span class="tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg>Video</span>
+        <span class="tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><path d="M3 19a6 6 0 0 1 12 0M16 5a3 3 0 0 1 0 6M18 19a6 6 0 0 0-3-5"/></svg>Participants 4</span>
+        <span class="tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16v11H9l-5 4z"/></svg>Chat</span>
+        <span class="tool tool--leave"><span>Leave</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHAT WE MAKE ================= -->
+<section class="make" id="services" aria-labelledby="make-h">
+  <div class="wrap">
+    <div class="make__head">
+      <h2 id="make-h" data-reveal>What we make</h2>
+      <p data-reveal>Four things, done properly. Prices are published, because you should know before the call.</p>
+    </div>
+    <div class="offers">
+      <a class="offer" href="/services" data-peek="assets/work/cl-home.webp">
+        <h3>Websites</h3>
+        <p>Strategy, copywriting, design and build for an eight-page site, with technical SEO, AI-search optimization and 90 days of edits after launch.</p>
+        <span class="price"><b>$2,400</b><span class="mono">one-time</span></span>
+      </a>
+      <a class="offer" href="/pricing" data-peek="assets/work/bc-schedule.webp">
+        <h3>Booking &amp; custom builds</h3>
+        <p>Customer accounts, online booking, payments and integrations with the tools you already run. The Bag Chasers booking engine is one.</p>
+        <span class="price"><b>From $5,000</b><span class="mono">scoped per project</span></span>
+      </a>
+      <a class="offer" href="/pricing#addons" data-peek="assets/work/pd-services.webp">
+        <h3>Brand identity</h3>
+        <p>Logo, type system, color palette and a guidelines PDF, made to work on the site and everywhere else.</p>
+        <span class="price"><b>$1,000</b><span class="mono">with a website</span></span>
+      </a>
+      <a class="offer" href="/pricing#ai" data-peek="assets/studio/front-desk.webp">
+        <h3>AI receptionist</h3>
+        <p>Three done-for-you plans: text back every missed call, answer them in English and Spanish, or run the whole front desk and book jobs. Free setup, no contract.</p>
+        <span class="price"><b>From $97</b><span class="mono">per month</span></span>
+      </a>
+    </div>
+  </div>
+  <div class="peek" id="peek" aria-hidden="true"><img alt="" src="data:image/gif;base64,R0lGODlhAQABAAAAACw="></div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="method" id="process" aria-labelledby="method-h">
+  <div class="wrap">
+    <div class="method__head">
+      <h2 id="method-h" data-reveal>From first call to <em>live</em> in four weeks.</h2>
+      <a class="link-u" href="/process">The full process →</a>
+    </div>
+    <ol class="weeks" id="weeks">
+      <li><span class="when mono">Day 0</span><b>Discovery call</b><p>An hour on your business, your customers and what the site has to do. We record it, and every page is written from it.</p></li>
+      <li><span class="when mono">Week 1</span><b>Strategy &amp; wireframes</b><p>Structure first: the pages, the wireframes and a content map.</p></li>
+      <li><span class="when mono">Week 2</span><b>Design &amp; copy</b><p>You approve the homepage direction, and every other page follows it.</p></li>
+      <li><span class="when mono">Week 3</span><b>Build &amp; QA</b><p>Built, tuned for speed and search, and tested on every device.</p></li>
+      <li><span class="when mono">Week 4</span><b>Launch</b><p>Live on your domain, with 90 days of edits included.</p></li>
+    </ol>
+    <div class="promises">
+      <div class="promise" data-reveal><b>14-day money back</b><span>If the design direction isn't right after the first round, you get a full refund.</span></div>
+      <div class="promise" data-reveal><b>On time, or $200 back</b><span>Taken off the final payment if we miss the four-week launch through our own fault.</span></div>
+      <div class="promise" data-reveal><b>90-day inquiry promise</b><span>No inquiries in the first 90 days and we audit the path and rebuild the homepage at no cost.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BOOK ================= -->
+<section class="book" id="book" aria-labelledby="book-h">
+  <div class="book__glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <h2 id="book-h" data-reveal>Your <em>turn.</em></h2>
+    <div class="book__grid">
+      <div class="book__side" data-reveal>
+        <p>Tell us about the business and what the site needs to do. A short call, no pitch deck. If we're not the right studio for it, we'll say so and point you to someone who is.</p>
+        <div class="book__rows">
+          <div><span class="mono">Email</span><a class="link-u" href="mailto:hello@avoxan.com" data-cta="email">hello@avoxan.com</a></div>
+          <div><span class="mono">Studio</span>Houston, Texas</div>
+          <div><span class="mono">Clients in</span>US, Canada, UK &amp; Australia</div>
+          <div><span class="mono">Availability</span>Booking October 2026</div>
+        </div>
+      </div>
+      <div class="cal" data-calendly-embed>
+        <noscript><a class="link-u" href="https://calendly.com/hello-avoxan/30min">Book a call on Calendly →</a></noscript>
+      </div>
+    </div>
+  </div>
+</section>
+<!--after-footer-->
+<div class="player" id="player" hidden>
+  <button class="player__x" id="playerX" aria-label="Close clip">×</button>
+  <video id="playerV" controls playsinline></video>
+</div>

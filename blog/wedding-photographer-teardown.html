@@ -1,27 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en-US" class="no-js">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<title>How we'd build a website for a wedding photographer (full teardown) · Avoxan</title>
-<meta name="description" content="A page-by-page strategic teardown of a wedding photographer's website: ruthless curation, a real philosophy, visible pricing, and an inquiry process built to filter for fit.">
-
+<title>How we&#x27;d build a website for a wedding photographer (full teardown) · Avoxan Journal</title>
+<meta name="description" content="A page-by-page strategic teardown of a wedding photographer&#x27;s website: ruthless curation, a real philosophy, visible pricing, and an inquiry process built to filter for fit.">
 <meta name="author" content="Akarshan Digital LLC">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-<meta name="GPTBot" content="index, follow">
-<meta name="ChatGPT-User" content="index, follow">
-<meta name="PerplexityBot" content="index, follow">
-<meta name="ClaudeBot" content="index, follow">
-<meta name="Google-Extended" content="index, follow">
-
 <link rel="canonical" href="https://avoxan.com/blog/wedding-photographer-teardown">
-
 <meta name="geo.region" content="US-TX">
 <meta name="geo.placename" content="Houston">
-
-<meta name="theme-color" content="#0C0A08">
-<script>try{if(localStorage.getItem('avoxan-theme')==='light')document.documentElement.classList.add('light')}catch(e){}</script>
+<meta name="theme-color" content="#0D0B09">
+<meta name="color-scheme" content="dark">
 <meta name="format-detection" content="telephone=no">
 
 <link rel="icon" type="image/svg+xml" href="/avoxan-logo.svg">
@@ -33,138 +24,201 @@
 
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Avoxan">
-<meta property="og:title" content="How we'd build a website for a wedding photographer (full teardown) · Avoxan">
-<meta property="og:description" content="Ruthless curation, a real philosophy, visible pricing, and an inquiry process built to filter for fit.">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="How we&#x27;d build a website for a wedding photographer (full teardown).">
+<meta property="og:description" content="A page-by-page strategic teardown of a wedding photographer&#x27;s website: ruthless curation, a real philosophy, visible pricing, and an inquiry process built to filter for fit.">
 <meta property="og:url" content="https://avoxan.com/blog/wedding-photographer-teardown">
 <meta property="og:image" content="https://avoxan.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How we&#x27;d build a website for a wedding photographer (full teardown).">
+<meta name="twitter:description" content="A page-by-page strategic teardown of a wedding photographer&#x27;s website: ruthless curation, a real philosophy, visible pricing, and an inquiry process built to filter for fit.">
+<meta name="twitter:image" content="https://avoxan.com/og-image.png">
+<meta property="article:published_time" content="2026-05-17">
+<meta property="article:modified_time" content="2026-10-03">
 
-<link rel="preload" as="style" href="/css/avoxan-fonts.css?v=1">
-<link rel="stylesheet" media="print" onload="this.media='all';this.onload=null" href="/css/avoxan-fonts.css?v=1">
-<noscript><link rel="stylesheet" href="/css/avoxan-fonts.css?v=1"></noscript>
-<link rel="stylesheet" href="/css/avoxan-v2.css?v=22">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "How we'd build a website for a wedding photographer (full strategic teardown)",
-  "description": "A page-by-page strategy for a wedding photographer's website built to book higher-paying couples.",
-  "author": {"@type": "Person", "name": "Akarsh", "jobTitle": "Designer and developer", "worksFor": {"@id": "https://avoxan.com/#organization"}},
-  "publisher": {"@type": "Organization", "name": "Avoxan", "logo": {"@type": "ImageObject", "url": "https://avoxan.com/avoxan-logo-512.png"}},
-  "datePublished": "2026-05-17",
-  "mainEntityOfPage": "https://avoxan.com/blog/wedding-photographer-teardown"
-}
+<script>
+  /* Runs before paint: JS-only styles apply once we know JS runs, motion only
+     when the visitor hasn't asked for less. If the main script never loads,
+     the page falls back to its complete no-JS state after 3s. */
+  (function(d){d.classList.remove('no-js');d.classList.add('js');
+    try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('motion')}catch(e){}
+    setTimeout(function(){if(!window.__avxReady){d.classList.remove('js','motion');d.classList.add('no-js')}},3000);
+  })(document.documentElement);
 </script>
-<script src="/js/avoxan-chat.js?v=2" defer></script>
-<script>/* Avoxan: remove any orphaned service worker + caches from older site versions */(function(){try{if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister();});}).catch(function(){});}if(self.caches&&caches.keys){caches.keys().then(function(ks){ks.forEach(function(k){caches.delete(k);});}).catch(function(){});}}catch(e){}})();</script>
+<link rel="preload" href="/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/instrument-serif-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/avoxan-studio.css?v=5">
+<link rel="stylesheet" href="/css/pages/journal.css?v=5">
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "@id": "https://avoxan.com/blog/wedding-photographer-teardown#breadcrumb",
-  "itemListElement": [
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": [
+    "Organization",
+    "ProfessionalService"
+   ],
+   "@id": "https://avoxan.com/#org",
+   "name": "Avoxan",
+   "legalName": "Akarshan Digital LLC",
+   "url": "https://avoxan.com/",
+   "logo": "https://avoxan.com/avoxan-logo-512.png",
+   "email": "hello@avoxan.com",
+   "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Houston",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+   },
+   "areaServed": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://avoxan.com/"
+     "@type": "City",
+     "name": "Houston"
     },
     {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Field notes",
-      "item": "https://avoxan.com/blog"
+     "@type": "State",
+     "name": "Texas"
     },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "How we'd build a website for a wedding photographer (full teardown)",
-      "item": "https://avoxan.com/blog/wedding-photographer-teardown"
+    "US"
+   ]
+  },
+  {
+   "@type": "BlogPosting",
+   "@id": "https://avoxan.com/blog/wedding-photographer-teardown#article",
+   "headline": "How we'd build a website for a wedding photographer (full teardown).",
+   "description": "A page-by-page strategic teardown of a wedding photographer's website: ruthless curation, a real philosophy, visible pricing, and an inquiry process built to filter for fit.",
+   "articleSection": "Teardown",
+   "wordCount": 993,
+   "datePublished": "2026-05-17",
+   "dateModified": "2026-10-03",
+   "inLanguage": "en-US",
+   "image": "https://avoxan.com/og-image.png",
+   "mainEntityOfPage": "https://avoxan.com/blog/wedding-photographer-teardown",
+   "author": {
+    "@type": "Person",
+    "@id": "https://avoxan.com/#akarsh",
+    "name": "Akarsh",
+    "jobTitle": "Designer and developer",
+    "worksFor": {
+     "@id": "https://avoxan.com/#org"
     }
-  ]
+   },
+   "publisher": {
+    "@id": "https://avoxan.com/#org"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://avoxan.com/blog/wedding-photographer-teardown#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://avoxan.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Journal",
+     "item": "https://avoxan.com/blog/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "How we'd build a website for a wedding photographer (full teardown).",
+     "item": "https://avoxan.com/blog/wedding-photographer-teardown"
+    }
+   ]
+  }
+ ]
 }
 </script>
 </head>
 <body>
-<a href="#main" class="skip-link">Skip to main content</a>
-<div class="scroll-progress" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
 
-<nav class="nv" aria-label="Primary">
-  <div class="nv-inner">
-    <a href="/" class="nv-logo" aria-label="Avoxan home">
-      <img src="/avoxan-logo.svg" alt="" width="30" height="40">
-      Avoxan
+<header class="hdr" id="hdr">
+  <div class="wrap hdr__in">
+    <a class="brand" href="/" aria-label="Avoxan, home">
+      <img src="/avoxan-logo.svg" alt="" width="22" height="22">Avoxan
     </a>
-    <div class="nv-links">
+    <nav class="nav" aria-label="Main">
+      <a href="/work/">Work</a>
       <a href="/services">Services</a>
-      <a href="/ai-receptionist">AI Receptionist</a>
+      <a href="/ai-receptionist">AI receptionist</a>
       <a href="/pricing">Pricing</a>
       <a href="/process">Process</a>
-      <a href="/work/">Work</a>
-      <a href="/blog/" class="active">Blog</a>
-      <a href="/faq">FAQ</a>
-      <a href="/contact" class="nv-cta">Book a call</a>
-    </div>
-    <button class="nv-burger" aria-label="Toggle navigation menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+      <a href="/blog/" aria-current="page">Journal</a>
+    </nav>
+    <a class="btn hdr__cta" href="/contact" data-cta="header">Start a project</a>
+    <button class="hdr__menu" id="menuBtn" aria-expanded="false" aria-controls="sheet"><span></span><span></span><span class="sr-only">Menu</span></button>
   </div>
-</nav>
+</header>
 
-<div class="menu-overlay" aria-label="Mobile navigation">
-  <a href="/"><span class="mo-num">00</span>Home</a>
-  <a href="/services"><span class="mo-num">01</span>Services</a>
-  <a href="/ai-receptionist"><span class="mo-num">02</span>AI Receptionist</a>
-  <a href="/pricing"><span class="mo-num">03</span>Pricing</a>
-  <a href="/process"><span class="mo-num">04</span>Process</a>
-  <a href="/work/"><span class="mo-num">05</span>Work</a>
-  <a href="/blog/"><span class="mo-num">06</span>Blog</a>
-  <a href="/faq"><span class="mo-num">07</span>FAQ</a>
-  <a href="/contact"><span class="mo-num">08</span>Book a call</a>
-  <div class="mo-foot">
-    <span>Houston, TX</span>
-    <span>hello@avoxan.com</span>
-  </div>
+<div class="sheet" id="sheet" aria-hidden="true">
+  <nav aria-label="Mobile">
+    <a href="/work/">Work</a>
+    <a href="/services">Services</a>
+    <a href="/ai-receptionist">AI receptionist</a>
+    <a href="/pricing">Pricing</a>
+    <a href="/process">Process</a>
+    <a href="/blog/">Journal</a>
+    <a href="/contact">Start a project</a>
+  </nav>
+  <div class="sheet__foot mono"><span>hello@avoxan.com</span><span>Houston, TX</span></div>
 </div>
 
 <main id="main">
 
-<section class="page-hero">
-  <div class="wrap narrow">
-    <nav class="crumbs" aria-label="Breadcrumb">
-      <a href="/">Home</a><span class="sep">/</span><a href="/blog/">Field notes</a><span class="sep">/</span><span class="here">Niche teardown</span>
-    </nav>
-    <h1 data-hero-stagger>How we'd build a website for a <span class="it acc">wedding photographer</span> (full teardown).</h1>
-    <p class="deck" data-hero-stagger>Wedding photographers compete in an oversaturated market where the work itself is the product. The websites that win aren't the prettiest, they're the most strategically curated. Here's the full build approach.</p>
-    <div class="post-meta" data-hero-stagger>
-      <span class="cat">Niche teardown</span><span class="dotsep">·</span><span>10 min read</span><span class="dotsep">·</span><span>May 17, 2026</span>
-    </div>
-  </div>
-</section>
+<div class="jr-progress" aria-hidden="true"><i data-progress></i></div>
 
-<section class="section tight">
-  <div class="wrap">
-    <article class="article">
-      <div class="tldr"><strong>TL;DR</strong><p>A wedding photographer's website should answer four questions in under 30 seconds: what your style actually is, who you're for, what you charge minimum, and what booking you means logistically. Most photographer sites are massive image dumps that answer none of these. Cut the image count by 80%, write a real philosophy, show your pricing minimum, and structure your inquiry process to filter for fit.</p></div>
+<article class="post">
+  <header class="post-hd">
+    <div class="wrap">
+      <ol class="crumbs mono" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li><a href="/blog/">Journal</a></li><li aria-current="page">Teardown</li></ol>
+      <p class="post-meta mono" data-reveal><span class="post-cat">Teardown</span><span>4 min read</span><span>Updated <time datetime="2026-10-03">Oct 3, 2026</time></span></p>
+      <h1 data-reveal>How we'd build a website for a <em>wedding photographer</em> (full teardown).</h1>
+      <p class="post-deck" data-reveal>Wedding photographers compete in an oversaturated market where the work itself is the product. The websites that win aren't the prettiest, they're the most strategically curated. Here's the full build approach.</p>
+      <p class="post-by" data-reveal><span class="post-by__av" aria-hidden="true">A</span><span>By <b>Akarsh</b>, designer and developer at Avoxan · First published <time datetime="2026-05-17">May 17, 2026</time></span></p>
+    </div>
+  </header>
+
+  <div class="wrap post-grid">
+    <nav class="toc" aria-label="In this article">
+      <p class="mono toc__h">In this article</p>
+      <ol>
+          <li><a href="#the-strategy-in-one-sentence">The strategy in one sentence</a></li>
+          <li><a href="#page-1-homepage">Page 1: Homepage</a></li>
+          <li><a href="#page-2-full-portfolio-galleries">Page 2: Full Portfolio / Galleries</a></li>
+          <li><a href="#page-3-about">Page 3: About</a></li>
+          <li><a href="#page-4-investment-pricing">Page 4: Investment / Pricing</a></li>
+          <li><a href="#page-5-faq">Page 5: FAQ</a></li>
+          <li><a href="#page-6-inquiry">Page 6: Inquiry</a></li>
+          <li><a href="#the-journal-blog">The journal / blog</a></li>
+          <li><a href="#technical-setup-for-photographers-specifically">Technical setup for photographers specifically</a></li>
+          <li><a href="#what-we-d-specifically-not-do">What we&#x27;d specifically NOT do</a></li>
+      </ol>
+    </nav>
+
+    <div class="prose post-body">
+      <div class="tldr"><p class="mono">The short version</p><p>A wedding photographer's website should answer four questions in under 30 seconds: what your style actually is, who you're for, what you charge minimum, and what booking you means logistically. Most photographer sites are massive image dumps that answer none of these. Cut the image count by 80%, write a real philosophy, show your pricing minimum, and structure your inquiry process to filter for fit.</p></div>
 
       <p class="lede">The wedding photography market in any mid-sized city has 200+ active photographers competing on roughly the same visual deliverables. The ones who book the highest-paying clients aren't necessarily the most technically skilled, they're the ones whose websites communicate clearly who they are and what they cost. Here's how we'd build that site.</p>
 
-      <h2>The strategy in one sentence</h2>
+      <h2 id="the-strategy-in-one-sentence">The strategy in one sentence</h2>
       <blockquote>Stop competing as "a wedding photographer." Become the obvious answer for one specific kind of couple.</blockquote>
       <p>Pick a positioning: documentary, fine-art editorial, fun-and-candid, dark moody, light-and-airy, adventure/elopement, traditional cultural weddings, LGBTQ+ weddings. Whatever it is, claim it openly on the homepage. The photographer who positions for everyone gets booked by no one with budget.</p>
 
-      <h2>Page 1: Homepage</h2>
+      <h2 id="page-1-homepage">Page 1: Homepage</h2>
       <h3>Hero (above the fold)</h3>
       <p><strong>Headline:</strong> One short emotional/positional line. Not "[Name] Photography." Something like "Quiet light. Real love." for documentary. "Loud joy. Big rooms." for fun-and-candid. "Stolen mountain mornings." for elopement.</p>
       <p><strong>Subhead:</strong> Position + location + minimum information. "Documentary wedding photography for couples who'd rather have 30 great photos than 600 average ones. Austin + everywhere worth flying to. From $6,500."</p>
       <p><strong>CTA:</strong> "Check our calendar" (links to availability) or "Start an inquiry."</p>
       <h3>The image curation rule</h3>
       <p>The homepage should show 8-12 images. Not 60. Not 100. The math: every weak image is a reason someone clicks away. Show your absolute best work, ruthlessly edited. If you can't pick 12 from your portfolio, you have a curation problem more than a quantity problem.</p>
-      <div class="deliverable">
-        <strong>The "drunk friend" curation test</strong>
-        <p>Imagine showing your portfolio to a drunk friend who scrolls fast. Which 12 images make them say "wait, go back to that one"? Those are your homepage images. Everything else is for the full gallery page.</p>
-      </div>
+      <aside class="note"><p class="note__h">The "drunk friend" curation test</p><p>Imagine showing your portfolio to a drunk friend who scrolls fast. Which 12 images make them say "wait, go back to that one"? Those are your homepage images. Everything else is for the full gallery page.</p>
+      </aside>
       <h3>Section: A real philosophy paragraph</h3>
       <p>200-300 words on how you actually shoot. What you do, what you don't do, what you believe. Specific. Opinionated. This is what convinces a $10K couple that you're worth booking versus the $4K photographer they were also considering.</p>
       <h3>Section: Pricing, minimum visible</h3>
@@ -175,20 +229,20 @@
       <h3>Section: Real reviews</h3>
       <p>Three to five testimonials from past couples with their first names, wedding date, and venue. Not anonymized "M &amp; J, 2024." Real and specific.</p>
 
-      <h2>Page 2: Full Portfolio / Galleries</h2>
+      <h2 id="page-2-full-portfolio-galleries">Page 2: Full Portfolio / Galleries</h2>
       <p>This is where the 200+ images live. But still curated by wedding, not dumped in a grid. Each wedding should have its own page with 30-50 images max, in narrative order (getting ready → ceremony → portraits → reception), with venue/date/location credited.</p>
 
-      <h2>Page 3: About</h2>
+      <h2 id="page-3-about">Page 3: About</h2>
       <p>800+ words. Long. Personal. Photographers under-invest in About pages and overspend on portfolios. The About page is what closes the booking, the portfolio is what gets them to the About page.</p>
       <p>Structure: who you are, why photography, your philosophy on weddings specifically, what you do outside work, what kind of couples you click with, what kind of weddings you decline. Be specific. Be opinionated. Be human.</p>
 
-      <h2>Page 4: Investment / Pricing</h2>
+      <h2 id="page-4-investment-pricing">Page 4: Investment / Pricing</h2>
       <p>Either fully transparent (3-4 tiers with prices) or partially transparent ("collections start at $6,500, full guide upon inquiry"). Pick one. Don't be coy. If you go partial, the inquiry form should require a budget range field so you filter at intake.</p>
 
-      <h2>Page 5: FAQ</h2>
+      <h2 id="page-5-faq">Page 5: FAQ</h2>
       <p>15-25 real questions answered. "How many photos will we get?" "What if it rains?" "Do you travel?" "How long until we get our gallery?" "Do you have backup equipment?" "Are you insured?" "Can we see a full gallery?" Mark this up with FAQPage schema, it ranks well and AI search tools cite it.</p>
 
-      <h2>Page 6: Inquiry</h2>
+      <h2 id="page-6-inquiry">Page 6: Inquiry</h2>
       <p>Don't use a generic contact form. Build a real inquiry form with the right filtering fields:</p>
       <ul>
         <li>Names</li>
@@ -202,10 +256,10 @@
       </ul>
       <p>Photographers who use generic 3-field contact forms drown in unqualified leads. Photographers who use 8-field strategic inquiry forms get 60% fewer inquiries that are 5x more qualified.</p>
 
-      <h2>The journal / blog</h2>
+      <h2 id="the-journal-blog">The journal / blog</h2>
       <p>Long-form recaps of full weddings. Each is a 600-1,000-word piece with 25-40 images. Each ranks locally for venue-specific keywords ("Driskill Hotel wedding photographer," "Vista West Ranch wedding"). Couples search by venue. Photographers who write journals get found by venue. Two journals per month is a sustainable rhythm.</p>
 
-      <h2>Technical setup for photographers specifically</h2>
+      <h2 id="technical-setup-for-photographers-specifically">Technical setup for photographers specifically</h2>
       <ul class="checklist">
         <li>Platform: Framer or Squarespace 7.1 (image-heavy, performance-critical)</li>
         <li>WebP image format throughout, lazy-loaded, with proper srcset</li>
@@ -216,7 +270,7 @@
         <li>Page load under 2.5 seconds on mobile despite image-heaviness</li>
       </ul>
 
-      <h2>What we'd specifically NOT do</h2>
+      <h2 id="what-we-d-specifically-not-do">What we'd specifically NOT do</h2>
       <ul>
         <li><strong>Auto-playing background videos.</strong> Slow, distracting, mobile-hostile.</li>
         <li><strong>Cursive script fonts in headers.</strong> The 2010s called.</li>
@@ -225,129 +279,79 @@
         <li><strong>A 100-photo grid homepage.</strong> The opposite of selling.</li>
       </ul>
 
-      <div class="author-bio" style="max-width:760px; margin:3.5rem auto 0; padding:1.7rem 1.8rem; border:1px solid var(--line); border-radius:18px; background:var(--surface);">
-        <div style="display:flex; gap:.85rem; align-items:center; margin-bottom:.9rem;">
-          <span aria-hidden="true" style="flex:0 0 auto; width:40px; height:40px; border-radius:50%; background:var(--surface-2); border:1px solid var(--line); display:grid; place-items:center; font-family:var(--font-mono); font-size:.9rem; color:var(--ember);">A</span>
-          <span style="color:var(--cream); font-weight:500;">Akarsh <span style="color:var(--muted); font-weight:400;">· Designer &amp; developer, Avoxan</span></span>
+
+      <aside class="post-author" aria-label="About the author">
+        <span class="post-by__av" aria-hidden="true">A</span>
+        <div>
+          <p class="post-author__name">Akarsh <span>· Designer and developer, Avoxan</span></p>
+          <p>Akarsh designs and builds websites at Avoxan, with a focus on conversion structure and the technical side of search: schema markup, page speed, and how a page gets read by search engines and AI assistants. Avoxan is a small studio in Houston, Texas that publishes every price on its <a href="/pricing">pricing page</a>.</p>
         </div>
-        <p style="margin:0; color:var(--muted); font-size:.92rem; line-height:1.65;">Designer and developer at Avoxan. Works across design and front-end build, with a focus on conversion structure and the technical side of search: schema markup, page speed, and how a page gets read by search engines and AI assistants. Avoxan is a small studio in Houston, Texas that publishes every price on its <a href="/pricing">pricing page</a>.</p>
-      </div>
-
-      <div class="post-foot">
-        <span class="by">Written by <strong>Akarsh</strong> · Avoxan · Houston web design studio</span>
-        <a href="/work/marin-ashby-studio" class="kicker-link"><span class="kl-txt">See this applied: the Marin Ashby case study</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </div>
-    </article>
+      </aside>
+    </div>
   </div>
-</section>
+</article>
 
-<section class="section tight">
+<section class="sec jr-more" aria-labelledby="more-h">
   <div class="wrap">
-    <div class="sec-head split" data-reveal>
-      <div>
-        <div class="eyebrow">Related essays</div>
-        <h2 class="sec-title">Three more <span class="it">in the same direction</span>.</h2>
+    <div class="jr-more__head">
+      <h2 id="more-h">Keep <em>reading.</em></h2>
+      <a class="link-u mono" href="/blog/">All journal entries →</a>
+    </div>
+    <div class="jr-cards">
+      <a class="jr-card" href="/blog/chiropractor-website-teardown"><span class="mono">Teardown · 4 min read</span><b>How we'd build a website for a chiropractor (full teardown).</b><span class="jr-card__go mono">Read →</span></a>
+      <a class="jr-card" href="/blog/beautiful-website-no-leads"><span class="mono">Conversion · 4 min read</span><b>Why your beautiful website isn't generating any leads.</b><span class="jr-card__go mono">Read →</span></a>
+      <a class="jr-card" href="/blog/website-cost-2026"><span class="mono">Pricing · 4 min read</span><b>How much should a small business website actually cost in 2026?</b><span class="jr-card__go mono">Read →</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-end" aria-labelledby="post-cta">
+  <div class="wrap">
+    <h2 id="post-cta">Want this done <em>for you?</em></h2>
+    <div class="cta-end__row">
+      <p>We design, write and build websites for Houston service businesses in about four weeks, from $2,400. Every price is published.</p>
+      <div class="btns">
+        <a class="btn" href="/contact" data-cta="post-wedding-photographer-teardown">Start a project <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a>
+        <a class="btn btn--ghost" href="/work/">See the work</a>
       </div>
     </div>
-    <div class="blog-grid">
-      <a class="blog-card" href="/blog/chiropractor-website-teardown" data-reveal>
-        <div class="blog-meta"><span class="cat">Niche teardown</span><span>9 min read</span></div>
-        <h3>How we'd build a chiropractor's website</h3>
-        <p>Most chiropractor sites look identical. Here's how we'd actually build one to win patients.</p>
-        <span class="read">Read the essay</span>
-      </a>
-      <a class="blog-card" href="/blog/beautiful-website-no-leads" data-reveal data-reveal-delay="0.08">
-        <div class="blog-meta"><span class="cat">Conversion</span><span>7 min read</span></div>
-        <h3>Why your beautiful website isn't generating leads</h3>
-        <p>The five conversion problems we see on almost every small business site.</p>
-        <span class="read">Read the essay</span>
-      </a>
-      <a class="blog-card" href="/blog/website-cost-2026" data-reveal data-reveal-delay="0.16">
-        <div class="blog-meta"><span class="cat">Pricing</span><span>9 min read</span></div>
-        <h3>What a small business website should cost in 2026</h3>
-        <p>The five real price tiers, and how to figure out what you actually need.</p>
-        <span class="read">Read the essay</span>
-      </a>
-    </div>
   </div>
-</section>
-
-<section class="bridge section tight">
-  <div class="bridge-inner">
-    <div data-reveal>
-      <div class="eyebrow">Keep going</div>
-      <h2 class="bridge-headline">See the theory <span class="it">put into practice.</span></h2>
-    </div>
-    <a href="/work/marin-ashby-studio" class="bridge-card" data-reveal data-reveal-delay="0.1">
-      <span class="nm">Next chapter, Case study</span>
-      <h3>Marin Ashby Studio, the photographer rebuild</h3>
-      <p>The exact strategy from this essay, applied: how we rebuilt a $6,500 photographer's site as an editorial brand so perceived value finally matched the work.</p>
-      <span class="go">Read on</span>
-    </a>
-  </div>
-</section>
-
-<section class="final-cta">
-  <div class="eyebrow centered" data-reveal>Editorial-grade repositioning</div>
-  <h2 data-reveal>Photographer, designer, or <span class="it acc">visual creative</span>?</h2>
-  <p data-reveal>If your work is worth more than your current site suggests, we'd love to talk. We specialize in editorial-grade repositioning for visual creatives.</p>
-  <a href="/contact" class="btn btn-ember" data-reveal>
-    Book a free 20-min call
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-  </a>
-  <div data-reveal><span class="pill"><span class="pulse"></span>3 slots remaining for <span class="js-bk" data-bk="my">this month</span></span></div>
 </section>
 
 </main>
 
-<footer class="footer" role="contentinfo">
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <a href="/" class="nv-logo" aria-label="Avoxan home">
-        <img src="/avoxan-logo.svg" alt="" width="30" height="40">
-        Avoxan
-      </a>
-      <p>A small Houston web studio building conversion-focused websites for service businesses, coaches, and growing brands. One flat price. One predictable timeline.</p>
-    </div>
-    <div>
-      <h2>The work</h2>
-      <ul>
-        <li><a href="/services">What you get</a></li>
-        <li><a href="/ai-receptionist">AI Receptionist</a></li>
-        <li><a href="/pricing">Pricing</a></li>
-        <li><a href="/process">Process</a></li>
-        <li><a href="/work/">Case studies</a></li>
-      </ul>
-    </div>
-    <div>
-      <h2>Read</h2>
-      <ul>
-        <li><a href="/blog/">Field notes</a></li>
-        <li><a href="/blog/website-cost-2026">Website cost in 2026</a></li>
-        <li><a href="/blog/local-seo-checklist">Local SEO checklist</a></li>
-        <li><a href="/blog/ai-search-citation">Getting cited by AI</a></li>
-      </ul>
-    </div>
-    <div>
-      <h2>Talk</h2>
-      <ul>
-        <li><a href="/contact">Book a call</a></li>
-        <li><a href="/faq">FAQ</a></li>
-        <li><a href="mailto:hello@avoxan.com">hello@avoxan.com</a></li>
-      </ul>
+<footer class="ftr" data-palette="studio">
+  <div class="wrap">
+    <div class="ftr__grid">
+      <div class="ftr__about">
+        <a class="brand" href="/"><img src="/avoxan-logo.svg" alt="" width="22" height="22">Avoxan</a>
+        <p style="margin-top:18px">A Houston web design and development studio for owner-led businesses that refuse to look small.</p>
+        <p class="ftr__nap mono">Houston, Texas · <a href="mailto:hello@avoxan.com">hello@avoxan.com</a></p>
+      </div>
+      <div>
+        <h4 class="mono">Studio</h4>
+        <ul><li><a href="/work/">Work</a></li><li><a href="/services">Services</a></li><li><a href="/process">Process</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/faq">FAQ</a></li><li><a href="/contact">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4 class="mono">AI receptionist</h4>
+        <ul><li><a href="/ai-receptionist">How it works</a></li><li><a href="/ai-receptionist-plumbers">For plumbers</a></li><li><a href="/houston-med-spas">For med spas</a></li><li><a href="/pricing#ai">Plans from $97</a></li></ul>
+      </div>
+      <div>
+        <h4 class="mono">Journal</h4>
+        <ul><li><a href="/blog/website-cost-2026">Website cost in 2026</a></li><li><a href="/blog/local-seo-checklist">Local SEO checklist</a></li><li><a href="/blog/what-is-an-ai-receptionist">What is an AI receptionist?</a></li><li><a href="/blog/">All journal entries</a></li></ul>
+      </div>
     </div>
   </div>
-
-  <div class="footer-word" aria-hidden="true">AVOXAN</div>
-
-  <div class="footer-bottom">
-    <span>© <span data-year>2026</span> Akarshan Digital LLC · Houston, Texas · <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a></span>
-    <span>Site hand-built, see <a href="/work/avoxan-studio-site">how</a></span>
+  <div class="ftr__word" aria-hidden="true">Avoxan</div>
+  <div class="wrap ftr__legal">
+    <span>© 2026 Akarshan Digital LLC. Avoxan is a trading name of Akarshan Digital LLC.</span>
+    <span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · Houston, Texas</span>
   </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-<script src="/js/avoxan-v2.js?v=8" defer></script>
+<script src="/js/avoxan-studio.js?v=5" defer></script>
+<script src="/js/pages/journal.js?v=5" defer></script>
+<script src="/js/avoxan-chat.js?v=5" defer></script>
+<script src="/js/avoxan-analytics.js?v=5" defer></script>
 </body>
 </html>

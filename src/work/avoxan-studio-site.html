@@ -1,0 +1,200 @@
+<!--page
+{
+ "title": "How We Built avoxan.com: A Web Design Studio's Own Website, Every Decision · Avoxan",
+ "description": "A case study of the Avoxan studio website, rebuilt in October 2026: client palettes, real call recordings, published pricing, a hand-coded build on Cloudflare Pages, and the SEO and AI-search setup behind it.",
+ "canonical": "/work/avoxan-studio-site",
+ "nav": "work",
+ "css": ["pages/casefile.css"],
+ "og_type": "article",
+ "og_title": "How we built avoxan.com",
+ "og_description": "Every decision behind a Houston design studio's own website, written up with the trade-offs.",
+ "og_image": "https://avoxan.com/assets/work/avoxan-2026.webp",
+ "article": {"published": "2026-10-03"},
+ "breadcrumb": [["Home", "/"], ["Work", "/work/"], ["avoxan.com", "/work/avoxan-studio-site"]],
+ "schema": [
+  {
+   "@type": "Article",
+   "@id": "https://avoxan.com/work/avoxan-studio-site#article",
+   "headline": "How we built avoxan.com",
+   "description": "Every decision behind the October 2026 rebuild of the Avoxan studio website.",
+   "datePublished": "2026-10-03",
+   "dateModified": "2026-10-03",
+   "inLanguage": "en-US",
+   "image": "https://avoxan.com/assets/work/avoxan-2026.webp",
+   "author": {"@type": "Person", "@id": "https://avoxan.com/#akarsh", "name": "Akarsh"},
+   "publisher": {"@id": "https://avoxan.com/#org"},
+   "about": {"@type": "WebSite", "name": "Avoxan", "url": "https://avoxan.com/"}
+  }
+ ]
+}
+-->
+<!-- ================= OPENER ================= -->
+<section class="ph cf-ph" aria-labelledby="cf-h">
+  <div class="wrap">
+    <ol class="crumbs mono" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li><a href="/work/">Work</a></li><li aria-current="page">avoxan.com</li></ol>
+    <p class="mono kick" data-reveal>Case file 04 · Our own website</p>
+    <h1 id="cf-h" data-reveal>How we built <em>avoxan.com.</em></h1>
+    <p class="ph__lede" data-reveal>A studio's own site is the one project with no client to blame. So here is every decision behind the October 2026 rebuild, what we traded for it, and what we'd still change. <strong>If you're hiring a studio, this is how we think.</strong></p>
+    <dl class="cf-spec" data-reveal>
+      <div><dt class="mono">Client</dt><dd>Avoxan (us)</dd></div>
+      <div><dt class="mono">Shipped</dt><dd>October 2026</dd></div>
+      <div><dt class="mono">Scope</dt><dd>27 pages, journal, AI demos</dd></div>
+      <div><dt class="mono">Stack</dt><dd>Hand-coded, Cloudflare Pages</dd></div>
+    </dl>
+  </div>
+</section>
+
+<figure class="cf-shot" data-reveal="clip">
+  <img src="/assets/work/avoxan-2026.webp" alt="The Avoxan homepage: a large serif headline over an ember-colored film" width="1600" height="1000">
+</figure>
+
+<!-- ================= BRIEF ================= -->
+<section class="sec cf-brief" aria-labelledby="brief-h">
+  <div class="wrap cf-two">
+    <div>
+      <p class="mono kick">The brief</p>
+      <h2 id="brief-h" class="cf-h2">Stop describing the work. <em>Show it.</em></h2>
+    </div>
+    <div class="cf-copy">
+      <p>Our first site was written for a studio with no clients yet, so it leaned on promises: guarantees, an itemized offer, a lot of reassurance. By autumn 2026 we had three finished projects and three clients willing to say on camera what working with us was like.</p>
+      <p>The new site had one job: let that work and those voices carry the argument. Everything else, from the type to the build, had to get out of their way.</p>
+      <ul class="cf-goals">
+        <li><b>Show each project in its own light,</b> not framed in our brand.</li>
+        <li><b>Let clients speak</b> in their own words, unedited.</li>
+        <li><b>Prove the AI product</b> with a real recording, not a mockup.</li>
+        <li><b>Publish every price,</b> down to the add-ons.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DECISIONS ================= -->
+<section class="sec cf-decisions" aria-labelledby="dec-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="mono kick">Decision log</p>
+        <h2 id="dec-h">Ten calls, and what each <em>cost.</em></h2>
+      </div>
+      <p>Each entry is written the way we write them for clients: what we decided, why, and the trade-off we accepted.</p>
+    </div>
+
+    <ol class="adr">
+      <li>
+        <span class="adr__n mono">D-01</span>
+        <h3>A screening room, not a portfolio grid</h3>
+        <p><b>Decision.</b> As each case study scrolls into view, the whole page takes on that client's own colors: Bag Chasers' gold on black, Clever's green on cream, thePrepDoc's rose on plum.</p>
+        <p><b>Why.</b> A thumbnail grid flattens every project into our style. Taking over the page shows the work the way its customers see it.</p>
+        <p class="adr__cost"><b>Trade-off.</b> Every color on the site has to read through five live tokens, so no section can hard-code a color. It's stricter to build, and worth it.</p>
+      </li>
+      <li>
+        <span class="adr__n mono">D-02</span>
+        <h3>Instrument Serif, Geist and JetBrains Mono</h3>
+        <p><b>Decision.</b> One display serif used large, one clean sans for reading, and a monospace only for small labels.</p>
+        <p><b>Why.</b> Instrument Serif's condensed shapes let a headline run huge without wrapping into a wall. Our old serif, Fraunces, was lovely but wide, and more than three times the file size.</p>
+        <p class="adr__cost"><b>Trade-off.</b> Instrument Serif has one weight. Hierarchy comes from size and italics, never bold.</p>
+      </li>
+      <li>
+        <span class="adr__n mono">D-03</span>
+        <h3>Ember on warm black, with one light page</h3>
+        <p><b>Decision.</b> We kept our ember accent and warm ink ground, and dropped the light-mode toggle. The only light page is for med spas.</p>
+        <p><b>Why.</b> Dark makes client screenshots glow. But a med spa owner should land in a world that feels like their treatment rooms, so that page is porcelain and clay.</p>
+        <p class="adr__cost"><b>Trade-off.</b> Visitors who prefer light mode don't get a choice on most pages.</p>
+      </li>
+      <li>
+        <span class="adr__n mono">D-04</span>
+        <h3>Clients, on camera and unedited</h3>
+        <p><b>Decision.</b> The homepage plays short clips from our Zoom calls with clients, and an “overheard” band runs other things they said, without a name on every line.</p>
+        <p><b>Why.</b> A polished testimonial reads like marketing. A client thinking out loud on a call reads like the truth.</p>
+        <p class="adr__cost"><b>Trade-off.</b> Video is heavy, so clips load only when someone presses play.</p>
+      </li>
+      <li>
+        <span class="adr__n mono">D-05</span>
+        <h3>A real call, not a mockup</h3>
+        <p><b>Decision.</b> The AI receptionist page plays an actual 79-second recording. The transcript follows along, and a lead card fills in as the AI collects each detail.</p>
+        <p><b>Why.</b> Everyone selling AI shows a mockup. Hearing it handle a leaking sink at night settles the “does it sound robotic?” question in a minute.</p>
+        <p class="adr__cost"><b>Trade-off.</b> The transcript and timings had to be logged by hand against the audio.</p>
+      </li>
+      <li>
+        <span class="adr__n mono">D-06</span>
+        <h3>Every price, itemized</h3>
+        <p><b>Decision.</b> The pricing page lists everything: each website deliverable with its standalone value, all three AI plans, every add-on and the price we'll charge next.</p>
+        <p><b>Why.</b> Owners hate booking a call to learn a price. AI assistants also recommend businesses whose prices they can read.</p>
+        <p class="adr__cost"><b>Trade-off.</b> We can't quote different people different numbers. That's the point.</p>
+      </li>
+      <li>
+        <span class="adr__n mono">D-07</span>
+        <h3>Hand-coded, with a 300-line build</h3>
+        <p><b>Decision.</b> No framework and no page builder. Each page is plain HTML; a small Python script adds the shared header, footer and structured data, then Cloudflare Pages serves static files.</p>
+        <p><b>Why.</b> Nothing to update, nothing to patch, and pages that load fast on a phone in a parking lot.</p>
+        <p class="adr__cost"><b>Trade-off.</b> Editing means editing code. Fine for us; it's why we usually build clients on Webflow or WordPress instead.</p>
+      </li>
+      <li>
+        <span class="adr__n mono">D-08</span>
+        <h3>Structured data that can't drift</h3>
+        <p><b>Decision.</b> Every page carries JSON-LD: services and offers, how-to steps, articles, the demo call with its transcript. FAQ schema is generated from the questions you can see on the page.</p>
+        <p><b>Why.</b> Search engines and AI assistants quote what they can parse. Generating it from the page means the answers and the data always match.</p>
+        <p class="adr__cost"><b>Trade-off.</b> Every FAQ answer has to be written to stand on its own, out of context.</p>
+      </li>
+      <li>
+        <span class="adr__n mono">D-09</span>
+        <h3>Motion with manners</h3>
+        <p><b>Decision.</b> Text and images ease in as you scroll, but only when JavaScript runs and the visitor hasn't asked their device for reduced motion. If the script fails, the page shows everything after three seconds.</p>
+        <p><b>Why.</b> Animation should never be the reason someone can't read a page.</p>
+        <p class="adr__cost"><b>Trade-off.</b> Every animated element needs a complete, static fallback.</p>
+      </li>
+      <li>
+        <span class="adr__n mono">D-10</span>
+        <h3>Our own chat, as a live demo</h3>
+        <p><b>Decision.</b> “Ask Avoxan” answers questions about pricing and process on every page, and waits until you scroll before it appears.</p>
+        <p><b>Why.</b> We sell website chat to clients, so our site should run it.</p>
+        <p class="adr__cost"><b>Trade-off.</b> It's an AI and can be wrong, so it says so, and links to a real call for anything binding.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= NUMBERS ================= -->
+<section class="sec cf-nums" aria-labelledby="nums-h">
+  <div class="wrap">
+    <p class="mono kick">By the numbers</p>
+    <h2 id="nums-h" class="cf-h2">Small on purpose.</h2>
+    <dl class="nums">
+      <div><dt>0</dt><dd class="mono">JavaScript frameworks</dd></div>
+      <div><dt>11<small>KB</small></dt><dd class="mono">Shared CSS, compressed</dd></div>
+      <div><dt>4<small>KB</small></dt><dd class="mono">Shared JavaScript, compressed</dd></div>
+      <div><dt>3</dt><dd class="mono">Typefaces, self-hosted</dd></div>
+      <div><dt>27</dt><dd class="mono">Pages from one build script</dd></div>
+      <div><dt>4</dt><dd class="mono">Palettes, one per client plus ours</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ================= NEXT ================= -->
+<section class="sec cf-next" aria-labelledby="next-h">
+  <div class="wrap cf-two">
+    <div>
+      <p class="mono kick">Still on the list</p>
+      <h2 id="next-h" class="cf-h2">What we'd <em>still change.</em></h2>
+    </div>
+    <ul class="cf-todo">
+      <li>Short case videos for each project, cut from the full client calls.</li>
+      <li>Spanish versions of the AI receptionist pages, since the product already speaks Spanish.</li>
+      <li>Real before-and-after numbers for each client, once they've had six months on the new sites.</li>
+      <li>Retiring the founding-rate banner once our first ten AI clients are signed.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="cta-end" aria-labelledby="cf-cta">
+  <div class="wrap">
+    <h2 id="cf-cta">Want this much care on <em>yours?</em></h2>
+    <div class="cta-end__row">
+      <p>We design, write and build websites for owner-led businesses in about four weeks, from $2,400.</p>
+      <div class="btns">
+        <a class="btn" href="/contact" data-cta="cf-start">Start a project <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a>
+        <a class="btn btn--ghost" href="/work/">See the client work</a>
+      </div>
+    </div>
+  </div>
+</section>

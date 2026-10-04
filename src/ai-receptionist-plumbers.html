@@ -1,0 +1,270 @@
+<!--page
+{
+ "title": "AI Receptionist for Houston Plumbers | 24/7 Emergency Call Answering · Avoxan",
+ "description": "An AI answering service built for Houston plumbing companies. It answers missed and after-hours calls, triages burst pipes and slab leaks, transfers real emergencies to your cell, books the rest and texts you the lead. From $97/mo.",
+ "canonical": "/ai-receptionist-plumbers",
+ "nav": "ai",
+ "css": ["pages/ai.css", "pages/plumbers.css"],
+ "js": ["pages/ai-call.js"],
+ "theme_color": "#0A0F14",
+ "og_title": "The night dispatcher for Houston plumbers",
+ "og_description": "Answers the 10 PM burst-pipe call, triages it, transfers real emergencies and books the rest. From $97 a month.",
+ "breadcrumb": [["Home", "/"], ["AI receptionist", "/ai-receptionist"], ["For plumbers", "/ai-receptionist-plumbers"]],
+ "faq_schema": "#faq",
+ "schema": [
+  {
+   "@type": "Service",
+   "@id": "https://avoxan.com/ai-receptionist-plumbers#service",
+   "name": "AI receptionist for plumbing companies",
+   "serviceType": "AI answering service for plumbers",
+   "provider": {"@id": "https://avoxan.com/#org"},
+   "audience": {"@type": "BusinessAudience", "audienceType": "Plumbing contractors"},
+   "areaServed": [{"@type": "City", "name": "Houston"}, {"@type": "AdministrativeArea", "name": "Greater Houston"}],
+   "description": "24/7 AI call answering for plumbers: missed-call text-back, emergency triage and live transfer, appointment booking, and lead summaries by text.",
+   "offers": {"@type": "AggregateOffer", "lowPrice": "97", "highPrice": "397", "priceCurrency": "USD", "offerCount": "3", "url": "https://avoxan.com/pricing#ai"}
+  }
+ ]
+}
+-->
+<!-- ================= OPENER ================= -->
+<section class="ph pl-ph" aria-labelledby="pl-h">
+  <div class="pl-ph__grid-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <ol class="crumbs mono" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li><a href="/ai-receptionist">AI receptionist</a></li><li aria-current="page">For plumbers</li></ol>
+    <div class="pl-ph__grid">
+      <div>
+        <h1 id="pl-h" data-reveal><span class="mono ai-ph__kick">AI receptionist for Houston plumbers</span>The night <em>dispatcher.</em></h1>
+        <p class="ph__lede" data-reveal>Burst pipes don't wait for business hours, and neither do the homeowners searching “emergency plumber near me.” Our AI receptionist answers every call you can't, sorts the emergencies from the estimates, and <strong>texts you the job before they call the next plumber on Google.</strong></p>
+        <div class="ai-ph__btns pl-ph__btns" data-reveal>
+          <a class="btn" href="#call" data-cta="pl-listen"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>Hear it take a leak call</a>
+          <a class="btn btn--ghost" href="#demo" data-cta="pl-demo">Get a demo for your shop</a>
+        </div>
+      </div>
+
+      <div class="board" data-reveal aria-label="Example dispatch board for one night">
+        <div class="board__top mono"><span>Tonight's calls</span><span class="board__live">Live</span></div>
+        <ol class="board__list">
+          <li class="em"><time class="mono">10:14 PM</time><div><b>Burst pipe, water won't shut off</b><span>The Heights · 77008</span></div><em class="mono">Transferred</em></li>
+          <li><time class="mono">9:02 PM</time><div><b>No hot water, 50-gal gas heater</b><span>Katy · 77494</span></div><em class="mono">Booked 8–10 AM</em></li>
+          <li><time class="mono">8:47 PM</time><div><b>Slab leak suspected, warm spot in floor</b><span>Meyerland · 77096</span></div><em class="mono">Estimate</em></li>
+          <li><time class="mono">7:31 PM</time><div><b>Kitchen drain backing up</b><span>Pearland · 77584</span></div><em class="mono">Booked 10–12</em></li>
+          <li class="dim"><time class="mono">7:05 PM</time><div><b>“Lower your merchant fees…”</b><span>Robocall</span></div><em class="mono">Filtered</em></li>
+        </ol>
+        <p class="board__foot mono">Example night · every lead texted to the owner</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= THE CALL ================= -->
+<section class="call" id="call" aria-labelledby="call-h" data-call>
+  <div class="wrap">
+    <div class="call__head">
+      <p class="mono kick">A real recording · 1:19</p>
+      <h2 id="call-h">Water in the cabinet. <em>After hours.</em></h2>
+      <p>The exact kind of call that goes to voicemail and then to a competitor. Press play: it checks urgency, gets the name, callback number, neighborhood and property type, then sends the plumber a lead they can act on.</p>
+    </div>
+<!--include call-deck.html-->
+    <p class="call__note mono">Demo business. Voice and script are the real product; the caller's details are made up.</p>
+  </div>
+</section>
+
+<!-- ================= TRIAGE ================= -->
+<section class="sec triage" aria-labelledby="tri-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="mono kick">Triage, your rules</p>
+        <h2 id="tri-h">Not every call is a <em>2 AM call.</em></h2>
+      </div>
+      <p>We set it up to sort calls the way you would. Real emergencies reach you right away. Everything else gets booked or quoted, and your phone stays quiet until morning.</p>
+    </div>
+    <div class="tri">
+      <div class="tri__col tri__col--em">
+        <p class="mono tri__h"><i></i>Emergency · transfer now</p>
+        <ul>
+          <li>Burst pipe or a leak that won't shut off</li>
+          <li>Sewage backing up into the house</li>
+          <li>No water to the whole home</li>
+          <li>Water heater leaking from the tank</li>
+        </ul>
+        <p class="tri__do">Put straight through to your cell, with the address already in a text.</p>
+      </div>
+      <div class="tri__col">
+        <p class="mono tri__h"><i></i>Soon · book a window</p>
+        <ul>
+          <li>No hot water</li>
+          <li>Clogged drains and toilets</li>
+          <li>Running toilet, dripping faucet</li>
+          <li>Low water pressure</li>
+        </ul>
+        <p class="tri__do">Offered the next open arrival window, with a text confirmation and a reminder. On Front Desk it goes straight onto your calendar.</p>
+      </div>
+      <div class="tri__col">
+        <p class="mono tri__h"><i></i>Estimate · capture and schedule</p>
+        <ul>
+          <li>Water heater or tankless replacement</li>
+          <li>Slab leak detection and repair</li>
+          <li>Repipes and remodels</li>
+          <li>Water softeners and filtration</li>
+        </ul>
+        <p class="tri__do">Takes the details, asks for photos by text, and sets up a time for you to quote. These are your biggest tickets, so it never rushes them.</p>
+      </div>
+    </div>
+    <p class="tri__gas"><b>Smell gas?</b> It never tries to troubleshoot. It tells the caller to leave the house and call 911 and CenterPoint Energy's emergency line from outside, then alerts you.</p>
+  </div>
+</section>
+
+<!-- ================= HOUSTON CALENDAR ================= -->
+<section class="sec season" aria-labelledby="season-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="mono kick">Made for Houston</p>
+        <h2 id="season-h">When Houston's phones <em>light up.</em></h2>
+      </div>
+      <p>Plumbing calls here come in waves. A receptionist that answers many calls at once is worth the most on exactly the days you can't answer any of them.</p>
+    </div>
+    <ol class="season__row">
+      <li style="--m:1"><span class="mono">Jan – Feb</span><b>Hard freezes</b><p>One freeze can mean a week of burst pipes. Winter Storm Uri in February 2021 left plumbers across the city booked out for weeks.</p></li>
+      <li style="--m:4"><span class="mono">Mar – May</span><b>Spring storms</b><p>Heavy rain and street flooding bring sewer backups and sump pump calls, often all on the same night.</p></li>
+      <li style="--m:6"><span class="mono">Jun – Nov</span><b>Hurricane season</b><p>After Hurricane Beryl in July 2024, many homes lost power for days. Calls about well pumps, water heaters and flood damage pile up while your own lines may be down.</p></li>
+      <li style="--m:8"><span class="mono">Jul – Sep</span><b>Dry heat and slab leaks</b><p>Houston's clay soil shrinks in long dry spells and shifts foundations, which is when slab leak calls climb.</p></li>
+      <li style="--m:11"><span class="mono">Nov – Dec</span><b>Holidays</b><p>Thanksgiving's “day after” drain calls, full houses and guests. Your office is closed. Your phone shouldn't be.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= AREA ================= -->
+<section class="sec area" aria-labelledby="area-h">
+  <div class="wrap area__grid">
+    <div>
+      <p class="mono kick">Service area check</p>
+      <h2 id="area-h" class="ai-h2">It knows where you <em>drive.</em></h2>
+      <p class="gap__p">We load your ZIP codes and neighborhoods. A caller inside your area gets booked. One outside it hears, politely, that you don't cover their part of town, so you don't spend tomorrow morning calling back jobs you can't take.</p>
+      <p class="gap__p">It also understands how Houstonians describe where they live: “off 290 by the Beltway,” “Inner Loop,” “just past Katy Mills.”</p>
+    </div>
+    <ul class="area__chips" aria-label="Example service area">
+      <li class="in">The Heights</li><li class="in">Montrose</li><li class="in">Bellaire</li><li class="in">Meyerland</li><li class="in">Spring Branch</li><li class="in">Memorial</li><li class="in">Katy</li><li class="in">Cypress</li><li class="in">Sugar Land</li><li class="in">Pearland</li><li class="in">Missouri City</li><li class="in">Pasadena</li><li class="out">The Woodlands</li><li class="out">Kingwood</li><li class="out">League City</li><li class="out">Conroe</li>
+      <li class="area__key mono"><span class="in">In your area</span><span class="out">Outside it</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= MATH ================= -->
+<section class="sec pl-math" aria-labelledby="math-h">
+  <div class="wrap">
+    <p class="mono kick">The math for a two-truck shop</p>
+    <h2 id="math-h" class="ai-h2">One missed call a week is a <em>truck payment.</em></h2>
+    <div class="eq" role="img" aria-label="8 missed calls a week, times a 350 dollar average job, times 30 percent who would have booked, times 52 weeks, equals 43,680 dollars a year">
+      <div><b>8</b><span class="mono">missed calls a week</span></div><i>×</i>
+      <div><b>$350</b><span class="mono">average job</span></div><i>×</i>
+      <div><b>30%</b><span class="mono">who'd have booked</span></div><i>×</i>
+      <div><b>52</b><span class="mono">weeks</span></div><i>=</i>
+      <div class="eq__out"><b>$43,680</b><span class="mono">a year, walking to competitors</span></div>
+    </div>
+    <p class="eq__note">An illustration, not a promise. Plug in your own numbers with the <a class="link-u" href="/pricing#calc">missed-call calculator</a>. Even at a fraction of this, the Answer plan at $197 a month pays for itself with one job.</p>
+  </div>
+</section>
+
+<!-- ================= PLANS ================= -->
+<section class="sec plans" aria-labelledby="plans-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="mono kick">Plans for plumbers</p>
+        <h2 id="plans-h">Start with the <em>night shift.</em></h2>
+      </div>
+      <p>Free setup, no contract, cancel any month. If it hasn't brought you a new job lead in the first 30 days, your first month comes back.</p>
+    </div>
+    <div class="plans__row">
+      <a class="plan" href="/pricing#ai" data-cta="pl-plan-catch"><span class="mono">For solo plumbers</span><b>Catch</b><span class="plan__p">$97<small>/mo</small></span><p>You answer what you can. Every missed call gets a text back in seconds, and the AI keeps the conversation going.</p></a>
+      <a class="plan plan--top" href="/pricing#ai" data-cta="pl-plan-answer"><span class="mono">Most shops start here</span><b>Answer</b><span class="plan__p">$197<small>/mo</small></span><p>Answers after-hours and overflow calls in English and Spanish, triages, and transfers real emergencies to your cell.</p></a>
+      <a class="plan" href="/pricing#ai" data-cta="pl-plan-frontdesk"><span class="mono">For growing teams</span><b>Front Desk</b><span class="plan__p">$397<small>/mo</small></span><p>Also books arrival windows, sends reminders and asks for Google reviews after the job. Free 1-page website.</p></a>
+    </div>
+    <p class="plans__more">Using Housecall Pro, Jobber or ServiceTitan? We can connect bookings to it as a custom setup, from $1,500. <a class="link-u" href="/pricing#ai">Compare every feature →</a></p>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="sec" id="faq" aria-labelledby="plfaq-h">
+  <div class="wrap ai-faq">
+    <div>
+      <p class="mono kick">Questions from plumbers</p>
+      <h2 id="plfaq-h" class="ai-h2">Straight <em>answers.</em></h2>
+    </div>
+    <div class="qa">
+      <details><summary>Do I need to change my business phone number?</summary><p>No. Your number stays the same and your phone still rings first. You forward the calls you miss, or your after-hours calls, to the AI with a setting on your phone. Your trucks, yard signs and Google listing don't change.</p></details>
+      <details><summary>How does it handle plumbing emergencies at night?</summary><p>You tell us what counts as an emergency, like a burst pipe, a leak that won't shut off or sewage in the house. Those calls are flagged and transferred straight to your cell, or your on-call tech, with the address texted ahead. Everything else is booked for the morning so your night stays quiet.</p></details>
+      <details><summary>Can it quote prices for plumbing jobs?</summary><p>Only the prices you give it. Many shops let it share a service call fee or a price range for common jobs, and have it say “the plumber will confirm on site” for everything else. It never makes up a number.</p></details>
+      <details><summary>What information does it collect from callers?</summary><p>Name, callback number, service address, the problem in the caller's words, how urgent it is, whether it's a home or a business, and the best time to call back. It can also ask for photos by text, which helps you quote water heaters and leaks before you roll a truck.</p></details>
+      <details><summary>Does it speak Spanish?</summary><p>Yes, on the Answer and Front Desk plans. It switches to Spanish when the caller does and sends you the summary in English. In Houston that alone can win jobs other plumbers miss.</p></details>
+      <details><summary>Can it book jobs into Housecall Pro, Jobber or ServiceTitan?</summary><p>Front Desk books into Google Calendar or Outlook out of the box. Booking directly into field-service software is a custom setup, from $1,500, and we'll tell you on the demo call whether it's worth it for your shop.</p></details>
+      <details><summary>What does an AI answering service for plumbers cost?</summary><p>$97 a month for missed-call text-back, $197 for voice answering with emergency transfer, and $397 with booking, reminders and review requests. Setup is free and there's no contract. Compare that to a live answering service, which usually bills $1 to $5 a minute.</p></details>
+      <details><summary>Will homeowners know it's an AI?</summary><p>It sounds natural and answers in your company's name, but if someone asks, it tells them it's an AI assistant. Most callers just want to know when a plumber can come, and it tells them right away.</p></details>
+      <details><summary>How fast can it go live?</summary><p>Usually within a week. We do a 30-minute interview about your services, prices, service area and emergency rules, build and test it, and register your number for business texting.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DEMO ================= -->
+<section class="sec demo" id="demo" aria-labelledby="demo-h">
+  <div class="demo__glow" aria-hidden="true"></div>
+  <div class="wrap demo__grid">
+    <div>
+      <p class="mono kick">Free demo</p>
+      <h2 id="demo-h" class="ai-h2 demo__h">Hear it answer for <em>your</em> shop.</h2>
+      <p class="gap__p">Tell us about your plumbing company. We'll build a demo with your company name, your services and your service area, then call you with it.</p>
+      <ul class="demo__keep">
+        <li>Keep your existing number</li>
+        <li>Your phone still rings first</li>
+        <li>No contract, and a 30-day pays-for-itself guarantee</li>
+        <li>Founding price locked in for our first 10 clients</li>
+      </ul>
+      <p class="demo__alt">Prefer to talk first? <a class="link-u" href="/contact#book">Book a 30-minute call →</a></p>
+    </div>
+    <form class="form demo__form" action="/api/contact" method="POST" data-form="ai_receptionist_plumbers" data-success="Got it. We'll build your demo and call you within one business day.">
+      <input type="hidden" name="form_type" value="ai_receptionist_plumbers">
+      <input type="hidden" name="source_page" value="/ai-receptionist-plumbers">
+      <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="bot-field" tabindex="-1" autocomplete="off"></label></div>
+      <div class="form__row">
+        <div class="fld"><label for="d-name">Your name <em>*</em></label><input id="d-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="fld"><label for="d-biz">Company name <em>*</em></label><input id="d-biz" name="business" type="text" autocomplete="organization" required></div>
+      </div>
+      <div class="form__row">
+        <div class="fld"><label for="d-email">Email <em>*</em></label><input id="d-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="fld"><label for="d-phone">Phone <em>*</em></label><input id="d-phone" name="phone" type="tel" autocomplete="tel" required placeholder="(713) 555-0100"></div>
+      </div>
+      <div class="form__row">
+        <div class="fld"><label for="d-ind">Trade <em>*</em></label>
+          <select id="d-ind" name="industry" required>
+            <option value="" selected disabled>Choose one</option>
+            <option>Plumbing</option><option>Plumbing + HVAC</option><option>Plumbing + Electrical</option><option>Other home service</option>
+          </select></div>
+        <div class="fld"><label for="d-missed">Calls missed per week <em>*</em></label>
+          <select id="d-missed" name="missed_calls" required>
+            <option value="" selected disabled>Best guess</option>
+            <option>0–5</option><option>6–10</option><option>11–20</option><option>20+</option><option>Not sure</option>
+          </select></div>
+      </div>
+      <div class="form__row">
+        <div class="fld"><label for="d-em">Emergency or after-hours work? <em>*</em></label>
+          <select id="d-em" name="emergency_service" required>
+            <option value="" selected disabled>Choose one</option>
+            <option>Yes, emergency and after-hours</option><option>After-hours only</option><option>No</option>
+          </select></div>
+        <div class="fld"><label for="d-time">Best time for the demo call <em>*</em></label>
+          <select id="d-time" name="demo_time" required>
+            <option value="" selected disabled>Choose one</option>
+            <option>Weekday mornings</option><option>Weekday afternoons</option><option>Weekday evenings</option><option>Weekends</option><option>Anytime</option>
+          </select></div>
+      </div>
+      <div class="fld"><label for="d-site">Website</label><input id="d-site" name="website" type="text" inputmode="url" placeholder="yourplumbing.com"></div>
+      <div class="form__foot">
+        <button class="btn" type="submit">Build my free demo <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        <p class="form__status" data-form-status role="status" hidden></p>
+        <p class="form__note">By submitting this form, you agree that Avoxan may contact you by email, phone, or text message about your inquiry. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent to texts is not a condition of purchase. See our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a>.</p>
+      </div>
+    </form>
+  </div>
+</section>

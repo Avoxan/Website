@@ -1,0 +1,212 @@
+<!--page
+{
+ "priority": "0.8",
+ "title": "Contact Avoxan | Houston Web Design Studio · Book a Free 30-Minute Call",
+ "description": "Talk to Avoxan, a Houston web design and development studio. Book a free 30-minute call, send a note about your project, or email hello@avoxan.com. Replies within one business day.",
+ "canonical": "/contact",
+ "nav": "contact",
+ "css": ["pages/contact.css"],
+ "js": ["pages/contact.js"],
+ "booking": true,
+ "og_title": "Start a project with Avoxan",
+ "og_description": "Book a free 30-minute call with a Houston web design studio, or send us a note. We reply within one business day.",
+ "breadcrumb": [["Home", "/"], ["Contact", "/contact"]],
+ "schema": [
+  {
+   "@type": "ContactPage",
+   "@id": "https://avoxan.com/contact#page",
+   "url": "https://avoxan.com/contact",
+   "name": "Contact Avoxan",
+   "about": {"@id": "https://avoxan.com/#org"},
+   "mainEntity": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "email": "hello@avoxan.com",
+    "areaServed": ["US", "CA", "GB", "AU"],
+    "availableLanguage": ["English"],
+    "hoursAvailable": {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "18:00"}
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://avoxan.com/contact#faq",
+   "mainEntity": [
+    {"@type": "Question", "name": "Is the first call with Avoxan free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The first call is a free 30-minute conversation about your business. There's no pitch deck and no obligation, and if we're not the right fit we'll tell you who might be."}},
+    {"@type": "Question", "name": "Do you only work with Houston businesses?", "acceptedAnswer": {"@type": "Answer", "text": "No. We're based in Houston and know the local market well, but most projects run over Zoom, and we work with clients across Texas, the rest of the US, Canada, the UK and Australia."}},
+    {"@type": "Question", "name": "How fast will I hear back?", "acceptedAnswer": {"@type": "Answer", "text": "Within one business day, and usually the same day if you write on a weekday. Booking a time on the calendar is instant."}},
+    {"@type": "Question", "name": "How do payments work?", "acceptedAnswer": {"@type": "Answer", "text": "Website projects are a fixed price: 50% to start and 50% at launch, by card through Stripe, ACH or wire. AI receptionist plans are billed monthly or yearly and you can cancel anytime."}}
+   ]
+  }
+ ]
+}
+-->
+<!-- ================= OPENER ================= -->
+<section class="ph ct-ph" aria-labelledby="ct-h">
+  <div class="ct-ph__glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <ol class="crumbs mono" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Contact</li></ol>
+    <div class="ct-ph__grid">
+      <div>
+        <h1 id="ct-h" data-reveal>Start with a <em>conversation.</em></h1>
+        <p class="ph__lede" data-reveal>Thirty minutes, no slide deck. Tell us about your business and we'll tell you honestly whether a new website, an AI receptionist, or neither is the right next step. <strong>Either way, you leave with a clearer plan.</strong></p>
+      </div>
+      <aside class="clock" aria-label="Studio status" data-reveal>
+        <div class="clock__top mono"><span>Houston, Texas</span><span>CT</span></div>
+        <div class="clock__time" data-clock aria-live="off">—:—</div>
+        <div class="clock__day mono" data-clock-day>&nbsp;</div>
+        <div class="clock__status" data-status>
+          <i aria-hidden="true"></i><span data-status-text>We reply within one business day.</span>
+        </div>
+        <div class="clock__rows">
+          <div><span class="mono">Studio hours</span>Mon–Fri, 9 AM–6 PM</div>
+          <div><span class="mono">Reply time</span>Within one business day</div>
+          <div><span class="mono">Next opening</span>Booking October 2026 · 3 spots left</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DIRECTORY ================= -->
+<section class="dir" aria-labelledby="dir-h">
+  <div class="wrap">
+    <h2 id="dir-h" class="mono dir__label">Three ways in</h2>
+    <ol class="dir__list">
+      <li>
+        <a class="dir__row" href="#book" data-cta="contact-door-book">
+          <span class="dir__n mono">01</span>
+          <span class="dir__t">Book a call</span>
+          <span class="dir__d">Pick any open 30-minute slot. The invite lands in your inbox in about two minutes.</span>
+          <span class="dir__go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></span>
+        </a>
+      </li>
+      <li>
+        <a class="dir__row" href="#note" data-cta="contact-door-note">
+          <span class="dir__n mono">02</span>
+          <span class="dir__t">Send a note</span>
+          <span class="dir__d">Not ready for a call? Tell us what you're working on and we'll write back within a business day.</span>
+          <span class="dir__go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></span>
+        </a>
+      </li>
+      <li>
+        <div class="dir__row dir__row--mail">
+          <span class="dir__n mono">03</span>
+          <a class="dir__t" href="mailto:hello@avoxan.com" data-cta="email">hello@avoxan.com</a>
+          <span class="dir__d">Plain email works too. It goes to the people who'll do the work, not a sales team.</span>
+          <button class="dir__copy mono" type="button" data-copy="hello@avoxan.com" aria-label="Copy email address">Copy</button>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= NOTE ================= -->
+<section class="sec note" id="note" aria-labelledby="note-h">
+  <div class="wrap note__grid">
+    <div>
+      <p class="mono kick">02 · Send a note</p>
+      <h2 id="note-h" class="note__h">Tell us about the <em>project.</em></h2>
+      <form class="form note__form" action="/api/contact" method="POST" data-form="website_discovery" data-success="Thanks, it's in our inbox. We'll reply within one business day, usually sooner.">
+        <input type="hidden" name="form_type" value="website_discovery">
+        <input type="hidden" name="source_page" value="/contact">
+        <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="bot-field" tabindex="-1" autocomplete="off"></label></div>
+        <div class="form__row">
+          <div class="fld"><label for="f-name">Your name <em>*</em></label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="fld"><label for="f-email">Email <em>*</em></label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <div class="form__row">
+          <div class="fld"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="(713) 555-0100"></div>
+          <div class="fld"><label for="f-site">Current website</label><input id="f-site" name="website" type="text" inputmode="url" placeholder="yourbusiness.com"></div>
+        </div>
+        <div class="fld">
+          <label for="f-time">Best way and time to reach you</label>
+          <input id="f-time" name="best_time" type="text" placeholder="e.g. Text me, weekday mornings">
+        </div>
+        <fieldset class="chips" aria-label="What do you need help with?">
+          <legend>What do you need? <span>Pick any</span></legend>
+          <label><input type="checkbox" name="interest" value="New website"><span>New website</span></label>
+          <label><input type="checkbox" name="interest" value="Redesign"><span>Redesign</span></label>
+          <label><input type="checkbox" name="interest" value="Local SEO"><span>Local SEO</span></label>
+          <label><input type="checkbox" name="interest" value="AI receptionist"><span>AI receptionist</span></label>
+          <label><input type="checkbox" name="interest" value="Not sure yet"><span>Not sure yet</span></label>
+        </fieldset>
+        <div class="fld">
+          <label for="f-msg">What would you like to talk about? <em>*</em></label>
+          <textarea id="f-msg" name="message" required placeholder="A few lines about your business, what isn't working today, and any deadline we should know about."></textarea>
+        </div>
+        <div class="form__foot">
+          <button class="btn" type="submit">Send the note <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></button>
+          <p class="form__status" data-form-status role="status" hidden></p>
+          <p class="form__note">We'll only use your details to reply about this inquiry. Nothing goes on a marketing list. By submitting this form, you agree that Avoxan may contact you by email, phone, or text message about your inquiry. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent to texts is not a condition of purchase. See our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a>.</p>
+        </div>
+      </form>
+    </div>
+
+    <aside class="next" aria-labelledby="next-h">
+      <h3 id="next-h" class="mono">What happens after you hit send</h3>
+      <ol class="next__list">
+        <li><span class="mono">Within 1 business day</span><b>A real reply</b><p>From the designer who'd lead your project, with a couple of questions and a link to book a time.</p></li>
+        <li><span class="mono">The call · 30 min</span><b>An honest read</b><p>We look at your current site and competitors together. If we're not the right fit, we'll say so and point you somewhere better.</p></li>
+        <li><span class="mono">Within 48 hours</span><b>A fixed quote in writing</b><p>One price, the full list of what's included, and a start date. No "it depends," no hourly billing.</p></li>
+        <li><span class="mono">Kickoff</span><b>Week one starts</b><p>50% to begin, 50% at launch. Then <a href="/process">four weeks to a live site</a>.</p></li>
+      </ol>
+      <div class="prep">
+        <h3 class="mono">Worth thinking about before the call</h3>
+        <ul>
+          <li>What would a great result look like six months after launch?</li>
+          <li>Who's your best customer, and how did they find you?</li>
+          <li>What's one thing a competitor does better online?</li>
+        </ul>
+        <p>No homework required. Working through these is what the call is for.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ================= BOOK ================= -->
+<section class="sec ct-book" id="book" aria-labelledby="book-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="mono kick">01 · Book a call</p>
+        <h2 id="book-h">Pick a <em>time.</em></h2>
+      </div>
+      <p>All times show in your own time zone. You'll get a calendar invite with a Zoom link right away, and a reminder the morning of.</p>
+    </div>
+    <div class="cal" data-calendly-embed>
+      <noscript><a class="link-u" href="https://calendly.com/hello-avoxan/30min">Book a call on Calendly →</a></noscript>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PAPERWORK ================= -->
+<section class="sec papers" aria-labelledby="papers-h">
+  <div class="wrap">
+    <h2 id="papers-h" class="mono dir__label">The fine print, up front</h2>
+    <dl class="papers__grid">
+      <div><dt class="mono">Studio</dt><dd>Houston, Texas. We work with clients across Texas, the US, Canada, the UK and Australia, mostly over Zoom.</dd></div>
+      <div><dt class="mono">Websites</dt><dd>From $2,400, one time. Fixed price, 50% to start and 50% at launch.</dd></div>
+      <div><dt class="mono">AI receptionist</dt><dd>From $97 a month. Month to month, cancel anytime.</dd></div>
+      <div><dt class="mono">Payment</dt><dd>Card through Stripe, ACH or wire transfer. Invoices from Akarshan Digital LLC.</dd></div>
+      <div><dt class="mono">Ownership</dt><dd>You own the domain, the design, the code and the content. Every login is handed over at launch.</dd></div>
+      <div><dt class="mono">Guarantees</dt><dd>Full refund after the first design round if you don't love the direction. $200 back if we miss launch.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="sec" aria-labelledby="ctfaq-h">
+  <div class="wrap ct-faq">
+    <div>
+      <p class="mono kick">Before you reach out</p>
+      <h2 id="ctfaq-h" class="note__h">Quick <em>answers.</em></h2>
+      <p class="ct-faq__more">More in the <a class="link-u" href="/faq">full FAQ</a>.</p>
+    </div>
+    <div class="qa">
+      <details><summary>Is the first call free?</summary><p>Yes. It's a free 30-minute conversation about your business. There's no pitch deck and no obligation, and if we're not the right fit we'll tell you who might be.</p></details>
+      <details><summary>Do you only work with Houston businesses?</summary><p>No. We're based in Houston and know the local market well, but most projects run over Zoom, and we work with clients across Texas, the rest of the US, Canada, the UK and Australia.</p></details>
+      <details><summary>How fast will I hear back?</summary><p>Within one business day, and usually the same day if you write on a weekday. Booking a time on the calendar is instant.</p></details>
+      <details><summary>How do payments work?</summary><p>Website projects are a fixed price: 50% to start and 50% at launch, by card through Stripe, ACH or wire. AI receptionist plans are billed monthly or yearly, and you can cancel anytime. See <a href="/pricing">pricing</a>.</p></details>
+    </div>
+  </div>
+</section>

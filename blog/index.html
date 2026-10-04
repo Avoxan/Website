@@ -1,27 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en-US" class="no-js">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<title>Field notes, honest writing on AI receptionists & small business websites · Avoxan</title>
-<meta name="description" content="Long-form essays on AI and websites for service businesses: AI receptionists, what they cost, conversion, local SEO and AI search. Written for owners, not agencies.">
-
+<title>Journal: Web Design, Local SEO &amp; AI Receptionist Guides for Small Businesses · Avoxan</title>
+<meta name="description" content="Plain-English guides from a Houston web design studio: what a website should cost, how to hire a designer, local SEO, getting cited by AI search, and what AI receptionists really cost.">
 <meta name="author" content="Akarshan Digital LLC">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-<meta name="GPTBot" content="index, follow">
-<meta name="ChatGPT-User" content="index, follow">
-<meta name="PerplexityBot" content="index, follow">
-<meta name="ClaudeBot" content="index, follow">
-<meta name="Google-Extended" content="index, follow">
-
 <link rel="canonical" href="https://avoxan.com/blog/">
-
 <meta name="geo.region" content="US-TX">
 <meta name="geo.placename" content="Houston">
-
-<meta name="theme-color" content="#0C0A08">
-<script>try{if(localStorage.getItem('avoxan-theme')==='light')document.documentElement.classList.add('light')}catch(e){}</script>
+<meta name="theme-color" content="#0D0B09">
+<meta name="color-scheme" content="dark">
 <meta name="format-detection" content="telephone=no">
 
 <link rel="icon" type="image/svg+xml" href="/avoxan-logo.svg">
@@ -33,289 +24,316 @@
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Avoxan">
-<meta property="og:title" content="Field notes, honest writing on AI receptionists & small business websites · Avoxan">
-<meta property="og:description" content="Thirteen long-form essays on AI receptionists, AI employees, and websites that pay rent. Written for owners, not other agencies.">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="The Avoxan Journal">
+<meta property="og:description" content="Plain-English guides on websites, local SEO, AI search and AI receptionists.">
 <meta property="og:url" content="https://avoxan.com/blog/">
 <meta property="og:image" content="https://avoxan.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Avoxan Journal">
+<meta name="twitter:description" content="Plain-English guides on websites, local SEO, AI search and AI receptionists.">
+<meta name="twitter:image" content="https://avoxan.com/og-image.png">
 
-<link rel="preload" as="style" href="/css/avoxan-fonts.css?v=1">
-<link rel="stylesheet" media="print" onload="this.media='all';this.onload=null" href="/css/avoxan-fonts.css?v=1">
-<noscript><link rel="stylesheet" href="/css/avoxan-fonts.css?v=1"></noscript>
-<link rel="stylesheet" href="/css/avoxan-v2.css?v=22">
-<script src="/js/avoxan-chat.js?v=2" defer></script>
-<script>/* Avoxan: remove any orphaned service worker + caches from older site versions */(function(){try{if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister();});}).catch(function(){});}if(self.caches&&caches.keys){caches.keys().then(function(ks){ks.forEach(function(k){caches.delete(k);});}).catch(function(){});}}catch(e){}})();</script>
+<script>
+  /* Runs before paint: JS-only styles apply once we know JS runs, motion only
+     when the visitor hasn't asked for less. If the main script never loads,
+     the page falls back to its complete no-JS state after 3s. */
+  (function(d){d.classList.remove('no-js');d.classList.add('js');
+    try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('motion')}catch(e){}
+    setTimeout(function(){if(!window.__avxReady){d.classList.remove('js','motion');d.classList.add('no-js')}},3000);
+  })(document.documentElement);
+</script>
+<link rel="preload" href="/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/instrument-serif-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/avoxan-studio.css?v=5">
+<link rel="stylesheet" href="/css/pages/journal.css?v=5">
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": [
+    "Organization",
+    "ProfessionalService"
+   ],
+   "@id": "https://avoxan.com/#org",
+   "name": "Avoxan",
+   "legalName": "Akarshan Digital LLC",
+   "url": "https://avoxan.com/",
+   "logo": "https://avoxan.com/avoxan-logo-512.png",
+   "email": "hello@avoxan.com",
+   "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Houston",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+   },
+   "areaServed": [
     {
-      "@type": "BreadcrumbList",
-      "@id": "https://avoxan.com/blog#breadcrumb",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://avoxan.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Field notes",
-          "item": "https://avoxan.com/blog"
-        }
-      ]
+     "@type": "City",
+     "name": "Houston"
     },
     {
-      "@type": "Blog",
-      "@id": "https://avoxan.com/blog#blog",
-      "url": "https://avoxan.com/blog",
-      "name": "Avoxan Field Notes",
-      "description": "Honest writing about small business websites, local SEO, AI search, and AI receptionists.",
-      "publisher": {
-        "@id": "https://avoxan.com/#organization"
-      },
-      "isPartOf": {
-        "@id": "https://avoxan.com/#website"
-      },
-      "breadcrumb": {
-        "@id": "https://avoxan.com/blog#breadcrumb"
-      },
-      "inLanguage": "en-US"
+     "@type": "State",
+     "name": "Texas"
+    },
+    "US"
+   ]
+  },
+  {
+   "@type": "Blog",
+   "@id": "https://avoxan.com/blog/#blog",
+   "name": "The Avoxan Journal",
+   "url": "https://avoxan.com/blog/",
+   "inLanguage": "en-US",
+   "publisher": {
+    "@id": "https://avoxan.com/#org"
+   },
+   "blogPost": [
+    {
+     "@type": "BlogPosting",
+     "headline": "Web design under $5,000: freelancer, agency, or studio?",
+     "url": "https://avoxan.com/blog/web-design-under-5000",
+     "datePublished": "2026-08-11"
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "An AI recommended a web agency. How do you check if it's real?",
+     "url": "https://avoxan.com/blog/ai-recommended-web-agency",
+     "datePublished": "2026-08-11"
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "What is an AI receptionist, and how does it work?",
+     "url": "https://avoxan.com/blog/what-is-an-ai-receptionist",
+     "datePublished": "2026-06-19"
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "How much does an AI receptionist cost in 2026?",
+     "url": "https://avoxan.com/blog/ai-receptionist-cost",
+     "datePublished": "2026-06-18"
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "AI receptionist vs human vs answering service.",
+     "url": "https://avoxan.com/blog/ai-receptionist-vs-human-vs-answering-service",
+     "datePublished": "2026-06-17"
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "An AI receptionist for home-service businesses.",
+     "url": "https://avoxan.com/blog/ai-receptionist-home-services",
+     "datePublished": "2026-06-16"
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "AI employees, explained without the hype.",
+     "url": "https://avoxan.com/blog/ai-employee-explained",
+     "datePublished": "2026-06-15"
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "How we'd build a website for a wedding photographer (full teardown).",
+     "url": "https://avoxan.com/blog/wedding-photographer-teardown",
+     "datePublished": "2026-05-17"
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "How we'd build a website for a chiropractor (full teardown).",
+     "url": "https://avoxan.com/blog/chiropractor-website-teardown",
+     "datePublished": "2026-05-14"
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "The 8 questions to ask before hiring any web designer.",
+     "url": "https://avoxan.com/blog/questions-to-ask-web-designer",
+     "datePublished": "2026-05-11"
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "Webflow vs WordPress vs Framer in 2026: which one should you actually use?",
+     "url": "https://avoxan.com/blog/webflow-wordpress-framer-2026",
+     "datePublished": "2026-05-08"
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "How to get your business cited by ChatGPT, Perplexity &amp; Google AI.",
+     "url": "https://avoxan.com/blog/ai-search-citation",
+     "datePublished": "2026-05-06"
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "How much should a small business website actually cost in 2026?",
+     "url": "https://avoxan.com/blog/website-cost-2026",
+     "datePublished": "2026-05-01"
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "Local SEO for service businesses: the only checklist you need.",
+     "url": "https://avoxan.com/blog/local-seo-checklist",
+     "datePublished": "2026-05-01"
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "Why your beautiful website isn't generating any leads.",
+     "url": "https://avoxan.com/blog/beautiful-website-no-leads",
+     "datePublished": "2026-05-01"
     }
-  ]
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://avoxan.com/blog/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://avoxan.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Journal",
+     "item": "https://avoxan.com/blog/"
+    }
+   ]
+  }
+ ]
 }
 </script>
 </head>
 <body>
-<a href="#main" class="skip-link">Skip to main content</a>
-<div class="scroll-progress" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
 
-<nav class="nv" aria-label="Primary">
-  <div class="nv-inner">
-    <a href="/" class="nv-logo" aria-label="Avoxan home">
-      <img src="/avoxan-logo.svg" alt="" width="30" height="40">
-      Avoxan
+<header class="hdr" id="hdr">
+  <div class="wrap hdr__in">
+    <a class="brand" href="/" aria-label="Avoxan, home">
+      <img src="/avoxan-logo.svg" alt="" width="22" height="22">Avoxan
     </a>
-    <div class="nv-links">
+    <nav class="nav" aria-label="Main">
+      <a href="/work/">Work</a>
       <a href="/services">Services</a>
-      <a href="/ai-receptionist">AI Receptionist</a>
+      <a href="/ai-receptionist">AI receptionist</a>
       <a href="/pricing">Pricing</a>
       <a href="/process">Process</a>
-      <a href="/work/">Work</a>
-      <a href="/blog/" class="active">Blog</a>
-      <a href="/faq">FAQ</a>
-      <a href="/contact" class="nv-cta">Book a call</a>
-    </div>
-    <button class="nv-burger" aria-label="Toggle navigation menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+      <a href="/blog/" aria-current="page">Journal</a>
+    </nav>
+    <a class="btn hdr__cta" href="/contact" data-cta="header">Start a project</a>
+    <button class="hdr__menu" id="menuBtn" aria-expanded="false" aria-controls="sheet"><span></span><span></span><span class="sr-only">Menu</span></button>
   </div>
-</nav>
+</header>
 
-<div class="menu-overlay" aria-label="Mobile navigation">
-  <a href="/"><span class="mo-num">00</span>Home</a>
-  <a href="/services"><span class="mo-num">01</span>Services</a>
-  <a href="/ai-receptionist"><span class="mo-num">02</span>AI Receptionist</a>
-  <a href="/pricing"><span class="mo-num">03</span>Pricing</a>
-  <a href="/process"><span class="mo-num">04</span>Process</a>
-  <a href="/work/"><span class="mo-num">05</span>Work</a>
-  <a href="/blog/"><span class="mo-num">06</span>Blog</a>
-  <a href="/faq"><span class="mo-num">07</span>FAQ</a>
-  <a href="/contact"><span class="mo-num">08</span>Book a call</a>
-  <div class="mo-foot">
-    <span>Houston, TX</span>
-    <span>hello@avoxan.com</span>
-  </div>
+<div class="sheet" id="sheet" aria-hidden="true">
+  <nav aria-label="Mobile">
+    <a href="/work/">Work</a>
+    <a href="/services">Services</a>
+    <a href="/ai-receptionist">AI receptionist</a>
+    <a href="/pricing">Pricing</a>
+    <a href="/process">Process</a>
+    <a href="/blog/">Journal</a>
+    <a href="/contact">Start a project</a>
+  </nav>
+  <div class="sheet__foot mono"><span>hello@avoxan.com</span><span>Houston, TX</span></div>
 </div>
 
 <main id="main">
 
-<section class="page-hero">
+<section class="jx-hd" aria-labelledby="jx-h">
   <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb">
-      <a href="/">Home</a><span class="sep">/</span><span class="here">Field notes</span>
-    </nav>
-    <div class="eyebrow" data-hero-stagger>Field notes</div>
-    <h1 data-hero-stagger>Long-form essays on <span class="it acc">AI and websites that pay rent</span>.</h1>
-    <p class="deck" data-hero-stagger>Written for small business owners, not other agencies. Opinionated. Specific. Each piece is the answer to a question we get asked on every discovery call, from "what is an AI receptionist?" to "what should a website actually cost?"</p>
+    <div class="jx-mast mono"><span>Houston, Texas</span><span>Est. 2026 · 15 entries</span><span>Updated October 2026</span></div>
+    <h1 id="jx-h" data-reveal>The <em>Journal</em></h1>
+    <p class="jx-sub" data-reveal>Plain-English writing on what websites cost, how to hire well, getting found on Google and in AI search, and whether an AI receptionist is worth it. No gated PDFs, no email wall.</p>
   </div>
 </section>
 
-<section class="section tight">
+<section aria-label="Latest">
   <div class="wrap">
-    <div class="blog-grid">
-      <a href="/blog/web-design-under-5000" class="blog-card" data-reveal>
-        <div class="blog-meta"><span class="cat">Hiring</span><span>10 min read</span></div>
-        <h3>Web design under $5,000: freelancer, agency, or studio?</h3>
-        <p>Three completely different kinds of provider sit under that one budget line. What each actually gives you, the deliverable list that makes quotes comparable, and how to decide in a minute.</p>
-        <span class="read">Read the essay</span>
-      </a>
-      <a href="/blog/ai-recommended-web-agency" class="blog-card" data-reveal data-reveal-delay="0.06">
-        <div class="blog-meta"><span class="cat">AI Search</span><span>9 min read</span></div>
-        <h3>An AI recommended a web agency. How do you check if it's real?</h3>
-        <p>How ChatGPT and Perplexity actually build a shortlist, the honest bias in how they pick, what they cannot see, and the seven checks to run before you book a call.</p>
-        <span class="read">Read the essay</span>
-      </a>
-      <a href="/blog/what-is-an-ai-receptionist" class="blog-card" data-reveal data-reveal-delay="0.12">
-        <div class="blog-meta"><span class="cat">AI Receptionist</span><span>9 min read</span></div>
-        <h3>What is an AI receptionist, and how does it work?</h3>
-        <p>The plain-language guide: what an AI receptionist is, the four-step call flow, what it can and can't do, what it costs, and when it's worth it for your business.</p>
-        <span class="read">Read the essay</span>
-      </a>
-      <a href="/blog/ai-receptionist-cost" class="blog-card" data-reveal data-reveal-delay="0.06">
-        <div class="blog-meta"><span class="cat">Pricing</span><span>8 min read</span></div>
-        <h3>How much does an AI receptionist cost in 2026?</h3>
-        <p>Real pricing, the true cost of a human receptionist, the pricing gotchas to watch for, and the simple ROI math that tells you if it pays for itself.</p>
-        <span class="read">Read the essay</span>
-      </a>
-      <a href="/blog/ai-receptionist-vs-human-vs-answering-service" class="blog-card" data-reveal data-reveal-delay="0.12">
-        <div class="blog-meta"><span class="cat">Comparison</span><span>10 min read</span></div>
-        <h3>AI receptionist vs human vs answering service (2026)</h3>
-        <p>Cost, coverage, and lead quality compared side by side, with a clear recommendation for each type of business.</p>
-        <span class="read">Read the essay</span>
-      </a>
-      <a href="/blog/ai-receptionist-home-services" class="blog-card" data-reveal>
-        <div class="blog-meta"><span class="cat">Home Services</span><span>9 min read</span></div>
-        <h3>An AI receptionist for home-service businesses</h3>
-        <p>Why plumbers, HVAC, electrical, and roofing companies lose the most to missed calls, and exactly how to set up an AI receptionist to capture every job.</p>
-        <span class="read">Read the essay</span>
-      </a>
-      <a href="/blog/ai-employee-explained" class="blog-card" data-reveal data-reveal-delay="0.06">
-        <div class="blog-meta"><span class="cat">AI Employee</span><span>8 min read</span></div>
-        <h3>AI employees explained, without the hype</h3>
-        <p>What an "AI employee" can actually run in a small business in 2026, what's still marketing, and the smartest, lowest-risk place to start.</p>
-        <span class="read">Read the essay</span>
-      </a>
-      <a href="/blog/website-cost-2026" class="blog-card" data-reveal>
-        <div class="blog-meta"><span class="cat">Pricing</span><span>9 min read</span></div>
-        <h3>How much should a small business website actually cost in 2026?</h3>
-        <p>Quotes for the same project can range from $200 to $40,000. A breakdown of what you're paying for at every price tier, and how to figure out what you actually need.</p>
-        <span class="read">Read the essay</span>
-      </a>
-      <a href="/blog/beautiful-website-no-leads" class="blog-card" data-reveal data-reveal-delay="0.06">
-        <div class="blog-meta"><span class="cat">Conversion</span><span>7 min read</span></div>
-        <h3>Why your beautiful website isn't generating any leads</h3>
-        <p>A site can win design awards and still be a complete sales failure. The five conversion problems we see on almost every small business site, and how to fix them.</p>
-        <span class="read">Read the essay</span>
-      </a>
-      <a href="/blog/local-seo-checklist" class="blog-card" data-reveal data-reveal-delay="0.12">
-        <div class="blog-meta"><span class="cat">SEO</span><span>11 min read</span></div>
-        <h3>Local SEO for service businesses: the only checklist you need</h3>
-        <p>Everything we set up for clients targeting local customers, Google Business Profile, schema, citations, reviews, in the order that actually moves rankings.</p>
-        <span class="read">Read the essay</span>
-      </a>
-      <a href="/blog/ai-search-citation" class="blog-card" data-reveal>
-        <div class="blog-meta"><span class="cat">AI Search</span><span>8 min read</span></div>
-        <h3>How to get your business cited by ChatGPT, Perplexity, and Google AI Overviews</h3>
-        <p>Search is being rewritten right now. What we know about getting your business mentioned when customers ask AI assistants for recommendations.</p>
-        <span class="read">Read the essay</span>
-      </a>
-      <a href="/blog/webflow-wordpress-framer-2026" class="blog-card" data-reveal data-reveal-delay="0.06">
-        <div class="blog-meta"><span class="cat">Platform</span><span>10 min read</span></div>
-        <h3>Webflow vs WordPress vs Framer in 2026: which one should you actually use?</h3>
-        <p>Three platforms dominate small business web design right now. An opinionated comparison from people who've built dozens of sites on each.</p>
-        <span class="read">Read the essay</span>
-      </a>
-      <a href="/blog/questions-to-ask-web-designer" class="blog-card" data-reveal data-reveal-delay="0.12">
-        <div class="blog-meta"><span class="cat">Strategy</span><span>6 min read</span></div>
-        <h3>The 8 questions to ask before hiring any web designer</h3>
-        <p>Hiring a web designer is one of the higher-risk purchases a small business makes. The eight questions that actually predict whether it'll go well.</p>
-        <span class="read">Read the essay</span>
-      </a>
-      <a href="/blog/chiropractor-website-teardown" class="blog-card" data-reveal>
-        <div class="blog-meta"><span class="cat">Niche teardown</span><span>9 min read</span></div>
-        <h3>How we'd build a website for a chiropractor (full strategic teardown)</h3>
-        <p>Most chiropractor websites look identical. Here's how we'd actually build one to win patients, step by strategic step.</p>
-        <span class="read">Read the essay</span>
-      </a>
-      <a href="/blog/wedding-photographer-teardown" class="blog-card" data-reveal data-reveal-delay="0.06">
-        <div class="blog-meta"><span class="cat">Niche teardown</span><span>10 min read</span></div>
-        <h3>How we'd build a website for a wedding photographer (full strategic teardown)</h3>
-        <p>Wedding photographers compete in an oversaturated market where the work is the product. The websites that win are the most strategically curated, not the prettiest.</p>
-        <span class="read">Read the essay</span>
-      </a>
+    <article class="jx-lead" data-reveal>
+      <div>
+        <p class="mono">01 · Hiring · 8 min read</p>
+        <h2><a href="/blog/web-design-under-5000">Web design under $5,000: <em>freelancer, agency, or studio</em>?</a></h2>
+      </div>
+      <div>
+        <p>"Under $5,000" is one of the most common budget lines in small business web design, and one of the least useful, because it spans three completely different kinds of provider. Here is what each one actually gives you, and how to tell which one you need.</p>
+        <a class="btn" href="/blog/web-design-under-5000">Read the guide <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a>
+      </div>
+    </article>
+
+    <div class="jx-filter" role="group" aria-label="Filter by topic">
+      <button type="button" class="on" data-desk="all" aria-pressed="true">Everything<span>15</span></button>
+      <button type="button" data-desk="web" aria-pressed="false">Websites<span>7</span></button>
+      <button type="button" data-desk="search" aria-pressed="false">Search &amp; AI search<span>3</span></button>
+      <button type="button" data-desk="ai" aria-pressed="false">AI receptionists<span>5</span></button>
+    </div>
+
+    <ol class="jx-list">
+      <li data-desk-of="search"><a class="jx-row" href="/blog/ai-recommended-web-agency"><span class="n mono">02</span><b>An AI recommended a web agency. How do you check if it's real?</b><p>People now arrive at their first agency call holding a shortlist an AI assistant produced. It is a genuinely useful filter, and it measures something narrower than…</p><span class="meta mono"><em>AI search</em>6 min read</span></a></li>
+      <li data-desk-of="ai"><a class="jx-row" href="/blog/what-is-an-ai-receptionist"><span class="n mono">03</span><b>What is an AI receptionist, and how does it work?</b><p>An AI receptionist is software that answers your business phone, talks to the caller in a natural voice, captures their details, and texts the lead to your team.…</p><span class="meta mono"><em>AI receptionist</em>5 min read</span></a></li>
+      <li data-desk-of="ai"><a class="jx-row" href="/blog/ai-receptionist-cost"><span class="n mono">04</span><b>How much does an AI receptionist cost in 2026?</b><p>AI receptionists are sold as a flat monthly fee, usually a fraction of what a human receptionist costs. Here's real 2026 pricing, what actually drives the number,…</p><span class="meta mono"><em>AI receptionist</em>4 min read</span></a></li>
+      <li data-desk-of="ai"><a class="jx-row" href="/blog/ai-receptionist-vs-human-vs-answering-service"><span class="n mono">05</span><b>AI receptionist vs human vs answering service.</b><p>Three ways to make sure your phone gets answered, with very different costs and outcomes. Here's how they compare on price, hours, lead quality, and scale, and…</p><span class="meta mono"><em>AI receptionist</em>3 min read</span></a></li>
+      <li data-desk-of="ai"><a class="jx-row" href="/blog/ai-receptionist-home-services"><span class="n mono">06</span><b>An AI receptionist for home-service businesses.</b><p>Plumbers, HVAC, electrical, and roofing companies lose more money to missed calls than almost anyone, because the customer simply dials the next contractor. Here's…</p><span class="meta mono"><em>AI receptionist</em>3 min read</span></a></li>
+      <li data-desk-of="ai"><a class="jx-row" href="/blog/ai-employee-explained"><span class="n mono">07</span><b>AI employees, explained without the hype.</b><p>"AI employee" is the phrase of the year. But what can one actually run in a real small business in 2026? Here's the honest version: what works today, what's still…</p><span class="meta mono"><em>AI at work</em>3 min read</span></a></li>
+      <li data-desk-of="web"><a class="jx-row" href="/blog/wedding-photographer-teardown"><span class="n mono">08</span><b>How we'd build a website for a wedding photographer (full teardown).</b><p>Wedding photographers compete in an oversaturated market where the work itself is the product. The websites that win aren't the prettiest, they're the most…</p><span class="meta mono"><em>Teardown</em>4 min read</span></a></li>
+      <li data-desk-of="web"><a class="jx-row" href="/blog/chiropractor-website-teardown"><span class="n mono">09</span><b>How we'd build a website for a chiropractor (full teardown).</b><p>Most chiropractor websites look identical: a smiling person getting their back cracked, "Welcome to Our Practice," a bullet list of services, contact info. Here's…</p><span class="meta mono"><em>Teardown</em>4 min read</span></a></li>
+      <li data-desk-of="web"><a class="jx-row" href="/blog/questions-to-ask-web-designer"><span class="n mono">10</span><b>The 8 questions to ask before hiring any web designer.</b><p>Hiring a web designer is one of the higher-risk purchases a small business makes. Most owners ask the wrong questions ("what's your hourly rate?"). Here are the…</p><span class="meta mono"><em>Hiring</em>4 min read</span></a></li>
+      <li data-desk-of="web"><a class="jx-row" href="/blog/webflow-wordpress-framer-2026"><span class="n mono">11</span><b>Webflow vs WordPress vs Framer in 2026: which one should you actually use?</b><p>Three platforms dominate small business web design right now. Each one is right for a different kind of business. Here's an opinionated comparison from people…</p><span class="meta mono"><em>Platforms</em>3 min read</span></a></li>
+      <li data-desk-of="search"><a class="jx-row" href="/blog/ai-search-citation"><span class="n mono">12</span><b>How to get your business cited by ChatGPT, Perplexity &amp; Google AI.</b><p>Search is being rewritten right now. When customers ask AI assistants for recommendations, the LLM picks a handful of businesses to mention. Here's what we know…</p><span class="meta mono"><em>AI search</em>4 min read</span></a></li>
+      <li data-desk-of="web"><a class="jx-row" href="/blog/website-cost-2026"><span class="n mono">13</span><b>How much should a small business website actually cost in 2026?</b><p>Web design pricing is one of the most confusing categories in services. Quotes for the same project can range from $200 to $40,000, and the cheap and expensive…</p><span class="meta mono"><em>Pricing</em>4 min read</span></a></li>
+      <li data-desk-of="search"><a class="jx-row" href="/blog/local-seo-checklist"><span class="n mono">14</span><b>Local SEO for service businesses: the only checklist you need.</b><p>There are about 4,000 "local SEO checklists" on Google. Most are written for SEO agencies to sell you on services. This one is written for the business owner who…</p><span class="meta mono"><em>Local SEO</em>4 min read</span></a></li>
+      <li data-desk-of="web"><a class="jx-row" href="/blog/beautiful-website-no-leads"><span class="n mono">15</span><b>Why your beautiful website isn't generating any leads.</b><p>A site can win design awards and still be a complete sales failure. We see this every week. The good news: the gap between "pretty" and "converting" usually comes…</p><span class="meta mono"><em>Conversion</em>4 min read</span></a></li>
+    </ol>
+  </div>
+</section>
+
+<section class="cta-end" aria-labelledby="jx-cta">
+  <div class="wrap">
+    <h2 id="jx-cta">Rather talk it <em>through?</em></h2>
+    <div class="cta-end__row">
+      <p>Thirty minutes, free, about your business. We'll tell you honestly what we'd do, even if it isn't hiring us.</p>
+      <div class="btns">
+        <a class="btn" href="/contact#book" data-cta="journal-book">Book a free call <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a>
+        <a class="btn btn--ghost" href="/pricing">See every price</a>
+      </div>
     </div>
   </div>
-</section>
-
-<section class="bridge section tight">
-  <div class="bridge-inner">
-    <div data-reveal>
-      <div class="eyebrow">Keep going</div>
-      <h2 class="bridge-headline">Done reading? <span class="it">Let's talk.</span></h2>
-    </div>
-    <a href="/contact" class="bridge-card" data-reveal data-reveal-delay="0.1">
-      <span class="nm">Next chapter, Book a call</span>
-      <h3>A free 20-minute call. No slide deck.</h3>
-      <p>The same way we'd talk to you on a paid project. Tell us about your business, we'll tell you straight whether a website is what you actually need.</p>
-      <span class="go">Read on</span>
-    </a>
-  </div>
-</section>
-
-<section class="final-cta">
-  <div class="eyebrow centered" data-reveal>One honest conversation</div>
-  <h2 data-reveal>Let's see if a <span class="it acc">website</span> is what you actually need.</h2>
-  <p data-reveal>Book a 20-minute call. No slide deck, no sales pressure. We'll ask about your business and tell you straight whether Avoxan can help, or whether your money is better spent somewhere else.</p>
-  <a href="/contact" class="btn btn-ember" data-reveal>
-    Book a free 20-min call
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-  </a>
-  <div data-reveal><span class="pill"><span class="pulse"></span>3 slots remaining for <span class="js-bk" data-bk="my">this month</span></span></div>
 </section>
 
 </main>
 
-<footer class="footer" role="contentinfo">
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <a href="/" class="nv-logo" aria-label="Avoxan home">
-        <img src="/avoxan-logo.svg" alt="" width="30" height="40">
-        Avoxan
-      </a>
-      <p>A small Houston web studio building conversion-focused websites for service businesses, coaches, and growing brands. One flat price. One predictable timeline.</p>
-    </div>
-    <div>
-      <h2>The work</h2>
-      <ul>
-        <li><a href="/services">What you get</a></li>
-        <li><a href="/ai-receptionist">AI Receptionist</a></li>
-        <li><a href="/pricing">Pricing</a></li>
-        <li><a href="/process">Process</a></li>
-        <li><a href="/work/">Case studies</a></li>
-      </ul>
-    </div>
-    <div>
-      <h2>Read</h2>
-      <ul>
-        <li><a href="/blog/">Field notes</a></li>
-        <li><a href="/blog/website-cost-2026">Website cost in 2026</a></li>
-        <li><a href="/blog/local-seo-checklist">Local SEO checklist</a></li>
-        <li><a href="/blog/ai-search-citation">Getting cited by AI</a></li>
-      </ul>
-    </div>
-    <div>
-      <h2>Talk</h2>
-      <ul>
-        <li><a href="/contact">Book a call</a></li>
-        <li><a href="/faq">FAQ</a></li>
-        <li><a href="mailto:hello@avoxan.com">hello@avoxan.com</a></li>
-      </ul>
+<footer class="ftr" data-palette="studio">
+  <div class="wrap">
+    <div class="ftr__grid">
+      <div class="ftr__about">
+        <a class="brand" href="/"><img src="/avoxan-logo.svg" alt="" width="22" height="22">Avoxan</a>
+        <p style="margin-top:18px">A Houston web design and development studio for owner-led businesses that refuse to look small.</p>
+        <p class="ftr__nap mono">Houston, Texas · <a href="mailto:hello@avoxan.com">hello@avoxan.com</a></p>
+      </div>
+      <div>
+        <h4 class="mono">Studio</h4>
+        <ul><li><a href="/work/">Work</a></li><li><a href="/services">Services</a></li><li><a href="/process">Process</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/faq">FAQ</a></li><li><a href="/contact">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4 class="mono">AI receptionist</h4>
+        <ul><li><a href="/ai-receptionist">How it works</a></li><li><a href="/ai-receptionist-plumbers">For plumbers</a></li><li><a href="/houston-med-spas">For med spas</a></li><li><a href="/pricing#ai">Plans from $97</a></li></ul>
+      </div>
+      <div>
+        <h4 class="mono">Journal</h4>
+        <ul><li><a href="/blog/website-cost-2026">Website cost in 2026</a></li><li><a href="/blog/local-seo-checklist">Local SEO checklist</a></li><li><a href="/blog/what-is-an-ai-receptionist">What is an AI receptionist?</a></li><li><a href="/blog/">All journal entries</a></li></ul>
+      </div>
     </div>
   </div>
-
-  <div class="footer-word" aria-hidden="true">AVOXAN</div>
-
-  <div class="footer-bottom">
-    <span>© <span data-year>2026</span> Akarshan Digital LLC · Houston, Texas · <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a></span>
-    <span>Site hand-built, see <a href="/work/avoxan-studio-site">how</a></span>
+  <div class="ftr__word" aria-hidden="true">Avoxan</div>
+  <div class="wrap ftr__legal">
+    <span>© 2026 Akarshan Digital LLC. Avoxan is a trading name of Akarshan Digital LLC.</span>
+    <span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · Houston, Texas</span>
   </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-<script src="/js/avoxan-v2.js?v=8" defer></script>
+<script src="/js/avoxan-studio.js?v=5" defer></script>
+<script src="/js/pages/journal.js?v=5" defer></script>
+<script src="/js/avoxan-chat.js?v=5" defer></script>
+<script src="/js/avoxan-analytics.js?v=5" defer></script>
 </body>
 </html>

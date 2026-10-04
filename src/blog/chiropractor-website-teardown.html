@@ -1,0 +1,204 @@
+<!--page
+{
+ "title": "How we'd build a website for a chiropractor (full teardown) · Avoxan Journal",
+ "description": "A page-by-page teardown of how to build a chiropractic website that turns ",
+ "canonical": "/blog/chiropractor-website-teardown",
+ "nav": "journal",
+ "css": [
+  "pages/journal.css"
+ ],
+ "js": [
+  "pages/journal.js"
+ ],
+ "og_type": "article",
+ "og_title": "How we'd build a website for a chiropractor (full teardown).",
+ "article": {
+  "published": "2026-05-14",
+  "modified": "2026-10-03"
+ },
+ "breadcrumb": [
+  [
+   "Home",
+   "/"
+  ],
+  [
+   "Journal",
+   "/blog/"
+  ],
+  [
+   "How we'd build a website for a chiropractor (full teardown).",
+   "/blog/chiropractor-website-teardown"
+  ]
+ ],
+ "schema": [
+  {
+   "@type": "BlogPosting",
+   "@id": "https://avoxan.com/blog/chiropractor-website-teardown#article",
+   "headline": "How we'd build a website for a chiropractor (full teardown).",
+   "description": "A page-by-page teardown of how to build a chiropractic website that turns ",
+   "articleSection": "Teardown",
+   "wordCount": 893,
+   "datePublished": "2026-05-14",
+   "dateModified": "2026-10-03",
+   "inLanguage": "en-US",
+   "image": "https://avoxan.com/og-image.png",
+   "mainEntityOfPage": "https://avoxan.com/blog/chiropractor-website-teardown",
+   "author": {
+    "@type": "Person",
+    "@id": "https://avoxan.com/#akarsh",
+    "name": "Akarsh",
+    "jobTitle": "Designer and developer",
+    "worksFor": {
+     "@id": "https://avoxan.com/#org"
+    }
+   },
+   "publisher": {
+    "@id": "https://avoxan.com/#org"
+   }
+  }
+ ]
+}
+-->
+<div class="jr-progress" aria-hidden="true"><i data-progress></i></div>
+
+<article class="post">
+  <header class="post-hd">
+    <div class="wrap">
+      <ol class="crumbs mono" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li><a href="/blog/">Journal</a></li><li aria-current="page">Teardown</li></ol>
+      <p class="post-meta mono" data-reveal><span class="post-cat">Teardown</span><span>4 min read</span><span>Updated <time datetime="2026-10-03">Oct 3, 2026</time></span></p>
+      <h1 data-reveal>How we'd build a website for a <em>chiropractor</em> (full teardown).</h1>
+      <p class="post-deck" data-reveal>Most chiropractor websites look identical: a smiling person getting their back cracked, "Welcome to Our Practice," a bullet list of services, contact info. Here's how we'd actually approach a chiropractic site to drive new-patient bookings, page by page.</p>
+      <p class="post-by" data-reveal><span class="post-by__av" aria-hidden="true">A</span><span>By <b>Akarsh</b>, designer and developer at Avoxan · First published <time datetime="2026-05-14">May 14, 2026</time></span></p>
+    </div>
+  </header>
+
+  <div class="wrap post-grid">
+    <nav class="toc" aria-label="In this article">
+      <p class="mono toc__h">In this article</p>
+      <ol>
+          <li><a href="#the-strategy-in-one-sentence">The strategy in one sentence</a></li>
+          <li><a href="#page-1-homepage">Page 1: Homepage</a></li>
+          <li><a href="#page-2-symptom-pages-one-per-major-issue">Page 2: Symptom pages (one per major issue)</a></li>
+          <li><a href="#page-3-about-team">Page 3: About + Team</a></li>
+          <li><a href="#page-4-insurance-pricing">Page 4: Insurance &amp; Pricing</a></li>
+          <li><a href="#page-5-new-patient-page">Page 5: New patient page</a></li>
+          <li><a href="#technical-setup-specific-to-chiropractic">Technical setup specific to chiropractic</a></li>
+          <li><a href="#content-that-compounds-the-symptom-blog">Content that compounds: the symptom blog</a></li>
+          <li><a href="#what-we-d-specifically-not-do">What we&#x27;d specifically NOT do</a></li>
+      </ol>
+    </nav>
+
+    <div class="prose post-body">
+      <div class="tldr"><p class="mono">The short version</p><p>For a chiropractor, the website's single job is to convert "I'm in pain right now" Google searches into booked first appointments. Most sites fail because they front-load credentials instead of urgency, omit pricing, hide insurance information, and don't structure for symptom-based search queries. Here's the complete page-by-page strategy we'd use.</p></div>
+
+      <p class="lede">If you run a chiropractic practice and your website isn't your top patient acquisition channel, your website is broken. People in pain don't ask their friends for a referral first, they Google "chiropractor near me" or "lower back pain chiropractor [their city]" and book the first practice that gives them confidence in under 90 seconds. Here's the build that wins those visits.</p>
+
+      <h2 id="the-strategy-in-one-sentence">The strategy in one sentence</h2>
+      <blockquote>Be the obvious answer for someone in moderate pain right now who's never seen a chiropractor before.</blockquote>
+      <p>Most chiropractor sites are written for people who already understand chiropractic. The biggest audience, and the highest-converting one, is people who don't. Adjust the entire site for the first-time visitor in mild-to-moderate pain.</p>
+
+      <h2 id="page-1-homepage">Page 1: Homepage</h2>
+      <h3>Hero (above the fold)</h3>
+      <p><strong>Headline:</strong> "Back, neck, or shoulder pain? See a chiropractor this week."</p>
+      <p><strong>Subhead:</strong> "[City]'s [year started] chiropractic practice. Same-week appointments. Most insurance accepted. New patients: $79 first visit (vs. $189 standard)."</p>
+      <p><strong>CTA:</strong> "Book online", leading to a real calendar, not a contact form.</p>
+      <p>Why this works: it names the symptom (most searches are symptom-based, not category-based), names the friction reducers (same-week, insurance, first-visit pricing), and gives an immediate one-click action.</p>
+      <h3>Below the hero, the trust strip</h3>
+      <ul>
+        <li>Google review count and star rating</li>
+        <li>"Accepting these insurance plans: BCBS, Aetna, Cigna, Humana, Medicare..."</li>
+        <li>Years in practice + total patients seen (if impressive)</li>
+      </ul>
+      <h3>Section: "Pain you're feeling right now"</h3>
+      <p>Three to five cards, each named by symptom: Lower Back Pain, Neck Pain, Headaches, Sciatica, Sports Injury. Each card has a one-paragraph description of what causes it and how chiropractic addresses it. Each links to a dedicated symptom page.</p>
+      <aside class="note"><p class="note__h">Why symptom-led, not service-led</p><p>Patients don't search "spinal manipulation" or "adjustment therapy." They search "my lower back has been hurting for a week." Build the site around the search, not the textbook.</p>
+      </aside>
+      <h3>Section: "What your first visit looks like"</h3>
+      <p>Minute-by-minute walkthrough of a first appointment. From parking to checking out. This drastically reduces the anxiety of nervous first-timers, which is most of your highest-value patients.</p>
+      <h3>Section: Real reviews (with names and dates visible)</h3>
+      <p>Pull 6-10 Google reviews directly onto the page. Don't paraphrase. Don't anonymize. Real names and real dates make these credible.</p>
+      <h3>Section: Insurance &amp; pricing, fully visible</h3>
+      <p>The single biggest objection for a first-time chiropractic patient is "how much will this cost me." Most sites hide it. Putting it on the homepage filters bad-fit leads and converts good ones faster.</p>
+
+      <h2 id="page-2-symptom-pages-one-per-major-issue">Page 2: Symptom pages (one per major issue)</h2>
+      <p>One dedicated page for each symptom: /lower-back-pain, /neck-pain, /headaches, /sciatica, /sports-injury, etc. Each page is 800-1,200 words and structured as follows:</p>
+      <ol>
+        <li>What causes [symptom] (in plain language)</li>
+        <li>When you should see a chiropractor vs. when to see a different specialist</li>
+        <li>What chiropractic treatment looks like for this symptom</li>
+        <li>How many sessions most patients need</li>
+        <li>FAQ section (5-8 questions per page, marked up with FAQPage schema)</li>
+        <li>CTA to book</li>
+      </ol>
+      <p>These pages are your local SEO workhorses. "Lower back pain chiropractor [city]" is a much higher-intent query than "chiropractor [city]" and far less competed.</p>
+
+      <h2 id="page-3-about-team">Page 3: About + Team</h2>
+      <p>Skip the boilerplate "Dr. Smith graduated from..." Write each bio as: year started practicing → why they chose chiropractic specifically → which patient population they're "extra patient with" (e.g., "Dr. Smith does extensive work with post-collision patients and is especially careful with whiplash recoveries"). This makes the doctor feel like a real person, not a credential.</p>
+
+      <h2 id="page-4-insurance-pricing">Page 4: Insurance &amp; Pricing</h2>
+      <p>One page that openly answers: which insurances you accept, what a first visit costs with and without insurance, what follow-up visits cost, what packages cost. Cite real prices. The transparency is itself a differentiator in this category.</p>
+
+      <h2 id="page-5-new-patient-page">Page 5: New patient page</h2>
+      <p>A dedicated page for people who've never seen a chiropractor. What to expect. What to wear. What forms to fill out. What questions to ask. Patient-first language throughout. This page should be #2 or #3 in your nav.</p>
+
+      <h2 id="technical-setup-specific-to-chiropractic">Technical setup specific to chiropractic</h2>
+      <ul class="checklist">
+        <li>Chiropractor schema markup (subtype of MedicalBusiness) with services, accepted insurances, and hours</li>
+        <li>Service schema for each treatment type</li>
+        <li>Person schema for each doctor with credentials</li>
+        <li>FAQPage schema across all symptom and pricing pages</li>
+        <li>Google Business Profile fully optimized with chiropractor-specific categories</li>
+        <li>Online booking integrated (Jane App, ChiroTouch, or similar)</li>
+        <li>SMS appointment reminder integration</li>
+        <li>HIPAA-compliant intake form for new patients</li>
+      </ul>
+
+      <h2 id="content-that-compounds-the-symptom-blog">Content that compounds: the symptom blog</h2>
+      <p>One monthly blog post answering a real patient question: "Is it okay to crack your own back?" "How long does it take to recover from a slipped disc?" "Should you ice or heat lower back pain?" Each post is 800-1,500 words and ranks locally for the long-tail query. Six months in, the blog drives 30-50% of your organic traffic.</p>
+
+      <h2 id="what-we-d-specifically-not-do">What we'd specifically NOT do</h2>
+      <ul>
+        <li><strong>Animated spine/vertebra graphics.</strong> Cliché, slow, distracting.</li>
+        <li><strong>Stock photo of a smiling person mid-adjustment.</strong> Every chiropractor uses this. Use real photos of the actual practice.</li>
+        <li><strong>"Holistic wellness" generalities.</strong> They water down the message. Pick a lane: pain relief, injury recovery, or wellness, and own it.</li>
+        <li><strong>Long lists of services with no descriptions.</strong> No one cares about "Activator Methods Technique" by name.</li>
+      </ul>
+
+
+      <aside class="post-author" aria-label="About the author">
+        <span class="post-by__av" aria-hidden="true">A</span>
+        <div>
+          <p class="post-author__name">Akarsh <span>· Designer and developer, Avoxan</span></p>
+          <p>Akarsh designs and builds websites at Avoxan, with a focus on conversion structure and the technical side of search: schema markup, page speed, and how a page gets read by search engines and AI assistants. Avoxan is a small studio in Houston, Texas that publishes every price on its <a href="/pricing">pricing page</a>.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</article>
+
+<section class="sec jr-more" aria-labelledby="more-h">
+  <div class="wrap">
+    <div class="jr-more__head">
+      <h2 id="more-h">Keep <em>reading.</em></h2>
+      <a class="link-u mono" href="/blog/">All journal entries →</a>
+    </div>
+    <div class="jr-cards">
+      <a class="jr-card" href="/blog/wedding-photographer-teardown"><span class="mono">Teardown · 4 min read</span><b>How we'd build a website for a wedding photographer (full teardown).</b><span class="jr-card__go mono">Read →</span></a>
+      <a class="jr-card" href="/blog/local-seo-checklist"><span class="mono">Local SEO · 4 min read</span><b>Local SEO for service businesses: the only checklist you need.</b><span class="jr-card__go mono">Read →</span></a>
+      <a class="jr-card" href="/blog/beautiful-website-no-leads"><span class="mono">Conversion · 4 min read</span><b>Why your beautiful website isn't generating any leads.</b><span class="jr-card__go mono">Read →</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-end" aria-labelledby="post-cta">
+  <div class="wrap">
+    <h2 id="post-cta">Want this done <em>for you?</em></h2>
+    <div class="cta-end__row">
+      <p>We design, write and build websites for Houston service businesses in about four weeks, from $2,400. Every price is published.</p>
+      <div class="btns">
+        <a class="btn" href="/contact" data-cta="post-chiropractor-website-teardown">Start a project <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a>
+        <a class="btn btn--ghost" href="/work/">See the work</a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,27 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en-US" class="no-js">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<title>How we built our own studio site, every decision documented · Avoxan</title>
-<meta name="description" content="The full teardown of avoxan.com: typography, color, the offer stack, the guarantees, the schema, and where the actual 52 hours went. Every meaningful decision, explained.">
-
+<title>How We Built avoxan.com: A Web Design Studio&#x27;s Own Website, Every Decision · Avoxan</title>
+<meta name="description" content="A case study of the Avoxan studio website, rebuilt in October 2026: client palettes, real call recordings, published pricing, a hand-coded build on Cloudflare Pages, and the SEO and AI-search setup behind it.">
 <meta name="author" content="Akarshan Digital LLC">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-<meta name="GPTBot" content="index, follow">
-<meta name="ChatGPT-User" content="index, follow">
-<meta name="PerplexityBot" content="index, follow">
-<meta name="ClaudeBot" content="index, follow">
-<meta name="Google-Extended" content="index, follow">
-
 <link rel="canonical" href="https://avoxan.com/work/avoxan-studio-site">
-
 <meta name="geo.region" content="US-TX">
 <meta name="geo.placename" content="Houston">
-
-<meta name="theme-color" content="#0C0A08">
-<script>try{if(localStorage.getItem('avoxan-theme')==='light')document.documentElement.classList.add('light')}catch(e){}</script>
+<meta name="theme-color" content="#0D0B09">
+<meta name="color-scheme" content="dark">
 <meta name="format-detection" content="telephone=no">
 
 <link rel="icon" type="image/svg+xml" href="/avoxan-logo.svg">
@@ -33,350 +24,355 @@
 
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Avoxan">
-<meta property="og:title" content="How we built our own studio site, every decision documented · Avoxan">
-<meta property="og:description" content="The full teardown of avoxan.com: typography, color, the offer stack, the guarantees, the schema, and where the actual 52 hours went.">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="How we built avoxan.com">
+<meta property="og:description" content="Every decision behind a Houston design studio&#x27;s own website, written up with the trade-offs.">
 <meta property="og:url" content="https://avoxan.com/work/avoxan-studio-site">
-<meta property="og:image" content="https://avoxan.com/og-image.png">
+<meta property="og:image" content="https://avoxan.com/assets/work/avoxan-2026.webp">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How we built avoxan.com">
+<meta name="twitter:description" content="Every decision behind a Houston design studio&#x27;s own website, written up with the trade-offs.">
+<meta name="twitter:image" content="https://avoxan.com/assets/work/avoxan-2026.webp">
+<meta property="article:published_time" content="2026-10-03">
+<meta property="article:modified_time" content="2026-10-03">
 
-<link rel="preload" as="style" href="/css/avoxan-fonts.css?v=1">
-<link rel="stylesheet" media="print" onload="this.media='all';this.onload=null" href="/css/avoxan-fonts.css?v=1">
-<noscript><link rel="stylesheet" href="/css/avoxan-fonts.css?v=1"></noscript>
-<link rel="stylesheet" href="/css/avoxan-v2.css?v=22">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "How we built our own studio site, every decision documented",
-  "description": "The full teardown of avoxan.com: typography, color, the offer stack, the guarantees, the schema, and where the actual 52 hours went.",
-  "image": "https://avoxan.com/og-image.png",
-  "author": {"@type": "Organization", "name": "Avoxan", "url": "https://avoxan.com/"},
-  "publisher": {"@type": "Organization", "name": "Avoxan", "logo": {"@type": "ImageObject", "url": "https://avoxan.com/avoxan-logo-512.png"}},
-  "mainEntityOfPage": "https://avoxan.com/work/avoxan-studio-site"
-}
+<script>
+  /* Runs before paint: JS-only styles apply once we know JS runs, motion only
+     when the visitor hasn't asked for less. If the main script never loads,
+     the page falls back to its complete no-JS state after 3s. */
+  (function(d){d.classList.remove('no-js');d.classList.add('js');
+    try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('motion')}catch(e){}
+    setTimeout(function(){if(!window.__avxReady){d.classList.remove('js','motion');d.classList.add('no-js')}},3000);
+  })(document.documentElement);
 </script>
-<script src="/js/avoxan-chat.js?v=2" defer></script>
-<script>/* Avoxan: remove any orphaned service worker + caches from older site versions */(function(){try{if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister();});}).catch(function(){});}if(self.caches&&caches.keys){caches.keys().then(function(ks){ks.forEach(function(k){caches.delete(k);});}).catch(function(){});}}catch(e){}})();</script>
+<link rel="preload" href="/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/instrument-serif-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/avoxan-studio.css?v=5">
+<link rel="stylesheet" href="/css/pages/casefile.css?v=5">
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "@id": "https://avoxan.com/work/avoxan-studio-site#breadcrumb",
-  "itemListElement": [
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": [
+    "Organization",
+    "ProfessionalService"
+   ],
+   "@id": "https://avoxan.com/#org",
+   "name": "Avoxan",
+   "legalName": "Akarshan Digital LLC",
+   "url": "https://avoxan.com/",
+   "logo": "https://avoxan.com/avoxan-logo-512.png",
+   "email": "hello@avoxan.com",
+   "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Houston",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+   },
+   "areaServed": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://avoxan.com/"
+     "@type": "City",
+     "name": "Houston"
     },
     {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Work",
-      "item": "https://avoxan.com/work"
+     "@type": "State",
+     "name": "Texas"
+    },
+    "US"
+   ]
+  },
+  {
+   "@type": "Article",
+   "@id": "https://avoxan.com/work/avoxan-studio-site#article",
+   "headline": "How we built avoxan.com",
+   "description": "Every decision behind the October 2026 rebuild of the Avoxan studio website.",
+   "datePublished": "2026-10-03",
+   "dateModified": "2026-10-03",
+   "inLanguage": "en-US",
+   "image": "https://avoxan.com/assets/work/avoxan-2026.webp",
+   "author": {
+    "@type": "Person",
+    "@id": "https://avoxan.com/#akarsh",
+    "name": "Akarsh"
+   },
+   "publisher": {
+    "@id": "https://avoxan.com/#org"
+   },
+   "about": {
+    "@type": "WebSite",
+    "name": "Avoxan",
+    "url": "https://avoxan.com/"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://avoxan.com/work/avoxan-studio-site#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://avoxan.com/"
     },
     {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "How we built our own studio site, every decision documented",
-      "item": "https://avoxan.com/work/avoxan-studio-site"
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Work",
+     "item": "https://avoxan.com/work/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "avoxan.com",
+     "item": "https://avoxan.com/work/avoxan-studio-site"
     }
-  ]
+   ]
+  }
+ ]
 }
 </script>
 </head>
 <body>
-<a href="#main" class="skip-link">Skip to main content</a>
-<div class="scroll-progress" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
 
-<nav class="nv" aria-label="Primary">
-  <div class="nv-inner">
-    <a href="/" class="nv-logo" aria-label="Avoxan home">
-      <img src="/avoxan-logo.svg" alt="" width="30" height="40">
-      Avoxan
+<header class="hdr" id="hdr">
+  <div class="wrap hdr__in">
+    <a class="brand" href="/" aria-label="Avoxan, home">
+      <img src="/avoxan-logo.svg" alt="" width="22" height="22">Avoxan
     </a>
-    <div class="nv-links">
+    <nav class="nav" aria-label="Main">
+      <a href="/work/" aria-current="page">Work</a>
       <a href="/services">Services</a>
-      <a href="/ai-receptionist">AI Receptionist</a>
+      <a href="/ai-receptionist">AI receptionist</a>
       <a href="/pricing">Pricing</a>
       <a href="/process">Process</a>
-      <a href="/work/" class="active">Work</a>
-      <a href="/blog/">Blog</a>
-      <a href="/faq">FAQ</a>
-      <a href="/contact" class="nv-cta">Book a call</a>
-    </div>
-    <button class="nv-burger" aria-label="Toggle navigation menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+      <a href="/blog/">Journal</a>
+    </nav>
+    <a class="btn hdr__cta" href="/contact" data-cta="header">Start a project</a>
+    <button class="hdr__menu" id="menuBtn" aria-expanded="false" aria-controls="sheet"><span></span><span></span><span class="sr-only">Menu</span></button>
   </div>
-</nav>
+</header>
 
-<div class="menu-overlay" aria-label="Mobile navigation">
-  <a href="/"><span class="mo-num">00</span>Home</a>
-  <a href="/services"><span class="mo-num">01</span>Services</a>
-  <a href="/ai-receptionist"><span class="mo-num">02</span>AI Receptionist</a>
-  <a href="/pricing"><span class="mo-num">03</span>Pricing</a>
-  <a href="/process"><span class="mo-num">04</span>Process</a>
-  <a href="/work/"><span class="mo-num">05</span>Work</a>
-  <a href="/blog/"><span class="mo-num">06</span>Blog</a>
-  <a href="/faq"><span class="mo-num">07</span>FAQ</a>
-  <a href="/contact"><span class="mo-num">08</span>Book a call</a>
-  <div class="mo-foot">
-    <span>Houston, TX</span>
-    <span>hello@avoxan.com</span>
-  </div>
+<div class="sheet" id="sheet" aria-hidden="true">
+  <nav aria-label="Mobile">
+    <a href="/work/">Work</a>
+    <a href="/services">Services</a>
+    <a href="/ai-receptionist">AI receptionist</a>
+    <a href="/pricing">Pricing</a>
+    <a href="/process">Process</a>
+    <a href="/blog/">Journal</a>
+    <a href="/contact">Start a project</a>
+  </nav>
+  <div class="sheet__foot mono"><span>hello@avoxan.com</span><span>Houston, TX</span></div>
 </div>
 
 <main id="main">
 
-<section class="page-hero">
+<!-- ================= OPENER ================= -->
+<section class="ph cf-ph" aria-labelledby="cf-h">
   <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb">
-      <a href="/">Home</a><span class="sep">/</span><a href="/work/">Work</a><span class="sep">/</span><span class="here">The Avoxan studio site</span>
-    </nav>
-    <div class="eyebrow" data-hero-stagger>Live build · Web design studio</div>
-    <h1 data-hero-stagger>How we built our own studio site, <span class="it acc">every decision documented</span>.</h1>
-    <p class="deck" data-hero-stagger>The site you're reading right now. We figured if we're going to ask prospects to trust us with their $2,400, the most honest thing we could do was show them the thinking behind our own website. Here is every meaningful decision and trade-off.</p>
-    <div class="case-stats" data-hero-stagger>
-      <div><span>Client</span><label>Avoxan (us)</label></div>
-      <div><span>Scope</span><label>Full site + blog system</label></div>
-      <div><span>Timeline</span><label>52 hours</label></div>
-      <div><span>Platform</span><label>Hand-coded HTML/CSS</label></div>
+    <ol class="crumbs mono" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li><a href="/work/">Work</a></li><li aria-current="page">avoxan.com</li></ol>
+    <p class="mono kick" data-reveal>Case file 04 · Our own website</p>
+    <h1 id="cf-h" data-reveal>How we built <em>avoxan.com.</em></h1>
+    <p class="ph__lede" data-reveal>A studio's own site is the one project with no client to blame. So here is every decision behind the October 2026 rebuild, what we traded for it, and what we'd still change. <strong>If you're hiring a studio, this is how we think.</strong></p>
+    <dl class="cf-spec" data-reveal>
+      <div><dt class="mono">Client</dt><dd>Avoxan (us)</dd></div>
+      <div><dt class="mono">Shipped</dt><dd>October 2026</dd></div>
+      <div><dt class="mono">Scope</dt><dd>27 pages, journal, AI demos</dd></div>
+      <div><dt class="mono">Stack</dt><dd>Hand-coded, Cloudflare Pages</dd></div>
+    </dl>
+  </div>
+</section>
+
+<figure class="cf-shot" data-reveal="clip">
+  <img src="/assets/work/avoxan-2026.webp" alt="The Avoxan homepage: a large serif headline over an ember-colored film" width="1600" height="1000">
+</figure>
+
+<!-- ================= BRIEF ================= -->
+<section class="sec cf-brief" aria-labelledby="brief-h">
+  <div class="wrap cf-two">
+    <div>
+      <p class="mono kick">The brief</p>
+      <h2 id="brief-h" class="cf-h2">Stop describing the work. <em>Show it.</em></h2>
     </div>
-  </div>
-</section>
-
-<section class="section tight">
-  <div class="wrap">
-    <figure class="showcase" data-reveal>
-      <p class="showcase-label">The build · Homepage · Desktop</p>
-      <div class="showcase-frame">
-        <picture>
-          <source type="image/avif" srcset="/work/avoxan-studio-mockup-760.avif 760w, /work/avoxan-studio-mockup-1080.avif 1080w, /work/avoxan-studio-mockup-1200.avif 1200w" sizes="(min-width: 1100px) 1180px, 92vw">
-          <img src="/og-image.png" alt="The Avoxan studio site, dark editorial design with ember accents, the page you are reading." loading="lazy">
-        </picture>
-      </div>
-      <figcaption class="showcase-caption">Dark editorial design, one warm accent, an itemized offer stack. The argument the whole page makes: we're new, we're transparent about it, here's exactly what you get.</figcaption>
-    </figure>
-  </div>
-</section>
-
-<section class="section tight">
-  <div class="wrap">
-    <div class="article">
-      <h2>The starting point</h2>
-      <p>Avoxan is a brand-new web design studio. Zero clients on day one. No testimonials. No portfolio. We needed a website that did the work a salesperson would normally do: convince a small business owner that a new studio with no track record was a safer bet than a $400 freelancer or a $15,000 agency.</p>
-      <p>The constraint: a single page (with a blog and case studies) that had to handle awareness, education, objection-handling, social proof, and conversion all at once.</p>
-
-      <h2>The strategy</h2>
-      <p>Three principles shaped every decision:</p>
-      <ol>
-        <li><strong>Be honest about what we are.</strong> Pretending to be a 10-person agency would have backfired the moment a prospect asked a basic question on a call. The site openly states we're a small studio with founding-client pricing.</li>
-        <li><strong>Make the $2,400 feel obvious, not cheap.</strong> The risk at this price point isn't "too expensive", it's "what's the catch?" Every section is designed to answer that question.</li>
-        <li><strong>Anticipate every objection in the FAQ and prove the process through case studies.</strong> A new studio can't lean on testimonials. So we lean on transparency.</li>
-      </ol>
-
-      <h2>Design decisions worth explaining</h2>
-
-      <h3>Typography: Fraunces + Geist + JetBrains Mono</h3>
-      <p>Fraunces is a variable serif with extensive optical-size and softness axes, meaning the same font behaves like a confident display face at 80px and like a refined book-text face at 14px. It signals "we care about craft" without being precious. Geist is Vercel's modern sans-serif: clean, geometric, neutral. JetBrains Mono in small doses gives the page a technical-but-warm feel.</p>
-      <p>We deliberately avoided the most overused agency fonts of 2025-2026 (Inter, Space Grotesk, Söhne). Picking less-common fonts is a small but real differentiator.</p>
-
-      <h3>Color: cream, ink, sienna, and nothing else</h3>
-      <p>One warm base (cream), one anchor (deep ink black), one accent (burnt sienna), with two muted support tones for type hierarchy. Three colors total. Most agency sites use 6-8. Restraint reads as confidence.</p>
-      <p>The cream type instead of pure white is intentional: white feels clinical and "default tech startup." Cream feels editorial, warm, and slightly premium. It also reduces eye strain on long-form reading, which matters because we want prospects to read the blog and case studies.</p>
-
-      <h3>The grain overlay</h3>
-      <p>An SVG noise filter is layered over the entire page at low opacity. It adds a subtle paper-like texture that makes the page feel less digital. Tiny detail, big effect.</p>
-
-      <h2>Conversion architecture, section by section</h2>
-
-      <h3>Hero</h3>
-      <p>Most agency heroes say "We build beautiful websites." Ours says "Websites that quietly do the selling for you." Outcome-led, not feature-led. The "no sales pressure, we'll tell you straight if you don't need a website" subhead is a trust-builder you almost never see on agency sites, and it's the kind of line that prospects screenshot and send to their business partner.</p>
-
-      <h3>The Problem section</h3>
-      <p>Most websites pitch first. We name the prospect's pain first. "Most small business websites are expensive brochures that nobody reads" is the kind of sentence the visitor has been quietly thinking. Saying it out loud earns permission to be heard.</p>
-
-      <h3>The 8-item offer stack</h3>
-      <p>This is the most strategically important section. Each item has a "fake retail price" crossed through ($1,200, $800, $450...) that totals roughly $5,400. The actual price is $2,400. This is a classic value-anchoring technique used by every infomercial and high-end consulting offer, because it works.</p>
-      <p>The line-item prices aren't fabricated, they're realistic standalone prices for those services from competing providers. If a prospect priced these pieces individually, they would in fact pay $4,500-$5,500.</p>
-      <div class="deliverable">
-        <strong>Why this matters more than discounts</strong>
-        <p>"Was $5,400, now $2,400" is psychologically different from "$2,400." The first feels like winning. The second feels like just spending money. People don't buy on absolute prices; they buy on relative perceived value.</p>
-      </div>
-
-      <h3>Pricing section</h3>
-      <p>Single price card, no tiers. Most agencies show three pricing tiers, Starter / Growth / Premium, which forces the prospect into evaluation mode. One price, one offer, one decision. Easier to say yes to.</p>
-
-      <h3>Three guarantees</h3>
-      <p>One of the loudest visual sections of the entire site. Risk reversal is the single biggest lever for closing sales to skeptical small business owners. The "$200 refund if we miss our 4-week deadline" and "90-day inquiry promise" aren't standard for the industry. We put them in writing because (a) we mean them and (b) prospects screenshot guarantees more than they screenshot pricing.</p>
-
-      <h3>FAQ, strategically question-led</h3>
-      <p>Each FAQ targets a specific objection AND a specific search query. "Why is your pricing lower than other agencies?" handles the "what's the catch" concern AND ranks for the actual search "why is web design so cheap." Same with "How much does a small business website cost in 2026?" which we cover in the blog too.</p>
-
-      <h2>SEO + AI search infrastructure</h2>
-      <ul class="checklist">
-        <li>JSON-LD schema for ProfessionalService, FAQPage, and Blog with BlogPosting entries</li>
-        <li>Long-form blog articles, each 1,500-2,500 words, each question-led headline</li>
-        <li>TL;DR blocks at the top of every article (designed to be the snippet AI tools quote)</li>
-        <li>Internal linking between blog articles and the offer/process/contact sections</li>
-        <li>Open Graph and Twitter card meta tags for social sharing</li>
-        <li>Sub-2-second page load on mobile, sub-1-second on desktop</li>
-        <li>Accessible HTML structure with semantic landmarks</li>
-      </ul>
-
-      <h2>What's deliberately NOT on this site</h2>
-      <ul>
-        <li><strong>Fake testimonials.</strong> We're a new studio. Lying about reviews would be both legally exposed (FTC + Texas DTPA) and strategically dumb (one Reddit post and the brand dies).</li>
-        <li><strong>Stock photos of "diverse team in modern office."</strong> Every small agency uses these. They scream "template."</li>
-        <li><strong>A live chat widget.</strong> We don't want to over-promise instant response. A real call is the conversion event.</li>
-        <li><strong>Pop-ups, exit-intent modals, newsletter overlays.</strong> None of these convert well for $2,400+ services and they damage brand trust.</li>
-        <li><strong>"As featured in" logo strips.</strong> We aren't featured anywhere yet. We'll add them when we are.</li>
-      </ul>
-
-      <h2>The honest part: what would change for a different studio?</h2>
-      <p>If we had 20 real testimonials, the structure would change, testimonials would move higher and replace some of the risk-reversal content. If we had a long client list, the case studies section would lead instead of the offer stack. If we were charging $5,000+, the entire tone would shift to luxury minimalism with less direct copy.</p>
-      <p>Every website is a strategic argument. This one's argument is: "We're new, we're transparent about it, here's exactly what you get, here's the exact risk we'll absorb, book a call."</p>
-
-      <h2>The bill of materials</h2>
-      <ul>
-        <li>Brand &amp; visual identity (logo, color, type system), $2,200</li>
-        <li>Custom homepage design (single long page), $2,500</li>
-        <li>Copywriting (hero through FAQ), $1,800</li>
-        <li>Long-form blog articles ($300-450 each), $2,200</li>
-        <li>Four case studies ($400-600 each), $1,900</li>
-        <li>Schema + AI search optimization, $700</li>
-        <li>Hand-coded HTML/CSS build (no framework), $1,800</li>
-      </ul>
-      <div class="keynote">
-        <div class="k-label">The math</div>
-        <p>Total at agency rates: ~$13,100. And, ironically, this exact build is what we'd deliver for a client at $2,400, minus the level of meta-detail in this case study itself.</p>
-      </div>
-
-      <h2>Where the actual 52 hours went</h2>
-      <ul>
-        <li>Strategy, positioning, sitemap, 5 hours</li>
-        <li>Brand &amp; visual identity (logo, type, color system), 4 hours</li>
-        <li>Copywriting (homepage from hero through FAQ), 9 hours</li>
-        <li>Blog articles, 12 hours</li>
-        <li>Four case studies (this one took 3 hours alone), 8 hours</li>
-        <li>Design in Figma, 6 hours</li>
-        <li>Hand-coded HTML/CSS build, 6 hours</li>
-        <li>Schema, accessibility, QA, mobile testing, 2 hours</li>
+    <div class="cf-copy">
+      <p>Our first site was written for a studio with no clients yet, so it leaned on promises: guarantees, an itemized offer, a lot of reassurance. By autumn 2026 we had three finished projects and three clients willing to say on camera what working with us was like.</p>
+      <p>The new site had one job: let that work and those voices carry the argument. Everything else, from the type to the build, had to get out of their way.</p>
+      <ul class="cf-goals">
+        <li><b>Show each project in its own light,</b> not framed in our brand.</li>
+        <li><b>Let clients speak</b> in their own words, unedited.</li>
+        <li><b>Prove the AI product</b> with a real recording, not a mockup.</li>
+        <li><b>Publish every price,</b> down to the add-ons.</li>
       </ul>
     </div>
   </div>
 </section>
 
-<section class="section tight">
+<!-- ================= DECISIONS ================= -->
+<section class="sec cf-decisions" aria-labelledby="dec-h">
   <div class="wrap">
-    <div class="sec-head split" data-reveal>
+    <div class="sec-head">
       <div>
-        <div class="eyebrow">More teardowns</div>
-        <h2 class="sec-title">Three more <span class="it">like this one</span>.</h2>
+        <p class="mono kick">Decision log</p>
+        <h2 id="dec-h">Ten calls, and what each <em>cost.</em></h2>
       </div>
-      <p class="deck">The concept builds: same approach, different industries. Each one starts with the real differentiator and works backward to the page.</p>
+      <p>Each entry is written the way we write them for clients: what we decided, why, and the trade-off we accepted.</p>
     </div>
-    <div class="blog-grid">
-      <a class="blog-card" href="/work/brightside-family-dental" data-reveal>
-        <div class="blog-meta"><span class="cat">Dental</span><span>Concept</span></div>
-        <h3>Brightside Family Dental</h3>
-        <p>A practice that's great with anxious patients, and a homepage that never said so.</p>
-        <span class="read">Read the breakdown</span>
-      </a>
-      <a class="blog-card" href="/work/marin-ashby-studio" data-reveal data-reveal-delay="0.08">
-        <div class="blog-meta"><span class="cat">Photography</span><span>Concept</span></div>
-        <h3>Marin Ashby Studio</h3>
-        <p>Pricing at $6,500 but presenting like $1,500. We rebuilt the site as an editorial brand.</p>
-        <span class="read">Read the breakdown</span>
-      </a>
-      <a class="blog-card" href="/work/avery-reyes-law-group" data-reveal data-reveal-delay="0.16">
-        <div class="blog-meta"><span class="cat">Law</span><span>Concept</span></div>
-        <h3>Avery Reyes Law Group</h3>
-        <p>A solo immigration attorney with a real specialty and a homepage that hid it.</p>
-        <span class="read">Read the breakdown</span>
-      </a>
-    </div>
+
+    <ol class="adr">
+      <li>
+        <span class="adr__n mono">D-01</span>
+        <h3>A screening room, not a portfolio grid</h3>
+        <p><b>Decision.</b> As each case study scrolls into view, the whole page takes on that client's own colors: Bag Chasers' gold on black, Clever's green on cream, thePrepDoc's rose on plum.</p>
+        <p><b>Why.</b> A thumbnail grid flattens every project into our style. Taking over the page shows the work the way its customers see it.</p>
+        <p class="adr__cost"><b>Trade-off.</b> Every color on the site has to read through five live tokens, so no section can hard-code a color. It's stricter to build, and worth it.</p>
+      </li>
+      <li>
+        <span class="adr__n mono">D-02</span>
+        <h3>Instrument Serif, Geist and JetBrains Mono</h3>
+        <p><b>Decision.</b> One display serif used large, one clean sans for reading, and a monospace only for small labels.</p>
+        <p><b>Why.</b> Instrument Serif's condensed shapes let a headline run huge without wrapping into a wall. Our old serif, Fraunces, was lovely but wide, and more than three times the file size.</p>
+        <p class="adr__cost"><b>Trade-off.</b> Instrument Serif has one weight. Hierarchy comes from size and italics, never bold.</p>
+      </li>
+      <li>
+        <span class="adr__n mono">D-03</span>
+        <h3>Ember on warm black, with one light page</h3>
+        <p><b>Decision.</b> We kept our ember accent and warm ink ground, and dropped the light-mode toggle. The only light page is for med spas.</p>
+        <p><b>Why.</b> Dark makes client screenshots glow. But a med spa owner should land in a world that feels like their treatment rooms, so that page is porcelain and clay.</p>
+        <p class="adr__cost"><b>Trade-off.</b> Visitors who prefer light mode don't get a choice on most pages.</p>
+      </li>
+      <li>
+        <span class="adr__n mono">D-04</span>
+        <h3>Clients, on camera and unedited</h3>
+        <p><b>Decision.</b> The homepage plays short clips from our Zoom calls with clients, and an “overheard” band runs other things they said, without a name on every line.</p>
+        <p><b>Why.</b> A polished testimonial reads like marketing. A client thinking out loud on a call reads like the truth.</p>
+        <p class="adr__cost"><b>Trade-off.</b> Video is heavy, so clips load only when someone presses play.</p>
+      </li>
+      <li>
+        <span class="adr__n mono">D-05</span>
+        <h3>A real call, not a mockup</h3>
+        <p><b>Decision.</b> The AI receptionist page plays an actual 79-second recording. The transcript follows along, and a lead card fills in as the AI collects each detail.</p>
+        <p><b>Why.</b> Everyone selling AI shows a mockup. Hearing it handle a leaking sink at night settles the “does it sound robotic?” question in a minute.</p>
+        <p class="adr__cost"><b>Trade-off.</b> The transcript and timings had to be logged by hand against the audio.</p>
+      </li>
+      <li>
+        <span class="adr__n mono">D-06</span>
+        <h3>Every price, itemized</h3>
+        <p><b>Decision.</b> The pricing page lists everything: each website deliverable with its standalone value, all three AI plans, every add-on and the price we'll charge next.</p>
+        <p><b>Why.</b> Owners hate booking a call to learn a price. AI assistants also recommend businesses whose prices they can read.</p>
+        <p class="adr__cost"><b>Trade-off.</b> We can't quote different people different numbers. That's the point.</p>
+      </li>
+      <li>
+        <span class="adr__n mono">D-07</span>
+        <h3>Hand-coded, with a 300-line build</h3>
+        <p><b>Decision.</b> No framework and no page builder. Each page is plain HTML; a small Python script adds the shared header, footer and structured data, then Cloudflare Pages serves static files.</p>
+        <p><b>Why.</b> Nothing to update, nothing to patch, and pages that load fast on a phone in a parking lot.</p>
+        <p class="adr__cost"><b>Trade-off.</b> Editing means editing code. Fine for us; it's why we usually build clients on Webflow or WordPress instead.</p>
+      </li>
+      <li>
+        <span class="adr__n mono">D-08</span>
+        <h3>Structured data that can't drift</h3>
+        <p><b>Decision.</b> Every page carries JSON-LD: services and offers, how-to steps, articles, the demo call with its transcript. FAQ schema is generated from the questions you can see on the page.</p>
+        <p><b>Why.</b> Search engines and AI assistants quote what they can parse. Generating it from the page means the answers and the data always match.</p>
+        <p class="adr__cost"><b>Trade-off.</b> Every FAQ answer has to be written to stand on its own, out of context.</p>
+      </li>
+      <li>
+        <span class="adr__n mono">D-09</span>
+        <h3>Motion with manners</h3>
+        <p><b>Decision.</b> Text and images ease in as you scroll, but only when JavaScript runs and the visitor hasn't asked their device for reduced motion. If the script fails, the page shows everything after three seconds.</p>
+        <p><b>Why.</b> Animation should never be the reason someone can't read a page.</p>
+        <p class="adr__cost"><b>Trade-off.</b> Every animated element needs a complete, static fallback.</p>
+      </li>
+      <li>
+        <span class="adr__n mono">D-10</span>
+        <h3>Our own chat, as a live demo</h3>
+        <p><b>Decision.</b> “Ask Avoxan” answers questions about pricing and process on every page, and waits until you scroll before it appears.</p>
+        <p><b>Why.</b> We sell website chat to clients, so our site should run it.</p>
+        <p class="adr__cost"><b>Trade-off.</b> It's an AI and can be wrong, so it says so, and links to a real call for anything binding.</p>
+      </li>
+    </ol>
   </div>
 </section>
 
-<section class="bridge section tight">
-  <div class="bridge-inner">
-    <div data-reveal>
-      <div class="eyebrow">Keep going</div>
-      <h2 class="bridge-headline">You've seen the work. <span class="it">Read the thinking.</span></h2>
-    </div>
-    <a href="/blog/" class="bridge-card" data-reveal data-reveal-delay="0.1">
-      <span class="nm">Next chapter, the field notes</span>
-      <h3>Read the field notes</h3>
-      <p>Long-form essays on the questions clients actually ask: pricing, conversion, SEO, AI search, platforms, and niche teardowns.</p>
-      <span class="go">Read on</span>
-    </a>
+<!-- ================= NUMBERS ================= -->
+<section class="sec cf-nums" aria-labelledby="nums-h">
+  <div class="wrap">
+    <p class="mono kick">By the numbers</p>
+    <h2 id="nums-h" class="cf-h2">Small on purpose.</h2>
+    <dl class="nums">
+      <div><dt>0</dt><dd class="mono">JavaScript frameworks</dd></div>
+      <div><dt>11<small>KB</small></dt><dd class="mono">Shared CSS, compressed</dd></div>
+      <div><dt>4<small>KB</small></dt><dd class="mono">Shared JavaScript, compressed</dd></div>
+      <div><dt>3</dt><dd class="mono">Typefaces, self-hosted</dd></div>
+      <div><dt>27</dt><dd class="mono">Pages from one build script</dd></div>
+      <div><dt>4</dt><dd class="mono">Palettes, one per client plus ours</dd></div>
+    </dl>
   </div>
 </section>
 
-<section class="final-cta">
-  <div class="eyebrow centered" data-reveal>Want this thinking applied to your business?</div>
-  <h2 data-reveal>Every site we build gets <span class="it acc">this depth</span> of decision-making.</h2>
-  <p data-reveal>If that's the kind of partner you want, book a 20-minute call. No slide deck, no sales pressure, just an honest conversation about whether Avoxan can help.</p>
-  <a href="/contact" class="btn btn-ember" data-reveal>
-    Book a free 20-min call
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-  </a>
-  <div data-reveal><span class="pill"><span class="pulse"></span>3 slots remaining for <span class="js-bk" data-bk="my">this month</span></span></div>
+<!-- ================= NEXT ================= -->
+<section class="sec cf-next" aria-labelledby="next-h">
+  <div class="wrap cf-two">
+    <div>
+      <p class="mono kick">Still on the list</p>
+      <h2 id="next-h" class="cf-h2">What we'd <em>still change.</em></h2>
+    </div>
+    <ul class="cf-todo">
+      <li>Short case videos for each project, cut from the full client calls.</li>
+      <li>Spanish versions of the AI receptionist pages, since the product already speaks Spanish.</li>
+      <li>Real before-and-after numbers for each client, once they've had six months on the new sites.</li>
+      <li>Retiring the founding-rate banner once our first ten AI clients are signed.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="cta-end" aria-labelledby="cf-cta">
+  <div class="wrap">
+    <h2 id="cf-cta">Want this much care on <em>yours?</em></h2>
+    <div class="cta-end__row">
+      <p>We design, write and build websites for owner-led businesses in about four weeks, from $2,400.</p>
+      <div class="btns">
+        <a class="btn" href="/contact" data-cta="cf-start">Start a project <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></a>
+        <a class="btn btn--ghost" href="/work/">See the client work</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 </main>
 
-<footer class="footer" role="contentinfo">
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <a href="/" class="nv-logo" aria-label="Avoxan home">
-        <img src="/avoxan-logo.svg" alt="" width="30" height="40">
-        Avoxan
-      </a>
-      <p>A small Houston web studio building conversion-focused websites for service businesses, coaches, and growing brands. One flat price. One predictable timeline.</p>
-    </div>
-    <div>
-      <h2>The work</h2>
-      <ul>
-        <li><a href="/services">What you get</a></li>
-        <li><a href="/ai-receptionist">AI Receptionist</a></li>
-        <li><a href="/pricing">Pricing</a></li>
-        <li><a href="/process">Process</a></li>
-        <li><a href="/work/">Case studies</a></li>
-      </ul>
-    </div>
-    <div>
-      <h2>Read</h2>
-      <ul>
-        <li><a href="/blog/">Field notes</a></li>
-        <li><a href="/blog/website-cost-2026">Website cost in 2026</a></li>
-        <li><a href="/blog/local-seo-checklist">Local SEO checklist</a></li>
-        <li><a href="/blog/ai-search-citation">Getting cited by AI</a></li>
-      </ul>
-    </div>
-    <div>
-      <h2>Talk</h2>
-      <ul>
-        <li><a href="/contact">Book a call</a></li>
-        <li><a href="/faq">FAQ</a></li>
-        <li><a href="mailto:hello@avoxan.com">hello@avoxan.com</a></li>
-      </ul>
+<footer class="ftr" data-palette="studio">
+  <div class="wrap">
+    <div class="ftr__grid">
+      <div class="ftr__about">
+        <a class="brand" href="/"><img src="/avoxan-logo.svg" alt="" width="22" height="22">Avoxan</a>
+        <p style="margin-top:18px">A Houston web design and development studio for owner-led businesses that refuse to look small.</p>
+        <p class="ftr__nap mono">Houston, Texas · <a href="mailto:hello@avoxan.com">hello@avoxan.com</a></p>
+      </div>
+      <div>
+        <h4 class="mono">Studio</h4>
+        <ul><li><a href="/work/">Work</a></li><li><a href="/services">Services</a></li><li><a href="/process">Process</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/faq">FAQ</a></li><li><a href="/contact">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4 class="mono">AI receptionist</h4>
+        <ul><li><a href="/ai-receptionist">How it works</a></li><li><a href="/ai-receptionist-plumbers">For plumbers</a></li><li><a href="/houston-med-spas">For med spas</a></li><li><a href="/pricing#ai">Plans from $97</a></li></ul>
+      </div>
+      <div>
+        <h4 class="mono">Journal</h4>
+        <ul><li><a href="/blog/website-cost-2026">Website cost in 2026</a></li><li><a href="/blog/local-seo-checklist">Local SEO checklist</a></li><li><a href="/blog/what-is-an-ai-receptionist">What is an AI receptionist?</a></li><li><a href="/blog/">All journal entries</a></li></ul>
+      </div>
     </div>
   </div>
-
-  <div class="footer-word" aria-hidden="true">AVOXAN</div>
-
-  <div class="footer-bottom">
-    <span>© <span data-year>2026</span> Akarshan Digital LLC · Houston, Texas · <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a></span>
-    <span>Site hand-built, see <a href="/work/avoxan-studio-site">how</a></span>
+  <div class="ftr__word" aria-hidden="true">Avoxan</div>
+  <div class="wrap ftr__legal">
+    <span>© 2026 Akarshan Digital LLC. Avoxan is a trading name of Akarshan Digital LLC.</span>
+    <span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · Houston, Texas</span>
   </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-<script src="/js/avoxan-v2.js?v=8" defer></script>
+<script src="/js/avoxan-studio.js?v=5" defer></script>
+<script src="/js/avoxan-chat.js?v=5" defer></script>
+<script src="/js/avoxan-analytics.js?v=5" defer></script>
 </body>
 </html>

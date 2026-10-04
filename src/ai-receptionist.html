@@ -1,0 +1,314 @@
+<!--page
+{
+ "priority": "0.9",
+ "title": "AI Receptionist for Small Businesses in Houston | 24/7 Call Answering from $97/mo · Avoxan",
+ "description": "An AI receptionist that answers missed and after-hours calls in your business name, in English and Spanish, texts back every missed call, books appointments and sends you the lead. Set up for you. From $97 a month, no contract.",
+ "canonical": "/ai-receptionist",
+ "nav": "ai",
+ "css": ["pages/ai.css"],
+ "js": ["pages/ai-call.js"],
+ "og_title": "Hear our AI receptionist take a real call",
+ "og_description": "79 seconds, start to finish: a leaking sink at night, answered, qualified and texted to the owner. Plans from $97 a month.",
+ "breadcrumb": [["Home", "/"], ["AI receptionist", "/ai-receptionist"]],
+ "faq_schema": "#faq",
+ "schema": [
+  {
+   "@type": "Service",
+   "@id": "https://avoxan.com/ai-receptionist#service",
+   "name": "AI receptionist and missed-call text-back",
+   "serviceType": "AI phone answering service",
+   "provider": {"@id": "https://avoxan.com/#org"},
+   "areaServed": [{"@type": "City", "name": "Houston"}, "US"],
+   "description": "A done-for-you AI receptionist that answers missed, after-hours and overflow calls in English and Spanish, texts back missed callers, books appointments and sends the business owner a summary of every call.",
+   "offers": [
+    {"@type": "Offer", "name": "Catch", "price": "97", "priceCurrency": "USD", "description": "Instant AI text-back for every missed call, with two-way texting 24/7.", "url": "https://avoxan.com/pricing#ai"},
+    {"@type": "Offer", "name": "Answer", "price": "197", "priceCurrency": "USD", "description": "AI voice answering for missed, after-hours and overflow calls, in English and Spanish, plus everything in Catch.", "url": "https://avoxan.com/pricing#ai"},
+    {"@type": "Offer", "name": "Front Desk", "price": "397", "priceCurrency": "USD", "description": "Everything in Answer, plus calendar booking, reminders, review requests, CRM logging, a monthly call review and a free one-page website.", "url": "https://avoxan.com/pricing#ai"}
+   ]
+  },
+  {
+   "@type": "AudioObject",
+   "@id": "https://avoxan.com/ai-receptionist#demo-call",
+   "name": "Sample call: Avoxan AI receptionist answering an after-hours plumbing call",
+   "contentUrl": "https://avoxan.com/assets/ai-receptionist-voice.mp3",
+   "encodingFormat": "audio/mpeg",
+   "duration": "PT1M19S",
+   "uploadDate": "2026-08-01",
+   "description": "A caller reports a leaking kitchen sink after hours. The AI receptionist checks urgency, takes her name, callback number, neighborhood and property type, recaps the details and passes the lead to the team.",
+   "transcript": "AI: Thanks for calling Avoxan Demo Plumbing, this is the after-hours assistant. How can I help you tonight? Caller: Hey, my kitchen sink is leaking, there's water all over the cabinet, I can't get it to stop. AI: I'm sorry to hear that. Is this something you would consider urgent, or is it just a bit of a leak for now? Caller: Well, I've already turned the water off and it's still leaking everywhere. AI: I see, that definitely sounds urgent. Let me get a few details so I can pass this on to the team. Could I have your name, please? Caller: Sure, it's Michelle. AI: Thank you, Michelle. And what's the best callback number for you? Caller: It's 832-123-1234. AI: Got it, thank you. And could you let me know the address, or at least the neighborhood where the issue is happening? Caller: Yeah, I'm in Oak Forest, that's 77018. AI: Thank you. And is this a residential or commercial property? Caller: Residential. AI: Thanks for confirming. So, just to recap: you have a kitchen sink leak, it's urgent, and you're in Oak Forest, 77018, residential. I'll send these details to the team, and they'll follow up with you as soon as they can. Caller: How long do you think it'll be until I get a call back? AI: I can't give an exact time, but I'll mark it as urgent, and the team will review it as soon as possible. You should hear back within a few hours. Caller: Okay, I think that's it. Thank you. AI: You're very welcome, Michelle. I'll make sure the team has everything, and they'll reach out soon. Take care."
+  }
+ ]
+}
+-->
+<!-- ================= OPENER ================= -->
+<section class="ph ai-ph" aria-labelledby="ai-h">
+  <div class="ai-ph__glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <ol class="crumbs mono" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">AI receptionist</li></ol>
+    <h1 id="ai-h" data-reveal><span class="mono ai-ph__kick">AI receptionist for small businesses</span>Never miss <em>another call.</em></h1>
+    <div class="ai-ph__row" data-reveal>
+      <p class="ph__lede">It answers in your business's name, day or night, in English or Spanish. It texts back the calls you miss, takes the job details, books the appointment and sends you the lead before you've put the wrench down. <strong>Set up for you, from $97 a month.</strong></p>
+      <div class="ai-ph__btns">
+        <a class="btn" href="#call" data-cta="ai-listen"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>Hear a real call</a>
+        <a class="btn btn--ghost" href="#demo" data-cta="ai-demo">Get a demo on your business</a>
+      </div>
+    </div>
+    <ul class="ai-ph__facts mono" data-reveal>
+      <li><b>24/7</b>Nights, weekends, holidays</li>
+      <li><b>EN · ES</b>Switches with the caller</li>
+      <li><b>~4 sec</b>Missed call to text-back</li>
+      <li><b>$0</b>Setup, on every plan</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= THE CALL ================= -->
+<section class="call" id="call" aria-labelledby="call-h" data-call>
+  <div class="wrap">
+    <div class="call__head">
+      <p class="mono kick">Exhibit A · a real recording</p>
+      <h2 id="call-h">9:52 PM. A sink is <em>leaking.</em></h2>
+      <p>This is our AI receptionist answering for a demo plumbing company. Press play and watch it work: it checks how urgent the problem is, takes what the plumber needs, and hands over a lead the owner can act on.</p>
+    </div>
+
+<!--include call-deck.html-->
+    <p class="call__note mono">Demo business. Voice and script are the real product; the caller's details are made up.</p>
+  </div>
+</section>
+
+<!-- ================= THE PROBLEM ================= -->
+<section class="sec gap" aria-labelledby="gap-h">
+  <div class="wrap gap__grid">
+    <div class="gap__stat" data-reveal>
+      <div class="gap__num">37.8<small>%</small></div>
+      <p>of calls to small businesses reached a live person in a 30-day study of 85 businesses.</p>
+      <p class="mono gap__src">Source: 411 Locals call study, 2024</p>
+    </div>
+    <div>
+      <p class="mono kick">The quiet leak</p>
+      <h2 id="gap-h" class="ai-h2">Most callers won't leave a <em>voicemail.</em></h2>
+      <p class="gap__p">You're on a job, with a patient, at lunch or asleep. The phone rings out, and the caller doesn't wait. They hang up and call the next business on Google. You never find out they called, so the lost job never shows up anywhere, except in your revenue.</p>
+      <p class="gap__p">For a plumber, that's a $350 repair. For a med spa, a $1,200 treatment plan. A few a week adds up to more than any phone service costs. <a class="link-u" href="/pricing#calc">Work out your own number →</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= A DAY ================= -->
+<section class="sec day" aria-labelledby="day-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="mono kick">An example Tuesday</p>
+        <h2 id="day-h">Twenty-four hours, <em>covered.</em></h2>
+      </div>
+      <p>You decide when it answers: only the calls you miss, after hours, when the line's busy, or all of them. Here's what a normal day looks like for a two-truck plumbing company.</p>
+    </div>
+  </div>
+  <div class="day__track" tabindex="0" aria-label="Timeline of an example day, scroll sideways">
+    <ol class="day__list">
+      <li style="--h:7.2"><time class="mono">7:12 AM</time><b>On a job, can't pick up</b><p>Missed call. Within seconds the caller gets a text from your business, and books a quote for Thursday by text.</p><span class="mono tag">Text-back</span></li>
+      <li style="--h:9.5"><time class="mono">9:30 AM</time><b>Robocall</b><p>“Your car's extended warranty…” Screened and dropped. You never hear about it.</p><span class="mono tag">Filtered</span></li>
+      <li style="--h:12.4"><time class="mono">12:24 PM</time><b>Lunch rush, two calls at once</b><p>You take one. The AI takes the other: a water heater quote, with the model number and photos requested by text.</p><span class="mono tag">Overflow</span></li>
+      <li style="--h:15.1"><time class="mono">3:05 PM</time><b>“¿Hablan español?”</b><p>It switches to Spanish, takes the details and sends you the summary in English.</p><span class="mono tag">Spanish</span></li>
+      <li style="--h:18.7"><time class="mono">6:40 PM</time><b>After hours, not urgent</b><p>A slow drain. Booked into tomorrow's 10 AM window. Confirmation and a reminder go out by text.</p><span class="mono tag">Booked</span></li>
+      <li style="--h:21.9"><time class="mono">9:52 PM</time><b>Leak, water still running</b><p>Flagged urgent and transferred straight to your cell, with the address already in a text.</p><span class="mono tag hot">Emergency</span></li>
+      <li style="--h:23.5"><time class="mono">11:30 PM</time><b>Yesterday's customer</b><p>A follow-up text asks how the job went, with a link to leave a Google review.</p><span class="mono tag">Review</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= HOW ================= -->
+<section class="sec how" aria-labelledby="how-h">
+  <div class="wrap how__grid">
+    <div class="how__copy">
+      <p class="mono kick">How it works</p>
+      <h2 id="how-h" class="ai-h2">Live within a week. Nothing to <em>learn.</em></h2>
+      <ol class="how__steps">
+        <li><span class="mono">01 · Day 1</span><b>A 30-minute interview</b><p>We ask about your services, prices, hours, service area and how you want emergencies handled. You don't write anything.</p></li>
+        <li><span class="mono">02 · Days 2–5</span><b>We build and test it</b><p>We write the script, train it on your business, register your number for business texting and call it ourselves until it's right.</p></li>
+        <li><span class="mono">03 · Launch</span><b>Forward your calls</b><p>Keep your number. Forward the calls you miss, or after-hours calls, with a setting on your phone. Takes two minutes.</p></li>
+        <li><span class="mono">04 · Every call</span><b>The lead lands in your pocket</b><p>A text with the summary the moment the call ends, plus the recording and transcript. On Front Desk, it's already on your calendar.</p></li>
+      </ol>
+    </div>
+    <figure class="sms" data-reveal aria-label="Example lead text sent to the owner">
+      <div class="sms__bar mono"><span>9:54</span><span>Messages</span></div>
+      <div class="sms__from"><i>AV</i>Avoxan Lead Alerts</div>
+      <div class="sms__msg">
+        <b>🔴 URGENT · New lead</b>
+        Michelle · (832) 123-1234<br>
+        Kitchen sink leak, water off but still leaking.<br>
+        Oak Forest 77018 · residential<br>
+        Wants a callback tonight.
+        <span>▶ Recording · Transcript</span>
+      </div>
+      <figcaption class="mono">What the owner gets, about 30 seconds after hanging up</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= CAPABILITIES ================= -->
+<section class="sec caps" aria-labelledby="caps-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="mono kick">What it does</p>
+        <h2 id="caps-h">A front desk, <em>itemized.</em></h2>
+      </div>
+      <p>Each feature shows the plan it starts on. Every plan includes free setup, your existing number and script changes whenever you ask.</p>
+    </div>
+    <ul class="caps__grid">
+      <li><span class="mono pl">Catch</span><b>Missed-call text-back</b><p>Every missed caller gets a text from your business within seconds, and the AI keeps the conversation going 24/7.</p></li>
+      <li><span class="mono pl">Answer</span><b>Answers calls by voice</b><p>Missed, after-hours and overflow calls, picked up in your business name in under two rings.</p></li>
+      <li><span class="mono pl">Answer</span><b>English and Spanish</b><p>It answers in the caller's language and sends your summary in English.</p></li>
+      <li><span class="mono pl">Answer</span><b>Emergency transfer</b><p>Real emergencies get flagged and put straight through to your cell. Everything else waits for business hours.</p></li>
+      <li><span class="mono pl">Answer</span><b>Recordings and transcripts</b><p>Every call recorded, transcribed and summarized, so nothing depends on memory.</p></li>
+      <li><span class="mono pl">Answer</span><b>Spam filtering</b><p>Robocalls and sales pitches screened out before they ever reach you.</p></li>
+      <li><span class="mono pl">Front Desk</span><b>Books appointments</b><p>Straight into Google Calendar, Outlook or your booking software, inside the windows you set.</p></li>
+      <li><span class="mono pl">Front Desk</span><b>Reminders and reviews</b><p>Confirmations and reminders by text, then a Google review request after the job.</p></li>
+      <li><span class="mono pl">Front Desk</span><b>Monthly call review</b><p>We listen to your calls every month, tune the script and send you a short report.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= HONEST ================= -->
+<section class="sec wont" aria-labelledby="wont-h">
+  <div class="wrap wont__grid">
+    <div>
+      <p class="mono kick">The honest part</p>
+      <h2 id="wont-h" class="ai-h2">What it <em>won't</em> do.</h2>
+      <p class="gap__p">An AI receptionist is good at a specific job. We set it up to do that job well and to hand off the rest, instead of bluffing.</p>
+    </div>
+    <ul class="wont__list">
+      <li><b>Pretend to be human.</b> If a caller asks, it says plainly that it's an AI assistant for your business.</li>
+      <li><b>Quote prices you haven't approved.</b> It only gives the prices and ranges you've given us, and says “the tech will confirm on site” for the rest.</li>
+      <li><b>Diagnose, or give medical or legal advice.</b> It takes the details and gets a qualified person to call back.</li>
+      <li><b>Make up an answer.</b> When it doesn't know, it says so, takes a message and flags it for you.</li>
+      <li><b>Lock you in.</b> Month to month. Turn off call forwarding and it stops, the same day.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= PLANS ================= -->
+<section class="sec plans" aria-labelledby="plans-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="mono kick">Plans</p>
+        <h2 id="plans-h">From <em>$97</em> a month.</h2>
+      </div>
+      <p>Free setup, no contract, cancel any month. If it hasn't brought you a new lead in the first 30 days, your first month comes back.</p>
+    </div>
+    <div class="plans__row">
+      <a class="plan" href="/pricing#ai" data-cta="ai-plan-catch"><span class="mono">Text-back</span><b>Catch</b><span class="plan__p">$97<small>/mo</small></span><p>Texts back every missed call and keeps the conversation going by text.</p></a>
+      <a class="plan" href="/pricing#ai" data-cta="ai-plan-answer"><span class="mono">Voice + text</span><b>Answer</b><span class="plan__p">$197<small>/mo</small></span><p>Answers missed, after-hours and overflow calls in English and Spanish.</p></a>
+      <a class="plan plan--top" href="/pricing#ai" data-cta="ai-plan-frontdesk"><span class="mono">Best value</span><b>Front Desk</b><span class="plan__p">$397<small>/mo</small></span><p>Books the appointment, sends reminders, asks for reviews. Includes a free 1-page website.</p></a>
+    </div>
+    <p class="plans__more">Compare every feature, add-ons and yearly pricing on the <a class="link-u" href="/pricing#ai">pricing page →</a></p>
+  </div>
+</section>
+
+<!-- ================= TRADES ================= -->
+<section class="sec trades" aria-labelledby="trades-h">
+  <div class="wrap">
+    <p class="mono kick">Built for your trade</p>
+    <h2 id="trades-h" class="ai-h2">Set up around how <em>your</em> calls come in.</h2>
+    <div class="trades__grid">
+      <a class="trade" href="/ai-receptionist-plumbers" data-cta="ai-trade-plumbers">
+        <span class="mono">For plumbers</span>
+        <b>Burst pipes don't wait for business hours.</b>
+        <p>Emergency triage, after-hours dispatch and service-area checks for Houston plumbing companies.</p>
+        <span class="trade__go mono">Read more →</span>
+      </a>
+      <a class="trade trade--spa" href="/houston-med-spas" data-cta="ai-trade-medspa">
+        <span class="mono">For med spas</span>
+        <b>The consult request that comes in at 10 PM.</b>
+        <p>Treatment questions answered from your menu, consults booked into your scheduling software.</p>
+        <span class="trade__go mono">Read more →</span>
+      </a>
+    </div>
+    <p class="trades__also">Also set up for <b>HVAC</b>, <b>electricians</b>, <b>roofers</b>, <b>dental offices</b>, <b>chiropractors</b>, <b>law firms</b>, <b>auto shops</b> and <b>home cleaning</b>. If customers call you, it can help.</p>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="sec" id="faq" aria-labelledby="aifaq-h">
+  <div class="wrap ai-faq">
+    <div>
+      <p class="mono kick">Questions</p>
+      <h2 id="aifaq-h" class="ai-h2">Before you <em>switch it on.</em></h2>
+    </div>
+    <div class="qa">
+      <details><summary>Does an AI receptionist sound robotic?</summary><p>No. Press play on the call above: it speaks naturally, with normal pauses, and keeps up with callers who interrupt or change their mind. It isn't trying to fool anyone, though. If someone asks, it tells them it's an AI assistant.</p></details>
+      <details><summary>How much does an AI receptionist cost?</summary><p>Our plans are $97 a month for missed-call text-back (Catch), $197 for voice answering in English and Spanish (Answer), and $397 for booking, reminders and reviews (Front Desk). Setup is free, there's no contract, and yearly billing gets you two months free.</p></details>
+      <details><summary>What happens if it can't answer a question?</summary><p>It doesn't guess. It tells the caller someone will get back to them, takes a detailed message and flags it in your summary. Urgent calls can be transferred to your cell instead.</p></details>
+      <details><summary>Can I keep my business phone number?</summary><p>Yes. You forward calls from your existing number, on the schedule you choose: only missed calls, after hours, when the line is busy, or every call. Your customers keep dialing the number they already know.</p></details>
+      <details><summary>Do I need a website to use it?</summary><p>No. It works with just your phone number. Front Desk includes a free one-page website, and if you build a full site with us, the first two months of any AI plan are free.</p></details>
+      <details><summary>Is the AI receptionist really available 24/7?</summary><p>Yes, including nights, weekends and holidays. It can answer several calls at once, so a busy morning never sends anyone to voicemail.</p></details>
+      <details><summary>What happens if I go over my included minutes?</summary><p>Nothing breaks and there's no overage fee. Included minutes are a guide, not a cap. If you run over every month, we'll talk about the right plan before anything changes.</p></details>
+      <details><summary>Is it legal to record calls in Texas?</summary><p>Texas is a one-party consent state, and the receptionist also tells callers the call may be recorded. If you take calls from states that require everyone's consent, that notice covers you too.</p></details>
+      <details><summary>Can it work with my scheduling software?</summary><p>Front Desk books into Google Calendar and Outlook out of the box. For field-service and booking software like Housecall Pro, Jobber, ServiceTitan, Jane or Zenoti, we connect it as part of a custom setup, from $1,500.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DEMO ================= -->
+<section class="sec demo" id="demo" aria-labelledby="demo-h">
+  <div class="demo__glow" aria-hidden="true"></div>
+  <div class="wrap demo__grid">
+    <div>
+      <p class="mono kick">Free demo</p>
+      <h2 id="demo-h" class="ai-h2 demo__h">Hear it answer for <em>your</em> business.</h2>
+      <p class="gap__p">Tell us a little about your business. We'll set up a demo with your name, your services and your hours, then call you with it so you can hear exactly what your customers would.</p>
+      <ul class="demo__keep">
+        <li>Keep your existing number</li>
+        <li>It only answers when you want it to</li>
+        <li>No contract, and a 30-day pays-for-itself guarantee</li>
+        <li>Founding price locked in for our first 10 clients</li>
+      </ul>
+      <p class="demo__alt">Prefer to talk first? <a class="link-u" href="/contact#book">Book a 30-minute call →</a></p>
+    </div>
+    <form class="form demo__form" action="/api/contact" method="POST" data-form="ai_receptionist" data-success="Got it. We'll build your demo and call you within one business day.">
+      <input type="hidden" name="form_type" value="ai_receptionist">
+      <input type="hidden" name="source_page" value="/ai-receptionist">
+      <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="bot-field" tabindex="-1" autocomplete="off"></label></div>
+      <div class="form__row">
+        <div class="fld"><label for="d-name">Your name <em>*</em></label><input id="d-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="fld"><label for="d-biz">Business name <em>*</em></label><input id="d-biz" name="business" type="text" autocomplete="organization" required></div>
+      </div>
+      <div class="form__row">
+        <div class="fld"><label for="d-email">Email <em>*</em></label><input id="d-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="fld"><label for="d-phone">Phone <em>*</em></label><input id="d-phone" name="phone" type="tel" autocomplete="tel" required placeholder="(713) 555-0100"></div>
+      </div>
+      <div class="form__row">
+        <div class="fld"><label for="d-ind">Industry <em>*</em></label>
+          <select id="d-ind" name="industry" required>
+            <option value="" selected disabled>Choose one</option>
+            <option>Plumbing</option><option>HVAC</option><option>Electrical</option><option>Roofing</option><option>Med spa</option><option>Dental</option><option>Legal</option><option>Other service business</option>
+          </select></div>
+        <div class="fld"><label for="d-missed">Calls missed per week <em>*</em></label>
+          <select id="d-missed" name="missed_calls" required>
+            <option value="" selected disabled>Best guess</option>
+            <option>0–5</option><option>6–10</option><option>11–20</option><option>20+</option><option>Not sure</option>
+          </select></div>
+      </div>
+      <div class="form__row">
+        <div class="fld"><label for="d-em">Emergency or after-hours work? <em>*</em></label>
+          <select id="d-em" name="emergency_service" required>
+            <option value="" selected disabled>Choose one</option>
+            <option>Yes, emergency and after-hours</option><option>After-hours only</option><option>No</option>
+          </select></div>
+        <div class="fld"><label for="d-time">Best time for the demo call <em>*</em></label>
+          <select id="d-time" name="demo_time" required>
+            <option value="" selected disabled>Choose one</option>
+            <option>Weekday mornings</option><option>Weekday afternoons</option><option>Weekday evenings</option><option>Weekends</option><option>Anytime</option>
+          </select></div>
+      </div>
+      <div class="fld"><label for="d-site">Website</label><input id="d-site" name="website" type="text" inputmode="url" placeholder="yourbusiness.com"></div>
+      <div class="form__foot">
+        <button class="btn" type="submit">Build my free demo <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        <p class="form__status" data-form-status role="status" hidden></p>
+        <p class="form__note">By submitting this form, you agree that Avoxan may contact you by email, phone, or text message about your inquiry. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent to texts is not a condition of purchase. See our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a>.</p>
+      </div>
+    </form>
+  </div>
+</section>
