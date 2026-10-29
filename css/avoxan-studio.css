@@ -205,7 +205,7 @@ em,.it{font-style:italic}
 .intro__label{color:var(--faint);padding-top:14px}
 .intro__text{font-family:var(--f-display);font-size:clamp(34px,4.4vw,72px);line-height:1.04;letter-spacing:-.02em;margin:0;text-wrap:pretty}
 .intro__text .w{transition:opacity .35s linear;opacity:var(--o,1)}
-.js .intro__text .w{--o:.42}
+.js .intro__text .w{--o:.62}
 .js .intro__text .w.on{--o:1}
 .intro__text em{color:var(--accent)}
 .facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:clamp(64px,8vw,110px);border-top:1px solid var(--line)}
