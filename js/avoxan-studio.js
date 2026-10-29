@@ -117,18 +117,26 @@
   window.addEventListener("resize", onScroll);
   onScroll();
 
-  /* ---------- films: only play when visible, never under reduced motion / save-data ---------- */
+  /* ---------- films: start only after the page has loaded, only when visible,
+     never under reduced motion / save-data. The markup uses data-autoplay and
+     preload="none", so until then the browser fetches nothing but the poster
+     and the video never competes with the first paint. ---------- */
   var saveData = navigator.connection && (navigator.connection.saveData || /2g/.test(navigator.connection.effectiveType || ""));
-  $$("video[autoplay]").forEach(function (v) {
-    if (reduce || saveData) { v.removeAttribute("autoplay"); v.pause(); $$("source", v).forEach(function (s) { s.remove(); }); v.load(); return; }
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) {
-        if (e.isIntersecting) { if (v.preload === "none") v.preload = "auto"; var p = v.play(); if (p && p.catch) p.catch(function () {}); }
-        else v.pause();
-      });
-    }, { threshold: 0.05 });
-    io.observe(v);
-  });
+  function startFilms() {
+    $$("video[data-autoplay]").forEach(function (v) {
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (e.isIntersecting) { if (v.preload === "none") v.preload = "auto"; var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+          else v.pause();
+        });
+      }, { threshold: 0.05 });
+      io.observe(v);
+    });
+  }
+  if (!reduce && !saveData) {
+    if (document.readyState === "complete") setTimeout(startFilms, 300);
+    else window.addEventListener("load", function () { setTimeout(startFilms, 300); });
+  }
 
   /* ---------- booking engine walkthrough ---------- */
   var tabs = $$(".steps [role=tab]"), panes = $$(".device .pane"), prog = $$(".device__prog i");

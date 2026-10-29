@@ -1,8 +1,8 @@
 <!--page
 {
  "priority": "0.9",
- "title": "Pricing | Websites from $2,400 & AI Receptionist from $97/mo · Avoxan",
- "description": "Every Avoxan price, published. A complete 8-page website for a flat $2,400, custom builds from $5,000, and done-for-you AI receptionist plans from $97 a month with free setup and no contract.",
+ "title": "Pricing: Websites from $2,400, AI Receptionist from $97",
+ "description": "Every Avoxan price, published: an 8-page website for $2,400, custom builds from $5,000, AI receptionist plans from $97/mo, and every add-on.",
  "canonical": "/pricing",
  "nav": "pricing",
  "schema": [
@@ -28,7 +28,7 @@
    "@type": "WebPage",
    "@id": "https://avoxan.com/pricing#webpage",
    "url": "https://avoxan.com/pricing",
-   "name": "Avoxan pricing",
+   "name": "Pricing: Websites from $2,400, AI Receptionist from $97",
    "breadcrumb": {
     "@id": "https://avoxan.com/pricing#breadcrumb"
    },
@@ -161,6 +161,127 @@
      }
     }
    ]
+  },
+  {
+   "@type": "Service",
+   "@id": "https://avoxan.com/pricing#web-design",
+   "name": "Website design and development",
+   "serviceType": "Web design",
+   "provider": {
+    "@id": "https://avoxan.com/#org"
+   },
+   "areaServed": [
+    {
+     "@type": "City",
+     "name": "Houston"
+    },
+    "US"
+   ],
+   "offers": [
+    {
+     "@type": "Offer",
+     "name": "1-Page Website",
+     "price": "67",
+     "priceCurrency": "USD",
+     "url": "https://avoxan.com/pricing",
+     "description": "A one-page site with a lead form, $67 setup with an AI plan, free with Front Desk."
+    },
+    {
+     "@type": "Offer",
+     "name": "Business Website",
+     "price": "2400",
+     "priceCurrency": "USD",
+     "url": "https://avoxan.com/pricing",
+     "description": "Eight custom pages with copywriting, technical SEO, AI-search setup, hosting setup and 90 days of edits. One-time fee."
+    },
+    {
+     "@type": "Offer",
+     "name": "Custom Build",
+     "url": "https://avoxan.com/pricing",
+     "description": "Customer logins, online booking, e-commerce and integrations, scoped per project.",
+     "priceCurrency": "USD",
+     "priceSpecification": {
+      "@type": "PriceSpecification",
+      "minPrice": "5000",
+      "priceCurrency": "USD"
+     }
+    }
+   ]
+  },
+  {
+   "@type": "Service",
+   "@id": "https://avoxan.com/pricing#ai-receptionist",
+   "name": "AI receptionist",
+   "serviceType": "AI phone answering service",
+   "provider": {
+    "@id": "https://avoxan.com/#org"
+   },
+   "areaServed": [
+    {
+     "@type": "City",
+     "name": "Houston"
+    },
+    "US"
+   ],
+   "offers": [
+    {
+     "@type": "Offer",
+     "name": "Catch",
+     "description": "Instant AI text-back for every missed call, two-way texting 24/7.",
+     "url": "https://avoxan.com/pricing#ai",
+     "priceCurrency": "USD",
+     "price": "97",
+     "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "97",
+      "priceCurrency": "USD",
+      "unitCode": "MON",
+      "referenceQuantity": {
+       "@type": "QuantitativeValue",
+       "value": 1,
+       "unitCode": "MON"
+      }
+     }
+    },
+    {
+     "@type": "Offer",
+     "name": "Answer",
+     "description": "AI voice answering for missed, after-hours and overflow calls in English and Spanish.",
+     "url": "https://avoxan.com/pricing#ai",
+     "priceCurrency": "USD",
+     "price": "197",
+     "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "197",
+      "priceCurrency": "USD",
+      "unitCode": "MON",
+      "referenceQuantity": {
+       "@type": "QuantitativeValue",
+       "value": 1,
+       "unitCode": "MON"
+      }
+     }
+    },
+    {
+     "@type": "Offer",
+     "name": "Front Desk",
+     "description": "Everything in Answer plus calendar booking, reminders, review requests and a free 1-page website.",
+     "url": "https://avoxan.com/pricing#ai",
+     "priceCurrency": "USD",
+     "price": "397",
+     "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "397",
+      "priceCurrency": "USD",
+      "unitCode": "MON",
+      "referenceQuantity": {
+       "@type": "QuantitativeValue",
+       "value": 1,
+       "unitCode": "MON"
+      }
+     }
+    }
+   ]
   }
  ],
  "css": [
@@ -178,7 +299,7 @@
 <section class="p-hero" id="pricing" data-palette="studio" aria-labelledby="p-h">
   <div class="wrap">
     <p class="hero__eyebrow mono"><span>Pricing · updated October 2026</span><span>Every figure in US dollars</span></p>
-    <h1 id="p-h">Every price, <em>published.</em></h1>
+    <h1 id="p-h"><span class="h1-kick">Web design &amp; AI receptionist pricing</span>Every price, <em>published.</em></h1>
     <p class="p-hero__lede">Most studios make you book a call to find out what anything costs. Here is all of it: the websites, the AI receptionist and every add-on. <strong>The call is for deciding whether we're right for each other</strong>, not for finding out the price.</p>
     <div class="doors">
       <a class="door" href="#websites">
@@ -234,7 +355,7 @@
           <li>Google Business Profile and lead capture</li>
           <li>Hosting setup and conversion tracking</li>
           <li>90 days of free edits after launch</li>
-          <li>Live in about four weeks · 50% to start, 50% at launch</li>
+          <li>Live in <a class="link-u" href="/process">about four weeks</a> · 50% to start, 50% at launch</li>
         </ul>
         <a class="btn" href="#book" data-cta="pricing-website">Start a project
           <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
@@ -244,7 +365,7 @@
         <div class="tier__top mono"><span>Different job</span><span>Scoped</span></div>
         <h3>Custom Build</h3>
         <div class="price"><b>$5,000+</b><span>scoped per project</span></div>
-        <p>For when the site has to do something: accounts, bookings, a storefront or many locations. Like the Bag Chasers booking engine.</p>
+        <p>For when the site has to do something: accounts, bookings, a storefront or many locations. Like the <a class="link-u" href="/work/#bag-chasers">Bag Chasers booking engine</a>.</p>
         <ul class="ticks">
           <li>Customer logins and online booking</li>
           <li>E-commerce and payment flows</li>
@@ -281,7 +402,7 @@
           <div><span>Priced separately</span><s>$5,400</s></div>
           <div class="total"><span>You pay</span>$2,400</div>
         </div>
-        <p class="receipt__foot">Paid 50% at kickoff and 50% at launch. Extra pages $150 each.<br>Prices match the itemized list on our Services page.</p>
+        <p class="receipt__foot">Paid 50% at kickoff and 50% at launch. Extra pages $150 each.<br>Prices match the itemized list on our <a class="link-u" href="/services">Services page</a>.</p>
       </div>
     </div>
 
@@ -305,14 +426,14 @@
 
 <!-- ================= AI RECEPTIONIST ================= -->
 <section class="p-sec ai" id="ai" data-palette="studio" aria-labelledby="ai-h">
-  <div class="ai__bg" aria-hidden="true"><img src="/assets/studio/front-desk.webp" alt="" width="1800" height="1013" loading="lazy" decoding="async"></div>
+  <div class="ai__bg" aria-hidden="true"><img srcset="/assets/studio/front-desk-800.webp 800w, /assets/studio/front-desk.webp 1800w" sizes="(max-width: 900px) 100vw, 50vw" src="/assets/studio/front-desk.webp" alt="" width="1800" height="1013" loading="lazy" decoding="async"></div>
   <div class="wrap">
     <div class="p-head">
       <div>
         <p class="mono kick">02 · AI receptionist</p>
         <h2 id="ai-h" data-reveal>Never miss <em>another call.</em></h2>
       </div>
-      <p data-reveal>Three plans, set up and looked after by us. Start by texting back the calls you miss, or hand us the whole front desk. Every plan is month to month, with free setup.</p>
+      <p data-reveal>Three plans, set up and looked after by us. Start by texting back the calls you miss, or hand us the whole front desk. Every plan is month to month, with free setup. <a class="link-u" href="/ai-receptionist#call">Hear it take a real call →</a></p>
     </div>
 
     <!-- the demo -->
@@ -527,7 +648,7 @@
         <ul><li>Answers 24/7, holidays included</li><li>Flat price, no per-minute billing</li><li>Texts back, books and follows up</li></ul>
       </div>
     </div>
-    <p class="sources">Sources: DIY range from published plans such as <a href="https://heyrosie.com/pricing" target="_blank" rel="noopener">Rosie</a> ($49 for 250 minutes to $299 for 2,000). Answering service from <a href="https://voksha.com/pricing-comparison/ruby/" target="_blank" rel="noopener">Ruby's published plans</a> as of September 2026. Receptionist wage from the <a href="https://www.bls.gov/ooh/office-and-administrative-support/receptionists.htm" target="_blank" rel="noopener">US Bureau of Labor Statistics</a>, May 2024 median, at 40 hours a week. Setup fees from <a href="https://voksha.com/guide/ai-receptionist-pricing-guide/" target="_blank" rel="noopener">2026 market surveys</a>. Prices change; check the providers directly.</p>
+    <p class="sources">For the full market breakdown, read <a href="/blog/ai-receptionist-cost">what an AI receptionist costs in 2026</a>. Sources: DIY range from published plans such as <a href="https://heyrosie.com/pricing" target="_blank" rel="noopener">Rosie</a> ($49 for 250 minutes to $299 for 2,000). Answering service from <a href="https://voksha.com/pricing-comparison/ruby/" target="_blank" rel="noopener">Ruby's published plans</a> as of September 2026. Receptionist wage from the <a href="https://www.bls.gov/ooh/office-and-administrative-support/receptionists.htm" target="_blank" rel="noopener">US Bureau of Labor Statistics</a>, May 2024 median, at 40 hours a week. Setup fees from <a href="https://voksha.com/guide/ai-receptionist-pricing-guide/" target="_blank" rel="noopener">2026 market surveys</a>. Prices change; check the providers directly.</p>
   </div>
 </section>
 

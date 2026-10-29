@@ -7,7 +7,7 @@
 :root{
   --ink:#F3ECE4;--ink-2:#FBF7F2;
   --bg:#F3ECE4;--fg:#2A1F1C;
-  --mute:rgba(42,31,28,.68);--faint:rgba(42,31,28,.44);--line:rgba(42,31,28,.13);
+  --mute:rgba(42,31,28,.76);--faint:rgba(42,31,28,.66);--line:rgba(42,31,28,.13);
   --accent:#9C5442;--on-accent:#FBF7F2;--surface:rgba(255,255,255,.5);
   --blush:#E9D5CA;
   color-scheme:light;
@@ -129,3 +129,4 @@
   .ms-ph__art img{border-radius:160px 160px 16px 16px}
   .audit .cal{min-height:1000px}
 }
+.get__list p a,.ms-faq .qa p a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}

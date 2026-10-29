@@ -44,7 +44,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "src")
 SITE = "https://avoxan.com"
 SITE_MODIFIED = "2026-10-03"  # default <lastmod>; pages can set "modified" in front matter
-CSS_V = "5"  # bump on ANY change under /css or /js: _headers caches them for a year
+CSS_V = "6"  # bump on ANY change under /css or /js: _headers caches them for a year
 
 NAV = [
     ("work", "/work/", "Work"),
@@ -59,12 +59,26 @@ ORG = {
     "@type": ["Organization", "ProfessionalService"],
     "@id": SITE + "/#org",
     "name": "Avoxan",
+    "alternateName": "Akarshan Digital LLC",
     "legalName": "Akarshan Digital LLC",
+    "description": "Houston web design and development studio building websites, booking systems and AI receptionists for owner-led service businesses.",
     "url": SITE + "/",
     "logo": SITE + "/avoxan-logo-512.png",
+    "image": SITE + "/og-image.png",
     "email": "hello@avoxan.com",
+    "foundingDate": "2026",
+    "priceRange": "$$",
+    "currenciesAccepted": "USD",
+    "paymentAccepted": "Credit Card, ACH, Wire Transfer",
     "address": {"@type": "PostalAddress", "addressLocality": "Houston", "addressRegion": "TX", "addressCountry": "US"},
-    "areaServed": [{"@type": "City", "name": "Houston"}, {"@type": "State", "name": "Texas"}, "US"],
+    "geo": {"@type": "GeoCoordinates", "latitude": 29.7604, "longitude": -95.3698},
+    "areaServed": [{"@type": "City", "name": "Houston"}, {"@type": "State", "name": "Texas"}, "US", "CA", "GB", "AU"],
+    "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "email": "hello@avoxan.com",
+                     "areaServed": ["US", "CA", "GB", "AU"], "availableLanguage": ["English"]},
+    "knowsAbout": ["Web design", "Website development", "Conversion rate optimization", "Local SEO",
+                   "AI search optimization", "Google Business Profile optimization", "AI phone receptionists",
+                   "Webflow", "WordPress", "Framer"],
+    "sameAs": ["https://www.instagram.com/avoxan.io/", "https://www.facebook.com/profile.php?id=61581905115747"],
 }
 
 HEAD_SCRIPT = """<script>
@@ -122,15 +136,15 @@ FOOTER = """<footer class="ftr" data-palette="studio">
         <p class="ftr__nap mono">Houston, Texas · <a href="mailto:hello@avoxan.com">hello@avoxan.com</a></p>
       </div>
       <div>
-        <h4 class="mono">Studio</h4>
+        <p class="mono ftr__h">Studio</p>
         <ul><li><a href="/work/">Work</a></li><li><a href="/services">Services</a></li><li><a href="/process">Process</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/faq">FAQ</a></li><li><a href="/contact">Contact</a></li></ul>
       </div>
       <div>
-        <h4 class="mono">AI receptionist</h4>
+        <p class="mono ftr__h">AI receptionist</p>
         <ul><li><a href="/ai-receptionist">How it works</a></li><li><a href="/ai-receptionist-plumbers">For plumbers</a></li><li><a href="/houston-med-spas">For med spas</a></li><li><a href="/pricing#ai">Plans from $97</a></li></ul>
       </div>
       <div>
-        <h4 class="mono">Journal</h4>
+        <p class="mono ftr__h">Journal</p>
         <ul><li><a href="/blog/website-cost-2026">Website cost in 2026</a></li><li><a href="/blog/local-seo-checklist">Local SEO checklist</a></li><li><a href="/blog/what-is-an-ai-receptionist">What is an AI receptionist?</a></li><li><a href="/blog/">All journal entries</a></li></ul>
       </div>
     </div>
