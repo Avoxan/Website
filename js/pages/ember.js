@@ -1,7 +1,7 @@
 /* ==================================================================
    Homepage hero: the liquid-metal film, with a liquid-glass surface.
 
-   The film (a slow wave of molten copper and black chrome) is the
+   The film (a ribbon of copper and black chrome, flowing like silk) is the
    hero. On devices with a real GPU it is drawn through a WebGL shader
    that turns the pointer (or a finger) into ripples on a liquid
    surface: the image refracts outward from where you move, with a
