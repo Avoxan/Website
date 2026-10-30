@@ -153,16 +153,24 @@
    "type": "image/webp"
   }
  ],
- "booking": true
+ "booking": true,
+ "js": [
+  "pages/ember.js"
+ ]
 }
 -->
 <!-- ================= HERO ================= -->
 <section class="hero" aria-labelledby="hero-h">
-  <div class="hero__film" aria-hidden="true">
-    <video id="heroFilm" data-autoplay muted loop playsinline preload="none" poster="assets/studio/ember-poster.webp">
-      <source src="assets/studio/ember-film.webm" type="video/webm">
-      <source src="assets/studio/ember-film.mp4" type="video/mp4">
-    </video>
+  <div class="hero__film" data-ember aria-hidden="true">
+    <div class="hero__reel">
+      <video id="heroFilm" data-autoplay muted loop playsinline preload="none" poster="assets/studio/ember-poster.webp">
+        <source src="assets/studio/ember-film.webm" type="video/webm">
+        <source src="assets/studio/ember-film.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero__light"></div>
+    <div class="hero__flare"></div>
+    <div class="hero__spark"></div>
   </div>
   <div class="grain" aria-hidden="true"></div>
 
