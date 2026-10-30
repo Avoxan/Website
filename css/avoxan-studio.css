@@ -131,7 +131,7 @@ em,.it{font-style:italic}
 /* ---------- hero ---------- */
 .hero{position:relative;min-height:max(680px,100svh);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;isolation:isolate}
 .hero__film{position:absolute;inset:0;z-index:-2}
-.hero__film video,.hero__film img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:68% 50%}
+.hero__film video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:68% 50%}
 .hero__film::after{content:"";position:absolute;inset:0;z-index:1;background:
   linear-gradient(90deg,var(--ink) 4%,rgba(13,11,9,.72) 38%,rgba(13,11,9,0) 70%),
   linear-gradient(0deg,var(--ink) 0%,rgba(13,11,9,0) 34%),
@@ -172,8 +172,7 @@ em,.it{font-style:italic}
 @media (max-width:860px){
   .hero__foot{grid-template-columns:1fr}
   .showing{min-width:0}
-  .hero__film video,.hero__film img{object-position:78% 50%}
-  .hero__film::after{background:linear-gradient(0deg,var(--ink) 20%,rgba(13,11,9,.6) 50%,rgba(13,11,9,.12) 100%)}
+  .hero__film::after{background:linear-gradient(0deg,var(--ink) 30%,rgba(13,11,9,.74) 50%,rgba(13,11,9,.55) 66%,rgba(13,11,9,.12) 86%,rgba(13,11,9,.3) 100%)}
 }
 
 /* hero entrance (only when JS is running and motion is allowed) */
@@ -623,23 +622,24 @@ em,.it{font-style:italic}
 .fields__cols a:hover::after{transform:translateX(4px)}
 @media (max-width:900px){.fields__grid,.fields__cols{grid-template-columns:1fr}}
 
-/* ---------- hero: the enchanted film (js/pages/ember.js) ---------- */
-/* Everything here moves with transform/opacity only, so the GPU does the
-   work and the main thread stays free. */
-/* ignition: the film blooms in from a point of light at the heart of the ribbon */
-.hero__reel{position:absolute;inset:0;transform-origin:72% 40%}
-.motion .hero__reel{animation:bloom 2.6s cubic-bezier(.3,.6,.1,1) both}
-@keyframes bloom{from{opacity:0;transform:scale(1.22)}to{opacity:1;transform:none}}
-.hero__spark{position:absolute;z-index:1;left:72%;top:40%;width:640px;height:640px;margin:-320px 0 0 -320px;border-radius:50%;pointer-events:none;opacity:0;mix-blend-mode:screen;
-  background:radial-gradient(circle,rgba(255,232,208,.9),rgba(255,160,96,.45) 18%,rgba(228,112,63,.14) 42%,transparent 68%)}
-.motion .hero__spark{animation:spark 2.4s cubic-bezier(.2,.7,.1,1) .05s both}
-@keyframes spark{0%{opacity:0;transform:scale(.08)}18%{opacity:1;transform:scale(.35)}100%{opacity:0;transform:scale(2.4)}}
-/* depth: the film leans against the pointer, or the phone's tilt (set from JS as a transform) */
-.hero__film video{transform:scale(1.06);will-change:transform}
-/* the molten marble (WebGL), fading in over the film */
-.hero__film .marble{position:absolute;inset:0;z-index:0;width:100%;height:100%;opacity:0;transition:opacity 2.2s var(--ease)}
-.hero__film .marble.on{opacity:1}
-@media (max-width:860px){.hero__spark{left:60%;top:22%}.hero__reel{transform-origin:60% 22%}}
+/* ---------- hero: liquid-metal film + liquid glass (js/pages/ember.js) ---------- */
+.hero__poster,.hero__poster img{position:absolute;inset:0;width:100%;height:100%}
+.hero__poster img{object-fit:cover;object-position:68% 50%}
+.motion .hero__poster{animation:bloom 2.4s cubic-bezier(.3,.6,.1,1) both}
+@keyframes bloom{from{opacity:0;transform:scale(1.06)}to{opacity:1;transform:none}}
+.hero__film video{opacity:0;transition:opacity 1.4s var(--ease)}
+.hero__film.is-playing video{opacity:1}
+.hero__film .glass{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity 1.4s var(--ease)}
+.hero__film .glass.on{opacity:1}
+@media (min-width:861px){
+  .hero__poster,.hero__film video,.hero__film .glass{left:10%;width:100%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 14%);mask-image:linear-gradient(90deg,transparent,#000 14%)}
+  .hero__poster img{left:0}
+}
+.hero__film.is-glass video{opacity:0}
+@media (max-width:860px){
+  .hero__poster img,.hero__film video{object-position:50% 0%}
+  .hero .showing{display:none}
+}
 /* "small." catches the light now and then */
 .motion .hero h1 em{background:linear-gradient(100deg,var(--accent) 0 40%,#FFE6CF 50%,var(--accent) 60% 100%);background-size:260% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.1em;margin-right:-.1em;animation:sheen 7s var(--ease-io) 2.2s infinite}
 @keyframes sheen{0%{background-position:100% 0}22%,100%{background-position:0 0}}
