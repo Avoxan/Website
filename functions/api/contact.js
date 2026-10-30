@@ -34,6 +34,8 @@ const FIELD_LABELS = {
   missed_calls: 'Missed calls per week',
   demo_time: 'Preferred demo time',
   best_time: 'Best way/time',
+  interest: 'Interested in',
+  plan: 'Plan of interest',
   message: 'Message',
 };
 

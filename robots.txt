@@ -2,6 +2,8 @@
 # Allow all standard search crawlers full access.
 User-agent: *
 Allow: /
+Disallow: /src/
+Disallow: /scripts/
 
 # Explicitly welcome AI / answer-engine crawlers (AEO).
 User-agent: GPTBot
