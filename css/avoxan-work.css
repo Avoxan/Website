@@ -22,10 +22,9 @@
 
 /* ---------- index ---------- */
 .w-index{padding-bottom:clamp(80px,10vw,140px)}
-.w-index__head,.w-row{display:grid;grid-template-columns:48px minmax(0,6fr) minmax(0,3.4fr) minmax(0,2fr) minmax(0,1.3fr) 24px;gap:20px;align-items:baseline}
+.w-index__head,.w-row{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,3.4fr) minmax(0,2fr) minmax(0,1.3fr) 24px;gap:20px;align-items:baseline}
 .w-index__head{padding:0 0 12px;color:var(--faint);border-bottom:1px solid var(--line)}
 .w-row{padding:clamp(18px,2.2vw,28px) 0;border-bottom:1px solid var(--line);position:relative;transition:padding .5s var(--ease)}
-.w-row .no{font-family:var(--f-mono);font-size:12px;color:var(--faint)}
 .w-row h2{font-family:var(--f-display);font-weight:400;font-size:clamp(32px,3.8vw,60px);line-height:1;letter-spacing:-.025em;margin:0;transition:transform .6s var(--ease),color .3s}
 .w-row .what{color:var(--mute);font-size:15px}
 .w-row .where{color:var(--mute);font-size:15px}
@@ -38,11 +37,10 @@
 .w-row--concepts h2{color:var(--mute)}
 @media (max-width:900px){
   .w-index__head{display:none}
-  .w-row{grid-template-columns:40px minmax(0,1fr) 20px;gap:4px 12px}
-  .w-row .no{grid-row:1}
-  .w-row h2{grid-column:2}
-  .w-row .arr{grid-column:3;grid-row:1}
-  .w-row .what,.w-row .where,.w-row .st{grid-column:2}
+  .w-row{grid-template-columns:minmax(0,1fr) 20px;gap:4px 12px}
+  .w-row h2{grid-column:1}
+  .w-row .arr{grid-column:2;grid-row:1}
+  .w-row .what,.w-row .where,.w-row .st{grid-column:1}
 }
 
 /* ---------- chapter (case study, extended) ---------- */

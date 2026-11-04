@@ -49,7 +49,7 @@ Avoxan publishes its price ladder in advance rather than announcing rises after 
 
 ## Key pages
 
-- [Home](https://avoxan.com/): Studio overview built around the three 2026 client projects, with short clips of clients on recorded calls.
+- [Home](https://avoxan.com/): Studio overview built around recent client projects, with short clips of clients on recorded calls.
 - [What you get](https://avoxan.com/services): The eight deliverables in every website project, with the à la carte value of each.
 - [Pricing](https://avoxan.com/pricing): Full pricing for websites, the three AI receptionist plans, and every add-on, with a missed-call cost calculator and a sourced comparison against DIY AI apps, live answering services and hiring a receptionist.
 - [AI Receptionist](https://avoxan.com/ai-receptionist): How the AI receptionist works, with a real 79-second recording of it answering an after-hours plumbing call (full transcript on the page), an example day, what it will and won't do, and a demo request form.
