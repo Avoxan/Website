@@ -178,6 +178,28 @@
     speakers[spk].classList.add("speaking");
   }, 2800);
 
+  // hero voice: with a data-audio clip it plays in place; without one it links to the calls
+  $$("[data-voice]").forEach(function (v) {
+    var src = v.getAttribute("data-audio");
+    if (!src) return;
+    var act = $(".voice__act", v), audio = null;
+    if (act) act.textContent = "▶ Hear her say it";
+    v.setAttribute("role", "button");
+    v.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (!audio) {
+        audio = new Audio(src);
+        audio.addEventListener("ended", function () { v.classList.remove("is-playing"); if (act) act.textContent = "▶ Play again"; });
+      }
+      if (audio.paused) {
+        var p = audio.play(); if (p && p.catch) p.catch(function () {});
+        v.classList.add("is-playing"); if (act) act.textContent = "❚❚ Pause";
+      } else {
+        audio.pause(); v.classList.remove("is-playing"); if (act) act.textContent = "▶ Hear her say it";
+      }
+    });
+  });
+
   // clips: a tile with a data-clip plays it; without one it stays a camera-off tile
   var player = $("#player"), pv = $("#playerV"), lastTile = null;
   $$("#tiles [data-clip]").forEach(function (t) {

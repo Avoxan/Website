@@ -45,7 +45,7 @@
 </script>
 <link rel="preload" href="/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/instrument-serif-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/avoxan-studio.css?v=14">
+<link rel="stylesheet" href="/css/avoxan-studio.css?v=15">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -240,8 +240,10 @@
   <div class="grain" aria-hidden="true"></div>
 
   <div class="wrap hero__body">
-    <p class="hero__eyebrow mono">
-      <span><span class="dot" aria-hidden="true"></span>Booking October 2026 · 3 spots left</span>
+    <p class="hero__eyebrow hero__facts mono">
+      <a href="/pricing"><span class="dot" aria-hidden="true"></span>Websites from <b>$2,400</b></a>
+      <span>Live in about four weeks</span>
+      <span>Every price published</span>
     </p>
     <h1 id="hero-h">
       <span class="h1-kick">Houston web design &amp; development studio</span>
@@ -251,20 +253,28 @@
     </h1>
 
     <div class="hero__foot">
-      <div>
-        <p class="hero__lede">Avoxan designs and builds websites, booking systems and brands for owner-led businesses. <strong>Strategy, copy, design and code from one small team</strong>, launched in about four weeks.</p>
-        <div class="hero__ctas">
-          <a class="btn" href="#book" data-cta="hero">Start a project
-            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
-          <a class="btn btn--ghost" href="#work">See the work</a>
-        </div>
+      <p class="hero__lede">Avoxan designs and builds websites, booking systems and brands for owner-led businesses. <strong>Strategy, copy, design and code from one small team.</strong></p>
+      <div class="hero__ctas">
+        <a class="btn" href="#book" data-cta="hero">Start a project
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
+        <a class="btn btn--ghost" href="#work">See the work</a>
       </div>
+    </div>
+
+    <div class="hero__side">
+      <!-- A client, verbatim from a recorded call. To play her voice, set data-audio
+           to the clip (e.g. assets/clips/julie.mp3); until then it links to the calls. -->
+      <a class="voice" href="#record" data-voice data-audio="">
+        <span class="voice__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span class="voice__q">“I feel like I'm on one of those HGTV shows looking at a new house.”</span>
+        <span class="voice__who mono">Julie Wall · The Clever Insurance <span class="voice__act">On the record ↓</span></span>
+      </a>
 
       <div class="showing" aria-label="Recent work">
         <div class="showing__h mono"><span>Recent work</span><span>2026</span></div>
-        <a href="#bag-chasers"><img src="assets/work/bc-home-thumb.webp" alt="" width="52" height="34" loading="lazy"><span><b>Bag Chasers Laundry Co.</b><small>Website &amp; booking engine</small></span><span class="arr" aria-hidden="true">→</span></a>
-        <a href="#clever"><img src="assets/work/cl-home-thumb.webp" alt="" width="52" height="34" loading="lazy"><span><b>The Clever Insurance</b><small>Brand &amp; website</small></span><span class="arr" aria-hidden="true">→</span></a>
-        <a href="#prep-doc"><img src="assets/work/pd-home-thumb.webp" alt="" width="52" height="34" loading="lazy"><span><b>thePrepDoc</b><small>Art direction &amp; website</small></span><span class="arr" aria-hidden="true">→</span></a>
+        <a href="#bag-chasers"><img srcset="assets/work/bc-home-thumb.webp 160w, assets/work/bc-home-card.webp 320w" sizes="(max-width: 860px) 30vw, 52px" src="assets/work/bc-home-thumb.webp" alt="" width="52" height="34" loading="lazy"><span><b>Bag Chasers Laundry Co.</b><small>Website &amp; booking engine</small></span><span class="arr" aria-hidden="true">→</span></a>
+        <a href="#clever"><img srcset="assets/work/cl-home-thumb.webp 160w, assets/work/cl-home-card.webp 320w" sizes="(max-width: 860px) 30vw, 52px" src="assets/work/cl-home-thumb.webp" alt="" width="52" height="34" loading="lazy"><span><b>The Clever Insurance</b><small>Brand &amp; website</small></span><span class="arr" aria-hidden="true">→</span></a>
+        <a href="#prep-doc"><img srcset="assets/work/pd-home-thumb.webp 160w, assets/work/pd-home-card.webp 320w" sizes="(max-width: 860px) 30vw, 52px" src="assets/work/pd-home-thumb.webp" alt="" width="52" height="34" loading="lazy"><span><b>thePrepDoc</b><small>Art direction &amp; website</small></span><span class="arr" aria-hidden="true">→</span></a>
       </div>
     </div>
   </div>
@@ -865,10 +875,10 @@
   <video id="playerV" controls playsinline></video>
 </div>
 
-<script src="/js/avoxan-studio.js?v=14" defer></script>
-<script src="/js/pages/ember.js?v=14" defer></script>
-<script src="/js/avoxan-booking.js?v=14" defer></script>
-<script src="/js/avoxan-chat.js?v=14" defer></script>
-<script src="/js/avoxan-analytics.js?v=14" defer></script>
+<script src="/js/avoxan-studio.js?v=15" defer></script>
+<script src="/js/pages/ember.js?v=15" defer></script>
+<script src="/js/avoxan-booking.js?v=15" defer></script>
+<script src="/js/avoxan-chat.js?v=15" defer></script>
+<script src="/js/avoxan-analytics.js?v=15" defer></script>
 </body>
 </html>
