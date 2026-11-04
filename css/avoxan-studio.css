@@ -25,7 +25,7 @@
   --ink-2:#15110E;
   --paper:#F1EAE0;
   --ember:#E4703F;
-  --ember-deep:#CA5B2B;
+  --ember-deep:#CA5B2B;--copper:#D98C5F;
 
   /* live tokens (default = studio) */
   --bg:var(--ink);
@@ -165,29 +165,36 @@ em,.it{font-style:italic}
 .hero__facts a:hover{color:var(--fg)}
 .hero__facts b{color:var(--fg);font-weight:inherit;margin-left:.6em}
 
-/* a client's voice, verbatim from a recorded call */
-.voice{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 14px}
-.voice__bars{grid-row:1/3;display:flex;gap:3px;align-items:center;height:26px;padding-top:2px}
-.voice__bars i{width:3px;height:18px;border-radius:2px;background:var(--accent);transform:scaleY(.4)}
+/* a client's voice, verbatim from a recorded call, set like a quote on a film poster */
+.voice{display:block}
+.voice__q{display:block;text-wrap:balance;font-family:var(--f-display);font-size:clamp(24px,2vw,32px);line-height:1.14;letter-spacing:-.015em;color:var(--fg);text-shadow:0 1px 28px rgba(8,6,4,.6)}
+.voice__who{display:flex;align-items:center;gap:10px;margin-top:16px;color:var(--mute);font-size:10.5px}
+.voice__bars{display:flex;gap:2px;align-items:center;height:14px}
+.voice__bars i{width:2px;height:13px;border-radius:2px;background:var(--copper);transform:scaleY(.4)}
 .motion .voice__bars i{animation:talk 1.3s var(--ease-io) infinite}
 .motion .voice__bars i:nth-child(2){animation-delay:-.4s}
 .motion .voice__bars i:nth-child(3){animation-delay:-.8s}
 .motion .voice__bars i:nth-child(4){animation-delay:-.2s}
 @keyframes talk{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
-.voice__q{text-wrap:balance;font-family:var(--f-display);font-size:clamp(20px,1.6vw,24px);line-height:1.22;letter-spacing:-.01em;color:var(--fg)}
-.voice__who{color:var(--faint);font-size:10.5px}
-.voice__act{display:block;margin-top:4px;color:var(--accent);transition:color .3s}
-.voice:hover .voice__act{color:var(--fg)}
 .voice.is-playing .voice__bars i{animation-duration:.55s}
+.voice__act{display:block;margin-top:6px;padding-left:24px;color:var(--accent);font-size:10.5px;transition:color .3s}
+.voice:hover .voice__act{color:var(--fg)}
 
-/* proof panel: beside the headline on desktop, under the buttons on phones */
+/* recent work, as a credits line */
+.credits{display:flex;flex-wrap:wrap;align-items:baseline;margin:0;padding-top:18px;border-top:1px solid var(--line);font-size:14px;line-height:1.7;color:var(--mute)}
+.credits__h{width:100%;margin-bottom:2px;color:var(--faint);font-size:10.5px}
+.credits a{white-space:nowrap;transition:color .3s}
+.credits a:hover{color:var(--fg)}
+.credits a:not(:last-child)::after{content:"·";margin:0 .6em;color:var(--faint)}
+
+/* desktop: the quote and credits sit beside the headline, no panel; a soft
+   shadow behind them keeps the type readable over the bright metal */
 @media (min-width:861px){
-  .hero__body{display:grid;grid-template-columns:minmax(0,1fr) 352px;column-gap:clamp(32px,4vw,72px)}
+  .hero__body{display:grid;grid-template-columns:minmax(0,1fr) clamp(340px,30vw,430px);column-gap:clamp(32px,4vw,72px)}
   .hero__body>.hero__eyebrow{grid-column:1/-1}
   .hero__body>h1,.hero__foot{grid-column:1}
-  .hero__side{grid-column:2;grid-row:2/span 2;align-self:end;display:grid;gap:18px;padding:20px;border-radius:20px;background:rgba(18,14,11,.42);box-shadow:inset 0 0 0 1px var(--line);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
-  .hero__side .voice{padding-bottom:18px;border-bottom:1px solid var(--line)}
-  .hero__side .showing{min-width:0;padding:0;background:none;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;border-radius:0}
+  .hero__side{grid-column:2;grid-row:2/span 2;align-self:end;display:grid;gap:30px;position:relative;z-index:0}
+  .hero__side::before{content:"";position:absolute;inset:-90px -70px -50px -110px;z-index:-1;pointer-events:none;background:radial-gradient(closest-side,rgba(10,8,6,.7),rgba(10,8,6,.35) 60%,rgba(10,8,6,0))}
 }
 @media (max-width:860px){
   .hero__facts{flex-direction:column;align-items:flex-start;gap:6px}
@@ -195,21 +202,11 @@ em,.it{font-style:italic}
   .hero__facts>*+*{padding-left:16px}
   .hero__side{display:grid;gap:26px;margin-top:28px}
   .voice{padding-top:22px;border-top:1px solid var(--line)}
+  .voice__q{font-size:23px}
 }
 
-/* "now showing" credits card */
-.showing{display:grid;gap:10px;min-width:300px;padding:18px;border-radius:18px;background:rgba(241,234,224,.05);box-shadow:inset 0 0 0 1px var(--line);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
-.showing__h{display:flex;justify-content:space-between;color:var(--faint)}
-.showing a{display:grid;grid-template-columns:52px 1fr auto;gap:14px;align-items:center;padding:6px;margin:-6px;border-radius:10px;transition:background-color .3s}
-.showing a:hover{background:rgba(241,234,224,.06)}
-.showing img{width:52px;height:34px;object-fit:cover;object-position:top;border-radius:5px}
-.showing b{display:block;font-weight:500;font-size:15px;line-height:1.25}
-.showing small{display:block;color:var(--faint);font-size:13px}
-.showing .arr{color:var(--faint);transition:transform .4s var(--ease),color .3s}
-.showing a:hover .arr{transform:translateX(3px);color:var(--fg)}
 
 @media (max-width:860px){
-  .showing{min-width:0}
   .hero__film::after{background:linear-gradient(0deg,var(--ink) 30%,rgba(13,11,9,.74) 50%,rgba(13,11,9,.55) 66%,rgba(13,11,9,.12) 86%,rgba(13,11,9,.3) 100%)}
 }
 
@@ -676,13 +673,6 @@ em,.it{font-style:italic}
 .hero__film.is-glass video{opacity:0}
 @media (max-width:860px){
   .hero__poster img,.hero__film video{object-position:50% 0%}
-  /* recent work becomes a strip of three under the buttons */
-  .hero .showing{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 12px;padding:0;background:none;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
-  .hero .showing__h{grid-column:1/-1}
-  .hero .showing a{grid-template-columns:1fr;gap:8px;margin:0;padding:0;align-items:start;align-content:start}
-  .hero .showing img{width:100%;height:auto;aspect-ratio:16/10;border-radius:8px;box-shadow:inset 0 0 0 1px var(--line)}
-  .hero .showing b{font-size:12.5px;line-height:1.3}
-  .hero .showing small,.hero .showing .arr{display:none}
 }
 /* "small." is cast in the same burnished copper as the film: a bright top
    edge, a dark band where the metal turns away, a warm lower reflection.
