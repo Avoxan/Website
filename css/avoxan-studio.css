@@ -684,6 +684,18 @@ em,.it{font-style:italic}
   .hero .showing b{font-size:12.5px;line-height:1.3}
   .hero .showing small,.hero .showing .arr{display:none}
 }
-/* "small." catches the light now and then */
-.motion .hero h1 em{background:linear-gradient(100deg,var(--accent) 0 40%,#FFE6CF 50%,var(--accent) 60% 100%);background-size:260% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.1em;margin-right:-.1em;animation:sheen 7s var(--ease-io) 2.2s infinite}
-@keyframes sheen{0%{background-position:100% 0}22%,100%{background-position:0 0}}
+/* "small." is cast in the same burnished copper as the film: a bright top
+   edge, a dark band where the metal turns away, a warm lower reflection.
+   A specular glint sweeps across it now and then. */
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .hero h1 em{
+    background-image:
+      linear-gradient(100deg,transparent 0 44%,rgba(255,243,232,.95) 50%,transparent 56% 100%),
+      linear-gradient(104deg,transparent 0 16%,rgba(255,224,196,.5) 23%,transparent 30% 57%,rgba(255,224,196,.38) 64%,transparent 71%),
+      linear-gradient(180deg,#F2AE80 0%,#E28D58 30%,#FFD7B8 45%,#D9834D 55%,#7C361A 67%,#A04C24 76%,#EE9F6C 88%,#B85F31 100%);
+    background-size:260% 100%,100% 100%,100% 100%;background-position:100% 0,0 0,0 0;background-repeat:no-repeat;
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    padding-right:.1em;margin-right:-.1em}
+  .motion .hero h1 em{animation:sheen 7s var(--ease-io) 2.2s infinite}
+}
+@keyframes sheen{0%{background-position:100% 0,0 0,0 0}22%,100%{background-position:0 0,0 0,0 0}}
