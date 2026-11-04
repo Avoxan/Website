@@ -34,7 +34,7 @@
   --faint:rgba(241,234,224,.52);
   --line:rgba(241,234,224,.13);
   --accent:var(--ember);
-  --deco:var(--copper);  /* decorative details; actions stay --accent */
+  --deco:var(--accent);  /* decorative details; set to var(--copper) to split them from actions */
   --on-accent:#140B06;
   --surface:rgba(241,234,224,.04);
 
@@ -145,7 +145,7 @@ em,.it{font-style:italic}
 .hero__body{padding-top:clamp(104px,14vh,140px);padding-bottom:clamp(28px,5vh,56px)}
 .hero__eyebrow{display:flex;flex-wrap:wrap;gap:10px 22px;color:var(--mute);margin:0 0 clamp(20px,3vh,36px)}
 .hero__eyebrow .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--deco);margin-right:9px;box-shadow:0 0 0 0 var(--deco);animation:pulse 2.4s infinite;vertical-align:1px}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(217,140,95,.55)}70%{box-shadow:0 0 0 10px rgba(217,140,95,0)}100%{box-shadow:0 0 0 0 rgba(217,140,95,0)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(228,112,63,.55)}70%{box-shadow:0 0 0 10px rgba(228,112,63,0)}100%{box-shadow:0 0 0 0 rgba(228,112,63,0)}}
 .hero h1{
   font-family:var(--f-display);font-weight:400;
   font-size:clamp(58px,min(10.4vw,16vh),176px);line-height:1;letter-spacing:-.035em;
@@ -171,7 +171,7 @@ em,.it{font-style:italic}
 .voice__q{display:block;text-wrap:balance;font-family:var(--f-display);font-size:clamp(24px,2vw,32px);line-height:1.14;letter-spacing:-.015em;color:var(--fg);text-shadow:0 1px 28px rgba(8,6,4,.6)}
 .voice__who{display:flex;align-items:center;gap:10px;margin-top:16px;color:var(--mute);font-size:10.5px}
 .voice__bars{display:flex;gap:2px;align-items:center;height:14px}
-.voice__bars i{width:2px;height:13px;border-radius:2px;background:var(--copper);transform:scaleY(.4)}
+.voice__bars i{width:2px;height:13px;border-radius:2px;background:var(--deco);transform:scaleY(.4)}
 .motion .voice__bars i{animation:talk 1.3s var(--ease-io) infinite}
 .motion .voice__bars i:nth-child(2){animation-delay:-.4s}
 .motion .voice__bars i:nth-child(3){animation-delay:-.8s}
@@ -416,7 +416,7 @@ em,.it{font-style:italic}
 .tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:8px}
 .tile{position:relative;aspect-ratio:16/10;border-radius:12px;overflow:hidden;background:#1E1C1A;display:grid;place-items:center;text-align:left;transition:box-shadow .4s}
 .tile:hover{box-shadow:inset 0 0 0 2px rgba(237,231,221,.35)}
-.tile.speaking{box-shadow:inset 0 0 0 3px var(--copper)}
+.tile.speaking{box-shadow:inset 0 0 0 3px var(--ember)}
 .tile video,.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .tile__avatar{width:clamp(64px,9vw,104px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;font-family:var(--f-display);font-size:clamp(28px,3.4vw,42px);color:var(--av-fg,#111);background:var(--av,#D6AA4E)}
 .tile__name{position:absolute;left:10px;bottom:10px;display:flex;align-items:center;gap:7px;max-width:calc(100% - 20px);padding:5px 10px 5px 8px;border-radius:7px;background:rgba(0,0,0,.62);font-size:13px;color:#F4EFE7;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -503,7 +503,7 @@ em,.it{font-style:italic}
 
 /* ---------- book ---------- */
 .book{position:relative;padding-block:clamp(110px,14vw,200px) clamp(80px,10vw,140px);overflow:hidden;isolation:isolate;border-top:1px solid var(--line)}
-.book__glow{position:absolute;z-index:-1;inset:auto -10% -40% 20%;height:90%;background:radial-gradient(closest-side,rgba(217,140,95,.3),transparent);filter:blur(30px);pointer-events:none}
+.book__glow{position:absolute;z-index:-1;inset:auto -10% -40% 20%;height:90%;background:radial-gradient(closest-side,rgba(228,112,63,.32),transparent);filter:blur(30px);pointer-events:none}
 .book h2{font-family:var(--f-display);font-weight:400;font-size:clamp(70px,15vw,260px);line-height:1;letter-spacing:-.05em;margin:0}
 .book h2 em{color:var(--deco)}
 .book__grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(30px,5vw,80px);margin-top:clamp(40px,6vw,80px);align-items:start}
