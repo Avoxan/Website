@@ -44,367 +44,354 @@
   // All classes prefixed `avx-` so we don't collide with avoxan.css.
   // Falls back gracefully if brand CSS variables aren't defined yet.
   const CSS = `
+  @property --avx-a { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
   .avx-root {
-    --avx-cream: #F4EEE5;
-    --avx-cream-warm: #ECE4D8;
-    --avx-cream-accent: #E9DFD1;
-    --avx-ink: #1A1611;
-    --avx-ink-soft: #4A433C;
-    --avx-muted: #857C71;
-    --avx-sienna: #CA5B2B;
-    --avx-sienna-deep: #A8401B;
-    --avx-line: rgba(26, 22, 17, 0.09);
-    --avx-line-strong: rgba(26, 22, 17, 0.16);
-    --avx-shadow: 0 12px 40px -8px rgba(26, 24, 20, 0.25), 0 4px 12px -4px rgba(26, 24, 20, 0.1);
+    /* Studio palette by default; a page can override these on .avx-root */
+    --avx-bg: #14100D;
+    --avx-fg: #F1EAE0;
+    --avx-mute: rgba(241, 234, 224, 0.66);
+    --avx-faint: rgba(241, 234, 224, 0.48);
+    --avx-line: rgba(241, 234, 224, 0.12);
+    --avx-surface: rgba(241, 234, 224, 0.05);
+    --avx-accent: #E4703F;
+    --avx-on-accent: #170C07;
+    --avx-launch-bg: rgba(20, 16, 13, 0.8);
+    --avx-serif: 'Instrument Serif', Georgia, serif;
+    --avx-sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
+    --avx-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --avx-ease: cubic-bezier(0.2, 0.7, 0.1, 1);
     position: fixed;
     bottom: 1.5rem;
     right: 1.5rem;
     z-index: 9999;
-    font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
-    color: var(--avx-ink);
+    font-family: var(--avx-sans);
+    color: var(--avx-fg);
     -webkit-font-smoothing: antialiased;
   }
   .avx-root *, .avx-root *::before, .avx-root *::after { box-sizing: border-box; }
 
-  /* ===== Launcher pill (closed state) ===== */
+  /* ===== Launcher: a dark glass pill with copper light running round its edge ===== */
   .avx-launcher {
+    position: relative;
     display: inline-flex;
     align-items: center;
-    gap: 0.55rem;
-    padding: 0.6rem 1.05rem 0.6rem 0.6rem;
-    background: var(--avx-cream);
-    border: 2px solid var(--avx-sienna);
-    border-radius: 100px;
+    gap: 10px;
+    height: 54px;
+    padding: 0 20px 0 8px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--avx-launch-bg);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    backdrop-filter: blur(16px) saturate(140%);
+    color: var(--avx-fg);
+    font: 500 15px/1 var(--avx-sans);
+    letter-spacing: -0.005em;
     cursor: pointer;
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 0.74rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--avx-ink);
-    box-shadow: 0 12px 40px -8px rgba(192, 74, 31, 0.35), 0 4px 12px -4px rgba(192, 74, 31, 0.18);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    box-shadow: inset 0 0 0 1px var(--avx-line), 0 22px 50px -18px rgba(0, 0, 0, 0.75);
+    transition: transform 0.35s var(--avx-ease), box-shadow 0.35s var(--avx-ease);
     -webkit-tap-highlight-color: transparent;
   }
-  .avx-launcher:hover {
-    transform: translateY(-1px);
-    background: #FBF6E9;
-    border-color: var(--avx-sienna-deep);
+  .avx-launcher::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1.5px;
+    border-radius: inherit;
+    background: conic-gradient(from var(--avx-a), transparent 0 64%, rgba(228, 112, 63, 0.9) 78%, #FFD6B8 84%, rgba(228, 112, 63, 0.9) 89%, transparent 96%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    animation: avxSpin 5.5s linear infinite;
+    pointer-events: none;
   }
+  @keyframes avxSpin { to { --avx-a: 360deg; } }
+  .avx-launcher:hover { transform: translateY(-2px); box-shadow: inset 0 0 0 1px var(--avx-line), 0 28px 60px -18px rgba(0, 0, 0, 0.85), 0 0 40px -10px rgba(228, 112, 63, 0.45); }
   .avx-launcher:active { transform: translateY(0); }
   .avx-launcher-mark {
-    width: 26px; height: 35px;
-    display: inline-flex; align-items: center; justify-content: center;
-    background: transparent;
-  }
-  .avx-launcher-mark img,
-  .avx-launcher-mark svg { width: 100%; height: 100%; display: block; }
-  .avx-launcher-dot {
-    width: 6px; height: 6px;
+    width: 38px; height: 38px;
     border-radius: 50%;
-    background: var(--avx-sienna);
-    margin-left: 0.15rem;
+    display: grid; place-items: center;
+    background: radial-gradient(circle at 30% 25%, rgba(228, 112, 63, 0.28), rgba(228, 112, 63, 0.08) 70%);
+    box-shadow: inset 0 0 0 1px rgba(228, 112, 63, 0.35);
   }
+  .avx-launcher-mark img { width: 20px; height: 27px; display: block; }
+  .avx-launcher-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #6FCF8E;
+    box-shadow: 0 0 0 0 rgba(111, 207, 142, 0.6);
+    animation: avxPing 2.6s infinite;
+    margin-left: 2px;
+  }
+  @keyframes avxPing { 0% { box-shadow: 0 0 0 0 rgba(111, 207, 142, 0.55); } 70% { box-shadow: 0 0 0 8px rgba(111, 207, 142, 0); } 100% { box-shadow: 0 0 0 0 rgba(111, 207, 142, 0); } }
 
-  /* ===== Panel (open state) ===== */
+  /* ===== Panel ===== */
   .avx-panel {
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 384px;
-    max-height: min(640px, calc(100dvh - 3rem));
-    background: var(--avx-cream);
-    border: 2px solid var(--avx-sienna);
-    border-radius: 14px;
-    box-shadow: 0 12px 40px -8px rgba(192, 74, 31, 0.35), 0 4px 12px -4px rgba(192, 74, 31, 0.18);
+    width: 404px;
+    height: min(680px, calc(100dvh - 3rem));
+    background: var(--avx-bg);
+    border-radius: 26px;
+    box-shadow: inset 0 0 0 1px var(--avx-line), 0 50px 120px -30px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     overflow: hidden;
     transform-origin: bottom right;
-    /* Subtle paper grain to match site */
-    background-image:
-      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-    background-blend-mode: multiply;
   }
-
-  /* Open/close animations */
   .avx-root[data-state="closed"] .avx-panel { display: none; }
   .avx-root[data-state="opening"] .avx-launcher,
   .avx-root[data-state="open"] .avx-launcher {
-    opacity: 0; pointer-events: none; transform: scale(0.9);
-    transition: opacity 0.15s ease, transform 0.15s ease;
+    opacity: 0; pointer-events: none; transform: scale(0.92);
+    transition: opacity 0.18s ease, transform 0.18s ease;
   }
   .avx-root[data-state="opening"] .avx-panel,
-  .avx-root[data-state="open"] .avx-panel {
-    animation: avxOpen 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
+  .avx-root[data-state="open"] .avx-panel { animation: avxOpen 0.5s var(--avx-ease) both; }
   @keyframes avxOpen {
-    from { opacity: 0; transform: translateY(12px) scale(0.97); }
-    to   { opacity: 1; transform: translateY(0) scale(1); }
+    from { opacity: 0; transform: translateY(18px) scale(0.94); }
+    to   { opacity: 1; transform: none; }
   }
 
   /* ===== Header ===== */
   .avx-header {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 1rem 1.1rem;
-    background: var(--avx-cream-warm);
-    border-bottom: 1px solid var(--avx-line);
+    gap: 12px;
+    padding: 14px 14px 12px 16px;
     flex-shrink: 0;
   }
   .avx-header-mark {
-    width: 30px; height: 40px;
-    display: inline-flex; align-items: center; justify-content: center;
-    background: transparent;
-    flex-shrink: 0;
+    width: 36px; height: 36px; flex-shrink: 0;
+    border-radius: 50%;
+    display: grid; place-items: center;
+    background: radial-gradient(circle at 30% 25%, rgba(228, 112, 63, 0.28), rgba(228, 112, 63, 0.08) 70%);
+    box-shadow: inset 0 0 0 1px rgba(228, 112, 63, 0.35);
   }
-  .avx-header-mark img,
-  .avx-header-mark svg { width: 100%; height: 100%; display: block; }
+  .avx-header-mark img { width: 19px; height: 26px; display: block; }
   .avx-header-text { flex: 1; min-width: 0; }
-  .avx-header-title {
-    font-family: 'Instrument Serif', Georgia, serif;
-    font-variation-settings: "opsz" 144, "SOFT" 50, "wght" 500;
-    font-size: 1.1rem;
-    line-height: 1.15;
-    color: var(--avx-ink);
-    letter-spacing: -0.01em;
-  }
+  .avx-header-title { font: 500 15px/1.2 var(--avx-sans); letter-spacing: -0.01em; color: var(--avx-fg); }
   .avx-header-sub {
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 0.62rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--avx-ink-soft);
-    margin-top: 0.2rem;
+    display: flex; align-items: center; gap: 7px;
+    margin-top: 4px;
+    font: 400 10.5px/1 var(--avx-mono);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--avx-faint);
   }
+  .avx-header-sub::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #6FCF8E; }
   .avx-close {
-    width: 28px; height: 28px;
-    border: none;
-    background: transparent;
-    color: var(--avx-ink-soft);
+    width: 36px; height: 36px;
+    border: 0; border-radius: 50%;
+    background: var(--avx-surface);
+    box-shadow: inset 0 0 0 1px var(--avx-line);
+    color: var(--avx-mute);
     cursor: pointer;
-    border-radius: 6px;
-    font-size: 1.4rem;
-    line-height: 1;
-    transition: background 0.15s, color 0.15s;
-    display: inline-flex; align-items: center; justify-content: center;
+    display: grid; place-items: center;
+    transition: color 0.2s, background 0.2s, transform 0.3s var(--avx-ease);
   }
-  .avx-close:hover { background: var(--avx-line); color: var(--avx-ink); }
+  .avx-close svg { width: 14px; height: 14px; }
+  .avx-close:hover { color: var(--avx-fg); transform: rotate(90deg); }
 
   /* ===== Thread ===== */
   .avx-thread {
     flex: 1;
     overflow-y: auto;
-    padding: 1.25rem 1.1rem 0.5rem;
+    padding: 4px 16px 16px;
     display: flex;
     flex-direction: column;
-    gap: 1.1rem;
+    gap: 18px;
     scrollbar-width: thin;
-    scrollbar-color: var(--avx-line-strong) transparent;
+    scrollbar-color: var(--avx-line) transparent;
+    overscroll-behavior: contain;
   }
   .avx-thread::-webkit-scrollbar { width: 6px; }
-  .avx-thread::-webkit-scrollbar-thumb { background: var(--avx-line-strong); border-radius: 3px; }
+  .avx-thread::-webkit-scrollbar-thumb { background: var(--avx-line); border-radius: 3px; }
 
-  /* Intro state */
-  .avx-intro-line {
-    font-family: 'Instrument Serif', Georgia, serif;
-    font-variation-settings: "opsz" 144, "SOFT" 70, "wght" 400;
+  /* Intro: a card cut from the silk film, then suggestions */
+  .avx-hello {
+    position: relative;
+    isolation: isolate;
+    min-height: 190px;
+    padding: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    background: #0D0B09 url("/assets/studio/silk-poster.webp") 74% 36% / auto 190% no-repeat;
+    box-shadow: inset 0 0 0 1px rgba(241, 234, 224, 0.1);
+    color: #F1EAE0;
+  }
+  .avx-hello::before {
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background: linear-gradient(0deg, rgba(13, 11, 9, 0.95) 8%, rgba(13, 11, 9, 0.55) 52%, rgba(13, 11, 9, 0.05) 100%),
+                linear-gradient(90deg, rgba(13, 11, 9, 0.7), rgba(13, 11, 9, 0) 70%);
+  }
+  .avx-hello h2 {
+    margin: 0;
+    font: 400 38px/1 var(--avx-serif);
+    letter-spacing: -0.025em;
+  }
+  .avx-hello h2 em {
     font-style: italic;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: var(--avx-ink);
-    margin: 0 0 1rem;
+    background: linear-gradient(180deg, #F2AE80 0%, #E28D58 30%, #FFD7B8 45%, #D9834D 55%, #7C361A 67%, #A04C24 76%, #EE9F6C 88%, #B85F31 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    padding-right: 0.08em;
   }
-  .avx-intro-line a {
-    color: var(--avx-sienna);
-    text-decoration: underline;
-    text-decoration-color: rgba(192, 74, 31, 0.35);
-    text-underline-offset: 2px;
-  }
-  .avx-suggestions {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
+  .avx-hello p { margin: 10px 0 0; font-size: 14px; line-height: 1.5; color: rgba(241, 234, 224, 0.72); max-width: 30ch; }
+  .avx-hello p a { color: #F1EAE0; text-decoration: underline; text-decoration-color: rgba(228, 112, 63, 0.7); text-underline-offset: 3px; }
+  .avx-try { margin: 4px 0 10px; font: 400 10.5px/1 var(--avx-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--avx-faint); }
+  .avx-suggestions { display: flex; flex-wrap: wrap; gap: 8px; }
   .avx-suggestion {
     text-align: left;
-    background: transparent;
-    border: 1px solid var(--avx-line-strong);
-    border-radius: 6px;
-    padding: 0.55rem 0.75rem;
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--avx-ink-soft);
+    border: 0;
+    border-radius: 999px;
+    padding: 10px 15px;
+    background: var(--avx-surface);
+    box-shadow: inset 0 0 0 1px var(--avx-line);
+    font: 400 13.5px/1.3 var(--avx-sans);
+    color: var(--avx-fg);
     cursor: pointer;
-    transition: background 0.15s, border-color 0.15s, color 0.15s;
+    transition: box-shadow 0.25s, background 0.25s, transform 0.3s var(--avx-ease);
   }
   .avx-suggestion:hover {
-    background: var(--avx-cream-accent);
-    border-color: var(--avx-ink-soft);
-    color: var(--avx-ink);
+    background: rgba(228, 112, 63, 0.1);
+    box-shadow: inset 0 0 0 1px rgba(228, 112, 63, 0.55);
+    transform: translateY(-1px);
   }
+  .avx-intro > * { animation: avxRise 0.6s var(--avx-ease) both; }
+  .avx-intro > *:nth-child(2) { animation-delay: 0.08s; }
+  .avx-intro > *:nth-child(3) { animation-delay: 0.14s; }
+  @keyframes avxRise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 
   /* Messages */
   .avx-msg { display: flex; flex-direction: column; max-width: 100%; }
   .avx-msg-user {
     align-self: flex-end;
-    background: var(--avx-cream-warm);
-    border: 1px solid var(--avx-line);
-    border-radius: 14px 14px 4px 14px;
-    padding: 0.65rem 0.9rem;
-    font-size: 0.94rem;
+    max-width: 84%;
+    padding: 11px 15px;
+    border-radius: 20px 20px 6px 20px;
+    background: rgba(228, 112, 63, 0.16);
+    background: color-mix(in srgb, var(--avx-accent) 16%, transparent);
+    box-shadow: inset 0 0 0 1px rgba(228, 112, 63, 0.3);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--avx-accent) 32%, transparent);
+    font-size: 14.5px;
     line-height: 1.45;
-    color: var(--avx-ink);
-    max-width: 85%;
+    color: var(--avx-fg);
   }
-  .avx-msg-bot {
-    align-self: stretch;
-    font-size: 0.96rem;
-    line-height: 1.6;
-    color: var(--avx-ink);
-  }
+  .avx-msg-bot { align-self: stretch; font-size: 15px; line-height: 1.6; color: var(--avx-fg); }
   .avx-msg-bot p { margin: 0 0 0.7rem; }
   .avx-msg-bot p:last-child { margin-bottom: 0; }
-  .avx-msg-bot strong { font-weight: 600; color: var(--avx-ink); }
-  .avx-msg-bot em {
-    font-family: 'Instrument Serif', Georgia, serif;
-    font-variation-settings: "opsz" 144, "SOFT" 60, "wght" 400;
-    font-style: italic;
-  }
+  .avx-msg-bot strong { font-weight: 600; }
+  .avx-msg-bot em { font-family: var(--avx-serif); font-style: italic; font-size: 1.12em; }
   .avx-msg-bot a {
-    color: var(--avx-sienna);
+    color: var(--avx-fg);
     text-decoration: underline;
-    text-decoration-color: rgba(192, 74, 31, 0.35);
-    text-underline-offset: 2px;
-    transition: text-decoration-color 0.15s;
+    text-decoration-color: var(--avx-accent);
+    text-underline-offset: 3px;
+    transition: color 0.2s;
   }
-  .avx-msg-bot a:hover { text-decoration-color: var(--avx-sienna); }
-  .avx-msg-bot ul, .avx-msg-bot ol { margin: 0.3rem 0 0.7rem 1.2rem; padding: 0; }
-  .avx-msg-bot li { margin-bottom: 0.25rem; }
+  .avx-msg-bot a:hover { color: var(--avx-accent); }
+  .avx-msg-bot ul, .avx-msg-bot ol { margin: 0.3rem 0 0.7rem 1.1rem; padding: 0; }
+  .avx-msg-bot li { margin-bottom: 0.3rem; }
+  .avx-msg-bot li::marker { color: var(--avx-accent); }
 
-  /* "Book a live demo" CTA button (shown when the AI nudges a demo) */
   .avx-demo-btn {
-    display: inline-flex; align-items: center; gap: 0.45rem;
-    margin-top: 0.6rem;
-    padding: 0.6rem 1.05rem;
-    background: var(--avx-sienna); color: #fff;
-    border-radius: 100px;
-    font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
-    font-size: 0.85rem; font-weight: 600; text-decoration: none;
-    transition: background 0.2s ease, transform 0.2s ease;
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 0.7rem;
+    padding: 11px 18px;
+    background: var(--avx-accent); color: var(--avx-on-accent);
+    border-radius: 999px;
+    font: 600 14px/1 var(--avx-sans); text-decoration: none;
+    transition: transform 0.3s var(--avx-ease), box-shadow 0.3s;
   }
-  .avx-demo-btn:hover { background: var(--avx-sienna-deep); transform: translateY(-1px); }
-  .avx-demo-btn svg { width: 14px; height: 14px; }
-  /* Override the generic bot-link color so the button label stays white/visible */
-  .avx-msg-bot a.avx-demo-btn { color: #fff; text-decoration: none; }
-  .avx-msg-bot a.avx-demo-btn:hover { color: #fff; text-decoration: none; }
+  .avx-demo-btn:hover { transform: translateY(-1px); box-shadow: 0 10px 30px -10px rgba(228, 112, 63, 0.7); }
+  .avx-demo-btn svg { width: 13px; height: 13px; }
+  .avx-msg-bot a.avx-demo-btn, .avx-msg-bot a.avx-demo-btn:hover { color: var(--avx-on-accent); text-decoration: none; }
 
-  /* Typing indicator */
-  .avx-typing { display: inline-flex; gap: 4px; padding: 0.25rem 0; }
-  .avx-typing span {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--avx-muted);
-    animation: avxDot 1.2s infinite ease-in-out both;
-  }
-  .avx-typing span:nth-child(2) { animation-delay: 0.15s; }
-  .avx-typing span:nth-child(3) { animation-delay: 0.3s; }
-  @keyframes avxDot {
-    0%, 80%, 100% { opacity: 0.3; transform: translateY(0); }
-    40% { opacity: 1; transform: translateY(-3px); }
-  }
+  /* Thinking: the same speaking bars as the client quote on the homepage */
+  .avx-typing { display: inline-flex; align-items: center; gap: 3px; height: 22px; }
+  .avx-typing i { width: 3px; height: 16px; border-radius: 2px; background: var(--avx-accent); transform: scaleY(0.35); animation: avxTalk 1.1s cubic-bezier(0.7, 0, 0.2, 1) infinite; }
+  .avx-typing i:nth-child(2) { animation-delay: -0.35s; }
+  .avx-typing i:nth-child(3) { animation-delay: -0.7s; }
+  .avx-typing i:nth-child(4) { animation-delay: -0.15s; }
+  @keyframes avxTalk { 0%, 100% { transform: scaleY(0.35); } 50% { transform: scaleY(1); } }
 
   .avx-error {
-    font-size: 0.85rem;
-    color: var(--avx-sienna-deep);
-    background: rgba(192, 74, 31, 0.06);
-    border: 1px solid rgba(192, 74, 31, 0.2);
-    border-radius: 6px;
-    padding: 0.55rem 0.75rem;
-    line-height: 1.4;
+    font-size: 13.5px; line-height: 1.45;
+    color: var(--avx-fg);
+    background: rgba(228, 112, 63, 0.08);
+    box-shadow: inset 0 0 0 1px rgba(228, 112, 63, 0.3);
+    border-radius: 14px;
+    padding: 11px 14px;
   }
-  .avx-error a { color: var(--avx-sienna-deep); text-decoration: underline; }
+  .avx-error a { color: var(--avx-fg); text-decoration: underline; text-decoration-color: var(--avx-accent); }
 
-  /* ===== Footer ===== */
-  .avx-footer {
-    border-top: 1px solid var(--avx-line);
-    background: var(--avx-cream-warm);
-    padding: 0.75rem 1.1rem 0.85rem;
-    flex-shrink: 0;
-  }
+  /* ===== Composer ===== */
+  .avx-footer { padding: 10px 14px 14px; flex-shrink: 0; }
   .avx-form {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    border-bottom: 1px solid var(--avx-line-strong);
-    transition: border-color 0.15s;
+    gap: 8px;
+    padding: 6px 6px 6px 18px;
+    border-radius: 999px;
+    background: var(--avx-surface);
+    box-shadow: inset 0 0 0 1px var(--avx-line);
+    transition: box-shadow 0.25s;
   }
-  .avx-form:focus-within { border-bottom-color: var(--avx-ink); }
+  .avx-form:focus-within { box-shadow: inset 0 0 0 1px var(--avx-accent), 0 0 0 4px rgba(228, 112, 63, 0.14); }
   .avx-input {
-    flex: 1;
-    border: none;
-    outline: none;
+    flex: 1; min-width: 0;
+    border: 0; outline: 0;
     background: transparent;
-    padding: 0.55rem 0;
-    font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
-    font-size: 0.95rem;
-    color: var(--avx-ink);
+    padding: 9px 0;
+    font: 400 15px/1.3 var(--avx-sans);
+    color: var(--avx-fg);
   }
-  .avx-input::placeholder {
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 0.78rem;
-    letter-spacing: 0.04em;
-    color: var(--avx-muted);
-  }
+  .avx-input::placeholder { color: var(--avx-faint); }
   .avx-send {
-    border: none;
-    background: transparent;
-    color: var(--avx-ink-soft);
+    width: 40px; height: 40px; flex-shrink: 0;
+    border: 0; border-radius: 50%;
+    background: var(--avx-accent);
+    color: var(--avx-on-accent);
     cursor: pointer;
-    width: 28px; height: 28px;
-    border-radius: 50%;
-    display: inline-flex; align-items: center; justify-content: center;
-    transition: color 0.15s, background 0.15s, transform 0.15s;
+    display: grid; place-items: center;
+    transition: transform 0.3s var(--avx-ease), background 0.2s, color 0.2s;
   }
-  .avx-send:hover:not(:disabled) { color: var(--avx-sienna); transform: translateX(2px); }
-  .avx-send:disabled { opacity: 0.35; cursor: not-allowed; }
-  .avx-send svg { width: 18px; height: 18px; }
+  .avx-send:hover:not(:disabled) { transform: translateY(-2px); }
+  .avx-send:disabled { background: var(--avx-line); color: var(--avx-faint); cursor: not-allowed; }
+  .avx-send svg { width: 17px; height: 17px; }
   .avx-disclosure {
-    margin-top: 0.55rem;
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 0.62rem;
-    letter-spacing: 0.06em;
-    color: var(--avx-muted);
-    line-height: 1.5;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 11.5px;
+    line-height: 1.4;
+    color: var(--avx-faint);
   }
-  .avx-disclosure a {
-    color: var(--avx-ink-soft);
-    text-decoration: underline;
-    text-decoration-color: var(--avx-line-strong);
-  }
-  .avx-disclosure a:hover { color: var(--avx-sienna); }
+  .avx-disclosure a { color: var(--avx-mute); text-decoration: underline; text-decoration-color: var(--avx-line); text-underline-offset: 2px; }
+  .avx-disclosure a:hover { color: var(--avx-fg); }
 
-  /* ===== Mobile ===== */
+  /* ===== Phones: a full-height sheet ===== */
   @media (max-width: 540px) {
     .avx-root { bottom: 1rem; right: 1rem; left: 1rem; }
     .avx-launcher { float: right; }
     .avx-panel {
-      width: 100%;
-      max-height: calc(100dvh - 2rem);
-      height: calc(100dvh - 2rem);
-      border-radius: 12px;
+      position: fixed;
+      inset: 8px 8px max(8px, env(safe-area-inset-bottom)) 8px;
+      width: auto; height: auto;
+      border-radius: 24px;
     }
+    .avx-hello { min-height: 170px; }
+    .avx-hello h2 { font-size: 34px; }
+    .avx-input { font-size: 16px; } /* stops iOS zooming into the field */
   }
 
   @media (prefers-reduced-motion: reduce) {
     .avx-root *, .avx-root *::before, .avx-root *::after {
       animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
     }
   }
-  `;
+`;
 
   // ---------- Logo mark ------------------------------------------------------
   // Uses the new Avoxan oval mark from /avoxan-logo.svg. Kept as an <img> so the
@@ -412,7 +399,8 @@
   // surface (nav, footer, favicon, chatbot) follows.
   const LOGO_SVG = `<img src="/avoxan-logo.svg" alt="Avoxan" aria-hidden="true">`;
 
-  const ARROW_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>`;
+  const ARROW_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>`;
+  const CLOSE_SVG = `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9"/></svg>`;
 
   // ---------- State ----------------------------------------------------------
   let history = loadHistory();
@@ -519,9 +507,9 @@
           <span class="avx-header-mark">${LOGO_SVG}</span>
           <div class="avx-header-text">
             <div class="avx-header-title">Ask Avoxan</div>
-            <div class="avx-header-sub">AI assistant · Trained on our writing</div>
+            <div class="avx-header-sub">Online · Replies in seconds</div>
           </div>
-          <button class="avx-close" aria-label="Close chat" data-action="close">&times;</button>
+          <button class="avx-close" aria-label="Close chat" data-action="close">${CLOSE_SVG}</button>
         </header>
 
         <div class="avx-thread" role="log" aria-live="polite" aria-atomic="false"></div>
@@ -532,7 +520,7 @@
               class="avx-input"
               type="text"
               autocomplete="off"
-              placeholder="Ask a question…"
+              placeholder="Ask about pricing, timelines…"
               aria-label="Your message"
               maxlength="1000"
             />
@@ -541,7 +529,7 @@
             </button>
           </form>
           <div class="avx-disclosure">
-            AI — can be wrong. For binding answers, <a href="/contact#book">book a 30-minute call →</a>
+            AI can get things wrong. For anything binding, <a href="/contact#book">book a call</a>.
           </div>
         </footer>
       </div>
@@ -558,7 +546,11 @@
     introEl = document.createElement('div');
     introEl.className = 'avx-intro';
     introEl.innerHTML = `
-      <p class="avx-intro-line">Ask anything about pricing, process, or whether we're a fit. For real conversations, <a href="/contact">book a call</a>.</p>
+      <div class="avx-hello">
+        <h2>Ask us <em>anything.</em></h2>
+        <p>Pricing, timelines, the AI receptionist, or whether we're a fit. Rather talk? <a href="/contact">Book a call</a>.</p>
+      </div>
+      <p class="avx-try">Try asking</p>
       <div class="avx-suggestions"></div>
     `;
     const sugBox = introEl.querySelector('.avx-suggestions');
@@ -613,7 +605,7 @@
   function appendTyping() {
     const el = document.createElement('div');
     el.className = 'avx-msg avx-msg-bot avx-msg-typing';
-    el.innerHTML = `<span class="avx-typing"><span></span><span></span><span></span></span>`;
+    el.innerHTML = `<span class="avx-typing" role="status" aria-label="Avoxan is typing"><i></i><i></i><i></i><i></i></span>`;
     thread.appendChild(el);
     scrollToBottom();
     return el;

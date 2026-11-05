@@ -105,3 +105,6 @@
   .eq{display:grid;grid-template-columns:1fr 1fr;gap:22px}
   .eq__out{grid-column:1/-1}
 }
+
+/* chat widget on the night-shift navy */
+body .avx-root{--avx-bg:#101821;--avx-line:rgba(160,200,230,.16);--avx-surface:rgba(160,200,230,.06);--avx-launch-bg:rgba(16,24,33,.85)}

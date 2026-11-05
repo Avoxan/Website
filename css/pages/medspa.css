@@ -130,3 +130,6 @@
   .audit .cal{min-height:1000px}
 }
 .get__list p a,.ms-faq .qa p a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+
+/* chat widget in the page's porcelain palette */
+body .avx-root{--avx-bg:#FBF7F2;--avx-fg:#2A1F1C;--avx-mute:rgba(42,31,28,.74);--avx-faint:rgba(42,31,28,.56);--avx-line:rgba(42,31,28,.13);--avx-surface:rgba(42,31,28,.04);--avx-accent:#8F4A3A;--avx-on-accent:#FBF7F2;--avx-launch-bg:rgba(251,247,242,.86)}
