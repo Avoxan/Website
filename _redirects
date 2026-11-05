@@ -17,9 +17,13 @@
 
 # ── Case studies
 /work/index.html                          /work                          301
-/work/brightside-family-dental.html       /work/brightside-family-dental 301
-/work/marin-ashby-studio.html             /work/marin-ashby-studio       301
-/work/avery-reyes-law-group.html          /work/avery-reyes-law-group    301
+# Concept studies retired in October 2026 (spec work, not client work)
+/work/brightside-family-dental.html       /work/                         301
+/work/brightside-family-dental            /work/                         301
+/work/marin-ashby-studio.html             /work/                         301
+/work/marin-ashby-studio                  /work/                         301
+/work/avery-reyes-law-group.html          /work/                         301
+/work/avery-reyes-law-group               /work/                         301
 /work/avoxan-studio-site.html             /work/avoxan-studio-site       301
 
 # ── Field notes (blog)
